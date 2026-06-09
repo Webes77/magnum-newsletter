@@ -1,17 +1,6 @@
 {
   "issues": [
     {
-      "date": "2000-01-01",
-      "displayDate": "Pipeline test",
-      "title": "Pipeline self-test (safe to ignore)",
-      "dek": "Temporary entry added to verify the publish pipeline. It will be removed momentarily.",
-      "file": "issues/pipeline-test.html",
-      "contents": [
-        "This entry was added automatically as a test",
-        "If you can see it on the homepage, the pipeline works"
-      ]
-    },
-    {
       "date": "2026-06-06",
       "displayDate": "6 June 2026",
       "title": "Agency beats knowledge every time",
