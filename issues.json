@@ -1,0 +1,32 @@
+{
+  "issues": [
+    {
+      "date": "2026-06-06",
+      "displayDate": "6 June 2026",
+      "title": "Agency beats knowledge every time",
+      "dek": "The people winning with AI aren’t the most technical or the best-read — they’re the ones who already have the thing that matters most. A look at why the AI era is built for you, plus this week’s tool, prompt and image.",
+      "file": "issues/2026-06-06.html",
+      "contents": [
+        "Looking Sideways — The type of person the AI era is built for (hint: it’s you)",
+        "Real Wins — A real estate team, a bakery, and a vet clinic",
+        "Tool of the Week — The AI that does your bookkeeping while you sleep",
+        "Prompt of the Week — Let AI find the patterns in your own business data",
+        "The Magnum — Image of the Week"
+      ]
+    },
+    {
+      "date": "2026-05-31",
+      "displayDate": "31 May 2026",
+      "title": "What you already know",
+      "dek": "The real win isn’t AI doing your work for you — it’s AI catching what you already know but never write down. A look at where your business actually lives, plus this week’s tool, prompt and showcase.",
+      "file": "issues/2026-05-31.html",
+      "contents": [
+        "Looking Sideways — An accidental email series and what it tells you about your own business",
+        "Real Wins — Three small businesses who picked one thing and stuck with it",
+        "Tool of the Week — Granola, the meeting-notes app that doesn’t dial in as a guest",
+        "Prompt of the Week — Turn your last 30 reviews into the three things to fix this month",
+        "The Magnum — Vintage travel stamp illustration"
+      ]
+    }
+  ]
+}
