@@ -1,6 +1,35 @@
 {
   "issues": [
     {
+      "date": "2026-07-05",
+      "displayDate": "5 July 2026",
+      "title": "Ford wanted its people back",
+      "dek": "Ford replaced veteran engineers with AI, watched quality slide, and quietly rehired 350 of them. Plus: the man who taught 20 million people to organise their AI folders just told everyone to bin the folders.",
+      "file": "index.html",
+      "contents": [
+        "The Newsline — Ford swapped engineers for AI, then hired the engineers back",
+        "Looking Sideways — The most-read AI setup guides on the internet got retracted by the man who wrote them",
+        "The Win — A personal trainer stopped spending Friday mornings answering the same emails",
+        "Tool of the Week — HubSpot AEO, a free two-minute check on what ChatGPT says about businesses like yours",
+        "Prompt of the Week — Write the process once, run it every week",
+        "The Magnum — Sometimes the year does all the work"
+      ]
+    },
+    {
+      "date": "2026-06-28",
+      "displayDate": "28 June 2026",
+      "title": "Get paid faster",
+      "dek": "AI moved into Slack, a garden centre turned its most annoying question into sales, and the three messages that get an overdue invoice paid without the awkward phone call.",
+      "file": "issues/2026-06-28.html",
+      "contents": [
+        "The Newsline — AI moved into Slack this week as a tagged coworker",
+        "The Win — A garden centre turned its most annoying question into sales",
+        "Tool of the Week — ServiceM8 AI Quoting",
+        "Prompt of the Week — The three messages that get an overdue invoice paid",
+        "The Magnum — The 3D Fridge Magnet Collection"
+      ]
+    },
+    {
       "date": "2026-06-14",
       "displayDate": "14 June 2026",
       "title": "Stop typing, start talking",
