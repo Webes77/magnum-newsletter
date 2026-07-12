@@ -3,16 +3,15 @@
 The public archive for the **Magnum AI** weekly newsletter, hosted on GitHub Pages:
 **https://webes77.github.io/magnum-newsletter/**
 
-- **`index.html`** — the archive homepage. Lists every edition, newest first. It builds the
-  list automatically from `issues.json`, so it rarely needs editing.
-- **`issues.json`** — the manifest of every edition (date, title, summary, contents, link).
+- **`index.html`** — the permanent archive homepage. It lists every edition from `issues.json` and is never replaced by a weekly issue.
+- **`issues.json`** — the manifest of every edition: date, title, summary, contents, and dated link.
 - **`issues/`** — one self-contained HTML page per edition (`issues/YYYY-MM-DD.html`).
-- **`thumbnail.png`** — shared social-preview image.
+- **`assets/previews/`** — one 1200 × 630 hero-based WhatsApp preview per edition (`YYYY-MM-DD.jpg`).
+- **`tools/`** — the deterministic build, preview, and append-only publishing scripts used each week.
+- **`thumbnail.png`** — the archive homepage’s shared social-preview image.
 
 ## Publishing a new edition
 
-The whole process is: add the issue's HTML page under `issues/`, add one entry to
-`issues.json`, and push to `main`. GitHub Pages republishes automatically.
+Every edition is built as a dated self-contained page, paired with a dated hero preview, added to `issues.json`, and pushed to `main`. GitHub Pages republishes the archive automatically. The dated issue URL—not the archive root—is the WhatsApp share link.
 
-Full step-by-step instructions (written for the agent that builds the newsletter) live in
-**[ADDING-AN-ISSUE.md](ADDING-AN-ISSUE.md)**.
+The complete tested workflow and commands are in **[ADDING-AN-ISSUE.md](ADDING-AN-ISSUE.md)**.
