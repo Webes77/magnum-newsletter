@@ -1,11 +1,26 @@
 {
   "issues": [
     {
+      "date": "2026-07-11",
+      "displayDate": "11 July 2026",
+      "title": "It came back finished",
+      "dek": "OpenAI shipped an agent you hand a whole job to, and it comes back with the finished thing. Plus: the AI company helping people use AI less, a broker who reclaimed Monday mornings, and a scheduled brief that runs itself.",
+      "file": "index.html",
+      "contents": [
+        "The Newsline — The AI that stopped answering questions and started finishing the work",
+        "Looking Sideways — The AI company that built a feature to make you use it less",
+        "The Win — A mortgage broker got her Monday mornings back",
+        "Tool of the Week — Set a job once, and it runs every week without you",
+        "Prompt of the Week — Turn your scattered week into a one-page brief",
+        "The Magnum — A clean black-and-white editorial portrait of your dog"
+      ]
+    },
+    {
       "date": "2026-07-05",
       "displayDate": "5 July 2026",
       "title": "Ford wanted its people back",
       "dek": "Ford replaced veteran engineers with AI, watched quality slide, and quietly rehired 350 of them. Plus: the man who taught 20 million people to organise their AI folders just told everyone to bin the folders.",
-      "file": "index.html",
+      "file": "issues/2026-07-05.html",
       "contents": [
         "The Newsline — Ford swapped engineers for AI, then hired the engineers back",
         "Looking Sideways — The most-read AI setup guides on the internet got retracted by the man who wrote them",
