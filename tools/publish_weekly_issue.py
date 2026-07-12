@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Publish one Magnum AI newsletter into the GitHub Pages archive.
+"""Publish one Magnum AI newsletter to the live root and permanent archive.
 
-This script never modifies index.html. It copies a finished self-contained issue
-into issues/YYYY-MM-DD.html, copies its 1200x630 social preview, appends or
-explicitly replaces the matching issues.json entry, and optionally commits and
-pushes those three files.
+The finished issue is copied to issues/YYYY-MM-DD.html and index.html. The root
+copy points its canonical and og:url metadata at the stable client-facing URL;
+the dated copy remains permanent. The archive stays at archive.html.
 """
 
 from __future__ import annotations
@@ -125,10 +124,19 @@ def main() -> None:
 
     issue_dest = repo / issue_rel
     preview_dest = repo / preview_rel
+    root_dest = repo / "index.html"
+    archive_dest = repo / "archive.html"
+    if not archive_dest.is_file():
+        raise FileNotFoundError(f"Missing archive homepage: {archive_dest}")
+
     issue_dest.parent.mkdir(parents=True, exist_ok=True)
     preview_dest.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(html_source, issue_dest)
     shutil.copy2(preview_source, preview_dest)
+
+    root_url = f"{BASE_URL}/"
+    root_html = html_source.read_text(encoding="utf-8").replace(issue_url, root_url)
+    root_dest.write_text(root_html, encoding="utf-8")
     manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     # Parse the file we just wrote to guarantee valid JSON and verify every manifest path.
@@ -139,7 +147,7 @@ def main() -> None:
             raise FileNotFoundError(f"Manifest points to missing issue: {linked}")
 
     if args.push:
-        run(["git", "add", issue_rel.as_posix(), preview_rel.as_posix(), "issues.json"], repo)
+        run(["git", "add", issue_rel.as_posix(), preview_rel.as_posix(), "issues.json", "index.html"], repo)
         staged = subprocess.run(
             ["git", "diff", "--cached", "--quiet"], cwd=repo, check=False
         ).returncode
@@ -149,9 +157,10 @@ def main() -> None:
             run(["git", "commit", "-m", f"Add {args.display_date} edition: {args.title}"], repo)
             run(["git", "push", "origin", "main"], repo)
 
+    print(f"Current: {BASE_URL}/")
     print(f"Issue:   {issue_url}")
     print(f"Preview: {preview_url}")
-    print(f"Archive: {BASE_URL}/")
+    print(f"Archive: {BASE_URL}/archive.html")
 
 
 if __name__ == "__main__":

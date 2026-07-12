@@ -1,29 +1,30 @@
 # Publishing a Magnum AI weekly newsletter
 
-This repository is the permanent home of the Magnum AI newsletter. GitHub Pages serves the archive at **https://webes77.github.io/magnum-newsletter/**. Every edition receives its own dated page and its own hero-based WhatsApp preview.
+GitHub Pages hosts the newsletter at **https://webes77.github.io/magnum-newsletter/**. The root always serves the current edition. Every issue also receives a permanent dated page, while the issue library remains at **https://webes77.github.io/magnum-newsletter/archive.html**.
 
-> **Do not replace `index.html` with a weekly issue.** The root page is the archive. Publish editions under `issues/YYYY-MM-DD.html` and share that dated URL.
+> **Never replace the root with the archive. Never change a URL after it has been sent to clients.**
 
 ## Permanent structure
 
 | Purpose | Repository path | Public URL |
 |---|---|---|
-| Newsletter archive | `index.html` | `https://webes77.github.io/magnum-newsletter/` |
-| Issue manifest | `issues.json` | Loaded by the archive homepage |
-| Weekly edition | `issues/YYYY-MM-DD.html` | `https://webes77.github.io/magnum-newsletter/issues/YYYY-MM-DD.html` |
+| Current newsletter | `index.html` | `https://webes77.github.io/magnum-newsletter/` |
+| Newsletter archive | `archive.html` | `https://webes77.github.io/magnum-newsletter/archive.html` |
+| Issue manifest | `issues.json` | Loaded by the archive page |
+| Permanent edition | `issues/YYYY-MM-DD.html` | `https://webes77.github.io/magnum-newsletter/issues/YYYY-MM-DD.html` |
 | WhatsApp preview | `assets/previews/YYYY-MM-DD.jpg` | `https://webes77.github.io/magnum-newsletter/assets/previews/YYYY-MM-DD.jpg` |
 
 ## Weekly workflow
 
 ### 1. Confirm the inputs
 
-Confirm the publication date, headline, archive summary, complete issue copy, supplied hero, final image-section image, and required image order. The supplied issue brief controls the design and section structure. Do not generate or replace images unless James explicitly requests it.
+Confirm the publication date, headline, archive summary, complete copy, supplied hero, final image-section image, and image order. The supplied brief controls the design and section sequence. Do not generate or replace images unless James explicitly requests it.
 
-Audit editorial copy for relative references that age badly, such as “last week”, “yesterday”, or “previous issue”. Use exact dates or evergreen wording. Relative language inside a reusable prompt can remain when it describes the prompt’s behaviour rather than the issue’s publication timing.
+Replace editorial references that age badly, such as “last week”, “yesterday”, or “previous issue”, with exact dates or evergreen wording.
 
-### 2. Build the self-contained edition
+### 2. Build the dated edition
 
-Use the previous edition as the structural reference or run `tools/build_whatsapp_newsletter.py`. Set the canonical and social metadata to the edition’s dated URLs from the start. Keep supplied newsletter images embedded as data URIs and use absolute URLs for external links.
+Use the previous edition as the structural reference or run `tools/build_whatsapp_newsletter.py`. Set the issue metadata to its permanent dated URL. Keep supplied images embedded as data URIs and external links absolute.
 
 ```bash
 python3 tools/build_whatsapp_newsletter.py \
@@ -37,11 +38,11 @@ python3 tools/build_whatsapp_newsletter.py \
   --preview-url "https://webes77.github.io/magnum-newsletter/assets/previews/2026-07-11.jpg"
 ```
 
-Replace every `{{PLACEHOLDER}}` in the generated HTML. Prompt blocks remain monospace and visually distinct. Perform a full mobile-page review before publishing.
+Replace every `{{PLACEHOLDER}}`, then perform a complete mobile-page review.
 
 ### 3. Create the WhatsApp preview
 
-Create a deterministic 1200 × 630 JPEG from the exact supplied hero. This is a crop and resize only; it does not alter the source with generative editing.
+Create and visually check a deterministic 1200 × 630 JPEG from the exact supplied hero.
 
 ```bash
 python3 tools/create_og_preview.py \
@@ -49,20 +50,9 @@ python3 tools/create_og_preview.py \
   --out /home/ubuntu/newsletter_DDMMMYYYY/preview.jpg
 ```
 
-Use `--focus-x` or `--focus-y` only when the subject needs reframing. Review the final crop visually.
+Do not use generative editing. Use focus controls only when the crop needs reframing.
 
-The finished issue must contain the following metadata, using its own date:
-
-```html
-<link rel="canonical" href="https://webes77.github.io/magnum-newsletter/issues/YYYY-MM-DD.html" />
-<meta property="og:url" content="https://webes77.github.io/magnum-newsletter/issues/YYYY-MM-DD.html" />
-<meta property="og:image" content="https://webes77.github.io/magnum-newsletter/assets/previews/YYYY-MM-DD.jpg" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta name="twitter:image" content="https://webes77.github.io/magnum-newsletter/assets/previews/YYYY-MM-DD.jpg" />
-```
-
-### 4. Validate the edition
+### 4. Validate
 
 | Check | Required result |
 |---|---|
@@ -70,13 +60,12 @@ The finished issue must contain the following metadata, using its own date:
 | Editorial copy | No stale relative-date references |
 | Images | Supplied assets appear in the required order |
 | Mobile layout | Complete visual review passes |
-| Social preview | JPEG is exactly 1200 × 630 and preserves the hero |
-| Metadata | Canonical URL, `og:url`, `og:image`, dimensions, title, and description are correct |
-| Archive | `issues.json` is valid and every linked issue file exists |
+| Preview | JPEG is exactly 1200 × 630 and preserves the hero |
+| Dated metadata | Canonical, `og:url`, and `og:image` use dated URLs |
+| Root metadata | Canonical and `og:url` use the root; `og:image` uses the current preview |
+| Archive | `archive.html` remains the issue library and every manifest file exists |
 
-### 5. Publish the dated edition
-
-Run the append-only publisher. Repeat `--content` once for each line shown on the archive card.
+### 5. Publish the complete edition
 
 ```bash
 python3 tools/publish_weekly_issue.py \
@@ -91,10 +80,10 @@ python3 tools/publish_weekly_issue.py \
   --push
 ```
 
-The publisher copies the finished files into their permanent dated paths, updates `issues.json`, checks every archive link, commits the issue, and pushes `main`. It never edits the archive homepage. Use `--replace` only when intentionally correcting an existing edition.
+The publisher writes four current-edition files in one commit: `index.html`, the dated issue, the dated preview, and `issues.json`. It never edits `archive.html`. Use `--replace` only when intentionally correcting an existing date.
 
-### 6. Verify the live result
+### 6. Verify the exact public links
 
-Confirm that the archive, dated issue, and dated preview all return HTTP 200. Inspect the public issue HTML and verify that `og:url` points to the dated page and `og:image` points to the dated hero preview.
+Confirm HTTP 200 and correct content at the root, dated issue, preview, and archive. Inspect the public metadata rather than relying on local files.
 
-Share the **dated issue URL** on WhatsApp. Do not share the archive root when the current edition’s hero needs to appear. WhatsApp caches previews by URL, so a new dated URL also prevents an older edition’s image from being reused.
+For a new WhatsApp broadcast, share the dated issue URL first to avoid an older cached preview. Keep the root working as the current newsletter for anyone who already received or bookmarked it. Never say a link is ready until opening that exact public URL shows the intended edition.
