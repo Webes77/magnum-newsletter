@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>Magnum AI — This Week in AI | Newsletter Archive</title>
+  <meta name="description" content="The Magnum AI weekly briefing. Plain-English notes on where AI actually earns its place in a small business — one issue at a time." />
+
+  <!-- Open Graph / WhatsApp preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webes77.github.io/magnum-newsletter/" />
+  <meta property="og:title" content="Magnum AI — This Week in AI | Newsletter Archive" />
+  <meta property="og:description" content="The weekly briefing on where AI actually earns its place in a small business. Browse every edition." />
+  <meta property="og:image" content="https://webes77.github.io/magnum-newsletter/thumbnail.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Magnum AI" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Magnum AI — This Week in AI | Newsletter Archive" />
+  <meta name="twitter:description" content="The weekly briefing on where AI actually earns its place in a small business. Browse every edition." />
+  <meta name="twitter:image" content="https://webes77.github.io/magnum-newsletter/thumbnail.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background-color: #E8E6E3; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #1A1A1A; font-size: 17px; line-height: 1.75; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: 100%; }
+    a { color: inherit; }
+    .page { max-width: 680px; margin: 0 auto; background-color: #FFFDF7; }
+
+    /* Top bar — mirrors the issue pages */
+    .top-bar { background-color: #0D0D0D; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
+    .top-bar span { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.15em; color: #D4AF37; text-transform: uppercase; }
+
+    /* Masthead */
+    .masthead { background-color: #0D0D0D; color: #FFFDF7; padding: 56px 24px 52px; text-align: center; border-bottom: 1px solid rgba(212,175,55,0.35); }
+    .masthead .eyebrow { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.28em; color: #D4AF37; text-transform: uppercase; font-weight: 600; margin-bottom: 18px; }
+    .masthead .wordmark { font-family: 'Bebas Neue', sans-serif; font-size: 68px; line-height: 0.95; letter-spacing: 0.04em; color: #FFFDF7; }
+    .masthead .wordmark span { color: #D4AF37; }
+    .masthead .tagline { font-family: 'Playfair Display', serif; font-style: italic; font-size: 19px; color: #C9C4BD; margin-top: 18px; line-height: 1.5; }
+
+    /* Intro */
+    .intro { padding: 40px 24px 8px; }
+    .intro-rule { border: none; border-top: 1px solid rgba(212,175,55,0.5); margin: 0 0 28px; }
+    .intro-text { font-size: 18px; line-height: 1.8; color: #3A3530; }
+    .intro-text strong { color: #1C1C1E; font-weight: 600; }
+
+    /* Archive list */
+    .archive { padding: 16px 24px 8px; }
+    .archive-label { font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 0.22em; color: #D4AF37; text-transform: uppercase; margin: 28px 0 4px; }
+    .archive-count { font-size: 13px; color: #9B9490; margin-bottom: 8px; }
+
+    .issue-card { display: block; text-decoration: none; color: inherit; padding: 34px 0; border-top: 1px solid rgba(212,175,55,0.3); transition: opacity 0.15s ease; }
+    .issue-card:first-of-type { border-top: none; }
+    .issue-card:hover .issue-headline { color: #B8902B; }
+    .issue-card:hover .issue-readmore { border-bottom-color: #D4AF37; }
+    .issue-date { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.14em; color: #D4AF37; text-transform: uppercase; font-weight: 600; margin-bottom: 12px; }
+    .issue-date .latest { display: inline-block; margin-left: 10px; padding: 2px 8px; background-color: rgba(212,175,55,0.12); border: 1px solid rgba(212,175,55,0.45); border-radius: 3px; font-size: 9px; letter-spacing: 0.16em; color: #B8902B; }
+    .issue-headline { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: #1C1C1E; line-height: 1.22; margin-bottom: 14px; transition: color 0.15s ease; }
+    .issue-dek { font-size: 17px; line-height: 1.8; color: #3A3530; margin-bottom: 18px; }
+    .issue-contents { list-style: none; padding: 0; margin-bottom: 20px; }
+    .issue-contents li { font-size: 14px; line-height: 1.95; color: #6B6560; padding-left: 16px; position: relative; }
+    .issue-contents li::before { content: "—"; position: absolute; left: 0; color: #D4AF37; }
+    .issue-readmore { display: inline-block; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.04em; color: #B8902B; border-bottom: 1px solid rgba(212,175,55,0.5); padding-bottom: 3px; transition: border-color 0.15s ease; }
+
+    /* Subscribe CTA */
+    .subscribe { margin: 20px 24px 0; background-color: rgba(212,175,55,0.06); border: 1px solid rgba(212,175,55,0.3); border-left: 3px solid #D4AF37; border-radius: 4px; padding: 30px 26px; text-align: center; }
+    .subscribe h3 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #1C1C1E; margin-bottom: 10px; }
+    .subscribe p { font-size: 15px; line-height: 1.7; color: #3A3530; margin-bottom: 20px; }
+    .subscribe a.btn { display: inline-block; background-color: #0D0D0D; color: #D4AF37; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; padding: 14px 28px; border-radius: 3px; min-height: 44px; line-height: 1.2; }
+    .subscribe a.btn:hover { background-color: #1C1C1E; }
+
+    /* Sign-off + footer mirror the issue page */
+    .signoff { padding: 40px 24px; margin-top: 24px; border-top: 1px solid rgba(212,175,55,0.4); }
+    .signoff-body { font-size: 17px; line-height: 1.85; color: #2A2520; margin-bottom: 18px; }
+    .signoff-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 18px; color: #0D0D0D; margin-bottom: 8px; }
+    .signoff-details { font-size: 13px; color: #6B6560; line-height: 2; }
+    .signoff-details a { color: #D4AF37; text-decoration: none; }
+    .footer { background-color: #0D0D0D; padding: 16px 24px; text-align: center; }
+    .footer p { font-size: 11px; letter-spacing: 0.06em; color: #6B6560; }
+    .footer a { color: #D4AF37; text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .masthead { padding: 44px 20px 40px; }
+      .masthead .wordmark { font-size: 52px; }
+      .masthead .tagline { font-size: 17px; }
+      .issue-headline { font-size: 23px; }
+      .top-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <div class="top-bar">
+      <span>Magnum AI &mdash; Client Edition</span>
+      <span>magnumai.com.au</span>
+    </div>
+
+    <!-- ═══ MASTHEAD ═══ -->
+    <header class="masthead">
+      <p class="eyebrow">The Weekly Briefing</p>
+      <div class="wordmark">MAGNUM<span>&middot;</span>AI</div>
+      <p class="tagline">This Week in AI — and what it actually means<br/>for your small business.</p>
+    </header>
+
+    <!-- ═══ INTRO ═══ -->
+    <section class="intro">
+      <hr class="intro-rule" />
+      <p class="intro-text">Most of what makes the AI news every week doesn&rsquo;t really matter to you. One small thing usually does. <strong>Magnum AI</strong> is a short weekly read that cuts the noise — where AI genuinely earns its place in a real business, the tools worth your time, and a ready-to-use prompt in every edition.</p>
+    </section>
+
+    <!-- ═══ ARCHIVE ═══ -->
+    <!--
+      The issue list below is built automatically from issues.json.
+      To publish a new edition, DO NOT edit this file — just add the issue's
+      HTML page under issues/ and add one entry to issues.json.
+      Full instructions live in ADDING-AN-ISSUE.md.
+    -->
+    <section class="archive">
+      <p class="archive-label">Every Edition</p>
+      <p class="archive-count" id="archive-count">Loading the archive…</p>
+
+      <div id="issue-list"></div>
+
+      <noscript>
+        <p class="issue-dek">This archive needs JavaScript to list every edition.
+        You can still read the latest issue at
+        <a class="issue-readmore" href="https://magnumai.com.au">magnumai.com.au</a>.</p>
+      </noscript>
+    </section>
+
+    <!-- ═══ SUBSCRIBE CTA ═══ -->
+    <div class="subscribe">
+      <h3>Get it in your inbox</h3>
+      <p>One short edition a week. No fluff, no hype — just the part that matters for a business like yours.</p>
+      <a class="btn" href="https://magnumai.com.au" target="_blank" rel="noopener">Subscribe at magnumai.com.au</a>
+    </div>
+
+    <!-- ═══ SIGN-OFF ═══ -->
+    <div class="signoff">
+      <p class="signoff-body">New editions land most weeks. Browse the archive any time — every prompt and tool stays useful long after the week it ran.</p>
+      <p class="signoff-body">Have a good week.</p>
+      <p class="signoff-name">James</p>
+      <p class="signoff-details">Magnum AI &nbsp;&middot;&nbsp; <a href="https://magnumai.com.au">magnumai.com.au</a></p>
+    </div>
+
+    <div class="footer">
+      <p>Magnum AI &nbsp;&middot;&nbsp; <a href="https://magnumai.com.au">magnumai.com.au</a> &nbsp;&middot;&nbsp; The weekly briefing for Magnum AI clients.</p>
+    </div>
+
+  </div>
+
+  <!-- Builds the issue list from issues.json. Newest issue (by date) is
+       shown first and automatically gets the "Latest" badge. -->
+  <script>
+    (function () {
+      var listEl = document.getElementById('issue-list');
+      var countEl = document.getElementById('archive-count');
+
+      function esc(value) {
+        return String(value == null ? '' : value).replace(/[&<>"]/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+        });
+      }
+
+      function renderCard(issue, isLatest) {
+        var items = (issue.contents || []).map(function (line) {
+          return '<li>' + esc(line) + '</li>';
+        }).join('');
+        var badge = isLatest ? ' <span class="latest">Latest</span>' : '';
+        return '<a class="issue-card" href="' + esc(issue.file) + '">' +
+          '<p class="issue-date">' + esc(issue.displayDate) +
+            ' &nbsp;&middot;&nbsp; Weekly Briefing' + badge + '</p>' +
+          '<h2 class="issue-headline">' + esc(issue.title) + '</h2>' +
+          '<p class="issue-dek">' + esc(issue.dek) + '</p>' +
+          '<ul class="issue-contents">' + items + '</ul>' +
+          '<span class="issue-readmore">Read this edition &rarr;</span>' +
+        '</a>';
+      }
+
+      fetch('issues.json', { cache: 'no-cache' })
+        .then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json();
+        })
+        .then(function (data) {
+          var issues = (data && Array.isArray(data.issues)) ? data.issues.slice() : [];
+          // Newest first, sorted by ISO date so order in the file doesn't matter.
+          issues.sort(function (a, b) {
+            return String(b.date || '').localeCompare(String(a.date || ''));
+          });
+
+          if (!issues.length) {
+            countEl.textContent = 'New editions coming soon';
+            listEl.innerHTML = '<p class="issue-dek">The first edition is on its way.</p>';
+            return;
+          }
+
+          countEl.textContent = issues.length === 1
+            ? '1 issue and counting'
+            : issues.length + ' issues and counting';
+
+          listEl.innerHTML = issues.map(function (issue, i) {
+            return renderCard(issue, i === 0);
+          }).join('');
+        })
+        .catch(function () {
+          countEl.textContent = '';
+          listEl.innerHTML = '<p class="issue-dek">The archive could not be loaded right now. ' +
+            'Please refresh, or visit <a class="issue-readmore" href="https://magnumai.com.au">magnumai.com.au</a>.</p>';
+        });
+    })();
+  </script>
+</body>
+</html>
