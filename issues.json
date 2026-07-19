@@ -1,6 +1,21 @@
 {
   "issues": [
     {
+      "date": "2026-07-19",
+      "displayDate": "19 July 2026",
+      "title": "The AI that hands you the file",
+      "dek": "ChatGPT, Claude and Gemini can now hand you the finished spreadsheet or document, not a wall of text to reformat.",
+      "file": "issues/2026-07-19.html",
+      "contents": [
+        "The Newsline: AI hands you the finished file",
+        "Looking Sideways: retry abandoned AI jobs in six months",
+        "The Win: stop losing work to missed calls",
+        "Tool of the Week: Dialzara",
+        "Prompt of the Week: turn rough notes into a quote",
+        "The Magnum: chaos becomes finished files"
+      ]
+    },
+    {
       "date": "2026-07-11",
       "displayDate": "11 July 2026",
       "title": "It came back finished",
