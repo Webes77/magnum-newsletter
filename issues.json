@@ -1,6 +1,21 @@
 {
   "issues": [
     {
+      "date": "2026-07-26",
+      "displayDate": "26 July 2026",
+      "title": "Run your admin hands-free",
+      "dek": "Claude's upgraded voice mode, a florist's inbox win, Buffer's AI writer, and two practical prompts.",
+      "file": "issues/2026-07-26.html",
+      "contents": [
+        "The Newsline: Claude's upgraded voice mode",
+        "Looking Sideways: audit how you use AI",
+        "The Win: a florist clears her inbox",
+        "Tool of the Week: Buffer's AI Assistant",
+        "Prompt of the Week: write a price-rise email",
+        "The Magnum: designer vinyl figure"
+      ]
+    },
+    {
       "date": "2026-07-19",
       "displayDate": "19 July 2026",
       "title": "The AI that hands you the file",
