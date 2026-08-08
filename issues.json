@@ -1,6 +1,21 @@
 {
   "issues": [
     {
+      "date": "2026-08-09",
+      "displayDate": "9 August 2026",
+      "title": "The boring fix everyone skipped",
+      "dek": "The AI that “went rogue” got in through weak passwords, a cabinet maker stopped reading 80-page plan sets, and Chatbase answers the ten questions you get asked all day.",
+      "file": "issues/2026-08-09.html",
+      "contents": [
+        "The Newsline: AI “went rogue”, and the fix is the boring thing you keep putting off",
+        "Looking Sideways: the best AI update is the one you don't have to do anything to get",
+        "The Win: a cabinet maker skips 80-page plan sets",
+        "Tool of the Week: Chatbase",
+        "Prompt of the Week: your fifteen most-asked customer answers",
+        "The Magnum: Soft Launch"
+      ]
+    },
+    {
       "date": "2026-07-26",
       "displayDate": "26 July 2026",
       "title": "Run your admin hands-free",
