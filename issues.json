@@ -1,6 +1,21 @@
 {
   "issues": [
     {
+      "date": "2026-08-16",
+      "displayDate": "16 August 2026",
+      "title": "Frontier AI just got cheaper",
+      "dek": "Top-tier AI dropped more than 60 percent in price, which changes the plan you renew on autopilot. Plus the two words that stop AI writing from sounding like AI, and the same Hobart image prompt run in Gemini and ChatGPT side by side.",
+      "file": "issues/2026-08-16.html",
+      "contents": [
+        "The Newsline — Frontier AI just got a lot cheaper, and what that does to the plan you're paying for",
+        "Looking Sideways — The two words that stop AI writing from sounding like AI",
+        "The Win — A meal-prep business stopped writing welcome emails by hand",
+        "Tool of the Week — Ideogram, the image tool that actually spells the words right",
+        "Prompt of the Week — The message that gets a quiet quote moving again",
+        "The Magnum — Same Hobart prompt run in Gemini and ChatGPT, side by side"
+      ]
+    },
+    {
       "date": "2026-08-09",
       "displayDate": "9 August 2026",
       "title": "The boring fix everyone skipped",
