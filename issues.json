@@ -1,6 +1,21 @@
 {
   "issues": [
     {
+      "date": "2026-08-23",
+      "displayDate": "23 August 2026",
+      "title": "When AI-looking ads backfire",
+      "dek": "Customers are getting very good at spotting AI-made advertising, and a lot of them don’t like what they see. Plus a no-code wardrobe app, a care provider’s procedure win, Motion, and a New York print prompt.",
+      "file": "issues/2026-08-23.html",
+      "contents": [
+        "The Newsline — why customers are starting to push back on obvious AI advertising",
+        "Looking Sideways — how someone with no coding experience built a working app in two days",
+        "The Win — how a care provider turned months of unwritten procedures into an afternoon’s work",
+        "Tool of the Week — Motion, the AI calendar that plans your working day",
+        "Prompt of the Week — turn three real customer reviews into a week of useful social posts",
+        "The Magnum — this week’s striking AI image, with the exact prompt used to create it"
+      ]
+    },
+    {
       "date": "2026-08-16",
       "displayDate": "16 August 2026",
       "title": "Frontier AI just got cheaper",
