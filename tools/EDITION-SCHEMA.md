@@ -17,6 +17,7 @@ turns it into the dated page. `tools/example-edition.json` is the 23 August
 | `index` | list of `{label, line}` | One entry per section present, in section order. `line` is under 16 words, lower-case start. |
 | `sections` | list of section objects | In the fixed order below. |
 | `signoff` | list of strings | Two to four short paragraphs. The last one is a plain farewell. |
+| `whatsapp` | string | The message James pastes into the WhatsApp broadcast above the link. Under 60 words, his voice, no link in it, ends with "Four minutes." Not rendered on the page; the publish run emails it with the link. |
 
 ## Sections
 
