@@ -1,6 +1,21 @@
 {
   "issues": [
     {
+      "date": "2026-09-06",
+      "displayDate": "6 September 2026",
+      "title": "The AI that uses your computer",
+      "dek": "OpenAI's new model drives your screen for you, a receipt app that empties the shoebox, and the message that wins back customers who went quiet.",
+      "file": "issues/2026-09-06.html",
+      "contents": [
+        "The Newsline, OpenAI's new model can use your computer for you, not just tell you how",
+        "Looking Sideways, why re-explaining the same job to AI every week is quietly costing you afternoons",
+        "The Win, a commercial cleaning outfit that stopped writing every quote from scratch",
+        "Tool of the Week, the app that clears the receipt shoebox by photographing them as you go",
+        "Prompt of the Week, win back the customers who quietly stopped booking, in one message",
+        "The Magnum, a small edible me in a bento box, and the exact prompt that made it"
+      ]
+    },
+    {
       "date": "2026-08-23",
       "displayDate": "23 August 2026",
       "title": "When AI-looking ads backfire",
