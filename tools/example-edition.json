@@ -1,0 +1,152 @@
+{
+  "date": "2026-08-23",
+  "display_date": "23 August 2026",
+  "title": "When AI-looking ads backfire",
+  "dek": "There’s plenty happening in AI, but most of it won’t change what you do on Monday morning.",
+  "hero_alt": "James Wheable writing",
+  "opener": [
+    "There’s plenty happening in AI, but most of it won’t change what you do on Monday morning.",
+    "OpenAI has deliberately slowed parts of its model development after its systems crossed the boundaries of cybersecurity tests. Stripe — a payments company, not an AI lab — has gone even further, telling investors it believes we’ve entered a fundamentally different period of technological change.",
+    "Interesting stuff.",
+    "But the story that matters more to most businesses this week is much simpler: customers are getting very good at spotting AI-made advertising, and a lot of them don’t like what they see.",
+    "That’s worth paying attention to."
+  ],
+  "index": [
+    {
+      "label": "The Newsline",
+      "line": "why customers are starting to push back on obvious AI advertising"
+    },
+    {
+      "label": "Looking Sideways",
+      "line": "how someone with no coding experience built a working app in two days"
+    },
+    {
+      "label": "The Win",
+      "line": "how a care provider turned months of unwritten procedures into an afternoon’s work"
+    },
+    {
+      "label": "Tool of the Week",
+      "line": "Motion, the AI calendar that plans your working day"
+    },
+    {
+      "label": "Prompt of the Week",
+      "line": "turn three real customer reviews into a week of useful social posts"
+    },
+    {
+      "label": "The Magnum",
+      "line": "this week’s striking AI image, with the exact prompt used to create it"
+    }
+  ],
+  "sections": [
+    {
+      "label": "The Newsline",
+      "headline": "Your customers can tell when an ad looks AI-made — and plenty of them don’t like it",
+      "paragraphs": [
+        "A large US survey from Bentley University and Gallup has thrown up a warning worth paying attention to.",
+        "Nearly eight in ten Americans surveyed said they’d seen an advertisement in the previous month that looked like it had been made using AI.",
+        "Only 19% viewed businesses using AI in advertising positively.",
+        "49% viewed it negatively.",
+        "And younger customers were the harshest of the lot.",
+        "That doesn’t mean stop using AI.",
+        "It means there’s a difference between using AI to help make something and letting raw AI output become the finished thing your customer sees.",
+        "Use it to develop the idea. Draft the copy. Explore the visual. Speed up the work.",
+        "Then put your judgement back into it.",
+        "If your customer can immediately tell you pressed a button and sent whatever came out, that convenience can quickly become part of how they judge the business.",
+        "Draft with AI. Finish with a human."
+      ]
+    },
+    {
+      "label": "Looking Sideways",
+      "headline": "The person with the problem can now build the fix",
+      "paragraphs": [
+        "This week I came across a small example that says more about where AI is heading than most of the big industry announcements.",
+        "Cheyenne Dominguez had no coding experience.",
+        "She photographed 16 pieces from her wardrobe, explained what she wanted to AI, and used ChatGPT and a no-code builder called Lovable to create a working prototype that could suggest outfits from the clothes she actually owned.",
+        "It took roughly five or six prompts across two days.",
+        "That’s the interesting bit.",
+        "For years, if you wanted a small piece of software for your business — a quote calculator, booking checker, stock tracker, internal dashboard or customer tool — you usually needed somebody technical.",
+        "Which meant cost, meetings and complexity.",
+        "So most small businesses never bothered.",
+        "That barrier is disappearing.",
+        "You don’t need to go and build an app this week.",
+        "Instead, pick one fiddly job you still do manually every week and ask your AI:",
+        "“Could you build me a simple tool to make this easier?”",
+        "Give it ten minutes and see how far you get."
+      ]
+    },
+    {
+      "label": "The Win",
+      "headline": "A care provider turned months of unwritten procedures into an afternoon’s work",
+      "paragraphs": [
+        "A disability-support provider we work with had a problem plenty of business owners will recognise.",
+        "The owner is a registered nurse and knows exactly how the business should operate.",
+        "The problem was getting that knowledge out of her head and into properly written procedures.",
+        "Writing them always lost to more urgent work.",
+        "So instead of asking her to sit down and write policies from scratch, we changed the process.",
+        "She talks through how something should be done in plain English.",
+        "AI then turns that explanation into a structured procedure.",
+        "She reads it, corrects anything that needs correcting, and signs it off.",
+        "Documents that had been sitting on the to-do list for months can now be completed in an afternoon.",
+        "The lesson is simple:",
+        "If the knowledge is already in your head, stop staring at a blank page.",
+        "Say it out loud.",
+        "Let AI organise it.",
+        "Then use your judgement to finish it properly."
+      ]
+    },
+    {
+      "label": "Tool of the Week",
+      "headline": "Motion",
+      "paragraphs": [
+        "Most business owners don’t have a time problem as much as a “what should I do next?” problem.",
+        "Your meetings are in the calendar.",
+        "Your tasks are somewhere else.",
+        "Then the day gets rearranged by whoever shouts the loudest.",
+        "Motion combines the two.",
+        "You give it your meetings, tasks, deadlines and roughly how long each job takes.",
+        "It then plans those tasks into the available gaps in your calendar.",
+        "If something moves or a meeting gets added, it reshuffles the work around it.",
+        "That’s the useful part.",
+        "Instead of looking at a list of 27 things and deciding what to attack next, you open the calendar and see what you’re supposed to be doing.",
+        "There’s no permanent free plan, but there is a trial. Motion’s Pro AI plan is currently around USD $19 per month.",
+        "Worth testing if you’re constantly busy but the important jobs still seem to get pushed to tomorrow."
+      ],
+      "link": {
+        "url": "https://www.usemotion.com/",
+        "text": "Motion: https://www.usemotion.com/"
+      }
+    },
+    {
+      "label": "Prompt of the Week",
+      "headline": "Turn three good customer reviews into a week of useful posts",
+      "paragraphs": [
+        "You’ve probably got good reviews sitting on Google doing very little.",
+        "This prompt turns three of them into five social posts without inventing a new marketing message from scratch.",
+        "Better still, the language starts with what your actual customers already value about you."
+      ],
+      "prompt": "You're the owner of Ridgeline Cycles, a suburban bike shop in Brisbane that sells and services bikes for families, commuters, and weekend riders.\n\nHere are three real customer reviews.\n\nOne: \"Took my son's bike in for a service, had it back the same day and threw in a brake adjustment for free. Genuinely lovely people.\"\n\nTwo: \"Talked me out of the expensive bike I came in for and into the right one for what I actually ride. Saved me six hundred dollars.\"\n\nThree: \"Booked a beginner's maintenance class on a whim. Best two hours I've spent, I can finally fix my own flat.\"\n\nWrite five short social posts for Instagram and Facebook.\n\nWrite one based on each individual review, then two that pull out a common theme across all three.\n\nKeep every post warm, plain and down-to-earth, like the owner of the shop actually wrote it.\n\nNo hype.\nNo marketing clichés.\nNo exclamation marks.\n\nEach post should be two or three sentences and finish with a simple next step such as booking a service, coming in for a fitting, or joining the next class.\n\nGive them to me as plain text that I can paste, review and lightly edit before publishing.",
+      "use": [
+        "Swap in your own business and three genuine reviews.",
+        "Run the prompt.",
+        "Then spend a couple of minutes changing the wording until it sounds unmistakably like you."
+      ]
+    },
+    {
+      "label": "The Magnum",
+      "headline": "New York, in print",
+      "paragraphs": [
+        "Setup:",
+        "Nothing to do with this week’s news. Just a striking image built from a single written prompt: a retro travel poster of New York, the kind of thing you’d actually frame and hang."
+      ],
+      "prompt": "Create a premium, sophisticated retro style wall art poster of New York for WallsyPrintStudio's destination collection. STYLE: Retro - Classic mid century travel poster influence, stylised architecture or scenery, tasteful muted colours, subtle vintage texture and nostalgic graphic design. Sophisticated rather than kitsch. BRAND IDENTITY: Premium • Sophisticated • Timeless • Clean • Artistic • Contemporary • Elegant • Commercially appealing AESTHETIC: High end gallery quality, suitable for stylish modern homes, offices, or travel inspired interiors. Professionally art directed; not generic AI or stock imagery. Strong visual hierarchy, elegant negative space, authentic sense of place. Refined muted/vintage colour palette - earth tones, deep sophisticated colours, tasteful vintage hues; no neons or oversaturation. Beautiful textures, timeless design, premium editorial aesthetic. TYPOGRAPHY: Minimal, sophisticated, editorial - inspired by premium travel magazines and boutique hotels. Clean, balanced, intentionally placed. Avoid excessive text. COMPOSITION: Portrait, A series print format. Striking from a distance, rewarding up close. Subjects safely within frame. AVOID: Room mockups, frames, watermarks, logos, distorted/duplicated landmarks, incorrect architecture, cartoon aesthetics, clutter, neon colours, random text, generic stock appearance. OUTPUT: The actual printable artwork only.",
+      "image_alt": "New York retro travel poster created from the accompanying prompt",
+      "take": "One paragraph of plain description, and the result is gallery-quality wall art. That’s the level these image tools are working at now."
+    }
+  ],
+  "signoff": [
+    "Grab three of your best customer reviews and drop them into whichever AI you use with the prompt above.",
+    "You’ll have five decent starting points in a few minutes.",
+    "Then do the bit AI still can’t do for you: Decide whether they actually sound like your business.",
+    "Have a good week."
+  ]
+}

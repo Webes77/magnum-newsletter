@@ -81,7 +81,8 @@ def main() -> None:
     parser.add_argument("--title", required=True, help="Issue headline")
     parser.add_argument("--dek", required=True, help="Archive summary and social description")
     parser.add_argument("--content", action="append", default=[], help="Archive contents line; repeat per section")
-    parser.add_argument("--repo", type=Path, default=Path("/home/ubuntu/magnum-newsletter"))
+    parser.add_argument("--repo", type=Path, default=Path("/home/user/magnum-newsletter"))
+    parser.add_argument("--asset-dir", type=Path, help="Edition asset folder inside the repo to commit alongside, e.g. assets/2026-09-13")
     parser.add_argument("--replace", action="store_true", help="Explicitly replace an existing entry for this date")
     parser.add_argument("--push", action="store_true", help="Commit and push the issue after validation")
     args = parser.parse_args()
@@ -147,7 +148,13 @@ def main() -> None:
             raise FileNotFoundError(f"Manifest points to missing issue: {linked}")
 
     if args.push:
-        run(["git", "add", issue_rel.as_posix(), preview_rel.as_posix(), "issues.json", "index.html"], repo)
+        to_add = [issue_rel.as_posix(), preview_rel.as_posix(), "issues.json", "index.html"]
+        if args.asset_dir:
+            asset_rel = args.asset_dir if not args.asset_dir.is_absolute() else args.asset_dir.relative_to(repo)
+            if not (repo / asset_rel).is_dir():
+                raise FileNotFoundError(f"Asset folder missing: {repo / asset_rel}")
+            to_add.append(asset_rel.as_posix())
+        run(["git", "add", *to_add], repo)
         staged = subprocess.run(
             ["git", "diff", "--cached", "--quiet"], cwd=repo, check=False
         ).returncode

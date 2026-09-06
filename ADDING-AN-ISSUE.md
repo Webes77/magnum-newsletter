@@ -1,5 +1,11 @@
 # Publishing a Magnum AI weekly newsletter
 
+> **Since 6 September 2026 the edition is built from `edition.json` by
+> `tools/build_edition.py` and published by two routines. See `ROUTINE.md`
+> for the routines and `tools/EDITION-SCHEMA.md` for the file. The steps
+> below remain the manual path and the reference for what a published
+> edition must satisfy.**
+
 GitHub Pages hosts the newsletter at **https://webes77.github.io/magnum-newsletter/**. The root always serves the current edition. Every issue also receives a permanent dated page, while the issue library remains at **https://webes77.github.io/magnum-newsletter/archive.html**.
 
 > **Never replace the root with the archive. Never change a URL after it has been sent to clients.**

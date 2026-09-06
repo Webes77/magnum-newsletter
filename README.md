@@ -17,3 +17,9 @@ Every edition is published to the stable root and a permanent dated page in the 
 For a new WhatsApp broadcast, use the dated issue URL to avoid an older cached preview. The root must continue serving the current newsletter for clients who have already received or bookmarked that link.
 
 The complete workflow and commands are in **[ADDING-AN-ISSUE.md](ADDING-AN-ISSUE.md)**.
+
+Since September 2026 the weekly edition is drafted and published by two
+Claude Code routines described in **[ROUTINE.md](ROUTINE.md)**. James
+supplies the two images; everything else runs on its own. The edition is
+written as `edition.json` (**[tools/EDITION-SCHEMA.md](tools/EDITION-SCHEMA.md)**)
+and built by `tools/build_edition.py`.
