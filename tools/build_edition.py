@@ -3,15 +3,19 @@
 
 Reads edition.json (schema in tools/EDITION-SCHEMA.md), copies the hero and
 Magnum images into assets/YYYY-MM-DD/, writes the dated issue page with the
-structure of the 23 August 2026 edition, and creates the 1200x630 preview.
+structure of the 23 August 2026 edition, and sets the 1200x630 preview.
+
+The hero and the preview are standing images (assets/standing/hero.png and
+assets/standing/preview.jpg, the same every edition) unless --hero or
+--preview is given. The Magnum image is the only one that changes weekly.
 It does not touch index.html, issues.json or git. Publishing is the job of
 tools/publish_weekly_issue.py, which validates and pushes.
 
 Usage:
     python3 tools/build_edition.py \
         --edition /path/to/edition.json \
-        --hero /path/to/hero.png \
         --magnum /path/to/magnum.png \
+        [--hero /path/to/hero.png] [--preview /path/to/preview.jpg] \
         --repo /home/user/magnum-newsletter \
         [--out /path/for/finished.html] [--check]
 
@@ -252,8 +256,9 @@ def make_preview(hero: Path, out: Path) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Build a This Week in AI edition from edition.json")
     parser.add_argument("--edition", required=True, type=Path)
-    parser.add_argument("--hero", required=True, type=Path)
     parser.add_argument("--magnum", required=True, type=Path)
+    parser.add_argument("--hero", type=Path, help="Hero image (default: the standing assets/standing/hero.png)")
+    parser.add_argument("--preview", type=Path, help="1200x630 JPEG preview (default: the standing assets/standing/preview.jpg; pass 'crop' to crop the hero)")
     parser.add_argument("--repo", type=Path, default=Path("/home/user/magnum-newsletter"))
     parser.add_argument("--out", type=Path, help="Where to write the finished HTML (default: <repo>/build/<date>/finished.html)")
     parser.add_argument("--check", action="store_true", help="Validate and exit 1 on any failure")
@@ -262,18 +267,26 @@ def main() -> int:
     data = load_edition(args.edition)
     d = data["date"]
     repo = args.repo.resolve()
+    if args.hero is None:
+        args.hero = repo / "assets" / "standing" / "hero.png"
     for p in (args.hero, args.magnum):
         if not p.is_file():
             raise FileNotFoundError(p)
 
     asset_dir = repo / "assets" / d
     asset_dir.mkdir(parents=True, exist_ok=True)
+    standing_hero = repo / "assets" / "standing" / "hero.png"
     hero_name = f"newsletter-hero-{d}{args.hero.suffix.lower()}"
     magnum_name = f"the-magnum-{d}{args.magnum.suffix.lower()}"
-    for src, dest in ((args.hero, asset_dir / hero_name), (args.magnum, asset_dir / magnum_name)):
+    copies = [(args.magnum, asset_dir / magnum_name)]
+    if args.hero.resolve() == standing_hero.resolve():
+        hero_url = f"{BASE_URL}/assets/standing/hero.png"
+    else:
+        copies.append((args.hero, asset_dir / hero_name))
+        hero_url = f"{BASE_URL}/assets/{d}/{hero_name}"
+    for src, dest in copies:
         if src.resolve() != dest.resolve():
             shutil.copy2(src, dest)
-    hero_url = f"{BASE_URL}/assets/{d}/{hero_name}"
     magnum_url = f"{BASE_URL}/assets/{d}/{magnum_name}"
 
     page = render(data, hero_url, magnum_url)
@@ -281,7 +294,17 @@ def main() -> int:
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(page, encoding="utf-8")
     preview = out.parent / "preview.jpg"
-    make_preview(args.hero, preview)
+    if args.preview is not None and str(args.preview) == "crop":
+        make_preview(args.hero, preview)
+    else:
+        src = args.preview or (repo / "assets" / "standing" / "preview.jpg")
+        if not src.is_file():
+            raise FileNotFoundError(src)
+        shutil.copy2(src, preview)
+        from PIL import Image
+        with Image.open(preview) as im:
+            if im.size != (1200, 630) or im.format != "JPEG":
+                raise ValueError(f"preview must be a 1200x630 JPEG; got {im.size} {im.format}")
 
     errors = check(page, data)
     print(f"Written: {out}")

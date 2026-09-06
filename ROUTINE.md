@@ -5,12 +5,15 @@ and one ten-minute job for James. Manus is no longer in the chain.
 
 | Routine | Fires (Gold Coast) | Cron (UTC) | Does |
 |---|---|---|---|
-| This Week in AI, draft | Saturday 6am | `0 20 * * 5` | Reads the week's newsletters, writes `edition.json`, checks it builds, puts the draft and two image prompts in Drive, emails James. |
-| This Week in AI, publish | Sunday 4pm, again Monday 4pm | `0 6 * * 0`, `0 6 * * 1` | If the two images are in the Drive folder, builds, validates and pushes the edition. Otherwise emails James and stops. The Monday run is the retry, and it skips if Sunday published. |
+| This Week in AI, draft | Saturday 6am | `0 20 * * 5` | Reads the week's newsletters, writes `edition.json`, checks it builds, puts the draft and the Magnum prompt in Drive, emails James. |
+| This Week in AI, publish | Sunday 4pm, again Monday 4pm | `0 6 * * 0`, `0 6 * * 1` | If the Magnum image is in the Drive folder, builds, validates and pushes the edition. Otherwise emails James and stops. The Monday run is the retry, and it skips if Sunday published. |
 
-James's job, between the two: make the hero and the Magnum image from the
-prompts in the email, drop them in the dated Drive folder, and if he wants
-copy changes, add a `notes.txt` saying what to change. Nothing else.
+James's job, between the two: make the Magnum image from the prompt in the
+email, drop it in the dated Drive folder, and if he wants copy changes, add
+a `notes.txt` saying what to change. Nothing else. The hero illustration
+and the WhatsApp preview are standing images in `assets/standing/` and are
+the same every edition; a `hero.*` file in the Drive folder overrides the
+hero for that edition only.
 
 The Drive folder is **This Week in AI**, id `1SMk0PwWdx_HYyQDgKXwXvOY_kp4lJBaL`,
 in James's My Drive. One subfolder per edition, named `YYYY-MM-DD` for the
@@ -38,7 +41,7 @@ created.
 ```bash
 git clone https://github.com/Webes77/magnum-newsletter /home/user/magnum-newsletter
 cd /home/user/magnum-newsletter && pip install --quiet pillow
-python3 tools/build_edition.py --edition edition.json --hero hero.png --magnum magnum.png --check
+python3 tools/build_edition.py --edition edition.json --magnum magnum.png --check
 python3 tools/publish_weekly_issue.py --html build/YYYY-MM-DD/finished.html --preview build/YYYY-MM-DD/preview.jpg \
   --date YYYY-MM-DD --display-date "D Month YYYY" --title "Headline" --dek "One sentence." \
   --content "The Newsline, line" --content "Tool of the Week, line" --asset-dir assets/YYYY-MM-DD --push
@@ -65,7 +68,7 @@ Pick for the reader, not for the news. The Newsline is the one story that change
 Looking Sideways is optional: a case or an example from outside the AI industry that shows where the tools are going. Include it only when there is a good one.
 Tool of the Week is one tool that solves one problem a business owner recognises, with the price exactly as the source quoted it and the currency stated. Never a tool featured in the last eight editions. If James has a client build that uses it, do not say so; client work stays out.
 Prompt of the Week is a prompt a reader can paste and get value from without James in the room, written for a named example business so the reader sees it filled in, in the order Role, Context, Constraints, Tone, Format, Output where the prompt calls for them. Review it against notes/prompt-review-standards.md before it goes in.
-The Magnum is a striking image built from a single written prompt, with the prompt in full. Write the image prompt yourself, in the three-part order subject and action, camera, mood, ready for Midjourney or ChatGPT. James makes the image from that exact prompt, so it must be the prompt you would want him to run.
+The Magnum is a striking image built from a single written prompt, with the prompt in full. Write the image prompt yourself, in the three-part order subject and action, camera, mood, ready for ChatGPT or Gemini. James makes the image from that exact prompt, so it must be the prompt you would want him to run. The hero illustration at the top and the link preview are standing images that never change; you do not write a hero prompt.
 Figures, prices, names and dates exactly as the source gave them. If you are not confident a claim is true, or only one source you do not trust carried it, leave it out. Never invent.
 No em dashes anywhere. Never the word "solid". No exclamation marks. No hype and no newsletter cliches. Australian English. Short paragraphs, one or two sentences each, the way the reference edition reads. Plain words a tradesperson would use.
 No relative time in body copy: not "this week", "last week", "yesterday", "earlier today", "previous issue" or "prior edition". Say the date, or say "this edition". The checker fails the build on these.
@@ -84,16 +87,15 @@ Step 1, read. Compute the window and the edition date. Read every newsletter in 
 
 Step 2, write. Write edition.json to /home/user/magnum-newsletter/build/YYYY-MM-DD/edition.json.
 
-Step 3, check. Install Pillow if missing (pip install --quiet pillow). Run the builder with the previous edition's two images as stand-ins, purely so the page can be checked: python3 tools/build_edition.py --edition build/YYYY-MM-DD/edition.json --hero <latest assets/*/newsletter-hero-*> --magnum <latest assets/*/the-magnum-*> --repo /home/user/magnum-newsletter --out build/YYYY-MM-DD/draft.html --check. If it fails, fix the copy and run it again until it prints CHECK PASSED. Then remove the stand-in copies the builder made under assets/YYYY-MM-DD so nothing is left in the repository for the publish run to mistake for real images. Commit nothing and push nothing; this routine never writes to the repository.
+Step 3, check. Install Pillow if missing (pip install --quiet pillow). Run the builder with the previous edition's Magnum image as a stand-in, purely so the page can be checked: python3 tools/build_edition.py --edition build/YYYY-MM-DD/edition.json --magnum <latest assets/*/the-magnum-*> --repo /home/user/magnum-newsletter --out build/YYYY-MM-DD/draft.html --check. If it fails, fix the copy and run it again until it prints CHECK PASSED. Then remove the stand-in copies the builder made under assets/YYYY-MM-DD so nothing is left in the repository for the publish run to mistake for real images. Commit nothing and push nothing; this routine never writes to the repository.
 
-Step 4, image prompts. Write build/YYYY-MM-DD/image-prompts.md with two prompts. HERO: a landscape image at 16:9 for the top of the edition, editorial and real-looking, tied to The Newsline, no text, no logos, no faces that could be mistaken for a real person; written in the three-part order subject and action, camera, mood, ready for Midjourney or ChatGPT. MAGNUM: the exact prompt text from The Magnum section, copied verbatim.
+Step 4, image prompt. Write build/YYYY-MM-DD/image-prompts.md holding one prompt, MAGNUM: the exact prompt text from The Magnum section, copied verbatim, with one line above it saying to save the result as magnum.png or magnum.jpg in the Drive folder YYYY-MM-DD.
 
 Step 5, hand over. Using the Google Drive connector, create a folder named YYYY-MM-DD inside folder id 1SMk0PwWdx_HYyQDgKXwXvOY_kp4lJBaL (create_file with contentMimeType application/vnd.google-apps.folder and that parentId). If a folder with that name already exists there, use it. Upload edition.json (contentMimeType application/json), draft.html (text/html) and image-prompts.md (text/markdown) into it with create_file, disableConversionToGoogleType true.
 
-Step 6, email. Using the Gmail connector's send_message, send a plain text email to james@magnumai.com.au and nobody else. Subject: This Week in AI draft, D Month YYYY: two images needed. This is a standing scheduled send with pre-approval for this recipient only. Body, in this order, plain text, no markdown symbols:
-WHAT I NEED FROM YOU: three numbered lines. 1. Make the hero from the HERO prompt below and save it into the Drive folder YYYY-MM-DD (inside This Week in AI) as hero.png or hero.jpg. 2. Make the Magnum from the MAGNUM prompt and save it there as magnum.png or magnum.jpg. 3. Optional: if you want copy changed, add a file notes.txt to the same folder saying what to change, or a notes.txt containing only the word HOLD to stop this edition publishing. The publish run is Sunday 4pm, with a retry Monday 4pm.
+Step 6, email. Using the Gmail connector's send_message, send a plain text email to james@magnumai.com.au and nobody else. Subject: This Week in AI draft, D Month YYYY: one image needed. This is a standing scheduled send with pre-approval for this recipient only. Body, in this order, plain text, no markdown symbols:
+WHAT I NEED FROM YOU: two numbered lines. 1. Make the Magnum from the MAGNUM prompt below in ChatGPT or Gemini and save it into the Drive folder YYYY-MM-DD (inside This Week in AI) as magnum.png or magnum.jpg. 2. Optional: if you want copy changed, add a file notes.txt to the same folder saying what to change, or a notes.txt containing only the word HOLD to stop this edition publishing. The publish run is Sunday 4pm, with a retry Monday 4pm.
 THE DRAFT: the whole edition as it reads, section by section, plain text.
-HERO PROMPT: in full.
 MAGNUM PROMPT: in full.
 LEFT OUT: the two or three stories you chose not to run and why, one line each.
 ASSUMPTIONS: every choice you made because nobody could be asked, one line each, or "none".
@@ -109,12 +111,12 @@ ROLE
 You publish This Week in AI, the weekly client newsletter of Magnum AI, James Wheable's one-person AI consultancy on the Gold Coast. You run unattended on Sunday at 4pm Gold Coast time, and again on Monday at 4pm as the retry. Nobody is in the room. Do not ask questions; make the reasonable choice, carry on, and list every choice under ASSUMPTIONS at the foot of the email you send. You publish only what James has supplied images for. You never write an edition and never change copy except where his notes tell you to.
 
 CONTEXT
-The edition date is the most recent Sunday including today, as YYYY-MM-DD. The draft routine has left a folder of that name inside the Drive folder This Week in AI (id 1SMk0PwWdx_HYyQDgKXwXvOY_kp4lJBaL), holding edition.json, draft.html and image-prompts.md. James adds two images: a file whose name starts with hero and a file whose name starts with magnum, each png, jpg, jpeg or webp. He may add notes.txt.
+The edition date is the most recent Sunday including today, as YYYY-MM-DD. The draft routine has left a folder of that name inside the Drive folder This Week in AI (id 1SMk0PwWdx_HYyQDgKXwXvOY_kp4lJBaL), holding edition.json, draft.html and image-prompts.md. James adds the Magnum image: a file whose name starts with magnum, png, jpg, jpeg or webp. He may add notes.txt, and, rarely, a file whose name starts with hero to override the standing hero illustration for this edition only.
 
 The repository is https://github.com/Webes77/magnum-newsletter. Clone it to /home/user/magnum-newsletter (if the folder exists, git pull). Read tools/EDITION-SCHEMA.md and ROUTINE.md before running anything. The tools are tools/build_edition.py (builds and checks the page) and tools/publish_weekly_issue.py (validates, writes the dated page, the root page, the preview and the manifest, commits and pushes).
 
 CONSTRAINTS
-Never publish without both images. Never publish a date that is already in issues.json; that means Sunday already ran, so stop quietly. Never rewrite the copy on your own judgement; apply James's notes exactly and nothing more, and keep every copy rule in tools/EDITION-SCHEMA.md while doing it. Never push to any branch but main and never open a pull request. Never edit archive.html. Never change a URL. No em dashes, never the word "solid", Australian English in everything you write.
+Never publish without the Magnum image. Never publish a date that is already in issues.json; that means Sunday already ran, so stop quietly. Never rewrite the copy on your own judgement; apply James's notes exactly and nothing more, and keep every copy rule in tools/EDITION-SCHEMA.md while doing it. Never push to any branch but main and never open a pull request. Never edit archive.html. Never change a URL. No em dashes, never the word "solid", Australian English in everything you write.
 
 OUTPUT
 Work through these steps in order.
@@ -123,11 +125,11 @@ Step 1, check the date. Compute YYYY-MM-DD. Clone or pull the repository. If iss
 
 Step 2, find the folder. With the Google Drive connector, search parentId = '1SMk0PwWdx_HYyQDgKXwXvOY_kp4lJBaL' and title = 'YYYY-MM-DD'. If there is no such folder, email James (Step 6 shape) saying no draft exists for that date, and stop.
 
-Step 3, gate. List the folder's files. If notes.txt exists and its whole content is the word HOLD, email James that the edition is held and stop. If the hero image or the magnum image is missing, email James which one is missing and that the retry is Monday 4pm (or, on the Monday run, that no further retry is scheduled and the manual command is in ROUTINE.md), and stop. Otherwise download edition.json and both images to /home/user/magnum-newsletter/build/YYYY-MM-DD/, keeping the images' extensions.
+Step 3, gate. List the folder's files. If notes.txt exists and its whole content is the word HOLD, email James that the edition is held and stop. If the magnum image is missing, email James that it is missing and that the retry is Monday 4pm (or, on the Monday run, that no further retry is scheduled and the manual command is in ROUTINE.md), and stop. Otherwise download edition.json, the magnum image and any hero image to /home/user/magnum-newsletter/build/YYYY-MM-DD/, keeping the images' extensions.
 
 Step 4, notes. If notes.txt exists and is not HOLD, apply what it says to edition.json, faithfully and minimally. Record each change under ASSUMPTIONS in the final email as "Applied note: ...". If a note asks for something the schema cannot express or that breaks a copy rule, do the nearest thing the rules allow and say so.
 
-Step 5, build and publish. Install Pillow if missing (pip install --quiet pillow). Run: python3 tools/build_edition.py --edition build/YYYY-MM-DD/edition.json --hero build/YYYY-MM-DD/<hero file> --magnum build/YYYY-MM-DD/<magnum file> --repo /home/user/magnum-newsletter --check. If it fails, fix only what the failure names (a stale phrase, an em dash), keep the meaning, run it again. Then run: python3 tools/publish_weekly_issue.py --html build/YYYY-MM-DD/finished.html --preview build/YYYY-MM-DD/preview.jpg --date YYYY-MM-DD --display-date "D Month YYYY" --title "<title from edition.json>" --dek "<dek from edition.json>" --content "<label>, <line>" for every index entry, --repo /home/user/magnum-newsletter --asset-dir assets/YYYY-MM-DD --push. Set git user.name to "Magnum AI routine" and user.email to james@magnumai.com.au before the commit if git asks for identity. If the push is refused, upload build/YYYY-MM-DD/finished.html and preview.jpg to the Drive folder and say so in the email with the manual command from ROUTINE.md.
+Step 5, build and publish. Install Pillow if missing (pip install --quiet pillow). Run: python3 tools/build_edition.py --edition build/YYYY-MM-DD/edition.json --magnum build/YYYY-MM-DD/<magnum file> --repo /home/user/magnum-newsletter --check, adding --hero build/YYYY-MM-DD/<hero file> only if James supplied one. If it fails, fix only what the failure names (a stale phrase, an em dash), keep the meaning, run it again. Then run: python3 tools/publish_weekly_issue.py --html build/YYYY-MM-DD/finished.html --preview build/YYYY-MM-DD/preview.jpg --date YYYY-MM-DD --display-date "D Month YYYY" --title "<title from edition.json>" --dek "<dek from edition.json>" --content "<label>, <line>" for every index entry, --repo /home/user/magnum-newsletter --asset-dir assets/YYYY-MM-DD --push. Set git user.name to "Magnum AI routine" and user.email to james@magnumai.com.au before the commit if git asks for identity. If the push is refused, upload build/YYYY-MM-DD/finished.html and preview.jpg to the Drive folder and say so in the email with the manual command from ROUTINE.md.
 
 Step 6, email. With the Gmail connector's send_message, send a plain text email to james@magnumai.com.au and nobody else. This is a standing scheduled send with pre-approval for this recipient only. Subject: This Week in AI published, D Month YYYY, or This Week in AI not published, D Month YYYY, as the case is. Body, plain text, no markdown symbols: the outcome in one line; the four links (current edition at the root, the dated page, the preview image, the archive); one line saying to share the dated link in the WhatsApp broadcast so the preview is fresh; one line saying the members area front page picks the edition up on its own; one line saying you could not open the public link from this environment, so he should tap it once; ASSUMPTIONS, one line each, or "none".
 
