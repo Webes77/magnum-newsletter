@@ -48,7 +48,7 @@ CSS = """    :root { --cream:#FFFDF7; --stone:#E8E6E3; --gold:#C9A84C; --charcoa
     .page { max-width:680px; margin:0 auto; background:var(--cream); box-shadow:0 0 36px rgba(0,0,0,.05); }
     .top-bar { display:flex; justify-content:space-between; gap:16px; align-items:center; padding:12px 20px; background:#0D0D0D; }
     .top-bar span { color:var(--gold); font-size:10px; letter-spacing:.15em; text-transform:uppercase; }
-    .hero-img,.magnum-img { display:block; width:100%; height:auto; }
+    .hero-img,.magnum-img,.magnum-video { display:block; width:100%; height:auto; }
     .content { padding:36px 24px 0; }
     .date-line { margin-bottom:24px; color:var(--gold); font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; }
     .opener-block { margin-bottom:40px; padding:4px 0 4px 18px; border-left:3px solid rgba(201,168,76,.65); }
@@ -69,7 +69,7 @@ CSS = """    :root { --cream:#FFFDF7; --stone:#E8E6E3; --gold:#C9A84C; --charcoa
     .prompt-box pre { margin:0; color:#2A2520; font-family:'Courier New',Courier,monospace; font-size:13px; line-height:1.85; white-space:pre-wrap; word-break:break-word; }
     .prompt-use,.magnum-take { color:#3A3530; font-size:14px; line-height:1.8; }
     .prompt-use strong { color:var(--gold); }
-    .magnum-img { margin:0 0 16px; border-radius:4px; }
+    .magnum-img,.magnum-video { margin:0 0 16px; border-radius:4px; }
     .magnum-take { padding-top:14px; color:var(--muted); font-style:italic; border-top:1px solid rgba(201,168,76,.25); }
     .signoff { padding:36px 24px 40px; border-top:1px solid rgba(201,168,76,.5); }
     .signoff-body { margin-bottom:20px; color:#2A2520; font-size:17px; line-height:1.85; }
@@ -144,9 +144,16 @@ def render_section(s: dict, magnum_url: str) -> str:
         out += [
             '        <p class="prompt-label">Prompt</p>',
             f'        <div class="prompt-box"><pre>{esc(s["prompt"])}</pre></div>',
-            f'        <img class="magnum-img" src="{magnum_url}" alt="{attr(s["image_alt"])}" />',
-            f'        <p class="magnum-take">Take from it:<br />{esc(s["take"])}</p>',
         ]
+        if s.get("video_url"):
+            out.append(
+                f'        <video class="magnum-video" controls preload="metadata" '
+                f'aria-label="{attr(s["image_alt"])}"><source src="{attr(s["video_url"])}" '
+                f'type="video/mp4" /></video>'
+            )
+        else:
+            out.append(f'        <img class="magnum-img" src="{magnum_url}" alt="{attr(s["image_alt"])}" />')
+        out.append(f'        <p class="magnum-take">Take from it:<br />{esc(s["take"])}</p>')
     out.append("      </section>")
     return "\n".join(out)
 
@@ -256,7 +263,8 @@ def make_preview(hero: Path, out: Path) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Build a This Week in AI edition from edition.json")
     parser.add_argument("--edition", required=True, type=Path)
-    parser.add_argument("--magnum", required=True, type=Path)
+    parser.add_argument("--magnum", type=Path, help="Magnum image (not needed when the edition's Magnum section already carries a video_url)")
+    parser.add_argument("--magnum-video", type=Path, help="Local video file to self-host as the Magnum video; copied into assets/<date>/ and overrides any video_url already in edition.json")
     parser.add_argument("--hero", type=Path, help="Hero image (default: the standing assets/standing/hero.png)")
     parser.add_argument("--preview", type=Path, help="1200x630 JPEG preview (default: the standing assets/standing/preview.jpg; pass 'crop' to crop the hero)")
     parser.add_argument("--repo", type=Path, default=Path("/home/user/magnum-newsletter"))
@@ -269,7 +277,16 @@ def main() -> int:
     repo = args.repo.resolve()
     if args.hero is None:
         args.hero = repo / "assets" / "standing" / "hero.png"
-    for p in (args.hero, args.magnum):
+    magnum_section = next(s for s in data["sections"] if s["label"] == "The Magnum")
+    has_video = args.magnum_video is not None or bool(magnum_section.get("video_url"))
+    if not has_video and args.magnum is None:
+        raise ValueError("--magnum is required when the Magnum section has no video_url and no --magnum-video")
+    required = [args.hero]
+    if args.magnum_video is not None:
+        required.append(args.magnum_video)
+    elif not magnum_section.get("video_url"):
+        required.append(args.magnum)
+    for p in required:
         if not p.is_file():
             raise FileNotFoundError(p)
 
@@ -277,17 +294,26 @@ def main() -> int:
     asset_dir.mkdir(parents=True, exist_ok=True)
     standing_hero = repo / "assets" / "standing" / "hero.png"
     hero_name = f"newsletter-hero-{d}{args.hero.suffix.lower()}"
-    magnum_name = f"the-magnum-{d}{args.magnum.suffix.lower()}"
-    copies = [(args.magnum, asset_dir / magnum_name)]
+    copies = []
     if args.hero.resolve() == standing_hero.resolve():
         hero_url = f"{BASE_URL}/assets/standing/hero.png"
     else:
         copies.append((args.hero, asset_dir / hero_name))
         hero_url = f"{BASE_URL}/assets/{d}/{hero_name}"
+    if args.magnum_video is not None:
+        magnum_video_name = f"the-magnum-{d}{args.magnum_video.suffix.lower()}"
+        copies.append((args.magnum_video, asset_dir / magnum_video_name))
+        magnum_section["video_url"] = f"{BASE_URL}/assets/{d}/{magnum_video_name}"
+        magnum_url = ""  # unused; the video renders straight from video_url
+    elif has_video:
+        magnum_url = ""  # unused; the video renders straight from the video_url already in edition.json
+    else:
+        magnum_name = f"the-magnum-{d}{args.magnum.suffix.lower()}"
+        copies.append((args.magnum, asset_dir / magnum_name))
+        magnum_url = f"{BASE_URL}/assets/{d}/{magnum_name}"
     for src, dest in copies:
         if src.resolve() != dest.resolve():
             shutil.copy2(src, dest)
-    magnum_url = f"{BASE_URL}/assets/{d}/{magnum_name}"
 
     page = render(data, hero_url, magnum_url)
     out = args.out or (repo / "build" / d / "finished.html")
