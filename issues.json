@@ -1,6 +1,21 @@
 {
   "issues": [
     {
+      "date": "2026-09-13",
+      "displayDate": "13 September 2026",
+      "title": "Check the AI's work before you act on it",
+      "dek": "There's a lot of AI news, but only one story that should change what you do on Monday: check its work before you act on it.",
+      "file": "issues/2026-09-13.html",
+      "contents": [
+        "The Newsline, why you should check an AI's confident answer before you act on it",
+        "Looking Sideways, where AI actually helps a doctor or a teacher who's run out of hours",
+        "The Win, how a panel beater stopped writing the same report twice",
+        "Tool of the Week, Lindy, the AI agent that chases the follow up you forgot",
+        "Prompt of the Week, turn a client walk-through into a job list and a follow-up email",
+        "The Magnum, a storybook town, animated, and the exact prompt that made it"
+      ]
+    },
+    {
       "date": "2026-09-06",
       "displayDate": "6 September 2026",
       "title": "The AI that uses your computer",
