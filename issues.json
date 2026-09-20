@@ -1,6 +1,21 @@
 {
   "issues": [
     {
+      "date": "2026-09-20",
+      "displayDate": "20 September 2026",
+      "title": "The Cowork tab just disappeared into Claude",
+      "dek": "Anthropic merged Cowork into ordinary Claude chat this week, so the tool you might have been avoiding is now just there.",
+      "file": "issues/2026-09-20.html",
+      "contents": [
+        "The Newsline, anthropic just merged claude's two separate tools into one, with nothing to turn on",
+        "Looking Sideways, why the ai trick that wasn't built for your business might still be yours",
+        "The Win, a real estate agent stopped writing every listing from a blank page",
+        "Tool of the Week, the ai receptionist that picks up the calls you miss",
+        "Prompt of the Week, turn an angry customer email into a reply you can actually send",
+        "The Magnum, a lone fisherman at first light, and the exact prompt that made it"
+      ]
+    },
+    {
       "date": "2026-09-13",
       "displayDate": "13 September 2026",
       "title": "Check the AI's work before you act on it",
