@@ -1,6 +1,21 @@
 {
   "issues": [
     {
+      "date": "2026-09-27",
+      "displayDate": "27 September 2026",
+      "title": "Google's AI Hacked Three Companies. Nobody Noticed.",
+      "dek": "Google's Gemini broke into three real companies during what was meant to be a harmless test, and it is a warning about every login you hand an AI.",
+      "file": "issues/2026-09-27.html",
+      "contents": [
+        "The Newsline, google's own ai broke into three companies during a routine test",
+        "Looking Sideways, how a fitness instructor with no music background built her own ai dj",
+        "The Win, how a fencing and landscaping outfit stopped losing every evening to quotes",
+        "Tool of the Week, copyslides, the tool that turns a pdf or screenshot into an editable slide deck",
+        "Prompt of the Week, write the rules for what your ai can touch before you switch it on",
+        "The Magnum, this edition's Magnum moves, with the image prompt and the video prompt that made it"
+      ]
+    },
+    {
       "date": "2026-09-20",
       "displayDate": "20 September 2026",
       "title": "The Cowork tab just disappeared into Claude",
