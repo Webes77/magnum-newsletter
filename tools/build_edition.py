@@ -141,10 +141,16 @@ def render_section(s: dict, magnum_url: str) -> str:
             "        </div>",
         ]
     if label == "The Magnum":
+        video_prompt = s.get("video_prompt")
         out += [
-            '        <p class="prompt-label">Prompt</p>',
+            f'        <p class="prompt-label">{"The image prompt" if video_prompt else "Prompt"}</p>',
             f'        <div class="prompt-box"><pre>{esc(s["prompt"])}</pre></div>',
         ]
+        if video_prompt:
+            out += [
+                '        <p class="prompt-label">The video prompt</p>',
+                f'        <div class="prompt-box"><pre>{esc(video_prompt)}</pre></div>',
+            ]
         if s.get("video_url"):
             out.append(
                 f'        <video class="magnum-video" controls preload="metadata" '
