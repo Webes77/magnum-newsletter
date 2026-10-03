@@ -34,7 +34,7 @@ one sentence or two per paragraph, the way the reference edition reads).
 | `Looking Sideways` | none | Something from outside the AI news that shows where the tools are going. |
 | `The Win` | none | A real result from a Magnum AI client, anonymised. Only written from material James supplied. Never invented. |
 | `Tool of the Week` | `link: {url, text}` | One tool, what problem it solves, the price as quoted. `text` is `Name: url`. |
-| `Prompt of the Week` | `prompt` (string, line breaks kept), `use` (list of strings, one instruction each) | A prompt a client can paste. Written for a named example business so the reader sees it filled in. |
+| `Prompt of the Week` | `prompt` (string, line breaks kept), `use` (list of strings, one instruction each) | A prompt any small business owner can paste, whatever their trade. Generic, never written for one named or example business; the reader's own details go in short [square bracket] fill-ins, three or four at most. |
 | `The Magnum` | `prompt` (string), `image_alt` (string), `take` (string), optional `video_prompt` (string) | The image prompt that made the Magnum image, and one or two lines on what to take from it. When the Magnum is a video made in two steps (a still, then a video model animating it), `video_prompt` carries the motion prompt verbatim; the page then labels the two boxes "The image prompt" and "The video prompt". |
 
 ## Copy rules the checker enforces
