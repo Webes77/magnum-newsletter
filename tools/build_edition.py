@@ -31,6 +31,7 @@ import html
 import json
 import re
 import shutil
+import subprocess
 import sys
 from datetime import date
 from pathlib import Path
@@ -231,9 +232,13 @@ def render_section(s: dict, magnum_url: str) -> str:
                 f'        <div class="prompt-box"><pre>{esc(video_prompt)}</pre></div>',
             ]
         if s.get("video_url"):
+            poster = s.get("video_poster")
+            # Without a poster, #t=0.1 makes Safari and iOS show the first frame instead of a blank box.
+            src_url = s["video_url"] if poster or "#" in s["video_url"] else s["video_url"] + "#t=0.1"
+            poster_attr = f' poster="{attr(poster)}"' if poster else ""
             out.append(
-                f'        <video class="magnum-video" controls preload="metadata" '
-                f'aria-label="{attr(s["image_alt"])}"><source src="{attr(s["video_url"])}" '
+                f'        <video class="magnum-video" controls preload="metadata" playsinline{poster_attr} '
+                f'aria-label="{attr(s["image_alt"])}"><source src="{attr(src_url)}" '
                 f'type="video/mp4" /></video>'
             )
         else:
@@ -320,6 +325,35 @@ def render(data: dict, hero_url: str, magnum_url: str) -> str:
 """
 
 
+def find_ffmpeg() -> str | None:
+    """ffmpeg from PATH, else the copy bundled with the imageio-ffmpeg package (pip install imageio-ffmpeg)."""
+    exe = shutil.which("ffmpeg")
+    if exe:
+        return exe
+    try:
+        import imageio_ffmpeg
+        return imageio_ffmpeg.get_ffmpeg_exe()
+    except Exception:
+        return None
+
+
+def make_poster(video: str, out: Path) -> bool:
+    """Grab a frame two seconds in (or the first frame for very short clips) as a JPEG poster."""
+    exe = find_ffmpeg()
+    if not exe:
+        return False
+    for ss in ("2", "0"):
+        try:
+            subprocess.run([exe, "-y", "-loglevel", "error", "-ss", ss, "-i", video, "-frames:v", "1",
+                            "-q:v", "3", "-vf", "scale='min(1600,iw)':-2", str(out)],
+                           check=True, timeout=120, capture_output=True)
+        except Exception:
+            continue
+        if out.is_file() and out.stat().st_size > 0:
+            return True
+    return False
+
+
 def check(page: str, data: dict) -> list[str]:
     """The publisher's validation, plus the house rules, run before anything is committed."""
     errors: list[str] = []
@@ -338,6 +372,8 @@ def check(page: str, data: dict) -> list[str]:
     if re.search(r"\bsolid\b", text, re.I):
         errors.append("the word 'solid' is banned")
     errors += check_sources(data)
+    if re.search(r"<video\b(?![^>]*\bposter=)", page):
+        errors.append("the Magnum video has no poster image (pip install imageio-ffmpeg, or pass --magnum-poster)")
     if f"{BASE_URL}/issues/{d}.html" not in page:
         errors.append("canonical issue URL missing")
     if f"{BASE_URL}/assets/previews/{d}.jpg" not in page:
@@ -387,6 +423,7 @@ def main() -> int:
     parser.add_argument("--edition", required=True, type=Path)
     parser.add_argument("--magnum", type=Path, help="Magnum image (not needed when the edition's Magnum section already carries a video_url)")
     parser.add_argument("--magnum-video", type=Path, help="Local video file to self-host as the Magnum video; copied into assets/<date>/ and overrides any video_url already in edition.json")
+    parser.add_argument("--magnum-poster", type=Path, help="Still shown on the Magnum video before it plays (default: a frame taken from the video)")
     parser.add_argument("--hero", type=Path, help="Hero image (default: the standing assets/standing/hero.png)")
     parser.add_argument("--preview", type=Path, help="1200x630 JPEG preview (default: the standing assets/standing/preview.jpg; pass 'crop' to crop the hero)")
     parser.add_argument("--repo", type=Path, default=Path("/home/user/magnum-newsletter"))
@@ -436,6 +473,24 @@ def main() -> int:
     for src, dest in copies:
         if src.resolve() != dest.resolve():
             shutil.copy2(src, dest)
+    if magnum_section.get("video_url"):
+        poster_name = f"the-magnum-{d}-poster.jpg"
+        poster_path = asset_dir / poster_name
+        if args.magnum_poster is not None:
+            if not args.magnum_poster.is_file():
+                raise FileNotFoundError(args.magnum_poster)
+            from PIL import Image, ImageOps
+            with Image.open(args.magnum_poster) as im:
+                ImageOps.exif_transpose(im).convert("RGB").save(poster_path, "JPEG", quality=86, optimize=True)
+            made = True
+        elif args.magnum_video is not None:
+            made = make_poster(str(args.magnum_video), poster_path)
+        elif poster_path.is_file():
+            made = True
+        else:
+            made = make_poster(magnum_section["video_url"], poster_path)
+        if made:
+            magnum_section["video_poster"] = f"{BASE_URL}/assets/{d}/{poster_name}"
 
     page = render(data, hero_url, magnum_url)
     out = args.out or (repo / "build" / d / "finished.html")
