@@ -3,7 +3,8 @@
 
 Reads edition.json (schema in tools/EDITION-SCHEMA.md), copies the hero and
 Magnum images into assets/YYYY-MM-DD/, writes the dated issue page with the
-structure of the 23 August 2026 edition, and sets the 1200x630 preview.
+structure of the 23 August 2026 edition in the
+Magnum AI house style (29 September 2026), and sets the 1200x630 preview.
 
 The hero and the preview are standing images (assets/standing/hero.png and
 assets/standing/preview.jpg, the same every edition) unless --hero or
@@ -42,48 +43,67 @@ EM_DASH = "—"
 REQUIRED_TOP = ("date", "display_date", "title", "dek", "hero_alt", "opener", "index", "sections", "signoff")
 SECTION_ORDER = ("The Newsline", "Looking Sideways", "The Win", "Tool of the Week", "Prompt of the Week", "The Magnum")
 
-CSS = """    :root { --cream:#FFFDF7; --stone:#E8E6E3; --gold:#C9A84C; --charcoal:#1A1A1A; --muted:#6B6560; --prompt:#F5F5F0; }
+CSS = """    :root { --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#1E1B17; --body:#2B2823; --char:#3A3630; --mute:#63615C; --rust:#EF4029; --coral-text:#C63A2A; --coral-bright:#FF6F5E; --tint:#FBE1D8; --on-navy:#F4F1EA; --on-navy-mute:#C8CDD3; --hair:#DADAD5; --display:'Oswald','Arial Narrow','Liberation Sans Narrow',sans-serif; --sans:'IBM Plex Sans',Arial,system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,'Courier New',monospace; color-scheme:light; }
     *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
-    body { background:var(--stone); color:var(--charcoal); font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:100%; }
-    .page { max-width:680px; margin:0 auto; background:var(--cream); box-shadow:0 0 36px rgba(0,0,0,.05); }
-    .top-bar { display:flex; justify-content:space-between; gap:16px; align-items:center; padding:12px 20px; background:#0D0D0D; }
-    .top-bar span { color:var(--gold); font-size:10px; letter-spacing:.15em; text-transform:uppercase; }
+    html,body { background:#FBFBF9; color-scheme:light; }
+    body { color:var(--body); font-family:var(--sans); font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:100%; overflow-wrap:break-word; }
+    .page { max-width:720px; margin:0 auto; background:#FBFBF9; }
+    .masthead { background:var(--navy); color:var(--on-navy); border-bottom:4px solid var(--coral-bright); padding:26px 28px 28px; }
+    .masthead-meta { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    .masthead-meta span { color:var(--coral-bright); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .masthead-meta span + span { color:var(--on-navy-mute); }
+    .masthead-title { margin-top:14px; color:var(--on-navy); font-family:var(--display); font-size:44px; font-weight:700; line-height:.95; text-transform:uppercase; }
     .hero-img,.magnum-img,.magnum-video { display:block; width:100%; height:auto; }
-    .content { padding:36px 24px 0; }
-    .date-line { margin-bottom:24px; color:var(--gold); font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; }
-    .opener-block { margin-bottom:40px; padding:4px 0 4px 18px; border-left:3px solid rgba(201,168,76,.65); }
-    .opener-text { margin-bottom:18px; color:#3A3530; font-size:17px; font-style:italic; line-height:1.75; }
+    .content { padding:36px 28px 0; }
+    .date-line { margin-bottom:24px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .opener-block { margin-bottom:44px; padding:22px 26px; background:var(--paper-2); border:2px solid var(--ink); }
+    .opener-text { margin-bottom:16px; color:var(--char); font-size:17px; font-style:italic; line-height:1.7; }
     .opener-text:last-of-type { margin-bottom:24px; }
-    .index-label { margin-bottom:10px; color:#8A837E; font-size:10px; letter-spacing:.12em; text-transform:uppercase; }
+    .index-label { display:flex; align-items:center; gap:12px; margin-bottom:12px; color:var(--coral-text); font-family:var(--mono); font-size:12px; letter-spacing:.22em; text-transform:uppercase; }
+    .index-label::after { content:""; flex:1; height:1px; background:var(--ink); }
     .index-list { list-style:none; }
-    .index-list li { position:relative; padding-left:16px; color:#3A3530; font-size:15px; line-height:1.75; margin-bottom:7px; }
-    .index-list li::before { content:'\\00B7'; position:absolute; left:0; color:var(--gold); font-weight:700; }
-    .section { padding:40px 0; border-top:1px solid rgba(201,168,76,.5); }
-    .section-label { margin-bottom:8px; color:var(--gold); font-family:'Bebas Neue',sans-serif; font-size:13px; letter-spacing:.22em; text-transform:uppercase; }
-    .section-headline { margin-bottom:20px; color:#1C1C1E; font-family:'Playfair Display',Georgia,serif; font-size:28px; font-weight:700; line-height:1.2; }
-    .body-text p { margin-bottom:18px; color:#1C1C1E; font-size:17px; line-height:1.82; }
+    .index-list li { position:relative; padding-left:18px; color:var(--char); font-size:15.5px; line-height:1.6; margin-bottom:8px; }
+    .index-list li::before { content:'\\00B7'; position:absolute; left:2px; color:var(--rust); font-weight:700; }
+    .section { padding:0 0 48px; }
+    .section-label { display:flex; align-items:center; gap:12px; margin-bottom:14px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .section-label::after { content:""; flex:1; height:1px; background:var(--ink); }
+    .section-headline { margin-bottom:20px; color:var(--ink); font-family:var(--display); font-size:34px; font-weight:600; line-height:1.05; text-transform:uppercase; }
+    .section-headline em { font-style:normal; color:var(--rust); }
+    .body-text p { margin-bottom:16px; color:var(--body); font-size:17px; line-height:1.7; }
     .body-text p:last-child { margin-bottom:0; }
-    .tool-link { display:inline-block; min-height:44px; margin-top:20px; color:var(--gold); font-size:15px; font-weight:600; line-height:44px; text-decoration:none; border-bottom:1px solid rgba(201,168,76,.55); }
-    .prompt-label { margin:0 0 10px; color:#8A837E; font-size:10px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; }
-    .prompt-box { margin:0 0 20px; padding:16px; overflow-wrap:anywhere; background:var(--prompt); border:1px solid rgba(201,168,76,.3); border-left:3px solid var(--gold); border-radius:4px; }
-    .prompt-box pre { margin:0; color:#2A2520; font-family:'Courier New',Courier,monospace; font-size:13px; line-height:1.85; white-space:pre-wrap; word-break:break-word; }
-    .prompt-use,.magnum-take { color:#3A3530; font-size:14px; line-height:1.8; }
-    .prompt-use strong { color:var(--gold); }
-    .magnum-img,.magnum-video { margin:0 0 16px; border-radius:4px; }
-    .magnum-take { padding-top:14px; color:var(--muted); font-style:italic; border-top:1px solid rgba(201,168,76,.25); }
-    .signoff { padding:36px 24px 40px; border-top:1px solid rgba(201,168,76,.5); }
-    .signoff-body { margin-bottom:20px; color:#2A2520; font-size:17px; line-height:1.85; }
-    .signoff-details { color:var(--muted); font-size:13px; line-height:2; }
-    .signoff-details a,.footer a { color:var(--gold); text-decoration:none; }
-    .footer { padding:16px 24px; background:#0D0D0D; text-align:center; }
-    .footer p { color:#8A837E; font-size:11px; letter-spacing:.04em; line-height:1.6; }
+    .tool-link { display:inline-block; min-height:44px; margin-top:20px; color:var(--coral-text); font-size:15.5px; font-weight:600; line-height:44px; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px; overflow-wrap:anywhere; }
+    .tool-link:hover { color:var(--ink); }
+    .prompt-label { margin:24px 0 10px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .prompt-box { margin:0 0 20px; padding:18px 20px; overflow-wrap:anywhere; background:var(--paper-2); border:2px solid var(--ink); }
+    .prompt-box pre { margin:0; color:var(--char); font-family:var(--mono); font-size:13px; line-height:1.75; white-space:pre-wrap; word-break:break-word; }
+    .prompt-use,.magnum-take { color:var(--char); font-size:15.5px; line-height:1.7; }
+    .prompt-use strong,.magnum-take strong { color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .magnum-img,.magnum-video { margin:0 0 18px; border:2px solid var(--ink); background:var(--paper-2); }
+    .magnum-take { padding-top:14px; border-top:1px solid var(--hair); }
+    .signoff { margin:0 28px; padding:36px 0 44px; border-top:2px solid var(--ink); }
+    .signoff-body { margin-bottom:16px; color:var(--body); font-size:17px; line-height:1.7; }
+    .signoff-details { margin-top:22px; color:var(--mute); font-family:var(--mono); font-size:12px; letter-spacing:.18em; line-height:2; text-transform:uppercase; }
+    .signoff-details a { color:var(--coral-text); text-decoration:none; }
+    .signoff-details a:hover { text-decoration:underline; }
+    .footer { padding:22px 28px; background:var(--navy); text-align:center; }
+    .footer p { color:var(--on-navy-mute); font-family:var(--mono); font-size:11px; letter-spacing:.18em; line-height:1.7; text-transform:uppercase; }
+    .footer a { color:var(--on-navy); }
     @media (max-width:600px) {
-      .top-bar { flex-direction:column; gap:4px; text-align:center; }
+      .masthead { padding:20px 20px 22px; }
+      .masthead-meta { flex-direction:column; gap:4px; }
+      .masthead-title { font-size:36px; }
       .content { padding:30px 20px 0; }
-      .section { padding:34px 0; }
-      .section-headline { font-size:24px; }
-      .prompt-box pre { font-size:12px; line-height:1.8; }
-      .signoff { padding:32px 20px 36px; }
+      .opener-block { padding:18px 18px; }
+      .section { padding-bottom:40px; }
+      .section-headline { font-size:28px; }
+      .prompt-box { padding:14px 14px; }
+      .prompt-box pre { font-size:12px; line-height:1.7; }
+      .signoff { margin:0 20px; padding:32px 0 36px; }
+    }
+    @media print {
+      html,body { background:#fff; }
+      .masthead,.footer { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+      .prompt-box { break-inside:avoid; }
     }"""
 
 
@@ -93,6 +113,36 @@ def esc(text: str) -> str:
 
 def attr(text: str) -> str:
     return html.escape(text, quote=True)
+
+
+# Every heading carries one coral word (Magnum AI house style). An optional
+# per-section "accent" key names the word; otherwise the longest word that is
+# not a filler word is chosen. Purely presentational: the heading text itself
+# is unchanged.
+ACCENT_SKIP = {
+    "about", "after", "again", "against", "always", "because", "before", "being", "between", "could",
+    "doesn't", "every", "first", "from", "have", "into", "isn't", "just", "nobody", "nothing", "other",
+    "really", "should", "something", "still", "that", "their", "there", "these", "they", "this", "those",
+    "through", "until", "what", "when", "where", "which", "while", "with", "without", "would", "your",
+}
+
+
+def accent_heading(text: str, accent: str | None = None) -> str:
+    words = list(re.finditer(r"[A-Za-z0-9][A-Za-z0-9'\u2019-]*", text))
+    if not words:
+        return esc(text)
+    pick = None
+    if accent:
+        pick = next((w for w in words if w.group(0).lower() == accent.lower()), None)
+    if pick is None:
+        def score(w: re.Match) -> int:
+            word = w.group(0).lower()
+            bare = re.sub(r"['\u2019]s$", "", word)
+            return -1 if word in ACCENT_SKIP or len(words) > 1 and len(bare) < 3 else len(bare)
+        best = max(score(w) for w in words)
+        pick = next(w for w in words if score(w) == best)
+    a, b = pick.span()
+    return f"{esc(text[:a])}<em>{esc(text[a:b])}</em>{esc(text[b:])}"
 
 
 def paragraphs(items: list[str], cls: str | None = None) -> str:
@@ -124,7 +174,7 @@ def render_section(s: dict, magnum_url: str) -> str:
     out = [
         '      <section class="section">',
         f'        <p class="section-label">{esc(label)}</p>',
-        f'        <{tag} class="section-headline">{esc(s["headline"])}</{tag}>',
+        f'        <{tag} class="section-headline">{accent_heading(s["headline"], s.get("accent"))}</{tag}>',
         '        <div class="body-text">',
         paragraphs(s.get("paragraphs", [])),
         "        </div>",
@@ -175,7 +225,7 @@ def render(data: dict, hero_url: str, magnum_url: str) -> str:
     sections = "\n\n".join(render_section(s, magnum_url) for s in data["sections"])
     signoff = "\n".join(f'      <p class="signoff-body">{esc(p)}</p>' for p in data["signoff"])
     return f"""<!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background:#FBFBF9;">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -200,14 +250,18 @@ def render(data: dict, hero_url: str, magnum_url: str) -> str:
   <meta name="twitter:image" content="{preview_url}" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Playfair+Display:wght@400;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+  <meta name="color-scheme" content="light" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
   <style>
 {CSS}
   </style>
 </head>
-<body>
+<body style="background:#FBFBF9;">
   <main class="page">
-    <div class="top-bar"><span>Magnum AI &middot; Client Edition</span><span>magnumai.com.au</span></div>
+    <header class="masthead">
+      <div class="masthead-meta"><span>Magnum AI &middot; Client Edition</span><span>magnumai.com.au</span></div>
+      <p class="masthead-title">This Week in AI</p>
+    </header>
     <img class="hero-img" src="{hero_url}" alt="{attr(data['hero_alt'])}" />
     <div class="content">
       <p class="date-line">{esc(data['display_date'])}</p>

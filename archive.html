@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en-AU" style="background:#EEE6D3;">
+<html lang="en-AU" style="background:#FBFBF9;">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="color-scheme" content="light" />
-  <meta name="theme-color" content="#1E1B17" />
+  <meta name="theme-color" content="#1F2A37" />
   <title>Newsletter Archive · This Week in AI · Magnum AI</title>
   <meta name="description" content="Every edition of the Magnum AI weekly briefing. Plain-English notes on where AI actually earns its place in a small business." />
 
   <!-- Open Graph / WhatsApp preview -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://webes77.github.io/magnum-newsletter/archive.html" />
-  <meta property="og:title" content="Newsletter Archive — This Week in AI" />
+  <meta property="og:title" content="Newsletter Archive · This Week in AI" />
   <meta property="og:description" content="Every edition of the weekly briefing, newest first." />
   <meta property="og:image" content="https://webes77.github.io/magnum-newsletter/thumbnail.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="Magnum AI" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Newsletter Archive — This Week in AI" />
+  <meta name="twitter:title" content="Newsletter Archive · This Week in AI" />
   <meta name="twitter:description" content="Every edition of the weekly briefing, newest first." />
   <meta name="twitter:image" content="https://webes77.github.io/magnum-newsletter/thumbnail.png" />
 
@@ -28,81 +28,79 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     :root{
-      --paper:#EEE6D3; --paper-2:#E4DAC4; --ink:#1E1B17; --body:#2B2823;
-      --rust:#B8452A; --olive:#6C7A3F; --char:#3A3630; --mute:#6F675C;
-      --grid:rgba(120,90,60,.13);
+      --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#1E1B17; --body:#2B2823;
+      --rust:#EF4029; --coral-text:#C63A2A; --coral-bright:#FF6F5E; --tint:#FBE1D8;
+      --char:#3A3630; --mute:#63615C; --hair:#DADAD5; --on-navy:#F4F1EA; --on-navy-mute:#C8CDD3;
       --display:'Oswald','Arial Narrow','Liberation Sans Narrow',sans-serif;
-      --sans:'IBM Plex Sans',system-ui,sans-serif;
+      --sans:'IBM Plex Sans',Arial,system-ui,sans-serif;
       --mono:'IBM Plex Mono',ui-monospace,monospace;
       color-scheme:light;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{background:#EEE6D3}
-    body{font-family:var(--sans);font-size:17px;line-height:1.65;color:var(--body);
-      background:#EEE6D3 !important;
-      background-image:
-        radial-gradient(var(--grid) 1.2px, transparent 1.3px),
-        linear-gradient(rgba(120,90,60,.05) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(120,90,60,.05) 1px,transparent 1px);
-      background-size:26px 26px,26px 26px,26px 26px;
-      -webkit-font-smoothing:antialiased}
+    html{background:#FBFBF9;color-scheme:light}
+    body{font-family:var(--sans);font-size:17px;line-height:1.6;color:var(--body);
+      background:#FBFBF9 !important;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
     .wrap{max-width:880px;margin:0 auto;padding:0 40px}
     a{color:inherit}
 
-    .masthead{background:var(--ink);color:var(--paper);padding:42px 0 48px;border-bottom:4px solid var(--rust)}
-    .masthead .brand{font-family:var(--mono);font-size:12px;letter-spacing:.28em;text-transform:uppercase;border-bottom:1px solid var(--rust);padding-bottom:4px;display:inline-block}
-    .masthead h1{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(42px,7.5vw,80px);line-height:.9;margin-top:24px}
-    .masthead h1 em{font-style:normal;color:var(--rust);display:block}
-    .masthead p{font-size:17px;color:#C9BFAF;max-width:52ch;margin-top:18px;line-height:1.55}
+    .masthead{background:var(--navy);color:var(--on-navy);padding:42px 0 48px;border-bottom:4px solid var(--coral-bright)}
+    .masthead .brand{font-family:var(--mono);font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--coral-bright)}
+    .masthead h1{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(42px,7.5vw,80px);line-height:.92;margin-top:20px;color:var(--on-navy)}
+    .masthead h1 em{font-style:normal;color:var(--coral-bright);display:block}
+    .masthead p{font-size:17px;color:var(--on-navy-mute);max-width:52ch;margin-top:18px;line-height:1.55}
 
-    main{padding:40px 0 10px}
-    .note{font-size:16px;color:var(--char);max-width:66ch;margin-bottom:30px}
-    .label{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--rust);display:flex;align-items:center;gap:14px;margin-bottom:6px}
-    .label::after{content:"";flex:1;height:2px;background:var(--ink)}
+    main.wrap{padding-top:40px;padding-bottom:10px}
+    .note{font-size:17px;color:var(--char);max-width:66ch;margin-bottom:34px}
+    .label{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--coral-text);display:flex;align-items:center;gap:12px;margin-bottom:6px}
+    .label::after{content:"";flex:1;height:1px;background:var(--ink)}
     .count{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:20px}
 
     /* One row per edition. Scannable first, readable second. */
-    .entry{border-top:2px solid rgba(30,27,23,.2);padding:22px 0 20px}
-    .entry:first-child{border-top:3px solid var(--ink)}
-    .entry:last-child{border-bottom:2px solid rgba(30,27,23,.2)}
+    .entry{border-top:1px solid var(--hair);padding:22px 0 20px}
+    .entry:first-child{border-top:2px solid var(--ink)}
+    .entry:last-child{border-bottom:2px solid var(--ink)}
     .row{display:block;text-decoration:none;color:inherit}
+    .row-title em{font-style:normal;color:var(--rust)}
     .row:hover .row-title{color:var(--rust)}
-    .row-meta{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--rust);margin-bottom:7px}
-    .row-meta .latest{background:var(--olive);color:var(--paper);padding:2px 8px;margin-left:10px;letter-spacing:.14em}
-    .row-title{font-family:var(--display);font-weight:600;font-size:clamp(22px,3vw,28px);line-height:1.12;text-transform:uppercase;color:var(--ink);transition:color .12s}
+    .row-meta{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--coral-text);margin-bottom:8px}
+    .row-meta .latest{background:var(--coral-bright);color:var(--ink);border:2px solid var(--ink);padding:1px 8px;margin-left:10px;font-size:11px;letter-spacing:.14em}
+    .row-title{font-family:var(--display);font-weight:600;font-size:clamp(22px,3vw,28px);line-height:1.1;text-transform:uppercase;color:var(--ink)}
     .row-dek{font-size:15.5px;color:var(--char);line-height:1.55;margin-top:8px;max-width:74ch}
-    .row-go{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);margin-top:12px}
+    .row-go{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--coral-text);margin-top:12px}
 
     /* Contents stay available, but folded away so the page reads as a list. */
     details.contents{margin-top:12px}
-    details.contents summary{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:8px}
+    details.contents summary{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:8px}
     details.contents summary::-webkit-details-marker{display:none}
-    details.contents summary::after{content:"+";color:var(--rust);font-size:15px;line-height:1}
+    details.contents summary::after{content:"+";color:var(--coral-text);font-size:15px;line-height:1}
     details.contents[open] summary::after{content:"\2212"}
-    details.contents ul{list-style:none;margin-top:12px;border-left:3px solid var(--rust);padding-left:16px}
-    details.contents li{font-size:14.5px;color:var(--char);line-height:1.5;margin-bottom:6px;max-width:72ch}
+    details.contents ul{list-style:none;margin-top:12px;border-left:2px solid var(--rust);padding-left:16px}
+    details.contents li{font-size:15px;color:var(--char);line-height:1.5;margin-bottom:6px;max-width:72ch}
 
-    .subscribe{background:var(--ink);color:var(--paper);border:3px solid var(--ink);box-shadow:8px 8px 0 var(--rust);padding:32px 34px;margin:46px 0 10px}
-    .subscribe h3{font-family:var(--display);font-weight:700;font-size:28px;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
-    .subscribe p{font-size:15.5px;color:#C9BFAF;max-width:60ch;line-height:1.6}
-    .subscribe .btn{display:inline-block;margin-top:18px;background:var(--rust);color:var(--paper);text-decoration:none;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:12px 22px;border:2px solid var(--paper)}
+    .subscribe{background:var(--paper-2);color:var(--char);border:2px solid var(--ink);padding:30px 32px;margin:46px 0 10px}
+    .subscribe h3{font-family:var(--display);font-weight:600;font-size:30px;line-height:1;text-transform:uppercase;color:var(--ink);margin-bottom:12px}
+    .subscribe h3 em{font-style:normal;color:var(--rust)}
+    .subscribe p{font-size:15.5px;color:var(--char);max-width:60ch;line-height:1.6}
+    .subscribe .btn{display:inline-block;margin-top:18px;background:var(--coral-bright);color:var(--ink);text-decoration:none;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;padding:12px 22px;border:2px solid var(--ink)}
+    .subscribe .btn:hover{background:var(--paper-2)}
 
-    .signoff{margin:36px 0 0;font-size:16px;color:var(--char);max-width:66ch}
+    .signoff{margin:36px 0 0;font-size:17px;color:var(--char);max-width:66ch}
     .signoff p{margin-bottom:10px}
-    .signoff .name{font-family:var(--display);font-weight:600;font-size:20px;text-transform:uppercase;color:var(--ink);margin-top:14px}
+    .signoff .name{font-family:var(--display);font-weight:600;font-size:22px;text-transform:uppercase;color:var(--ink);margin-top:14px}
 
-    footer{background:var(--ink);color:#9C9285;margin-top:44px;padding:32px 0}
+    footer{background:var(--navy);color:var(--on-navy-mute);margin-top:44px;padding:28px 0}
     footer .wrap{display:flex;justify-content:space-between;gap:20px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
-    footer b{color:var(--paper);font-weight:500}
+    footer b{color:var(--on-navy);font-weight:500}
 
     @media(max-width:700px){
-      .wrap{padding:0 22px}
+      .wrap{padding:0 20px}
       .masthead{padding:32px 0 36px}
+      .subscribe{padding:24px 22px}
       footer .wrap{flex-direction:column;gap:10px}
     }
   </style>
 </head>
-<body style="background:#EEE6D3;">
+<body style="background:#FBFBF9;">
 
   <header class="masthead">
     <div class="wrap">
@@ -133,7 +131,7 @@
     </noscript>
 
     <div class="subscribe">
-      <h3>Get it in your inbox</h3>
+      <h3>Get it in your <em>inbox</em></h3>
       <p>One short edition a week. No fluff and no hype, just the part that matters for a business like yours.</p>
       <a class="btn" href="https://magnumai.com.au" target="_blank" rel="noopener">Subscribe at magnumai.com.au</a>
     </div>
@@ -165,6 +163,24 @@
         });
       }
 
+      // House style: every heading carries one coral word. Picks the longest
+      // word that is not a filler word; the title text itself is unchanged.
+      var SKIP = ['about','after','because','before','being','could','every','from','have','into','just',
+        'nobody','nothing','really','should','still','that','their','there','these','they','this','those',
+        'through','until','what','when','where','which','while','with','without','would','your'];
+      function accent(title) {
+        var text = String(title == null ? '' : title);
+        var re = /[A-Za-z0-9][A-Za-z0-9'\u2019-]*/g, m, best = null, bestScore = -2;
+        while ((m = re.exec(text))) {
+          var w = m[0].toLowerCase(), bare = w.replace(/['\u2019]s$/, '');
+          var score = SKIP.indexOf(w) > -1 || bare.length < 3 ? -1 : bare.length;
+          if (score > bestScore) { bestScore = score; best = { i: m.index, len: m[0].length }; }
+        }
+        if (!best) return esc(text);
+        return esc(text.slice(0, best.i)) + '<em>' + esc(text.substr(best.i, best.len)) + '</em>' +
+          esc(text.slice(best.i + best.len));
+      }
+
       function renderRow(issue, isLatest) {
         var items = (issue.contents || []).map(function (line) {
           return '<li>' + esc(line) + '</li>';
@@ -175,7 +191,7 @@
           : '';
         return '<div class="entry"><a class="row" href="' + esc(issue.file) + '">' +
           '<p class="row-meta">' + esc(issue.displayDate) + badge + '</p>' +
-          '<h2 class="row-title">' + esc(issue.title) + '</h2>' +
+          '<h2 class="row-title">' + accent(issue.title) + '</h2>' +
           '<p class="row-dek">' + esc(issue.dek) + '</p>' +
           '<span class="row-go">Read this edition &rarr;</span>' +
         '</a>' + contents + '</div>';
