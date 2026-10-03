@@ -1,6 +1,21 @@
 {
   "issues": [
     {
+      "date": "2026-10-04",
+      "displayDate": "4 October 2026",
+      "title": "The AI assistant that never clocks off",
+      "dek": "OpenAI’s new always-on assistant is rolling out, and the smart way to start is with one small job and approvals switched on.",
+      "file": "issues/2026-10-04.html",
+      "contents": [
+        "The Newsline, OpenAI’s always-on assistant is here, and how to start it safely",
+        "Looking Sideways, the AI that nearly half of people took for a real person on video",
+        "The Win, how a pest controller stopped relying on memory to chase repeat customers",
+        "Tool of the Week, Wispr Flow, the app that turns talking into clean, finished text",
+        "Prompt of the Week, find the jobs you keep meaning to do and hand one to AI",
+        "The Magnum, this edition’s AI video, made from one photo and a preset, no prompt"
+      ]
+    },
+    {
       "date": "2026-09-27",
       "displayDate": "27 September 2026",
       "title": "Google's AI Hacked Three Companies. Nobody Noticed.",
