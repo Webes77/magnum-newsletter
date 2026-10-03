@@ -30,12 +30,40 @@ one sentence or two per paragraph, the way the reference edition reads).
 
 | Label | Extra keys | What it is |
 |---|---|---|
-| `The Newsline` | none | The one story that changes what a small business owner does. Rendered as the page's h1. |
-| `Looking Sideways` | none | Something from outside the AI news that shows where the tools are going. |
+| `The Newsline` | `source` (required) | The one story that changes what a small business owner does. Rendered as the page's h1. |
+| `Looking Sideways` | `source` (required) | Something from outside the AI news that shows where the tools are going. |
 | `The Win` | none | A real result from a Magnum AI client, anonymised. Only written from material James supplied. Never invented. |
 | `Tool of the Week` | `link: {url, text}` | One tool, what problem it solves, the price as quoted. `text` is `Name: url`. |
 | `Prompt of the Week` | `prompt` (string, line breaks kept), `use` (list of strings, one instruction each) | A prompt any small business owner can paste, whatever their trade. Generic, never written for one named or example business; the reader's own details go in short [square bracket] fill-ins, three or four at most. |
 | `The Magnum` | `prompt` (string), `image_alt` (string), `take` (string), optional `video_prompt` (string) | The image prompt that made the Magnum image, and one or two lines on what to take from it. When the Magnum is a video made in two steps (a still, then a video model animating it), `video_prompt` carries the motion prompt verbatim; the page then labels the two boxes "The image prompt" and "The video prompt". |
+
+### Sources
+
+Any section may carry an optional `source` object. It renders as a coral
+mono link at the end of the section and, when `image` is given, as a
+full-width image at the top of the section body with a small
+"Image: publisher.com" credit under it. If the image fails to load it is
+hidden, so a broken third-party link never shows a broken picture.
+
+```json
+"source": {
+  "url": "https://openai.com/index/...",
+  "text": "Read the original: OpenAI's announcement",
+  "image": "https://... (optional, the article's own main image)",
+  "image_alt": "... (required when image is given)"
+}
+```
+
+| Key | Rule |
+|---|---|
+| `url` | Required. The original article. Starts with `https://`. |
+| `text` | Required, not empty. `Read the original: <publisher>`, optionally with what it is. |
+| `image` | Optional. The article's own main image, hotlinked, `https://`. Leave it out rather than guess. |
+| `image_alt` | Required when `image` is given. Describes the picture. |
+
+The Newsline and Looking Sideways must carry a source (Looking Sideways only
+when it is present). Tool of the Week keeps its existing `link` and carries
+no `source`. The Win, Prompt of the Week and The Magnum carry none.
 
 ## Copy rules the checker enforces
 
@@ -48,6 +76,9 @@ any of these.
   "this edition". Inside a prompt box the rule does not apply.
 - Never the word "solid".
 - Sections in the fixed order, the four required ones present.
+- The Newsline carries a `source`, and so does Looking Sideways when present.
+  Every `source` has an `https://` url and non-empty text; an `image` needs
+  `image_alt`. The Win, Prompt of the Week and The Magnum carry none.
 
 ## Rules the checker cannot enforce
 
@@ -57,3 +88,4 @@ any of these.
 - Figures, prices and names exactly as the source gave them. If unsure,
   leave it out.
 - Nothing a reader would need to have read an earlier edition to follow.
+- Source names may appear only in the source line, never in body copy.

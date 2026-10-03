@@ -34,6 +34,7 @@ import shutil
 import sys
 from datetime import date
 from pathlib import Path
+from urllib.parse import urlparse
 
 BASE_URL = "https://webes77.github.io/magnum-newsletter"
 PLACEHOLDER_RE = re.compile(r"\{\{[A-Z0-9_]+\}\}")
@@ -41,6 +42,8 @@ STALE_RE = re.compile(r"\b(last week|this week|yesterday|earlier today|prior edi
 EM_DASH = "—"
 
 REQUIRED_TOP = ("date", "display_date", "title", "dek", "hero_alt", "opener", "index", "sections", "signoff")
+SOURCE_REQUIRED = ("The Newsline", "Looking Sideways")  # must carry a source when present
+SOURCE_NONE = ("The Win", "Prompt of the Week", "The Magnum")  # never carry one
 SECTION_ORDER = ("The Newsline", "Looking Sideways", "The Win", "Tool of the Week", "Prompt of the Week", "The Magnum")
 
 CSS = """    :root { --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#1E1B17; --body:#2B2823; --char:#3A3630; --mute:#63615C; --rust:#EF4029; --coral-text:#C63A2A; --coral-bright:#FF6F5E; --tint:#FBE1D8; --on-navy:#F4F1EA; --on-navy-mute:#C8CDD3; --hair:#DADAD5; --display:'Oswald','Arial Narrow','Liberation Sans Narrow',sans-serif; --sans:'IBM Plex Sans',Arial,system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,'Courier New',monospace; color-scheme:light; }
@@ -73,6 +76,11 @@ CSS = """    :root { --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#
     .body-text p:last-child { margin-bottom:0; }
     .tool-link { display:inline-block; min-height:44px; margin-top:20px; color:var(--coral-text); font-size:15.5px; font-weight:600; line-height:44px; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px; overflow-wrap:anywhere; }
     .tool-link:hover { color:var(--ink); }
+    .source-figure { margin:0 0 22px; }
+    .source-img { display:block; width:100%; height:auto; border:2px solid var(--ink); background:var(--paper-2); }
+    .source-credit { margin-top:8px; color:var(--mute); font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; }
+    .source-link { display:inline-block; min-height:44px; margin-top:20px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.18em; line-height:1.6; padding:12px 0; text-transform:uppercase; text-decoration:none; overflow-wrap:anywhere; }
+    .source-link:hover { color:var(--ink); text-decoration:underline; text-underline-offset:4px; }
     .prompt-label { margin:24px 0 10px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
     .prompt-box { margin:0 0 20px; padding:18px 20px; overflow-wrap:anywhere; background:var(--paper-2); border:2px solid var(--ink); }
     .prompt-box pre { margin:0; color:var(--char); font-family:var(--mono); font-size:13px; line-height:1.75; white-space:pre-wrap; word-break:break-word; }
@@ -168,13 +176,34 @@ def load_edition(path: Path) -> dict:
     return data
 
 
+def publisher_domain(url: str) -> str:
+    host = (urlparse(url).hostname or "").lower()
+    return host[4:] if host.startswith("www.") else host
+
+
+def render_source_image(src: dict) -> list[str]:
+    url = src["image"]
+    return [
+        '        <figure class="source-figure">',
+        f'          <img class="source-img" src="{attr(url)}" alt="{attr(src.get("image_alt", ""))}" '
+        'loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.style.display=\'none\'" />',
+        f'          <figcaption class="source-credit">Image: {esc(publisher_domain(url))}</figcaption>',
+        "        </figure>",
+    ]
+
+
 def render_section(s: dict, magnum_url: str) -> str:
     label = s["label"]
     tag = "h1" if label == "The Newsline" else "h2"
+    src = s.get("source") or {}
     out = [
         '      <section class="section">',
         f'        <p class="section-label">{esc(label)}</p>',
         f'        <{tag} class="section-headline">{accent_heading(s["headline"], s.get("accent"))}</{tag}>',
+    ]
+    if src.get("image"):
+        out += render_source_image(src)
+    out += [
         '        <div class="body-text">',
         paragraphs(s.get("paragraphs", [])),
         "        </div>",
@@ -210,6 +239,11 @@ def render_section(s: dict, magnum_url: str) -> str:
         else:
             out.append(f'        <img class="magnum-img" src="{magnum_url}" alt="{attr(s["image_alt"])}" />')
         out.append(f'        <p class="magnum-take">Take from it:<br />{esc(s["take"])}</p>')
+    if src.get("url"):
+        out.append(
+            f'        <a class="source-link" href="{attr(src["url"])}" target="_blank" rel="noopener">'
+            f'{esc(src.get("text", ""))} &rarr;</a>'
+        )
     out.append("      </section>")
     return "\n".join(out)
 
@@ -299,14 +333,42 @@ def check(page: str, data: dict) -> list[str]:
     m = STALE_RE.search(text)
     if m:
         errors.append(f"stale relative-time phrase in body copy: '{m.group(0)}' (use the date or 'this edition')")
-    if EM_DASH in page:
+    if EM_DASH in re.sub(r'\b(?:href|src)="[^"]*"', "", page):  # URLs are not copy
         errors.append("em dash in the page; use a comma, a full stop or a middot")
     if re.search(r"\bsolid\b", text, re.I):
         errors.append("the word 'solid' is banned")
+    errors += check_sources(data)
     if f"{BASE_URL}/issues/{d}.html" not in page:
         errors.append("canonical issue URL missing")
     if f"{BASE_URL}/assets/previews/{d}.jpg" not in page:
         errors.append("preview URL missing")
+    return errors
+
+
+def check_sources(data: dict) -> list[str]:
+    """Source rules from tools/EDITION-SCHEMA.md."""
+    errors: list[str] = []
+    for s in data["sections"]:
+        label = s["label"]
+        src = s.get("source")
+        if src is None:
+            if label in SOURCE_REQUIRED:
+                errors.append(f"{label} must carry a source {{url, text}}")
+            continue
+        if label in SOURCE_NONE:
+            errors.append(f"{label} carries no source; remove it")
+        if not isinstance(src, dict):
+            errors.append(f"{label}: source must be an object")
+            continue
+        if not str(src.get("url", "")).startswith("https://"):
+            errors.append(f"{label}: source.url must start with https://")
+        if not str(src.get("text", "")).strip():
+            errors.append(f"{label}: source.text must not be empty")
+        if src.get("image"):
+            if not str(src["image"]).startswith("https://"):
+                errors.append(f"{label}: source.image must start with https://")
+            if not str(src.get("image_alt", "")).strip():
+                errors.append(f"{label}: source.image needs image_alt")
     return errors
 
 

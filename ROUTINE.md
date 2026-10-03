@@ -92,7 +92,7 @@ The Magnum is a striking image built from a single written prompt, with the prom
 Figures, prices, names and dates exactly as the source gave them. If you are not confident a claim is true, or only one source you do not trust carried it, leave it out. Never invent.
 No em dashes anywhere. Never the word "solid". No exclamation marks. No hype and no newsletter cliches. Australian English. Short paragraphs, one or two sentences each, the way the reference edition reads. Plain words a tradesperson would use.
 No relative time in body copy: not "this week", "last week", "yesterday", "earlier today", "previous issue" or "prior edition". Say the date, or say "this edition". The checker fails the build on these.
-Nothing that needs an earlier edition to make sense. No client names anywhere. No source names or citations in the body.
+Nothing that needs an earlier edition to make sense. No client names anywhere. Source names may appear only in the source line, never in body copy. The Newsline and Looking Sideways each carry a source (the original article's url, "Read the original: <publisher>", and its main image with alt text when it has one), as tools/EDITION-SCHEMA.md describes.
 
 TONE
 James: direct, dry, warm, plain. A sharp peer telling you what matters and what to ignore, in the fewest words that carry it. Confident without selling. The reference edition is the standard; match its rhythm.
