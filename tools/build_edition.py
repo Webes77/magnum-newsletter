@@ -89,6 +89,9 @@ CSS = """    :root { --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#
     .prompt-use strong,.magnum-take strong { color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
     .magnum-img,.magnum-video { margin:0 0 18px; border:2px solid var(--ink); background:var(--paper-2); }
     .magnum-take { padding-top:14px; border-top:1px solid var(--hair); }
+    .magnum-steps { margin:0 0 24px; padding-left:22px; color:var(--body); font-size:17px; line-height:1.7; }
+    .magnum-steps li { margin-bottom:8px; padding-left:4px; }
+    .magnum-after { margin-bottom:22px; }
     .signoff { margin:0 28px; padding:36px 0 44px; border-top:2px solid var(--ink); }
     .signoff-body { margin-bottom:16px; color:var(--body); font-size:17px; line-height:1.7; }
     .signoff-details { margin-top:22px; color:var(--mute); font-family:var(--mono); font-size:12px; letter-spacing:.18em; line-height:2; text-transform:uppercase; }
@@ -222,10 +225,16 @@ def render_section(s: dict, magnum_url: str) -> str:
         ]
     if label == "The Magnum":
         video_prompt = s.get("video_prompt")
-        out += [
-            f'        <p class="prompt-label">{"The image prompt" if video_prompt else "Prompt"}</p>',
-            f'        <div class="prompt-box"><pre>{esc(s["prompt"])}</pre></div>',
-        ]
+        if s.get("prompt"):
+            out += [
+                f'        <p class="prompt-label">{"The image prompt" if video_prompt else "Prompt"}</p>',
+                f'        <div class="prompt-box"><pre>{esc(s["prompt"])}</pre></div>',
+            ]
+        if s.get("steps"):
+            out.append('        <p class="prompt-label">How to use it</p>')
+            out.append('        <ol class="magnum-steps">' + "".join(f"<li>{esc(x)}</li>" for x in s["steps"]) + "</ol>")
+        if s.get("after"):
+            out += ['        <div class="body-text magnum-after">', paragraphs(s["after"]), "        </div>"]
         if video_prompt:
             out += [
                 '        <p class="prompt-label">The video prompt</p>',
@@ -243,7 +252,8 @@ def render_section(s: dict, magnum_url: str) -> str:
             )
         else:
             out.append(f'        <img class="magnum-img" src="{magnum_url}" alt="{attr(s["image_alt"])}" />')
-        out.append(f'        <p class="magnum-take">Take from it:<br />{esc(s["take"])}</p>')
+        if s.get("take"):
+            out.append(f'        <p class="magnum-take">Take from it:<br />{esc(s["take"])}</p>')
     if src.get("url"):
         out.append(
             f'        <a class="source-link" href="{attr(src["url"])}" target="_blank" rel="noopener">'
