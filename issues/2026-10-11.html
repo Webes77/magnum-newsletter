@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" style="background:#FBFBF9;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>This Week in AI, 11 October 2026 | Claude now works inside your Google files | Magnum AI</title>
+  <meta name="description" content="Claude can now sit beside your Google Docs, Sheets and Slides and edit them, asking before it changes anything. Here is how to try it on one spreadsheet." />
+  <link rel="canonical" href="https://webes77.github.io/magnum-newsletter/issues/2026-10-11.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://webes77.github.io/magnum-newsletter/issues/2026-10-11.html" />
+  <meta property="og:title" content="This Week in AI, 11 October 2026 | Claude now works inside your Google files | Magnum AI" />
+  <meta property="og:description" content="Claude can now sit beside your Google Docs, Sheets and Slides and edit them, asking before it changes anything. Here is how to try it on one spreadsheet." />
+  <meta property="og:image" content="https://webes77.github.io/magnum-newsletter/assets/previews/2026-10-11.jpg" />
+  <meta property="og:image:secure_url" content="https://webes77.github.io/magnum-newsletter/assets/previews/2026-10-11.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="James Wheable writing" />
+  <meta property="og:site_name" content="Magnum AI" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="This Week in AI, 11 October 2026 | Claude now works inside your Google files | Magnum AI" />
+  <meta name="twitter:description" content="Claude can now sit beside your Google Docs, Sheets and Slides and edit them, asking before it changes anything. Here is how to try it on one spreadsheet." />
+  <meta name="twitter:image" content="https://webes77.github.io/magnum-newsletter/assets/previews/2026-10-11.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta name="color-scheme" content="light" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+  <style>
+    :root { --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#1E1B17; --body:#2B2823; --char:#3A3630; --mute:#63615C; --rust:#EF4029; --coral-text:#C63A2A; --coral-bright:#FF6F5E; --tint:#FBE1D8; --on-navy:#F4F1EA; --on-navy-mute:#C8CDD3; --hair:#DADAD5; --display:'Oswald','Arial Narrow','Liberation Sans Narrow',sans-serif; --sans:'IBM Plex Sans',Arial,system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,'Courier New',monospace; color-scheme:light; }
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    html,body { background:#FBFBF9; color-scheme:light; }
+    body { color:var(--body); font-family:var(--sans); font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:100%; overflow-wrap:break-word; }
+    .page { max-width:720px; margin:0 auto; background:#FBFBF9; }
+    .masthead { background:var(--navy); color:var(--on-navy); border-bottom:4px solid var(--coral-bright); padding:26px 28px 28px; }
+    .masthead-meta { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    .masthead-meta span { color:var(--coral-bright); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .masthead-meta span + span { color:var(--on-navy-mute); }
+    .masthead-title { margin-top:14px; color:var(--on-navy); font-family:var(--display); font-size:44px; font-weight:700; line-height:.95; text-transform:uppercase; }
+    .hero-img,.magnum-img,.magnum-video { display:block; width:100%; height:auto; }
+    .content { padding:36px 28px 0; }
+    .date-line { margin-bottom:24px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .opener-block { margin-bottom:44px; padding:22px 26px; background:var(--paper-2); border:2px solid var(--ink); }
+    .opener-text { margin-bottom:16px; color:var(--char); font-size:17px; font-style:italic; line-height:1.7; }
+    .opener-text:last-of-type { margin-bottom:24px; }
+    .index-label { display:flex; align-items:center; gap:12px; margin-bottom:12px; color:var(--coral-text); font-family:var(--mono); font-size:12px; letter-spacing:.22em; text-transform:uppercase; }
+    .index-label::after { content:""; flex:1; height:1px; background:var(--ink); }
+    .index-list { list-style:none; }
+    .index-list li { position:relative; padding-left:18px; color:var(--char); font-size:15.5px; line-height:1.6; margin-bottom:8px; }
+    .index-list li::before { content:'\00B7'; position:absolute; left:2px; color:var(--rust); font-weight:700; }
+    .section { padding:0 0 48px; }
+    .section-label { display:flex; align-items:center; gap:12px; margin-bottom:14px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .section-label::after { content:""; flex:1; height:1px; background:var(--ink); }
+    .section-headline { margin-bottom:20px; color:var(--ink); font-family:var(--display); font-size:34px; font-weight:600; line-height:1.05; text-transform:uppercase; }
+    .section-headline em { font-style:normal; color:var(--rust); }
+    .body-text p { margin-bottom:16px; color:var(--body); font-size:17px; line-height:1.7; }
+    .body-text p:last-child { margin-bottom:0; }
+    .tool-link { display:inline-block; min-height:44px; margin-top:20px; color:var(--coral-text); font-size:15.5px; font-weight:600; line-height:44px; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px; overflow-wrap:anywhere; }
+    .tool-link:hover { color:var(--ink); }
+    .source-figure { margin:0 0 22px; }
+    .source-img { display:block; width:100%; height:auto; border:2px solid var(--ink); background:var(--paper-2); }
+    .source-credit { margin-top:8px; color:var(--mute); font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; }
+    .source-link { display:inline-block; min-height:44px; margin-top:20px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.18em; line-height:1.6; padding:12px 0; text-transform:uppercase; text-decoration:none; overflow-wrap:anywhere; }
+    .source-link:hover { color:var(--ink); text-decoration:underline; text-underline-offset:4px; }
+    .prompt-label { margin:24px 0 10px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .prompt-box { margin:0 0 20px; padding:18px 20px; overflow-wrap:anywhere; background:var(--paper-2); border:2px solid var(--ink); }
+    .prompt-box pre { margin:0; color:var(--char); font-family:var(--mono); font-size:13px; line-height:1.75; white-space:pre-wrap; word-break:break-word; }
+    .prompt-use,.magnum-take { color:var(--char); font-size:15.5px; line-height:1.7; }
+    .prompt-use strong,.magnum-take strong { color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .magnum-img,.magnum-video { margin:0 0 18px; border:2px solid var(--ink); background:var(--paper-2); }
+    .magnum-take { padding-top:14px; border-top:1px solid var(--hair); }
+    .magnum-steps { margin:0 0 24px; padding-left:22px; color:var(--body); font-size:17px; line-height:1.7; }
+    .magnum-steps li { margin-bottom:8px; padding-left:4px; }
+    .magnum-after { margin-bottom:22px; }
+    .signoff { margin:0 28px; padding:36px 0 44px; border-top:2px solid var(--ink); }
+    .signoff-body { margin-bottom:16px; color:var(--body); font-size:17px; line-height:1.7; }
+    .signoff-details { margin-top:22px; color:var(--mute); font-family:var(--mono); font-size:12px; letter-spacing:.18em; line-height:2; text-transform:uppercase; }
+    .signoff-details a { color:var(--coral-text); text-decoration:none; }
+    .signoff-details a:hover { text-decoration:underline; }
+    .footer { padding:22px 28px; background:var(--navy); text-align:center; }
+    .footer p { color:var(--on-navy-mute); font-family:var(--mono); font-size:11px; letter-spacing:.18em; line-height:1.7; text-transform:uppercase; }
+    .footer a { color:var(--on-navy); }
+    @media (max-width:600px) {
+      .masthead { padding:20px 20px 22px; }
+      .masthead-meta { flex-direction:column; gap:4px; }
+      .masthead-title { font-size:36px; }
+      .content { padding:30px 20px 0; }
+      .opener-block { padding:18px 18px; }
+      .section { padding-bottom:40px; }
+      .section-headline { font-size:28px; }
+      .prompt-box { padding:14px 14px; }
+      .prompt-box pre { font-size:12px; line-height:1.7; }
+      .signoff { margin:0 20px; padding:32px 0 36px; }
+    }
+    @media print {
+      html,body { background:#fff; }
+      .masthead,.footer { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+      .prompt-box { break-inside:avoid; }
+    }
+  </style>
+</head>
+<body style="background:#FBFBF9;">
+  <main class="page">
+    <header class="masthead">
+      <div class="masthead-meta"><span>Magnum AI &middot; Client Edition</span><span>magnumai.com.au</span></div>
+      <p class="masthead-title">This Week in AI</p>
+    </header>
+    <img class="hero-img" src="https://webes77.github.io/magnum-newsletter/assets/standing/hero.png" alt="James Wheable writing" />
+    <div class="content">
+      <p class="date-line">11 October 2026</p>
+      <div class="opener-block">
+        <p class="opener-text">Plenty of AI news turned up in the past seven days. Most of it was about models, benchmarks and who sacked whom.</p>
+        <p class="opener-text">None of that changes what happens in your inbox on Monday.</p>
+        <p class="opener-text">What might is smaller and more practical. Claude can now work inside the Google files you already use, including the spreadsheet you trust a bit more than you should.</p>
+        <p class="opener-text">That's where I'll start.</p>
+        <p class="index-label">In this edition:</p>
+        <ul class="index-list">
+          <li>The Newsline &middot; claude can now edit your google docs, sheets and slides, and asks first</li>
+          <li>The Win &middot; how an electrician found a wrong figure hiding in a quote template</li>
+          <li>Tool of the Week &middot; synthid detector, the free check for whether a photo carries an ai watermark</li>
+          <li>Prompt of the Week &middot; check a spreadsheet for mistakes before you trust its totals</li>
+          <li>The Magnum &middot; genjutsu, the higgsfield tool that rebuilds a video you already have</li>
+        </ul>
+      </div>
+
+      <section class="section">
+        <p class="section-label">The Newsline</p>
+        <h1 class="section-headline">Claude now works inside Google Docs, Sheets and Slides, and asks before it changes <em>anything</em></h1>
+        <figure class="source-figure">
+          <img class="source-img" src="https://claude.com/resources/articles/claude-now-works-in-google-docs-sheets-and-slides/opengraph-image/og" alt="Anthropic&#x27;s announcement graphic for Claude working with Google Docs, Sheets and Slides" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.style.display='none'" />
+          <figcaption class="source-credit">Image: claude.com</figcaption>
+        </figure>
+        <div class="body-text">
+          <p>On 6 October, Anthropic released Claude for Google Workspace.</p>
+          <p>It's an add-on that opens Claude in a sidebar beside whatever Doc, Sheet or Slides file you have open. Claude can read the file and make changes to it.</p>
+          <p>Until now, using Claude on a spreadsheet meant copying figures out, pasting them into a chat, then pasting the answer back. That step is gone.</p>
+          <p>It's in public beta on all paid Claude plans. You install it from the Google Workspace Marketplace, open a file, then go to Extensions, Claude, Open Claude.</p>
+          <p>The part worth knowing: by default it uses an "Ask before edits" mode. Every change shows up as an approval card, and nothing lands until you accept it.</p>
+          <p>There's also an "Accept all edits" mode, where it applies changes without pausing. Leave that off until you trust it on your own files.</p>
+          <p>If you're on a Team or Enterprise plan, an owner has to switch on the Google connectors first. Claude's access follows your existing Google sharing settings, so it can only see what you can see.</p>
+          <p>It's beta, so expect rough edges.</p>
+          <p>Today: pick one spreadsheet your business leans on, like a price list or a quote template. Ask Claude to look for mistakes, with Ask before edits left on. The Prompt of the Week below does exactly that. Ten minutes.</p>
+        </div>
+        <a class="source-link" href="https://claude.com/resources/articles/claude-now-works-in-google-docs-sheets-and-slides" target="_blank" rel="noopener">Read the original: Anthropic, Claude now works with Google Docs, Sheets, and Slides &rarr;</a>
+      </section>
+
+      <section class="section">
+        <p class="section-label">The Win</p>
+        <h2 class="section-headline">An <em>electrician</em> found a wrong figure hiding in a quote template</h2>
+        <div class="body-text">
+          <p>Here's the shape of a result I see constantly, told as a pattern rather than one job.</p>
+          <p>A small electrical contractor had a quote template in a spreadsheet. It had been copied and adjusted for years.</p>
+          <p>Nobody had ever checked it from top to bottom. It looked right, so everyone trusted it.</p>
+          <p>The owner asked AI to go through it and list anything that looked off, without changing a thing.</p>
+          <p>It found two problems. One total had been typed over, so it no longer updated when the lines above it changed. One line used a different formula from every line around it.</p>
+          <p>Neither was dramatic. Both had been quietly affecting quotes.</p>
+          <p>The fix took minutes. The lesson is the useful bit.</p>
+          <p>A spreadsheet that has worked for years isn't proof that it's right. It only proves nobody has looked.</p>
+          <p>Ask AI to review it. Read the list. Then decide yourself what to fix.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="section-label">Tool of the Week</p>
+        <h2 class="section-headline">SynthID <em>Detector</em></h2>
+        <div class="body-text">
+          <p>Sooner or later a photo lands in your inbox and you wonder whether it's real.</p>
+          <p>A supplier's product shot. A "damaged goods" photo attached to a refund request. A picture in a review.</p>
+          <p>Google has opened SynthID Detector to the public. You upload an image, video or audio clip and it looks for invisible watermarks that some AI tools leave behind.</p>
+          <p>It checks for marks from Google, OpenAI, Nvidia and Kakao. It's free, but you need to sign in with a Google, Apple or OpenAI account.</p>
+          <p>Know its limits. It can only find watermarks from the companies it covers, so a clip made with another tool can pass straight through.</p>
+          <p>A positive result is useful. A negative one doesn't prove the photo is real.</p>
+          <p>Treat it as one signal, then do what you'd do anyway. Ask for the original file, or ring the person.</p>
+          <p>Worth bookmarking now, before you need it.</p>
+        </div>
+        <a class="tool-link" href="https://synthid.com">SynthID Detector: https://synthid.com</a>
+      </section>
+
+      <section class="section">
+        <p class="section-label">Prompt of the Week</p>
+        <h2 class="section-headline">Check a <em>spreadsheet</em> for mistakes before you trust its totals</h2>
+        <div class="body-text">
+          <p>Most owners have one spreadsheet that quietly runs part of the business.</p>
+          <p>This prompt asks AI to go through it like a careful bookkeeper and list what looks wrong. It changes nothing, so you stay in charge of every fix.</p>
+          <p>It works in Claude, ChatGPT or Gemini. If you use Claude in Google Sheets, open the sidebar and paste it there.</p>
+        </div>
+        <p class="prompt-label">Prompt</p>
+        <div class="prompt-box"><pre>You're a careful bookkeeper who reviews spreadsheets for small businesses. You're paid to find mistakes, not to be polite.
+
+Context: I run [your business]. This spreadsheet is used for [what the spreadsheet is used for]. The figures that matter most are [the key totals or cells]. A mistake here would cost me [what a mistake would cost you].
+
+Constraints: Work only from what is in the spreadsheet. Report only and leave every cell unchanged, because I want to approve each fix myself. If you can't tell whether something is an error, say so and tell me what to check, because a guessed error wastes my time.
+
+Check for:
+1. Formulas that point at the wrong cells or ranges.
+2. Typed-in numbers where a formula should be.
+3. Formulas that differ from the rows around them.
+4. Totals that don't add up to their parts.
+5. Blank or text cells sitting inside number columns.
+
+Tone: Plain and direct. No jargon.
+
+Format: A list ordered by risk, highest first. For each issue give the sheet and cell, what's wrong, why it matters and the safest fix.
+
+Output: Finish with one line saying whether I can trust the key totals as they stand. If you find nothing wrong, say so in one line and stop. Don't invent a problem to look useful.</pre></div>
+        <div class="body-text">
+          <p class="prompt-use"><strong>Use it for</strong><br />Fill in the four square brackets with your own details.<br />Paste the prompt into your AI, then share the spreadsheet or open it in the sidebar.<br />Read the list, check each item yourself, then fix only what's genuinely wrong.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="section-label">The Magnum</p>
+        <h2 class="section-headline"><em>Higgsfield</em> Genjutsu</h2>
+        <div class="body-text">
+          <p>This edition's video is me in my glasses, with my wife Courtney walking towards me as a zombie.</p>
+          <p>The tool is called Genjutsu. It's a new section inside Higgsfield that launched in September. The name is a Japanese word for an illusion technique, which is about right.</p>
+          <p>You give it a video you already have, and it rebuilds part of it. There are two modes.</p>
+          <p>Motion Transfer keeps the movement, the camera and the timing, then builds a whole new scene around it. New person, new location, new look. Same performance.</p>
+          <p>Object Swap does the opposite. You point at one thing, a person, an outfit, a product or a background, and it changes only that. Everything else stays as filmed.</p>
+          <p>Ours is Motion Transfer: our faces, a zombie film's movement.</p>
+          <p>It's like filming one take, then sending it to wardrobe and the art department afterwards, without anyone having to come back on set.</p>
+        </div>
+        <p class="prompt-label">How to use it</p>
+        <ol class="magnum-steps"><li>Open Higgsfield and go to Genjutsu.</li><li>Pick Motion Transfer or Object Swap.</li><li>Upload your video. It takes clips between 3 and 30 seconds.</li><li>Upload reference images of what you want in the shot: a character, a product, an outfit or a location.</li><li>Pick a preset, or type one short line describing the change.</li><li>Generate. It shows you the credit cost before you commit, and the video comes back at up to 1080p.</li></ol>
+        <div class="body-text magnum-after">
+          <p>I made over 20 of these in a week. Most were me dropped into film scenes. Fun, but not useful.</p>
+          <p>The useful bit is this. One decent phone video of you or your product becomes several versions. A different setting, a different outfit, a different product on the bench. No reshoot and no studio day.</p>
+          <p>It won't fix a bad take. A shaky, badly lit clip gives you a shaky, badly lit zombie. Start with a clean shot.</p>
+          <p>Have a look at the video below, then have a go yourself.</p>
+        </div>
+        <video class="magnum-video" controls preload="metadata" playsinline poster="https://webes77.github.io/magnum-newsletter/assets/2026-10-11/the-magnum-2026-10-11-poster.jpg" aria-label="James in his glasses as his wife Courtney walks towards him as a zombie, made with Higgsfield Genjutsu"><source src="https://d8j0ntlcm91z4.cloudfront.net/user_3Cf3pN3Od0BMoYtBE8Pnj11axEC/hf_20261003_082916_820c3a83-3c60-45f0-b65a-97d9f5d2a152.mp4" type="video/mp4" /></video>
+      </section>
+    </div>
+    <div class="signoff">
+      <p class="signoff-body">Pick one spreadsheet and run the prompt above on it.</p>
+      <p class="signoff-body">You'll know in ten minutes whether the numbers you've been trusting deserve it.</p>
+      <p class="signoff-body">Then do the part AI can't. Decide what's actually right for your business.</p>
+      <p class="signoff-body">Have a good week.</p>
+      <p class="signoff-details">Magnum AI | <a href="https://magnumai.com.au">magnumai.com.au</a></p>
+    </div>
+    <footer class="footer"><p>You're getting this because you're a Magnum AI client.</p></footer>
+  </main>
+</body>
+</html>

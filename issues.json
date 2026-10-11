@@ -1,6 +1,20 @@
 {
   "issues": [
     {
+      "date": "2026-10-11",
+      "displayDate": "11 October 2026",
+      "title": "Claude now works inside your Google files",
+      "dek": "Claude can now sit beside your Google Docs, Sheets and Slides and edit them, asking before it changes anything. Here is how to try it on one spreadsheet.",
+      "file": "issues/2026-10-11.html",
+      "contents": [
+        "The Newsline, Claude can now edit your Google Docs, Sheets and Slides, and asks first",
+        "The Win, how an electrician found a wrong figure hiding in a quote template",
+        "Tool of the Week, SynthID Detector, the free check for whether a photo carries an AI watermark",
+        "Prompt of the Week, check a spreadsheet for mistakes before you trust its totals",
+        "The Magnum, Genjutsu, the Higgsfield tool that rebuilds a video you already have"
+      ]
+    },
+    {
       "date": "2026-10-04",
       "displayDate": "4 October 2026",
       "title": "The AI assistant that never clocks off",
