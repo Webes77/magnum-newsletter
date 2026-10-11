@@ -207,6 +207,13 @@ def render_section(s: dict, magnum_url: str) -> str:
     ]
     if src.get("image"):
         out += render_source_image(src)
+    elif s.get("illustration"):
+        out += [
+            '        <figure class="source-figure">',
+            f'          <img class="source-img" src="{attr(s["illustration"])}" alt="{attr(s.get("illustration_alt", ""))}" loading="lazy" />',
+            '          <figcaption class="source-credit">Illustration: Magnum AI</figcaption>',
+            "        </figure>",
+        ]
     out += [
         '        <div class="body-text">',
         paragraphs(s.get("paragraphs", [])),
@@ -415,6 +422,11 @@ def check_sources(data: dict) -> list[str]:
                 errors.append(f"{label}: source.image must start with https://")
             if not str(src.get("image_alt", "")).strip():
                 errors.append(f"{label}: source.image needs image_alt")
+    for s in data["sections"]:
+        if s.get("illustration") and not str(s.get("illustration_alt", "")).strip():
+            errors.append(f"{s['label']}: an illustration needs illustration_alt")
+        if s.get("illustration") and (s.get("source") or {}).get("image"):
+            errors.append(f"{s['label']}: carries both a source image and an illustration; keep one")
     return errors
 
 
@@ -434,6 +446,7 @@ def main() -> int:
     parser.add_argument("--magnum", type=Path, help="Magnum image (not needed when the edition's Magnum section already carries a video_url)")
     parser.add_argument("--magnum-video", type=Path, help="Local video file to self-host as the Magnum video; copied into assets/<date>/ and overrides any video_url already in edition.json")
     parser.add_argument("--magnum-poster", type=Path, help="Still shown on the Magnum video before it plays (default: a frame taken from the video)")
+    parser.add_argument("--illustration", action="append", default=[], metavar="LABEL=PATH", help="Self-host an image made for a section with no source image, e.g. \"The Win=build/<date>/win.png\"; the section needs illustration_alt")
     parser.add_argument("--hero", type=Path, help="Hero image (default: the standing assets/standing/hero.png)")
     parser.add_argument("--preview", type=Path, help="1200x630 JPEG preview (default: the standing assets/standing/preview.jpg; pass 'crop' to crop the hero)")
     parser.add_argument("--repo", type=Path, default=Path("/home/user/magnum-newsletter"))
@@ -501,6 +514,24 @@ def main() -> int:
             made = make_poster(magnum_section["video_url"], poster_path)
         if made:
             magnum_section["video_poster"] = f"{BASE_URL}/assets/{d}/{poster_name}"
+
+    for spec in args.illustration:
+        label, _, path = spec.partition("=")
+        path = Path(path)
+        if not path.is_file():
+            raise FileNotFoundError(path)
+        section = next((x for x in data["sections"] if x["label"] == label), None)
+        if section is None or label == "The Magnum":
+            raise ValueError(f"--illustration: no section labelled {label!r} that can carry one")
+        slug = re.sub(r"[^a-z0-9]+", "-", label.lower()).strip("-")
+        name = f"{slug}-{d}.jpg"
+        from PIL import Image, ImageOps
+        with Image.open(path) as im:
+            im = ImageOps.exif_transpose(im).convert("RGB")
+            if im.width > 1600:
+                im = im.resize((1600, round(im.height * 1600 / im.width)), Image.Resampling.LANCZOS)
+            im.save(asset_dir / name, "JPEG", quality=88, optimize=True, progressive=True)
+        section["illustration"] = f"{BASE_URL}/assets/{d}/{name}"
 
     page = render(data, hero_url, magnum_url)
     out = args.out or (repo / "build" / d / "finished.html")
