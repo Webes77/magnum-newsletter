@@ -211,7 +211,7 @@ def render_section(s: dict, magnum_url: str) -> str:
         out += [
             '        <figure class="source-figure">',
             f'          <img class="source-img" src="{attr(s["illustration"])}" alt="{attr(s.get("illustration_alt", ""))}" loading="lazy" />',
-            '          <figcaption class="source-credit">Illustration: Magnum AI</figcaption>',
+            f'          <figcaption class="source-credit">{esc(s.get("illustration_credit") or "Illustration: Magnum AI")}</figcaption>',
             "        </figure>",
         ]
     out += [

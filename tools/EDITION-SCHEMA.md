@@ -87,7 +87,15 @@ builder, which saves it to `assets/<date>/<label>-<date>.jpg`, sets
 `illustration` and credits it "Illustration: Magnum AI". A section carries a
 source image or an illustration, never both. Since 18 October 2026 an
 illustration is a cartoon made in Higgsfield to the members area recipe
-(`notes/image-style.md` in magnum-guides), never a drawn diagram.
+(`notes/image-style.md` in magnum-guides), never a drawn diagram. The same
+flag also self-hosts a real picture from the story's own page, such as a
+product screenshot, when the page has no usable `og:image`. Then set
+`illustration_credit` to name where it came from, for example
+"Image: DigUp on GitHub". Without it the credit reads "Illustration: Magnum
+AI". Aim for a mix, as James asked on 17 October 2026: real pictures from the
+articles wherever they exist, a cartoon only where there is none, and no
+picture at all on a section that does not need one. Not every section
+needs a picture.
 
 ## Rules the checker cannot enforce
 
