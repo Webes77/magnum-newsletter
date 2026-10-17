@@ -22,8 +22,10 @@ The hero illustration and the WhatsApp preview are standing images in
 hero is `hero-cartoon.jpg`: James at his desk with his bulldog, in the
 members area cartoon style, drawn from his own photos, with the delivered
 Magnum badge on the wall. The builder uses it by default. The preview,
-`preview.jpg`, is the same cartoon with the title on a navy panel; it
-replaced the gold robot card the same day. Editions up to 11 October keep
+`preview.jpg`, is a cartoon still life (a seagull eyeing a croissant at a
+beach café table, the Magnum badge on the coffee cup) with the title on a
+navy panel. It replaced the gold robot card the same day; James said a
+picture of himself on every share was indulgent. Editions up to 11 October keep
 `hero.png`.
 
 The Drive folder is **This Week in AI**, id `1SMk0PwWdx_HYyQDgKXwXvOY_kp4lJBaL`,
