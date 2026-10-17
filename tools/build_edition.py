@@ -6,7 +6,7 @@ Magnum images into assets/YYYY-MM-DD/, writes the dated issue page with the
 structure of the 23 August 2026 edition in the
 Magnum AI house style (29 September 2026), and sets the 1200x630 preview.
 
-The hero and the preview are standing images (assets/standing/hero.png and
+The hero and the preview are standing images (assets/standing/hero-cartoon.jpg and
 assets/standing/preview.jpg, the same every edition) unless --hero or
 --preview is given. The Magnum image is the only one that changes weekly.
 It does not touch index.html, issues.json or git. Publishing is the job of
@@ -447,7 +447,7 @@ def main() -> int:
     parser.add_argument("--magnum-video", type=Path, help="Local video file to self-host as the Magnum video; copied into assets/<date>/ and overrides any video_url already in edition.json")
     parser.add_argument("--magnum-poster", type=Path, help="Still shown on the Magnum video before it plays (default: a frame taken from the video)")
     parser.add_argument("--illustration", action="append", default=[], metavar="LABEL=PATH", help="Self-host an image made for a section with no source image, e.g. \"The Win=build/<date>/win.png\"; the section needs illustration_alt")
-    parser.add_argument("--hero", type=Path, help="Hero image (default: the standing assets/standing/hero.png)")
+    parser.add_argument("--hero", type=Path, help="Hero image (default: the standing assets/standing/hero-cartoon.jpg, James at his desk with the Magnum badge, since 25 October 2026)")
     parser.add_argument("--preview", type=Path, help="1200x630 JPEG preview (default: the standing assets/standing/preview.jpg; pass 'crop' to crop the hero)")
     parser.add_argument("--repo", type=Path, default=Path("/home/user/magnum-newsletter"))
     parser.add_argument("--out", type=Path, help="Where to write the finished HTML (default: <repo>/build/<date>/finished.html)")
@@ -458,7 +458,7 @@ def main() -> int:
     d = data["date"]
     repo = args.repo.resolve()
     if args.hero is None:
-        args.hero = repo / "assets" / "standing" / "hero.png"
+        args.hero = repo / "assets" / "standing" / "hero-cartoon.jpg"
     magnum_section = next(s for s in data["sections"] if s["label"] == "The Magnum")
     has_video = args.magnum_video is not None or bool(magnum_section.get("video_url"))
     if not has_video and args.magnum is None:
@@ -474,11 +474,12 @@ def main() -> int:
 
     asset_dir = repo / "assets" / d
     asset_dir.mkdir(parents=True, exist_ok=True)
-    standing_hero = repo / "assets" / "standing" / "hero.png"
+    standing_dir = (repo / "assets" / "standing").resolve()
     hero_name = f"newsletter-hero-{d}{args.hero.suffix.lower()}"
     copies = []
-    if args.hero.resolve() == standing_hero.resolve():
-        hero_url = f"{BASE_URL}/assets/standing/hero.png"
+    if args.hero.resolve().parent == standing_dir:
+        # Any standing hero (the old hero.png or hero-cartoon.jpg) is served from where it sits.
+        hero_url = f"{BASE_URL}/assets/standing/{args.hero.resolve().name}"
     else:
         copies.append((args.hero, asset_dir / hero_name))
         hero_url = f"{BASE_URL}/assets/{d}/{hero_name}"

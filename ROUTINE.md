@@ -18,7 +18,10 @@ words on 11 October were that he kept getting asked to approve through
 Google Drive when the agreement was to do it in the chat. The Drive route in
 Prompt 2 survives only as a silent fallback and no email may ask him for it.
 The hero illustration and the WhatsApp preview are standing images in
-`assets/standing/` and are the same every edition.
+`assets/standing/` and are the same every edition. From 25 October 2026 the
+hero is `hero-cartoon.jpg`: James at his desk with his bulldog, in the
+members area cartoon style, with the delivered Magnum badge on the wall.
+The builder uses it by default. Editions up to 18 October keep `hero.png`.
 
 The Drive folder is **This Week in AI**, id `1SMk0PwWdx_HYyQDgKXwXvOY_kp4lJBaL`,
 in James's My Drive. One subfolder per edition, named `YYYY-MM-DD` for the
@@ -62,6 +65,19 @@ picture idea 2. He may add the video prompt, or a copy change. Do this:
    skip, publish without it. Never invent a prompt he did not use.
 5. Apply any copy change he asked for, faithfully and minimally, keeping
    every rule in `tools/EDITION-SCHEMA.md`.
+   Then give every section a picture, which James asked for on 17 October
+   2026 ("like normal newsletters"). Where a section's source page has its
+   own main picture (its `og:image`) that shows the story, use it as
+   `source.image`. Fetch the page from the Higgsfield sandbox
+   (`mcp__Higgsfield__sandbox_exec`) when this sandbox is refused. A logo,
+   a plain title card or GitHub's grey link card does not count. Every other
+   section gets a cartoon made in Higgsfield to the recipe in the
+   magnum-guides repo, `notes/image-style.md`: one scene line, then the
+   style block word for word, `nano_banana_2_1`, 16:9, 1k, about 2 credits
+   each. Bring each file across with `image_paths` on `sandbox_exec`, as
+   that recipe describes. Then pass it to the builder with `--illustration
+   "<label>=<file>"` and write an `illustration_alt`. Look at every picture
+   before it goes in. The Magnum keeps its own picture.
 6. `pip install --quiet pillow imageio-ffmpeg`, then build with `--check`:
    `--magnum build/YYYY-MM-DD/<file>` for a still, `--magnum-video
    build/YYYY-MM-DD/<file>` for a video. It must print CHECK PASSED. Verify
