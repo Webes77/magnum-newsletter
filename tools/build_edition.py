@@ -447,7 +447,7 @@ def main() -> int:
     parser.add_argument("--magnum-video", type=Path, help="Local video file to self-host as the Magnum video; copied into assets/<date>/ and overrides any video_url already in edition.json")
     parser.add_argument("--magnum-poster", type=Path, help="Still shown on the Magnum video before it plays (default: a frame taken from the video)")
     parser.add_argument("--illustration", action="append", default=[], metavar="LABEL=PATH", help="Self-host an image made for a section with no source image, e.g. \"The Win=build/<date>/win.png\"; the section needs illustration_alt")
-    parser.add_argument("--hero", type=Path, help="Hero image (default: the standing assets/standing/hero-cartoon.jpg, James at his desk with the Magnum badge, since 25 October 2026)")
+    parser.add_argument("--hero", type=Path, help="Hero image (default: the standing assets/standing/hero-cartoon.jpg, James at his desk with the Magnum badge, since 18 October 2026)")
     parser.add_argument("--preview", type=Path, help="1200x630 JPEG preview (default: the standing assets/standing/preview.jpg; pass 'crop' to crop the hero)")
     parser.add_argument("--repo", type=Path, default=Path("/home/user/magnum-newsletter"))
     parser.add_argument("--out", type=Path, help="Where to write the finished HTML (default: <repo>/build/<date>/finished.html)")

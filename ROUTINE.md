@@ -18,10 +18,13 @@ words on 11 October were that he kept getting asked to approve through
 Google Drive when the agreement was to do it in the chat. The Drive route in
 Prompt 2 survives only as a silent fallback and no email may ask him for it.
 The hero illustration and the WhatsApp preview are standing images in
-`assets/standing/` and are the same every edition. From 25 October 2026 the
+`assets/standing/` and are the same every edition. From 18 October 2026 the
 hero is `hero-cartoon.jpg`: James at his desk with his bulldog, in the
-members area cartoon style, with the delivered Magnum badge on the wall.
-The builder uses it by default. Editions up to 18 October keep `hero.png`.
+members area cartoon style, drawn from his own photos, with the delivered
+Magnum badge on the wall. The builder uses it by default. The preview,
+`preview.jpg`, is the same cartoon with the title on a navy panel; it
+replaced the gold robot card the same day. Editions up to 11 October keep
+`hero.png`.
 
 The Drive folder is **This Week in AI**, id `1SMk0PwWdx_HYyQDgKXwXvOY_kp4lJBaL`,
 in James's My Drive. One subfolder per edition, named `YYYY-MM-DD` for the
