@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" style="background:#FBFBF9;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>This Week in AI, 18 October 2026 | ChatGPT can now build you a calculator | Magnum AI</title>
+  <meta name="description" content="ChatGPT now builds small working tools inside its answers. Here is how to turn a job you work out by hand into a calculator, and how to check it." />
+  <link rel="canonical" href="https://webes77.github.io/magnum-newsletter/issues/2026-10-18.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://webes77.github.io/magnum-newsletter/issues/2026-10-18.html" />
+  <meta property="og:title" content="This Week in AI, 18 October 2026 | ChatGPT can now build you a calculator | Magnum AI" />
+  <meta property="og:description" content="ChatGPT now builds small working tools inside its answers. Here is how to turn a job you work out by hand into a calculator, and how to check it." />
+  <meta property="og:image" content="https://webes77.github.io/magnum-newsletter/assets/previews/2026-10-18.jpg" />
+  <meta property="og:image:secure_url" content="https://webes77.github.io/magnum-newsletter/assets/previews/2026-10-18.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="James Wheable writing" />
+  <meta property="og:site_name" content="Magnum AI" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="This Week in AI, 18 October 2026 | ChatGPT can now build you a calculator | Magnum AI" />
+  <meta name="twitter:description" content="ChatGPT now builds small working tools inside its answers. Here is how to turn a job you work out by hand into a calculator, and how to check it." />
+  <meta name="twitter:image" content="https://webes77.github.io/magnum-newsletter/assets/previews/2026-10-18.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta name="color-scheme" content="light" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+  <style>
+    :root { --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#1E1B17; --body:#2B2823; --char:#3A3630; --mute:#63615C; --rust:#EF4029; --coral-text:#C63A2A; --coral-bright:#FF6F5E; --tint:#FBE1D8; --on-navy:#F4F1EA; --on-navy-mute:#C8CDD3; --hair:#DADAD5; --display:'Oswald','Arial Narrow','Liberation Sans Narrow',sans-serif; --sans:'IBM Plex Sans',Arial,system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,'Courier New',monospace; color-scheme:light; }
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    html,body { background:#FBFBF9; color-scheme:light; }
+    body { color:var(--body); font-family:var(--sans); font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:100%; overflow-wrap:break-word; }
+    .page { max-width:720px; margin:0 auto; background:#FBFBF9; }
+    .masthead { background:var(--navy); color:var(--on-navy); border-bottom:4px solid var(--coral-bright); padding:26px 28px 28px; }
+    .masthead-meta { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    .masthead-meta span { color:var(--coral-bright); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .masthead-meta span + span { color:var(--on-navy-mute); }
+    .masthead-title { margin-top:14px; color:var(--on-navy); font-family:var(--display); font-size:44px; font-weight:700; line-height:.95; text-transform:uppercase; }
+    .hero-img,.magnum-img,.magnum-video { display:block; width:100%; height:auto; }
+    .content { padding:36px 28px 0; }
+    .date-line { margin-bottom:24px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .opener-block { margin-bottom:44px; padding:22px 26px; background:var(--paper-2); border:2px solid var(--ink); }
+    .opener-text { margin-bottom:16px; color:var(--char); font-size:17px; font-style:italic; line-height:1.7; }
+    .opener-text:last-of-type { margin-bottom:24px; }
+    .index-label { display:flex; align-items:center; gap:12px; margin-bottom:12px; color:var(--coral-text); font-family:var(--mono); font-size:12px; letter-spacing:.22em; text-transform:uppercase; }
+    .index-label::after { content:""; flex:1; height:1px; background:var(--ink); }
+    .index-list { list-style:none; }
+    .index-list li { position:relative; padding-left:18px; color:var(--char); font-size:15.5px; line-height:1.6; margin-bottom:8px; }
+    .index-list li::before { content:'\00B7'; position:absolute; left:2px; color:var(--rust); font-weight:700; }
+    .section { padding:0 0 48px; }
+    .section-label { display:flex; align-items:center; gap:12px; margin-bottom:14px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .section-label::after { content:""; flex:1; height:1px; background:var(--ink); }
+    .section-headline { margin-bottom:20px; color:var(--ink); font-family:var(--display); font-size:34px; font-weight:600; line-height:1.05; text-transform:uppercase; }
+    .section-headline em { font-style:normal; color:var(--rust); }
+    .body-text p { margin-bottom:16px; color:var(--body); font-size:17px; line-height:1.7; }
+    .body-text p:last-child { margin-bottom:0; }
+    .tool-link { display:inline-block; min-height:44px; margin-top:20px; color:var(--coral-text); font-size:15.5px; font-weight:600; line-height:44px; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px; overflow-wrap:anywhere; }
+    .tool-link:hover { color:var(--ink); }
+    .source-figure { margin:0 0 22px; }
+    .source-img { display:block; width:100%; height:auto; border:2px solid var(--ink); background:var(--paper-2); }
+    .source-credit { margin-top:8px; color:var(--mute); font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; }
+    .source-link { display:inline-block; min-height:44px; margin-top:20px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.18em; line-height:1.6; padding:12px 0; text-transform:uppercase; text-decoration:none; overflow-wrap:anywhere; }
+    .source-link:hover { color:var(--ink); text-decoration:underline; text-underline-offset:4px; }
+    .prompt-label { margin:24px 0 10px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .prompt-box { margin:0 0 20px; padding:18px 20px; overflow-wrap:anywhere; background:var(--paper-2); border:2px solid var(--ink); }
+    .prompt-box pre { margin:0; color:var(--char); font-family:var(--mono); font-size:13px; line-height:1.75; white-space:pre-wrap; word-break:break-word; }
+    .prompt-use,.magnum-take { color:var(--char); font-size:15.5px; line-height:1.7; }
+    .prompt-use strong,.magnum-take strong { color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .magnum-img,.magnum-video { margin:0 0 18px; border:2px solid var(--ink); background:var(--paper-2); }
+    .magnum-take { padding-top:14px; border-top:1px solid var(--hair); }
+    .magnum-steps { margin:0 0 24px; padding-left:22px; color:var(--body); font-size:17px; line-height:1.7; }
+    .magnum-steps li { margin-bottom:8px; padding-left:4px; }
+    .magnum-after { margin-bottom:22px; }
+    .signoff { margin:0 28px; padding:36px 0 44px; border-top:2px solid var(--ink); }
+    .signoff-body { margin-bottom:16px; color:var(--body); font-size:17px; line-height:1.7; }
+    .signoff-details { margin-top:22px; color:var(--mute); font-family:var(--mono); font-size:12px; letter-spacing:.18em; line-height:2; text-transform:uppercase; }
+    .signoff-details a { color:var(--coral-text); text-decoration:none; }
+    .signoff-details a:hover { text-decoration:underline; }
+    .footer { padding:22px 28px; background:var(--navy); text-align:center; }
+    .footer p { color:var(--on-navy-mute); font-family:var(--mono); font-size:11px; letter-spacing:.18em; line-height:1.7; text-transform:uppercase; }
+    .footer a { color:var(--on-navy); }
+    @media (max-width:600px) {
+      .masthead { padding:20px 20px 22px; }
+      .masthead-meta { flex-direction:column; gap:4px; }
+      .masthead-title { font-size:36px; }
+      .content { padding:30px 20px 0; }
+      .opener-block { padding:18px 18px; }
+      .section { padding-bottom:40px; }
+      .section-headline { font-size:28px; }
+      .prompt-box { padding:14px 14px; }
+      .prompt-box pre { font-size:12px; line-height:1.7; }
+      .signoff { margin:0 20px; padding:32px 0 36px; }
+    }
+    @media print {
+      html,body { background:#fff; }
+      .masthead,.footer { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+      .prompt-box { break-inside:avoid; }
+    }
+  </style>
+</head>
+<body style="background:#FBFBF9;">
+  <main class="page">
+    <header class="masthead">
+      <div class="masthead-meta"><span>Magnum AI &middot; Client Edition</span><span>magnumai.com.au</span></div>
+      <p class="masthead-title">This Week in AI</p>
+    </header>
+    <img class="hero-img" src="https://webes77.github.io/magnum-newsletter/assets/standing/hero.png" alt="James Wheable writing" />
+    <div class="content">
+      <p class="date-line">18 October 2026</p>
+      <div class="opener-block">
+        <p class="opener-text">Most of the AI news in this edition's window was about new models, company valuations and court cases.</p>
+        <p class="opener-text">None of it changes what you do on Monday.</p>
+        <p class="opener-text">One thing does. ChatGPT can now build a small working tool inside the chat, like a calculator for your own quotes.</p>
+        <p class="opener-text">That's where I'll start.</p>
+        <p class="index-label">In this edition:</p>
+        <ul class="index-list">
+          <li>The Newsline &middot; chatgpt can now build a working calculator inside the chat, and how to check it</li>
+          <li>The Win &middot; how a café owner stopped writing the supplier order from memory</li>
+          <li>Tool of the Week &middot; digup, the free app that finds a file by what is inside it</li>
+          <li>Prompt of the Week &middot; turn a job you work out by hand into a calculator</li>
+          <li>The Magnum &middot; a glowing kelp harvest, with the exact prompt used to make it</li>
+        </ul>
+      </div>
+
+      <section class="section">
+        <p class="section-label">The Newsline</p>
+        <h1 class="section-headline">ChatGPT can now build you a working <em>calculator</em>, and plenty of people can try it for free</h1>
+        <figure class="source-figure">
+          <img class="source-img" src="https://webes77.github.io/magnum-newsletter/assets/2026-10-18/the-newsline-2026-10-18.jpg" alt="A request typed into a chat, and the working quote calculator that comes back: boxes for hours, hourly rate and materials, with the total underneath" loading="lazy" />
+          <figcaption class="source-credit">Illustration: Magnum AI</figcaption>
+        </figure>
+        <div class="body-text">
+          <p>On 7 October, OpenAI released GPT-6 and a feature it calls Intelligent UI in ChatGPT.</p>
+          <p>Instead of a block of text, an answer can now include forms, tappable buttons, charts and small tools you use inside the chat.</p>
+          <p>The useful part for a business owner is simple. Describe a calculator in plain English and you get a working one.</p>
+          <p>Paid plans got it on 7 October. OpenAI says free users get it too. It rolls out account by account, so it may not have reached yours yet.</p>
+          <p>It works in the Chat tab. OpenAI says the Pro reasoning option and older ChatGPT desktop apps don't support it.</p>
+          <p>Here's the catch. A calculator that looks right can still be wrong.</p>
+          <p>So test it before you trust it. Type in a job where you already know the answer, and check the total matches. Then change one number and check again.</p>
+          <p>Today: pick one job you work out by hand every week, like a quote or a supplier order. The Prompt of the Week below builds the calculator and checks it for you. Ten minutes.</p>
+        </div>
+        <a class="source-link" href="https://openai.com/index/gpt-6-for-everyone/" target="_blank" rel="noopener">Read the original: OpenAI, GPT-6 and Intelligent UI for everyone &rarr;</a>
+      </section>
+
+      <section class="section">
+        <p class="section-label">The Win</p>
+        <h2 class="section-headline">A café owner stopped writing the <em>supplier</em> order from memory</h2>
+        <figure class="source-figure">
+          <img class="source-img" src="https://webes77.github.io/magnum-newsletter/assets/2026-10-18/the-win-2026-10-18.jpg" alt="A supplier order drafted by AI for a café, with one line flagged because it is twice the usual amount" loading="lazy" />
+          <figcaption class="source-credit">Illustration: Magnum AI</figcaption>
+        </figure>
+        <div class="body-text">
+          <p>This one isn't a single client. It's the shape of a result, and it's a pattern I see constantly.</p>
+          <p>A café owner wrote the weekly supplier order on a Thursday night, from memory.</p>
+          <p>Some weeks she ran out of milk on a Saturday. Other weeks she threw out a box of produce.</p>
+          <p>So we changed the habit. She now types the stock she can see on the shelves into AI, along with what the café usually sells in a week.</p>
+          <p>The AI drafts the order and flags anything that looks wrong, like a number far higher than usual.</p>
+          <p>She reads it, fixes what she knows better, and sends it.</p>
+          <p>The lesson is simple. Ordering from memory only works while your memory is good.</p>
+          <p>Give the AI the numbers, and keep the judgement for yourself.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="section-label">Tool of the Week</p>
+        <h2 class="section-headline"><em>DigUp</em></h2>
+        <figure class="source-figure">
+          <img class="source-img" src="https://webes77.github.io/magnum-newsletter/assets/2026-10-18/tool-of-the-week-2026-10-18.jpg" alt="A search for the photo of the cracked tile finding a badly named photo, a quote PDF and a voice memo, all on the owner&#x27;s own computer" loading="lazy" />
+          <figcaption class="source-credit">Illustration: Magnum AI</figcaption>
+        </figure>
+        <div class="body-text">
+          <p>You know the file exists. You just can't remember what you called it.</p>
+          <p>DigUp is an app for Mac, Windows and Linux that searches your own files by what's in them, not by what they're named.</p>
+          <p>You type what you remember, like "the photo of the cracked tile" or "the quote with the long lead time", and it looks through photos, audio, video and documents for a match.</p>
+          <p>It does all of this on your own computer. Nothing is sent to the cloud. The first set-up downloads a model of about 865 MB, once.</p>
+          <p>On a Mac it needs Apple silicon and macOS 14 or later.</p>
+          <p>It's free and open source. It's also new and changing quickly, so try it on one test folder before you point it at everything.</p>
+          <p>Worth a go if your files are a mess and you'd rather not send them anywhere.</p>
+        </div>
+        <a class="tool-link" href="https://github.com/ARahim3/DigUp">DigUp: https://github.com/ARahim3/DigUp</a>
+      </section>
+
+      <section class="section">
+        <p class="section-label">Prompt of the Week</p>
+        <h2 class="section-headline">Turn a job you work out by hand into a <em>calculator</em></h2>
+        <figure class="source-figure">
+          <img class="source-img" src="https://webes77.github.io/magnum-newsletter/assets/2026-10-18/prompt-of-the-week-2026-10-18.jpg" alt="Checking a new calculator against a job worked out by hand: both totals match, and the calculator says which figure it was least sure of" loading="lazy" />
+          <figcaption class="source-credit">Illustration: Magnum AI</figcaption>
+        </figure>
+        <div class="body-text">
+          <p>Most owners have one calculation they do over and over, on paper or in their head.</p>
+          <p>This prompt turns it into a small calculator that you can use again and again.</p>
+          <p>It also makes the AI check its own work against a job you already know the answer to.</p>
+        </div>
+        <p class="prompt-label">Prompt</p>
+        <div class="prompt-box"><pre>You are a careful adviser who builds simple calculators for small business owners who are not technical.
+
+Here is a job I work out by hand every time: [the job you work out by hand, for example quoting a job or pricing an order].
+
+The numbers I type in each time are: [the numbers you enter each time].
+
+These prices, rates and rules never change, so build them in: [your fixed prices, rates and rules]. Use only these. If you need a figure I have not given you, ask me before you build, because a guessed price in a quote costs me real money.
+
+Here is one job I have already worked out by hand, with the answer I know is right: [one example with its correct total].
+
+Build me a small working calculator inside this chat. Put a box for each number I type in at the top, the breakdown line by line under it, and the total at the bottom. Keep the wording plain.
+
+When it is built, do three things. First, enter my example and tell me whether your total matches mine. Second, tell me which figure or rule you were least sure of. Third, stop and wait while I try it.</pre></div>
+        <div class="body-text">
+          <p class="prompt-use"><strong>Use it for</strong><br />Fill in the four square brackets with your own job, your inputs, your fixed prices and one worked example.<br />Paste it into ChatGPT or Claude.<br />When it replies, try a second job you know the answer to before you rely on it.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="section-label">The Magnum</p>
+        <h2 class="section-headline">The kelp <em>harvest</em></h2>
+        <div class="body-text">
+          <p>Setup:</p>
+          <p>Nothing to do with the news. Just a striking image built from a single written prompt: a night-blue sea, a farmer and a net of glowing kelp.</p>
+        </div>
+        <p class="prompt-label">Prompt</p>
+        <div class="prompt-box"><pre>A kelp farmer in yellow oilskins hauls a glowing net of bioluminescent kelp over the side of a small wooden boat at blue hour, the sea behind them lit green from below. Wide 35mm documentary photograph, low angle from the waterline, shallow depth of field, a little motion in the waves. Quiet and awed, cool teal against warm amber, the hush before sunrise.</pre></div>
+        <img class="magnum-img" src="https://webes77.github.io/magnum-newsletter/assets/2026-10-18/the-magnum-2026-10-18.jpg" alt="A kelp farmer in yellow oilskins hauling a glowing net of kelp onto a small boat at blue hour" />
+        <p class="magnum-take">Take from it:<br />Three parts, in this order: who is doing what, how the camera sees it, and the mood. Change only the mood and keep the rest, and you'll see how much work that last line does.</p>
+      </section>
+    </div>
+    <div class="signoff">
+      <p class="signoff-body">Pick one calculation you do by hand and run the prompt above.</p>
+      <p class="signoff-body">Then enter a job you already know the answer to, and check the total.</p>
+      <p class="signoff-body">If it matches, you've got a tool. If it doesn't, you've found the mistake before a customer did.</p>
+      <p class="signoff-body">Have a good week.</p>
+      <p class="signoff-details">Magnum AI | <a href="https://magnumai.com.au">magnumai.com.au</a></p>
+    </div>
+    <footer class="footer"><p>You're getting this because you're a Magnum AI client.</p></footer>
+  </main>
+</body>
+</html>
