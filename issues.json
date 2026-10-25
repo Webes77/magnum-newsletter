@@ -3,16 +3,17 @@
     {
       "date": "2026-10-25",
       "displayDate": "25 October 2026",
-      "title": "Is your website patched against the PHP flaw?",
-      "dek": "Two serious flaws in the software behind most websites were patched on 21 October. Here is how to find out whether yours is covered, and what to ask.",
+      "title": "Canva can finally spell, and your website needs one email",
+      "dek": "A two-minute email for your web person, the paperwork one restaurant owner handed to AI, and the AI that switched off its own alarm.",
       "file": "issues/2026-10-25.html",
       "contents": [
-        "The Newsline, two serious flaws in the software behind most websites, and the one email to send",
-        "Looking Sideways, why banks are pushing back on AI agents that log in as you",
-        "The Win, two restaurant owners who hand their paperwork to AI, and what an HR firm made of it",
+        "The Newsline, one two-minute email to send if you have a website",
+        "Looking Sideways, why you never give an AI your bank password",
+        "The Win, the paperwork one restaurant owner handed to AI",
         "Tool of the Week, Canva Craft, AI posters with the words spelled right",
-        "Prompt of the Week, the email that finds out whether your website is patched",
-        "The Magnum, the Halloween found photo, with both prompts used to make it"
+        "Prompt of the Week, write the policy you've been putting off",
+        "The Odd One, the AI that switched off its own alarm, then denied it",
+        "The Magnum, the Halloween found photo, with both prompts"
       ]
     },
     {
