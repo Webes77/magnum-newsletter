@@ -95,8 +95,15 @@ CSS = """    :root { --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#
     .edition-head { padding:26px 28px 6px; }
     .edition-box { margin-top:14px; padding:18px 20px; border:2px solid var(--ink); background:#FFFFFF; }
     .edition-kicker { color:var(--coral-text); font-family:var(--display); font-size:19px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
-    .edition-title { margin-top:8px; color:var(--ink); font-size:20px; font-weight:700; line-height:1.35; }
-    .edition-dek { margin-top:6px; color:var(--char); font-size:16.5px; line-height:1.55; }
+    .edition-greeting { color:var(--ink); font-size:20px; font-weight:700; line-height:1.4; }
+    .edition-hook { margin-top:10px; color:var(--body); font-size:17px; line-height:1.65; }
+    .edition-box .edition-kicker { margin-top:22px; padding-top:18px; border-top:1px solid var(--hair); }
+    .edition-list { margin:12px 0 0; padding:0; list-style:none; }
+    .edition-list li { margin:0 0 12px; }
+    .edition-list a { display:block; color:var(--ink); font-size:17px; font-weight:600; line-height:1.45; text-decoration:none; }
+    .edition-list a span { margin-right:6px; color:var(--coral-text); font-family:var(--display); font-weight:700; }
+    .quiet .section-headline { font-family:var(--sans); font-size:28px; font-weight:700; line-height:1.22; text-transform:none; letter-spacing:-.005em; }
+    .sec-num { margin-right:4px; }
     .opener-plain { margin:0 0 36px; padding-bottom:26px; border-bottom:2px solid var(--ink); }
     .opener-plain p { margin-bottom:12px; color:var(--body); font-size:17px; line-height:1.7; }
     .opener-plain p:last-child { margin-bottom:0; }
@@ -146,6 +153,7 @@ CSS = """    :root { --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#
       .section { padding-bottom:40px; }
       .section-headline { font-size:28px; }
       .edition-head { padding:22px 20px 4px; }
+      .quiet .section-headline { font-size:25px; }
       .prompt-box { padding:14px 14px; }
       .prompt-box pre { font-size:12px; line-height:1.7; }
       .signoff { margin:0 20px; padding:32px 0 36px; }
@@ -243,13 +251,15 @@ def prompt_block(label: str, text: str, copy: bool) -> list[str]:
     return [head, f'        <div class="prompt-box"><pre>{esc(text)}</pre></div>']
 
 
-def render_section(s: dict, magnum_url: str, new: bool = False) -> str:
+def render_section(s: dict, magnum_url: str, new: bool = False, num: int = 0) -> str:
     label = s["label"]
     tag = "h1" if label == "The Newsline" else "h2"
     src = s.get("source") or {}
+    sid = f' id="s{num:02d}"' if new and num else ""
+    shown = f'<span class="sec-num">{num:02d}</span> {esc(label)}' if new and num else esc(label)
     out = [
-        '      <section class="section">',
-        f'        <p class="section-label">{esc(label)}</p>',
+        f'      <section class="section"{sid}>',
+        f'        <p class="section-label">{shown}</p>',
         f'        <{tag} class="section-headline">{accent_heading(s["headline"], s.get("accent"))}</{tag}>',
     ]
     brief = []
@@ -366,21 +376,25 @@ def render(data: dict, hero_url: str, magnum_url: str) -> str:
         f'          <li>{esc(i["label"])} &middot; {esc(i["line"])}</li>' for i in data["index"]
     )
     new = data["date"] >= RULES_FROM
-    sections = "\n\n".join(render_section(s, magnum_url, new) for s in data["sections"])
+    sections = "\n\n".join(render_section(s, magnum_url, new, n) for n, s in enumerate(data["sections"], 1))
     signoff = "\n".join(f'      <p class="signoff-body">{esc(p)}</p>' for p in data["signoff"])
     if new:
+        contents = "\n".join(
+            f'          <li><a href="#s{n:02d}"><span>{n:02d}</span> {esc(sec["headline"])}</a></li>'
+            for n, sec in enumerate(data["sections"], 1)
+        )
         top = f"""    <div class="edition-head">
       <p class="date-line">{esc(data['display_date'])}</p>
       <div class="edition-box">
+        <p class="edition-greeting">{esc(data.get('greeting', 'Happy Sunday.'))}</p>
+{paragraphs(data['opener']).replace('          <p', '        <p class="edition-hook"')}
         <p class="edition-kicker">In this edition</p>
-        <p class="edition-title">{esc(data['title'])}</p>
-        <p class="edition-dek">{esc(data['dek'])}</p>
+        <ol class="edition-list">
+{contents}
+        </ol>
       </div>
     </div>
-    <div class="content quiet">
-      <div class="opener-plain">
-{paragraphs(data['opener']).replace('          <p', '        <p')}
-      </div>"""
+    <div class="content quiet">"""
         who = f"""      <div class="signoff-who"><img src="{hero_url}" alt="{attr(data['hero_alt'])}" /><p>James Wheable<span>Magnum AI, Gold Coast</span></p></div>"""
         script = COPY_JS
     else:
