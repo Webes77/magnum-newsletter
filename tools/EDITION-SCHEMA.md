@@ -13,7 +13,8 @@ turns it into the dated page. `tools/example-edition.json` is the 23 August
 | `title` | string | The edition headline. Appears in the page title, the archive and the members area card. Under ten words. |
 | `dek` | string | One sentence for the archive card and the link preview. Under 30 words. |
 | `hero_alt` | string | Alt text for the hero image. |
-| `opener` | list of strings | Two to five short paragraphs. Italic on the page. Ends by pointing at the lead story. |
+| `greeting` | string, optional | Bold first line of the opening card. Default `Happy Sunday.` From 25 Oct 2026. |
+| `opener` | list of strings | From 25 Oct 2026: two or three sentences, under 70 words, in the opening card, telling the lead story and naming two others. The card then lists every headline as numbered contents. |
 | `index` | list of `{label, line}` | One entry per section present, in section order. `line` is under 16 words, lower-case start. |
 | `sections` | list of section objects | In the fixed order below. |
 | `signoff` | list of strings | Two to four short paragraphs. The last one is a plain farewell. |
