@@ -61,8 +61,15 @@
     .edition-head { padding:26px 28px 6px; }
     .edition-box { margin-top:14px; padding:18px 20px; border:2px solid var(--ink); background:#FFFFFF; }
     .edition-kicker { color:var(--coral-text); font-family:var(--display); font-size:19px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
-    .edition-title { margin-top:8px; color:var(--ink); font-size:20px; font-weight:700; line-height:1.35; }
-    .edition-dek { margin-top:6px; color:var(--char); font-size:16.5px; line-height:1.55; }
+    .edition-greeting { color:var(--ink); font-size:20px; font-weight:700; line-height:1.4; }
+    .edition-hook { margin-top:10px; color:var(--body); font-size:17px; line-height:1.65; }
+    .edition-box .edition-kicker { margin-top:22px; padding-top:18px; border-top:1px solid var(--hair); }
+    .edition-list { margin:12px 0 0; padding:0; list-style:none; }
+    .edition-list li { margin:0 0 12px; }
+    .edition-list a { display:block; color:var(--ink); font-size:17px; font-weight:600; line-height:1.45; text-decoration:none; }
+    .edition-list a span { margin-right:6px; color:var(--coral-text); font-family:var(--display); font-weight:700; }
+    .quiet .section-headline { font-family:var(--sans); font-size:28px; font-weight:700; line-height:1.22; text-transform:none; letter-spacing:-.005em; }
+    .sec-num { margin-right:4px; }
     .opener-plain { margin:0 0 36px; padding-bottom:26px; border-bottom:2px solid var(--ink); }
     .opener-plain p { margin-bottom:12px; color:var(--body); font-size:17px; line-height:1.7; }
     .opener-plain p:last-child { margin-bottom:0; }
@@ -112,6 +119,7 @@
       .section { padding-bottom:40px; }
       .section-headline { font-size:28px; }
       .edition-head { padding:22px 20px 4px; }
+      .quiet .section-headline { font-size:25px; }
       .prompt-box { padding:14px 14px; }
       .prompt-box pre { font-size:12px; line-height:1.7; }
       .signoff { margin:0 20px; padding:32px 0 36px; }
@@ -132,18 +140,24 @@
     <div class="edition-head">
       <p class="date-line">25 October 2026</p>
       <div class="edition-box">
+        <p class="edition-greeting">Happy Sunday.</p>
+        <p class="edition-hook">Two serious holes turned up in PHP, the code that runs most small business websites, and AI helped find them. If you have a website, one two-minute email sorts it, and I've written it for you. Further down: a restaurant owner who handed his paperwork to AI, and Canva finally spelling words right.</p>
         <p class="edition-kicker">In this edition</p>
-        <p class="edition-title">Your website needs one email. Canva can finally spell.</p>
-        <p class="edition-dek">Two serious holes in the software behind most websites and the email that sorts them, the paperwork one restaurant owner handed to AI, and Canva's new posters.</p>
+        <ol class="edition-list">
+          <li><a href="#s01"><span>01</span> Most websites run on PHP. It just had two serious holes.</a></li>
+          <li><a href="#s02"><span>02</span> Don't give an AI your bank password</a></li>
+          <li><a href="#s03"><span>03</span> Three restaurants, one owner, and the paperwork he handed to AI</a></li>
+          <li><a href="#s04"><span>04</span> Canva can finally spell</a></li>
+          <li><a href="#s05"><span>05</span> Write the policy you've been putting off</a></li>
+          <li><a href="#s06"><span>06</span> OpenAI's coding agent switched off its own alarm, then denied it</a></li>
+          <li><a href="#s07"><span>07</span> The ghost behind the counter</a></li>
+        </ol>
       </div>
     </div>
     <div class="content quiet">
-      <div class="opener-plain">
-        <p>Seven things worth your time, with what I'd actually do about each one.</p>
-      </div>
 
-      <section class="section">
-        <p class="section-label">The Newsline</p>
+      <section class="section" id="s01">
+        <p class="section-label"><span class="sec-num">01</span> The Newsline</p>
         <h1 class="section-headline">Most <em>websites</em> run on PHP. It just had two serious holes.</h1>
         <figure class="source-figure">
           <img class="source-img" src="https://webes77.github.io/magnum-newsletter/assets/2026-10-25/the-newsline-2026-10-25.jpg" alt="Cartoon of a tradie on a ladder patching a crack in a café window while the owner inside gives a thumbs-up on the phone" loading="lazy" />
@@ -164,8 +178,8 @@
         <a class="source-link" href="https://www.bleepingcomputer.com/news/security/php-ships-emergency-patches-for-critical-php2shell-flaws/" target="_blank" rel="noopener">Read the original: BleepingComputer, PHP ships emergency patches for critical PHP2Shell flaws &rarr;</a>
       </section>
 
-      <section class="section">
-        <p class="section-label">Looking Sideways</p>
+      <section class="section" id="s02">
+        <p class="section-label"><span class="sec-num">02</span> Looking Sideways</p>
         <h2 class="section-headline">Don't give an AI your bank <em>password</em></h2>
         <figure class="source-figure">
           <img class="source-img" src="https://webes77.github.io/magnum-newsletter/assets/2026-10-25/looking-sideways-2026-10-25.jpg" alt="A person checking a banking app on their phone" loading="lazy" />
@@ -183,8 +197,8 @@
         <a class="source-link" href="https://www.cbsnews.com/news/ai-agents-customer-bank-accounts-security/" target="_blank" rel="noopener">Read the original: CBS News, AI agents are roaming around consumers' bank accounts, and banks aren't happy about it &rarr;</a>
       </section>
 
-      <section class="section">
-        <p class="section-label">The Win</p>
+      <section class="section" id="s03">
+        <p class="section-label"><span class="sec-num">03</span> The Win</p>
         <h2 class="section-headline">Three <em>restaurants</em>, one owner, and the paperwork he handed to AI</h2>
         <figure class="source-figure">
           <img class="source-img" src="https://webes77.github.io/magnum-newsletter/assets/2026-10-25/the-win-2026-10-25.jpg" alt="Ted and Tami Taylor smiling in a selfie outdoors" loading="lazy" />
@@ -206,8 +220,8 @@
         <a class="source-link" href="https://academy.openai.com/public/blogs/ted-tami-taylor-chatgpt-new-mexico-restaurants" target="_blank" rel="noopener">Read the original: OpenAI Academy, How ChatGPT helps Ted and Tami Taylor run three New Mexico restaurants &rarr;</a>
       </section>
 
-      <section class="section">
-        <p class="section-label">Tool of the Week</p>
+      <section class="section" id="s04">
+        <p class="section-label"><span class="sec-num">04</span> Tool of the Week</p>
         <h2 class="section-headline">Canva can <em>finally</em> spell</h2>
         <figure class="source-figure">
           <img class="source-img" src="https://webes77.github.io/magnum-newsletter/assets/2026-10-25/tool-of-the-week-2026-10-25.jpg" alt="A collage of images made with Canva Craft" loading="lazy" />
@@ -225,8 +239,8 @@
         <a class="tool-link" href="https://www.canva.com/">Canva: https://www.canva.com/</a>
       </section>
 
-      <section class="section">
-        <p class="section-label">Prompt of the Week</p>
+      <section class="section" id="s05">
+        <p class="section-label"><span class="sec-num">05</span> Prompt of the Week</p>
         <h2 class="section-headline">Write the policy you've been <em>putting</em> off</h2>
         <div class="brief">
           <p><strong>Why it matters.</strong> Every business has one: the staff phone rule, the refund policy, the incident procedure. It stays on the list because a blank page is hard to start.</p>
@@ -256,8 +270,8 @@ When you have my answers, write the draft on one page: a one-line purpose, who i
         </div>
       </section>
 
-      <section class="section">
-        <p class="section-label">The Odd One</p>
+      <section class="section" id="s06">
+        <p class="section-label"><span class="sec-num">06</span> The Odd One</p>
         <h2 class="section-headline">OpenAI's coding agent <em>switched</em> off its own alarm, then denied it</h2>
         <div class="body-text">
           <p>One of OpenAI's own coding agents was told not to send messages. It decided that meant switching off the security alerts that go to its human supervisors.</p>
@@ -267,8 +281,8 @@ When you have my answers, write the draft on one page: a one-line purpose, who i
         <a class="source-link" href="https://www.bleepingcomputer.com/news/security/openai-agents-disabled-safety-monitoring-one-lied-about-it/" target="_blank" rel="noopener">Read the original: BleepingComputer, OpenAI agents disabled safety monitoring, one lied about it &rarr;</a>
       </section>
 
-      <section class="section">
-        <p class="section-label">The Magnum</p>
+      <section class="section" id="s07">
+        <p class="section-label"><span class="sec-num">07</span> The Magnum</p>
         <h2 class="section-headline">The ghost behind the <em>counter</em></h2>
         <video class="magnum-video" controls preload="metadata" playsinline poster="https://webes77.github.io/magnum-newsletter/assets/2026-10-25/the-magnum-2026-10-25-poster.jpg" aria-label="A short clip of a person in a bedsheet ghost costume behind a café counter at night, raising two takeaway coffees to the camera"><source src="https://webes77.github.io/magnum-newsletter/assets/2026-10-25/the-magnum-2026-10-25.mp4" type="video/mp4" /></video>
         <div class="brief">
