@@ -93,8 +93,10 @@ CSS = """    :root { --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#
     .brief p.take { margin-top:16px; padding:14px 16px; background:var(--tint); border-left:4px solid var(--rust); font-size:17px; }
     .brief p.take strong { display:block; margin-bottom:4px; color:var(--ink); font-family:var(--display); font-size:15px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; }
     .edition-head { padding:26px 28px 6px; }
-    .edition-title { margin-top:8px; color:var(--ink); font-family:var(--display); font-size:40px; font-weight:700; line-height:1.02; text-transform:uppercase; }
-    .edition-dek { margin-top:12px; color:var(--char); font-size:18px; line-height:1.55; }
+    .edition-box { margin-top:14px; padding:18px 20px; border:2px solid var(--ink); background:#FFFFFF; }
+    .edition-kicker { color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.18em; text-transform:uppercase; }
+    .edition-title { margin-top:8px; color:var(--ink); font-size:20px; font-weight:700; line-height:1.35; }
+    .edition-dek { margin-top:6px; color:var(--char); font-size:16.5px; line-height:1.55; }
     .opener-plain { margin:0 0 36px; padding-bottom:26px; border-bottom:2px solid var(--ink); }
     .opener-plain p { margin-bottom:12px; color:var(--body); font-size:17px; line-height:1.7; }
     .opener-plain p:last-child { margin-bottom:0; }
@@ -144,7 +146,6 @@ CSS = """    :root { --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#
       .section { padding-bottom:40px; }
       .section-headline { font-size:28px; }
       .edition-head { padding:22px 20px 4px; }
-      .edition-title { font-size:32px; }
       .prompt-box { padding:14px 14px; }
       .prompt-box pre { font-size:12px; line-height:1.7; }
       .signoff { margin:0 20px; padding:32px 0 36px; }
@@ -370,8 +371,11 @@ def render(data: dict, hero_url: str, magnum_url: str) -> str:
     if new:
         top = f"""    <div class="edition-head">
       <p class="date-line">{esc(data['display_date'])}</p>
-      <p class="edition-title">{esc(data['title'])}</p>
-      <p class="edition-dek">{esc(data['dek'])}</p>
+      <div class="edition-box">
+        <p class="edition-kicker">In this edition</p>
+        <p class="edition-title">{esc(data['title'])}</p>
+        <p class="edition-dek">{esc(data['dek'])}</p>
+      </div>
     </div>
     <div class="content quiet">
       <div class="opener-plain">
