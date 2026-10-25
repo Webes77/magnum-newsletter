@@ -65,6 +65,27 @@ James set these on 25 October 2026 after reading that day's draft.
   the chat makes the Magnum at publish time.
 - **Tool of the Week:** not Wispr Flow until James says otherwise.
 
+Round two, the same day, after James read it and said it repeated itself
+and read as cluttered:
+
+- **Every story said once.** The headline is the "what it is"; the brief is
+  Why it matters, What to do and My take (James's verdict, in his voice,
+  an opinion and never an event). The detail underneath is capped (90 words,
+  170 for The Win, 60 for the short sections). No contents list on the page,
+  a one-line opener, a two-line sign-off with no sales line.
+- **An Australian answer on every story,** because the sources are American.
+- **Risk stories are a heads-up,** with a `paste` box holding the exact line
+  to send.
+- **The Odd One:** the strangest true AI story of the week, two or three
+  lines and a source.
+- **Design:** the edition's own headline is the first thing on the page; the
+  cartoon of James moved to a small round portrait at the sign-off; one
+  label per story; the picture sits under the headline; plain credits and
+  links; Copy buttons on every prompt; the Magnum video before its prompts.
+- **One question a week to James** in Saturday's email: anything from his
+  week worth a line. He answers in the publish chat and it becomes the
+  opener; no answer, no opener line beyond the default.
+
 ## Publish from a chat
 
 This is the normal route since 11 October 2026. James opens a session on
@@ -98,7 +119,10 @@ change. Do this:
    animating it). If he gave no motion prompt, ask for it once; if he says
    skip, publish without it. Never invent a prompt he did not use.
 5. Apply any copy change he asked for, faithfully and minimally, keeping
-   every rule in `tools/EDITION-SCHEMA.md`.
+   every rule in `tools/EDITION-SCHEMA.md`. If he gave a line from his week,
+   write the opener from it in his voice with the `james-writes` skill: two
+   to four short sentences, under 70 words, adding nothing he did not say.
+   If he gave nothing, keep the draft's one-line opener.
    Then give every section a picture, which James asked for on 17 October
    2026 ("like normal newsletters"). Since 25 October `pictures.json`
    already holds them: download each and pass it with `--illustration`,
@@ -185,14 +209,15 @@ The Win is a real story found by research, every week (James, 25 Oct 2026: the m
 The edition date is the coming Sunday, the day after this run, as YYYY-MM-DD, and its display form is D Month YYYY.
 
 CONSTRAINTS
-Pick for the reader, not for the news. The Newsline is the one story that changes what a small business owner does or decides, explained so they can act on it. Model releases, benchmarks and funding rounds are not stories unless they change a recommendation a reader would act on. If several newsletters cover the same thing, it is one story.
+Pick for the reader, not for the news. The Newsline is the one story that changes what a small business owner does or decides, explained so they can act on it. Lead with what most readers will actually use. A risk most owners will hand to someone else (a security patch, a legal change) is still worth running, but as a short heads-up: the headline says the one thing to do, and a paste field gives them the exact line to send, so it costs them two minutes, never a lesson in the technology (James, 25 Oct 2026: "most people aren't going to do anything with it"). Model releases, benchmarks and funding rounds are not stories unless they change a recommendation a reader would act on. If several newsletters cover the same thing, it is one story.
 Looking Sideways is optional: a case or an example from outside the AI industry that shows where the tools are going. Include it only when there is a good one.
+The Odd One runs every week there is one: the strangest true AI story of the week, two or three short lines and a source, ending on one plain line of what to take from it. Real and checked like everything else, never a joke at a real small business's expense. It is the fun bit people come back for.
 Tool of the Week is one tool that solves one problem a business owner recognises, with the price exactly as the source quoted it and the currency stated. Never a tool featured in the last eight editions. If James has a client build that uses it, do not say so; client work stays out. Wispr Flow is off the list until James says otherwise; it has run too often.
 Vendor spread: no single AI company (OpenAI, Anthropic, Google, xAI, Meta, Microsoft) is the subject of more than two of the six sections. The Newsline leads on the biggest story whatever the vendor; then spread the Tool, the Prompt and Looking Sideways across other ecosystems on purpose. The Prompt is vendor-neutral unless a capability exists in one product only. The close names an action, not a brand.
 Repeat guard: read the last four editions in issues/ before choosing, and do not repeat the Win's industry, the Prompt's use case or the Looking Sideways angle within four editions.
 Anchoring: before writing the Newsline, run a web search on the lead story for hard detail (when, where, how much, what exactly it does, who gets it and when). Verify every price, plan, date and availability claim in the edition with a search before it goes in, because the newsletters are days behind and often wrong on price. If the lead cannot be anchored, pick another lead; if nothing can be, write "headline only" in assumptions.md.
 Every section ends with something the reader can do today, stated plainly with its time cost where it helps. Banned words: exciting, game-changer, unlock, supercharge, "the future is here". If a line needs a hype word, the idea is too weak; find a sharper number.
-Prompt of the Week is a prompt any small business owner can paste and get value from without James in the room, whatever their trade. Write it generically, never for one named or example business (James asked for this on 3 Oct 2026: prompts written for one type of business only suit that business). Wherever the reader's own details matter, use a short fill-in in square brackets, like [your business], [your service], [your customer] or [paste your notes here], and keep it to three or four fill-ins at most so it stays quick. Order: Role, Context, Constraints, Tone, Format, Output where the prompt calls for them. Review it against notes/prompt-review-standards.md before it goes in.
+Prompt of the Week ties to The Win where it fits, so the reader can do what they just read about. It is a prompt any small business owner can paste and get value from without James in the room, whatever their trade. Write it generically, never for one named or example business (James asked for this on 3 Oct 2026: prompts written for one type of business only suit that business). Wherever the reader's own details matter, use a short fill-in in square brackets, like [your business], [your service], [your customer] or [paste your notes here], and keep it to three or four fill-ins at most so it stays quick. Better still, have the prompt ask its questions one at a time, because bracket examples get left in on a phone. Order: Role, Context, Constraints, Tone, Format, Output where the prompt calls for them. Review it against notes/prompt-review-standards.md before it goes in.
 The Magnum shows off what is hot in AI pictures and video, made for real, with the prompts in full, so readers learn to prompt and have some fun (James, 25 Oct 2026). Research it every week: from the newsletters and a web search, find the picture or video trend, style or new model people are making and sharing in the last two or three weeks. Skip anything that copies a real person, a brand character or a copyrighted style. Pick one a small business could copy for its own shop, and write the prompt for a generic Australian small business subject, no real people, no logos, in the order subject and action, camera, mood. Then make it in Higgsfield. The still: generate_image with nano_banana_2_1 or gpt_image_2_5 at 16:9, wait with jobs_wait, download it and look at it; make it again if it is not good. If the trend is a video, or the still would be more fun moving, animate it with generate_video, model seedance_2_5, mode omni_reference, the still's job id as start_image, 5 seconds, 720p, generate_audio false, with a motion prompt that opens "Keep the scene exactly as it is." Download the video, check it is H.264 (avc1 in the file) and look at frames from it. A still costs about 2 credits and a video more; never more than one video a week. The prompt goes in The Magnum's prompt and the motion prompt in video_prompt, both verbatim. The hero illustration at the top and the link preview are standing images that never change; you do not write a hero prompt. If Higgsfield is not connected to this run, write the prompts anyway, and the first line of the email says the chat will make the Magnum when he publishes.
 Figures, prices, names and dates exactly as the source gave them. If you are not confident a claim is true, or only one source you do not trust carried it, leave it out. Never invent.
 No em dashes anywhere. Never the word "solid". No exclamation marks. No hype and no newsletter cliches. Australian English. Short paragraphs, one or two sentences each, the way the reference edition reads. Plain words a tradesperson would use.
@@ -204,7 +229,7 @@ TONE
 James: direct, dry, warm, plain. A sharp peer telling you what matters and what to ignore, in the fewest words that carry it. Confident without selling. The reference edition is the standard; match its rhythm.
 
 FORMAT
-Produce edition.json exactly in the shape tools/EDITION-SCHEMA.md describes, with the sections in the fixed order. Every section opens with a brief of three plain lines, what (what it is), why (why it matters to a small business owner) and do (what to do about it), each one sentence under 30 words (James, 25 Oct 2026: attention spans are short, so a reader should get the whole edition from those three lines). The paragraphs underneath add detail and never repeat the brief. The opener says once, in one plain sentence, that every story opens with what it is, why it matters and what to do. Every list item in index matches a section present. The dek is one sentence under 30 words. The title is under ten words and works as a headline on its own. Also write whatsapp: the message James pastes into the WhatsApp broadcast above the link, under 60 words, in his voice, plain text, no link in it (the publish run adds the link), naming the one thing in the edition a reader would open it for, ending with the line "Four minutes."
+Produce edition.json exactly in the shape tools/EDITION-SCHEMA.md describes, with the sections in the fixed order. Say every story once (James, 25 Oct 2026: the first version repeated each story four times and read as cluttered). The headline says what it is, in plain words with a bit of wit, under 12 words, and it is a reason to read, never a label ("Canva can finally spell", not "Canva Craft"). Then the brief, three lines and no more: why (why it matters to a small business owner, one sentence), do (what to do about it, one sentence), and take (James's own verdict, one or two sentences, written through the james-writes skill: an opinion a summary would never give, with one everyday comparison where it fits). A take is an opinion, never an event: it never says James did, saw or was told anything. Each brief line is under 30 words. Then two or three short paragraphs of detail that add to the brief and never repeat it: at most 90 words for The Newsline, Looking Sideways and Tool of the Week, 170 for The Win, 60 for Prompt of the Week, The Odd One and The Magnum. Every story answers whether it applies in Australia, in the why, the take or the detail, because the newsletters are mostly American and the readers are on the Gold Coast. The opener is one plain line, under 70 words; James may replace it with a line from his own week when he publishes. The sign-off is two short lines, the action that matters most and a farewell, with no sales line. The build's --check enforces the brief, the lengths, the pictures and the sign-off. The index is still written, for the archive, but it no longer shows on the page. Every list item in index matches a section present. The dek is one sentence under 30 words. The title is under ten words and works as a headline on its own. Also write whatsapp: the message James pastes into the WhatsApp broadcast above the link, under 60 words, in his voice, plain text, no link in it (the publish run adds the link), naming the one thing in the edition a reader would open it for, ending with the line "Four minutes."
 
 OUTPUT
 Work through these steps in order.
@@ -273,7 +298,7 @@ The body is four blocks, in this order, and nothing else. The headings are exact
 
 WHAT I NEED YOU TO DO
 Under it: "Five minutes. Read it, then one line in a chat."
-Then three numbered lines. 1. Read the newsletter and look at the pictures below. 2. Open Claude Code at claude.ai/code and start a new session on the magnum-newsletter repository. 3. Paste this line: Publish This Week in AI for D Month YYYY. Follow Publish from a chat in ROUTINE.md. Then one more line under the three: "Want a change, or your own Magnum instead? Say it in the same chat before you publish." The hand-over happens in a chat and nowhere else: James decided this on 11 Oct 2026, so never tell him to save anything to Drive, write a notes.txt, rename a file or reply to this email.
+Then three numbered lines. 1. Read the newsletter and look at the pictures below. 2. Open Claude Code at claude.ai/code and start a new session on the magnum-newsletter repository. 3. Paste this line: Publish This Week in AI for D Month YYYY. Follow Publish from a chat in ROUTINE.md. Then one more line under the three: "Want a change, or your own Magnum instead? Say it in the same chat before you publish." Then this question on its own line, word for word: "One question for you: anything from your week worth a line? Say it in the chat when you publish and it becomes the opening. Skip it and the edition opens straight into the first story." The hand-over happens in a chat and nowhere else: James decided this on 11 Oct 2026, so never tell him to save anything to Drive, write a notes.txt, rename a file or reply to this email.
 READ THE NEWSLETTER
 Under it: "This is what goes out once you publish it. If anything is wrong, say so in the same chat."
 Then the whole edition as it reads, section by section, plain text, each section's three lines first. This is content he reads to judge the edition, so none of it is cut.

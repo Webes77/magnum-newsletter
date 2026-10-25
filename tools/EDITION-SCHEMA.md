@@ -22,18 +22,27 @@ turns it into the dated page. `tools/example-edition.json` is the 23 August
 ## Sections
 
 Fixed order. The Newsline, Tool of the Week, Prompt of the Week and The
-Magnum are required. Looking Sideways and The Win are optional and are
-dropped from the page and the index when absent.
+Magnum are required. Looking Sideways, The Win and The Odd One are optional
+and are dropped from the page and the index when absent.
 
 Every section has `label`, `headline` and `paragraphs` (a list of strings,
 one sentence or two per paragraph, the way the reference edition reads).
 
-Since 25 October 2026 every section also opens with a `brief`, three plain
-lines rendered in a box under the headline: `{"what": "what it is", "why":
-"why it matters", "do": "what to do"}`, each one sentence under 30 words.
-Required on The Newsline, Looking Sideways, The Win and Tool of the Week, and
-written on the other two as well. The paragraphs add detail and never repeat
-it. The opener tells the reader once that every story opens this way.
+Since 25 October 2026 every section also carries a `brief` under its
+picture: `{"why": "why it matters", "do": "what to do", "take": "James's
+verdict"}`, each under 30 words. The headline is the "what it is", so there
+is no `what` line and the check fails one. Required on The Newsline, Looking
+Sideways, The Win and Tool of the Week, and written on Prompt of the Week and
+The Magnum too. `take` is James's opinion in his voice, never an event. The
+paragraphs add detail and never repeat the brief, capped at 90 words (The
+Newsline, Looking Sideways, Tool of the Week), 170 (The Win) or 60 (Prompt of
+the Week, The Odd One, The Magnum). Headlines are 12 words at most. The
+opener is under 70 words and the sign-off two lines at most. The index is
+still written for the archive and no longer shows on the page.
+
+Any story may carry `paste` (and optionally `paste_label`): a short line the
+reader copies, rendered as a prompt box with a Copy button. Use it for a
+heads-up, so the action costs two minutes.
 
 | Label | Extra keys | What it is |
 |---|---|---|
@@ -42,6 +51,7 @@ it. The opener tells the reader once that every story opens this way.
 | `The Win` | `source` (required since 25 October 2026) | A real, named business using AI on a real job, found by research and linked to where it is reported. Problem, what they did, what changed, the point. Never a composite, never "we"; a vendor's own customer story says so in the copy. |
 | `Tool of the Week` | `link: {url, text}` | One tool, what problem it solves, the price as quoted. `text` is `Name: url`. |
 | `Prompt of the Week` | `prompt` (string, line breaks kept), `use` (list of strings, one instruction each) | A prompt any small business owner can paste, whatever their trade. Generic, never written for one named or example business; the reader's own details go in short [square bracket] fill-ins, three or four at most. |
+| `The Odd One` | `source` (required) | Optional, before The Magnum. The strangest true AI story of the week in two or three short lines, ending on what to take from it. No brief, no picture needed. |
 | `The Magnum` | `prompt` (string), `image_alt` (string), `take` (string), optional `video_prompt` (string) | The image prompt that made the Magnum image, and one or two lines on what to take from it. When the Magnum is a video made in two steps (a still, then a video model animating it), `video_prompt` carries the motion prompt verbatim; the page then labels the two boxes "The image prompt" and "The video prompt". When the Magnum is a video, the builder takes a frame from it as the still shown before it plays (`video_poster`, set automatically; it needs ffmpeg, so `pip install imageio-ffmpeg` first). `--magnum-poster` overrides the frame with a chosen still. The check fails if the video has no poster. A how-to Magnum (first used 11 October 2026, a walkthrough of a tool with James's own video) leaves out `prompt` and `take` and carries `steps` (a list, rendered as a numbered How to use it list) and optionally `after` (paragraphs shown after the steps and before the video). |
 
 ### Sources

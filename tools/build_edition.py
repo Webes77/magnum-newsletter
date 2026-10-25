@@ -43,16 +43,23 @@ STALE_RE = re.compile(r"\b(last week|this week|yesterday|earlier today|prior edi
 EM_DASH = "—"
 
 REQUIRED_TOP = ("date", "display_date", "title", "dek", "hero_alt", "opener", "index", "sections", "signoff")
-SOURCE_REQUIRED = ("The Newsline", "Looking Sideways")  # must carry a source when present
+SOURCE_REQUIRED = ("The Newsline", "Looking Sideways", "The Odd One")  # must carry a source when present
 SOURCE_NONE = ("Prompt of the Week", "The Magnum")  # never carry one
 # Since 25 October 2026 (James): every story opens with three plain lines, and every
 # story carries a picture. Older editions keep the rules they were built under.
 RULES_FROM = "2026-10-25"
 BRIEF_REQUIRED = ("The Newsline", "Looking Sideways", "The Win", "Tool of the Week")
-BRIEF_KEYS = (("what", "What it is"), ("why", "Why it matters"), ("do", "What to do"))
+# Round two, same day: the headline is the "what it is", so the brief carries why,
+# what to do, and James's own verdict. Every story is said once.
+BRIEF_KEYS = (("what", "What it is"), ("why", "Why it matters"), ("do", "What to do"), ("take", "My take"))
+BRIEF_NEEDS = ("why", "do", "take")
 BRIEF_MAX_WORDS = 30
+HEADLINE_MAX_WORDS = 12
+OPENER_MAX_WORDS = 70
+DETAIL_MAX_WORDS = {"The Newsline": 90, "Looking Sideways": 90, "Tool of the Week": 90, "The Win": 170,
+                    "The Odd One": 60, "Prompt of the Week": 60, "The Magnum": 60}
 PICTURE_REQUIRED = ("The Newsline", "Looking Sideways", "The Win", "Tool of the Week")
-SECTION_ORDER = ("The Newsline", "Looking Sideways", "The Win", "Tool of the Week", "Prompt of the Week", "The Magnum")
+SECTION_ORDER = ("The Newsline", "Looking Sideways", "The Win", "Tool of the Week", "Prompt of the Week", "The Odd One", "The Magnum")
 
 CSS = """    :root { --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#1E1B17; --body:#2B2823; --char:#3A3630; --mute:#63615C; --rust:#EF4029; --coral-text:#C63A2A; --coral-bright:#FF6F5E; --tint:#FBE1D8; --on-navy:#F4F1EA; --on-navy-mute:#C8CDD3; --hair:#DADAD5; --display:'Oswald','Arial Narrow','Liberation Sans Narrow',sans-serif; --sans:'IBM Plex Sans',Arial,system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,'Courier New',monospace; color-scheme:light; }
     *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
@@ -80,12 +87,27 @@ CSS = """    :root { --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#
     .section-label::after { content:""; flex:1; height:1px; background:var(--ink); }
     .section-headline { margin-bottom:20px; color:var(--ink); font-family:var(--display); font-size:34px; font-weight:600; line-height:1.05; text-transform:uppercase; }
     .section-headline em { font-style:normal; color:var(--rust); }
-    .brief { margin:0 0 22px; padding:4px 20px; background:var(--paper-2); border:2px solid var(--ink); }
-    .brief-row { display:grid; grid-template-columns:132px 1fr; gap:14px; padding:12px 0; border-top:1px solid var(--hair); }
-    .brief-row:first-child { border-top:0; }
-    .brief-row dt { padding-top:3px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.14em; line-height:1.5; text-transform:uppercase; }
-    .brief-row dd { color:var(--ink); font-size:17px; font-weight:500; line-height:1.55; }
-    .brief-row.do dd { color:var(--ink); font-weight:600; }
+    .brief { margin:0 0 20px; }
+    .brief p { margin:0 0 12px; color:var(--ink); font-size:17.5px; line-height:1.6; }
+    .brief p strong { font-weight:700; }
+    .brief p.take { margin-top:16px; padding:14px 16px; background:var(--tint); border-left:4px solid var(--rust); font-size:17px; }
+    .brief p.take strong { display:block; margin-bottom:4px; color:var(--ink); font-family:var(--display); font-size:15px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; }
+    .edition-head { padding:26px 28px 6px; }
+    .edition-title { margin-top:8px; color:var(--ink); font-family:var(--display); font-size:40px; font-weight:700; line-height:1.02; text-transform:uppercase; }
+    .edition-dek { margin-top:12px; color:var(--char); font-size:18px; line-height:1.55; }
+    .opener-plain { margin:0 0 36px; padding-bottom:26px; border-bottom:2px solid var(--ink); }
+    .opener-plain p { margin-bottom:12px; color:var(--body); font-size:17px; line-height:1.7; }
+    .opener-plain p:last-child { margin-bottom:0; }
+    .copy-btn { margin-left:12px; padding:6px 12px; border:2px solid var(--ink); background:var(--coral-bright); color:var(--ink); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.12em; text-transform:uppercase; cursor:pointer; }
+    .copy-btn:active { background:var(--paper-2); }
+    .prompt-row { display:flex; align-items:center; justify-content:space-between; margin:24px 0 10px; }
+    .prompt-row .prompt-label { margin:0; }
+    .signoff-who { display:flex; align-items:center; gap:16px; margin-top:20px; }
+    .signoff-who img { width:76px; height:76px; object-fit:cover; object-position:30% 30%; border:2px solid var(--ink); border-radius:50%; }
+    .signoff-who p { color:var(--ink); font-family:var(--display); font-size:20px; font-weight:600; line-height:1.2; }
+    .signoff-who p span { display:block; color:var(--mute); font-family:var(--sans); font-size:14px; font-weight:400; }
+    .quiet .source-credit { font-family:var(--sans); font-size:12.5px; letter-spacing:0; text-transform:none; }
+    .quiet .source-link { font-family:var(--sans); font-size:15px; font-weight:600; letter-spacing:0; text-transform:none; text-decoration:underline; text-underline-offset:4px; }
     .body-text p { margin-bottom:16px; color:var(--body); font-size:17px; line-height:1.7; }
     .body-text p:last-child { margin-bottom:0; }
     .tool-link { display:inline-block; min-height:44px; margin-top:20px; color:var(--coral-text); font-size:15.5px; font-weight:600; line-height:44px; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px; overflow-wrap:anywhere; }
@@ -121,8 +143,8 @@ CSS = """    :root { --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#
       .opener-block { padding:18px 18px; }
       .section { padding-bottom:40px; }
       .section-headline { font-size:28px; }
-      .brief { padding:2px 16px; }
-      .brief-row { grid-template-columns:1fr; gap:4px; }
+      .edition-head { padding:22px 20px 4px; }
+      .edition-title { font-size:32px; }
       .prompt-box { padding:14px 14px; }
       .prompt-box pre { font-size:12px; line-height:1.7; }
       .signoff { margin:0 20px; padding:32px 0 36px; }
@@ -211,7 +233,16 @@ def render_source_image(src: dict) -> list[str]:
     ]
 
 
-def render_section(s: dict, magnum_url: str) -> str:
+def prompt_block(label: str, text: str, copy: bool) -> list[str]:
+    if copy:
+        head = (f'        <div class="prompt-row"><p class="prompt-label">{esc(label)}</p>'
+                '<button class="copy-btn" type="button" data-copy>Copy</button></div>')
+    else:
+        head = f'        <p class="prompt-label">{esc(label)}</p>'
+    return [head, f'        <div class="prompt-box"><pre>{esc(text)}</pre></div>']
+
+
+def render_section(s: dict, magnum_url: str, new: bool = False) -> str:
     label = s["label"]
     tag = "h1" if label == "The Newsline" else "h2"
     src = s.get("source") or {}
@@ -220,11 +251,24 @@ def render_section(s: dict, magnum_url: str) -> str:
         f'        <p class="section-label">{esc(label)}</p>',
         f'        <{tag} class="section-headline">{accent_heading(s["headline"], s.get("accent"))}</{tag}>',
     ]
+    brief = []
     if s.get("brief"):
-        out.append('        <dl class="brief">')
-        for key, name in BRIEF_KEYS:
-            out.append(f'          <div class="brief-row {key}"><dt>{name}</dt><dd>{esc(s["brief"][key])}</dd></div>')
-        out.append("        </dl>")
+        if new:
+            brief.append('        <div class="brief">')
+            for key, name in BRIEF_KEYS:
+                if s["brief"].get(key):
+                    cls = ' class="take"' if key == "take" else ""
+                    sep = "" if key == "take" else "."
+                    brief.append(f'          <p{cls}><strong>{name}{sep}</strong> {esc(s["brief"][key])}</p>')
+            brief.append("        </div>")
+        else:
+            brief.append('        <dl class="brief">')
+            for key, name in BRIEF_KEYS:
+                if s["brief"].get(key):
+                    brief.append(f'          <div class="brief-row {key}"><dt>{name}</dt><dd>{esc(s["brief"][key])}</dd></div>')
+            brief.append("        </dl>")
+    if not new:
+        out += brief
     if src.get("image"):
         out += render_source_image(src)
     elif s.get("illustration"):
@@ -234,18 +278,37 @@ def render_section(s: dict, magnum_url: str) -> str:
             f'          <figcaption class="source-credit">{esc(s.get("illustration_credit") or "Illustration: Magnum AI")}</figcaption>',
             "        </figure>",
         ]
+    if new and label != "The Magnum":
+        out += brief
+    media = []
+    if label == "The Magnum":
+        if s.get("video_url"):
+            poster = s.get("video_poster")
+            # Without a poster, #t=0.1 makes Safari and iOS show the first frame instead of a blank box.
+            src_url = s["video_url"] if poster or "#" in s["video_url"] else s["video_url"] + "#t=0.1"
+            poster_attr = f' poster="{attr(poster)}"' if poster else ""
+            media.append(
+                f'        <video class="magnum-video" controls preload="metadata" playsinline{poster_attr} '
+                f'aria-label="{attr(s["image_alt"])}"><source src="{attr(src_url)}" '
+                f'type="video/mp4" /></video>'
+            )
+        else:
+            media.append(f'        <img class="magnum-img" src="{magnum_url}" alt="{attr(s["image_alt"])}" />')
+        if new:
+            out += media + brief
     out += [
         '        <div class="body-text">',
         paragraphs(s.get("paragraphs", [])),
         "        </div>",
     ]
+    if s.get("paste"):
+        out += prompt_block(s.get("paste_label") or "Paste this into any AI", s["paste"], new)
     if label == "Tool of the Week":
         link = s["link"]
         out.append(f'        <a class="tool-link" href="{attr(link["url"])}">{esc(link["text"])}</a>')
     if label == "Prompt of the Week":
+        out += prompt_block("Prompt", s["prompt"], new)
         out += [
-            '        <p class="prompt-label">Prompt</p>',
-            f'        <div class="prompt-box"><pre>{esc(s["prompt"])}</pre></div>',
             '        <div class="body-text">',
             '          <p class="prompt-use"><strong>Use it for</strong><br />' + "<br />".join(esc(u) for u in s["use"]) + "</p>",
             "        </div>",
@@ -253,32 +316,16 @@ def render_section(s: dict, magnum_url: str) -> str:
     if label == "The Magnum":
         video_prompt = s.get("video_prompt")
         if s.get("prompt"):
-            out += [
-                f'        <p class="prompt-label">{"The image prompt" if video_prompt else "Prompt"}</p>',
-                f'        <div class="prompt-box"><pre>{esc(s["prompt"])}</pre></div>',
-            ]
+            out += prompt_block("The image prompt" if video_prompt else "Prompt", s["prompt"], new)
         if s.get("steps"):
             out.append('        <p class="prompt-label">How to use it</p>')
             out.append('        <ol class="magnum-steps">' + "".join(f"<li>{esc(x)}</li>" for x in s["steps"]) + "</ol>")
         if s.get("after"):
             out += ['        <div class="body-text magnum-after">', paragraphs(s["after"]), "        </div>"]
         if video_prompt:
-            out += [
-                '        <p class="prompt-label">The video prompt</p>',
-                f'        <div class="prompt-box"><pre>{esc(video_prompt)}</pre></div>',
-            ]
-        if s.get("video_url"):
-            poster = s.get("video_poster")
-            # Without a poster, #t=0.1 makes Safari and iOS show the first frame instead of a blank box.
-            src_url = s["video_url"] if poster or "#" in s["video_url"] else s["video_url"] + "#t=0.1"
-            poster_attr = f' poster="{attr(poster)}"' if poster else ""
-            out.append(
-                f'        <video class="magnum-video" controls preload="metadata" playsinline{poster_attr} '
-                f'aria-label="{attr(s["image_alt"])}"><source src="{attr(src_url)}" '
-                f'type="video/mp4" /></video>'
-            )
-        else:
-            out.append(f'        <img class="magnum-img" src="{magnum_url}" alt="{attr(s["image_alt"])}" />')
+            out += prompt_block("The video prompt", video_prompt, new)
+        if not new:
+            out += media
         if s.get("take"):
             out.append(f'        <p class="magnum-take">Take from it:<br />{esc(s["take"])}</p>')
     if src.get("url"):
@@ -290,6 +337,25 @@ def render_section(s: dict, magnum_url: str) -> str:
     return "\n".join(out)
 
 
+COPY_JS = """  <script>
+  document.querySelectorAll('[data-copy]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var pre = b.parentNode.nextElementSibling.querySelector('pre');
+      var text = pre.textContent;
+      var done = function () { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy'; }, 1800); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () { fallback(); });
+      } else { fallback(); }
+      function fallback() {
+        var r = document.createRange(); r.selectNodeContents(pre);
+        var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+        try { document.execCommand('copy'); done(); } catch (e) {}
+      }
+    });
+  });
+  </script>"""
+
+
 def render(data: dict, hero_url: str, magnum_url: str) -> str:
     d = data["date"]
     issue_url = f"{BASE_URL}/issues/{d}.html"
@@ -298,8 +364,34 @@ def render(data: dict, hero_url: str, magnum_url: str) -> str:
     index_items = "\n".join(
         f'          <li>{esc(i["label"])} &middot; {esc(i["line"])}</li>' for i in data["index"]
     )
-    sections = "\n\n".join(render_section(s, magnum_url) for s in data["sections"])
+    new = data["date"] >= RULES_FROM
+    sections = "\n\n".join(render_section(s, magnum_url, new) for s in data["sections"])
     signoff = "\n".join(f'      <p class="signoff-body">{esc(p)}</p>' for p in data["signoff"])
+    if new:
+        top = f"""    <div class="edition-head">
+      <p class="date-line">{esc(data['display_date'])}</p>
+      <p class="edition-title">{esc(data['title'])}</p>
+      <p class="edition-dek">{esc(data['dek'])}</p>
+    </div>
+    <div class="content quiet">
+      <div class="opener-plain">
+{paragraphs(data['opener']).replace('          <p', '        <p')}
+      </div>"""
+        who = f"""      <div class="signoff-who"><img src="{hero_url}" alt="{attr(data['hero_alt'])}" /><p>James Wheable<span>Magnum AI, Gold Coast</span></p></div>"""
+        script = COPY_JS
+    else:
+        top = f"""    <img class="hero-img" src="{hero_url}" alt="{attr(data['hero_alt'])}" />
+    <div class="content">
+      <p class="date-line">{esc(data['display_date'])}</p>
+      <div class="opener-block">
+{paragraphs(data['opener'], 'opener-text').replace('          <p', '        <p')}
+        <p class="index-label">In this edition:</p>
+        <ul class="index-list">
+{index_items}
+        </ul>
+      </div>"""
+        who = ""
+        script = ""
     return f"""<!DOCTYPE html>
 <html lang="en" style="background:#FBFBF9;">
 <head>
@@ -338,25 +430,18 @@ def render(data: dict, hero_url: str, magnum_url: str) -> str:
       <div class="masthead-meta"><span>Magnum AI &middot; Client Edition</span><span>magnumai.com.au</span></div>
       <p class="masthead-title">This Week in AI</p>
     </header>
-    <img class="hero-img" src="{hero_url}" alt="{attr(data['hero_alt'])}" />
-    <div class="content">
-      <p class="date-line">{esc(data['display_date'])}</p>
-      <div class="opener-block">
-{paragraphs(data['opener'], 'opener-text').replace('          <p', '        <p')}
-        <p class="index-label">In this edition:</p>
-        <ul class="index-list">
-{index_items}
-        </ul>
-      </div>
+{top}
 
 {sections}
     </div>
     <div class="signoff">
 {signoff}
+{who}
       <p class="signoff-details">Magnum AI | <a href="https://magnumai.com.au">magnumai.com.au</a></p>
     </div>
     <footer class="footer"><p>You're getting this because you're a Magnum AI client.</p></footer>
   </main>
+{script}
 </body>
 </html>
 """
@@ -452,22 +537,38 @@ def check_sources(data: dict) -> list[str]:
     return errors
 
 
+def words(text: str) -> int:
+    return len(str(text).split())
+
+
 def check_briefs_and_pictures(data: dict) -> list[str]:
-    """The 25 October 2026 rules: three plain lines on every story, a picture on every story."""
+    """The 25 October 2026 rules: each story said once, with James's take and a picture."""
     errors: list[str] = []
+    if sum(words(p) for p in data["opener"]) > OPENER_MAX_WORDS:
+        errors.append(f"the opener is over {OPENER_MAX_WORDS} words; one line, or James's own line from his week")
+    if len(data["signoff"]) > 2:
+        errors.append("the sign-off is two short lines at most")
     for s in data["sections"]:
         label = s["label"]
         b = s.get("brief")
+        if words(s["headline"]) > HEADLINE_MAX_WORDS:
+            errors.append(f"{label}: the headline is over {HEADLINE_MAX_WORDS} words")
         if b is None:
             if label in BRIEF_REQUIRED:
-                errors.append(f"{label} must open with a brief {{what, why, do}}")
+                errors.append(f"{label} must open with a brief {{why, do, take}}")
         else:
-            for key, name in BRIEF_KEYS:
+            if b.get("what"):
+                errors.append(f"{label}: no 'what' line; the headline says what it is, so the story is said once")
+            for key in BRIEF_NEEDS:
                 line = str(b.get(key, "")).strip()
+                name = dict(BRIEF_KEYS)[key]
                 if not line:
                     errors.append(f"{label}: brief.{key} ({name}) is empty")
-                elif len(line.split()) > BRIEF_MAX_WORDS:
+                elif words(line) > BRIEF_MAX_WORDS:
                     errors.append(f"{label}: brief.{key} ({name}) is over {BRIEF_MAX_WORDS} words")
+        limit = DETAIL_MAX_WORDS.get(label)
+        if limit and sum(words(p) for p in s.get("paragraphs", [])) > limit:
+            errors.append(f"{label}: the detail under the brief is over {limit} words")
         if label == "The Win" and not (s.get("source") or {}).get("url"):
             errors.append("The Win must link to where the story is reported: a real business, never invented")
         if label in PICTURE_REQUIRED and not ((s.get("source") or {}).get("image") or s.get("illustration")):
