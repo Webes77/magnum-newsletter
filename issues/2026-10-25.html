@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" style="background:#FBFBF9;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>This Week in AI, 25 October 2026 | Is your website patched against the PHP flaw? | Magnum AI</title>
+  <meta name="description" content="Two serious flaws in the software behind most websites were patched on 21 October. Here is how to find out whether yours is covered, and what to ask." />
+  <link rel="canonical" href="https://webes77.github.io/magnum-newsletter/issues/2026-10-25.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://webes77.github.io/magnum-newsletter/issues/2026-10-25.html" />
+  <meta property="og:title" content="This Week in AI, 25 October 2026 | Is your website patched against the PHP flaw? | Magnum AI" />
+  <meta property="og:description" content="Two serious flaws in the software behind most websites were patched on 21 October. Here is how to find out whether yours is covered, and what to ask." />
+  <meta property="og:image" content="https://webes77.github.io/magnum-newsletter/assets/previews/2026-10-25.jpg" />
+  <meta property="og:image:secure_url" content="https://webes77.github.io/magnum-newsletter/assets/previews/2026-10-25.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Cartoon of James Wheable at his desk with his bulldog" />
+  <meta property="og:site_name" content="Magnum AI" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="This Week in AI, 25 October 2026 | Is your website patched against the PHP flaw? | Magnum AI" />
+  <meta name="twitter:description" content="Two serious flaws in the software behind most websites were patched on 21 October. Here is how to find out whether yours is covered, and what to ask." />
+  <meta name="twitter:image" content="https://webes77.github.io/magnum-newsletter/assets/previews/2026-10-25.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta name="color-scheme" content="light" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+  <style>
+    :root { --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#1E1B17; --body:#2B2823; --char:#3A3630; --mute:#63615C; --rust:#EF4029; --coral-text:#C63A2A; --coral-bright:#FF6F5E; --tint:#FBE1D8; --on-navy:#F4F1EA; --on-navy-mute:#C8CDD3; --hair:#DADAD5; --display:'Oswald','Arial Narrow','Liberation Sans Narrow',sans-serif; --sans:'IBM Plex Sans',Arial,system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,'Courier New',monospace; color-scheme:light; }
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    html,body { background:#FBFBF9; color-scheme:light; }
+    body { color:var(--body); font-family:var(--sans); font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:100%; overflow-wrap:break-word; }
+    .page { max-width:720px; margin:0 auto; background:#FBFBF9; }
+    .masthead { background:var(--navy); color:var(--on-navy); border-bottom:4px solid var(--coral-bright); padding:26px 28px 28px; }
+    .masthead-meta { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    .masthead-meta span { color:var(--coral-bright); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .masthead-meta span + span { color:var(--on-navy-mute); }
+    .masthead-title { margin-top:14px; color:var(--on-navy); font-family:var(--display); font-size:44px; font-weight:700; line-height:.95; text-transform:uppercase; }
+    .hero-img,.magnum-img,.magnum-video { display:block; width:100%; height:auto; }
+    .content { padding:36px 28px 0; }
+    .date-line { margin-bottom:24px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .opener-block { margin-bottom:44px; padding:22px 26px; background:var(--paper-2); border:2px solid var(--ink); }
+    .opener-text { margin-bottom:16px; color:var(--char); font-size:17px; font-style:italic; line-height:1.7; }
+    .opener-text:last-of-type { margin-bottom:24px; }
+    .index-label { display:flex; align-items:center; gap:12px; margin-bottom:12px; color:var(--coral-text); font-family:var(--mono); font-size:12px; letter-spacing:.22em; text-transform:uppercase; }
+    .index-label::after { content:""; flex:1; height:1px; background:var(--ink); }
+    .index-list { list-style:none; }
+    .index-list li { position:relative; padding-left:18px; color:var(--char); font-size:15.5px; line-height:1.6; margin-bottom:8px; }
+    .index-list li::before { content:'\00B7'; position:absolute; left:2px; color:var(--rust); font-weight:700; }
+    .section { padding:0 0 48px; }
+    .section-label { display:flex; align-items:center; gap:12px; margin-bottom:14px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .section-label::after { content:""; flex:1; height:1px; background:var(--ink); }
+    .section-headline { margin-bottom:20px; color:var(--ink); font-family:var(--display); font-size:34px; font-weight:600; line-height:1.05; text-transform:uppercase; }
+    .section-headline em { font-style:normal; color:var(--rust); }
+    .brief { margin:0 0 22px; padding:4px 20px; background:var(--paper-2); border:2px solid var(--ink); }
+    .brief-row { display:grid; grid-template-columns:132px 1fr; gap:14px; padding:12px 0; border-top:1px solid var(--hair); }
+    .brief-row:first-child { border-top:0; }
+    .brief-row dt { padding-top:3px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.14em; line-height:1.5; text-transform:uppercase; }
+    .brief-row dd { color:var(--ink); font-size:17px; font-weight:500; line-height:1.55; }
+    .brief-row.do dd { color:var(--ink); font-weight:600; }
+    .body-text p { margin-bottom:16px; color:var(--body); font-size:17px; line-height:1.7; }
+    .body-text p:last-child { margin-bottom:0; }
+    .tool-link { display:inline-block; min-height:44px; margin-top:20px; color:var(--coral-text); font-size:15.5px; font-weight:600; line-height:44px; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px; overflow-wrap:anywhere; }
+    .tool-link:hover { color:var(--ink); }
+    .source-figure { margin:0 0 22px; }
+    .source-img { display:block; width:100%; height:auto; border:2px solid var(--ink); background:var(--paper-2); }
+    .source-credit { margin-top:8px; color:var(--mute); font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; }
+    .source-link { display:inline-block; min-height:44px; margin-top:20px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.18em; line-height:1.6; padding:12px 0; text-transform:uppercase; text-decoration:none; overflow-wrap:anywhere; }
+    .source-link:hover { color:var(--ink); text-decoration:underline; text-underline-offset:4px; }
+    .prompt-label { margin:24px 0 10px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .prompt-box { margin:0 0 20px; padding:18px 20px; overflow-wrap:anywhere; background:var(--paper-2); border:2px solid var(--ink); }
+    .prompt-box pre { margin:0; color:var(--char); font-family:var(--mono); font-size:13px; line-height:1.75; white-space:pre-wrap; word-break:break-word; }
+    .prompt-use,.magnum-take { color:var(--char); font-size:15.5px; line-height:1.7; }
+    .prompt-use strong,.magnum-take strong { color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .magnum-img,.magnum-video { margin:0 0 18px; border:2px solid var(--ink); background:var(--paper-2); }
+    .magnum-take { padding-top:14px; border-top:1px solid var(--hair); }
+    .magnum-steps { margin:0 0 24px; padding-left:22px; color:var(--body); font-size:17px; line-height:1.7; }
+    .magnum-steps li { margin-bottom:8px; padding-left:4px; }
+    .magnum-after { margin-bottom:22px; }
+    .signoff { margin:0 28px; padding:36px 0 44px; border-top:2px solid var(--ink); }
+    .signoff-body { margin-bottom:16px; color:var(--body); font-size:17px; line-height:1.7; }
+    .signoff-details { margin-top:22px; color:var(--mute); font-family:var(--mono); font-size:12px; letter-spacing:.18em; line-height:2; text-transform:uppercase; }
+    .signoff-details a { color:var(--coral-text); text-decoration:none; }
+    .signoff-details a:hover { text-decoration:underline; }
+    .footer { padding:22px 28px; background:var(--navy); text-align:center; }
+    .footer p { color:var(--on-navy-mute); font-family:var(--mono); font-size:11px; letter-spacing:.18em; line-height:1.7; text-transform:uppercase; }
+    .footer a { color:var(--on-navy); }
+    @media (max-width:600px) {
+      .masthead { padding:20px 20px 22px; }
+      .masthead-meta { flex-direction:column; gap:4px; }
+      .masthead-title { font-size:36px; }
+      .content { padding:30px 20px 0; }
+      .opener-block { padding:18px 18px; }
+      .section { padding-bottom:40px; }
+      .section-headline { font-size:28px; }
+      .brief { padding:2px 16px; }
+      .brief-row { grid-template-columns:1fr; gap:4px; }
+      .prompt-box { padding:14px 14px; }
+      .prompt-box pre { font-size:12px; line-height:1.7; }
+      .signoff { margin:0 20px; padding:32px 0 36px; }
+    }
+    @media print {
+      html,body { background:#fff; }
+      .masthead,.footer { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+      .prompt-box { break-inside:avoid; }
+    }
+  </style>
+</head>
+<body style="background:#FBFBF9;">
+  <main class="page">
+    <header class="masthead">
+      <div class="masthead-meta"><span>Magnum AI &middot; Client Edition</span><span>magnumai.com.au</span></div>
+      <p class="masthead-title">This Week in AI</p>
+    </header>
+    <img class="hero-img" src="https://webes77.github.io/magnum-newsletter/assets/standing/hero-cartoon.jpg" alt="Cartoon of James Wheable at his desk with his bulldog" />
+    <div class="content">
+      <p class="date-line">25 October 2026</p>
+      <div class="opener-block">
+        <p class="opener-text">A lot happened in AI. Here is what matters for a small business, and what to do about it.</p>
+        <p class="opener-text">Every story now opens with three lines: what it is, why it matters, and what to do. Read those and you have the edition. The detail sits underneath for when you want it.</p>
+        <p class="opener-text">The lead is a website fix that takes one email. Then two restaurant owners who handed their paperwork to AI, a new tool from Canva, and a Halloween picture you can copy for your own shop.</p>
+        <p class="index-label">In this edition:</p>
+        <ul class="index-list">
+          <li>The Newsline &middot; two serious flaws in the software behind most websites, and the one email to send</li>
+          <li>Looking Sideways &middot; why banks are pushing back on AI agents that log in as you</li>
+          <li>The Win &middot; two restaurant owners who hand their paperwork to AI, and what an HR firm made of it</li>
+          <li>Tool of the Week &middot; Canva Craft, AI posters with the words spelled right</li>
+          <li>Prompt of the Week &middot; the email that finds out whether your website is patched</li>
+          <li>The Magnum &middot; the Halloween found photo, with both prompts used to make it</li>
+        </ul>
+      </div>
+
+      <section class="section">
+        <p class="section-label">The Newsline</p>
+        <h1 class="section-headline">Two serious flaws in the <em>software</em> behind most websites have been patched. Ask whoever looks after yours.</h1>
+        <dl class="brief">
+          <div class="brief-row what"><dt>What it is</dt><dd>Two serious flaws in PHP, the software behind most websites including every WordPress site, were patched on 21 October.</dd></div>
+          <div class="brief-row why"><dt>Why it matters</dt><dd>They let an attacker take over a website's server without logging in, and attacks were already being spotted before the fix came out.</dd></div>
+          <div class="brief-row do"><dt>What to do</dt><dd>Email whoever looks after your website and ask whether the update is on. The prompt further down writes the email for you.</dd></div>
+        </dl>
+        <figure class="source-figure">
+          <img class="source-img" src="https://webes77.github.io/magnum-newsletter/assets/2026-10-25/the-newsline-2026-10-25.jpg" alt="Cartoon of a tradie on a ladder patching a crack in a café window while the owner inside gives a thumbs-up on the phone" loading="lazy" />
+          <figcaption class="source-credit">Illustration: Magnum AI</figcaption>
+        </figure>
+        <div class="body-text">
+          <p>PHP runs most of the world's websites. If yours is built on WordPress, it runs on PHP.</p>
+          <p>AI helped find these flaws. Researchers at Calif, Wiz and OpenAI reported them, using OpenAI's own model to dig through PHP's code.</p>
+          <p>Security agencies in the US and the UK told organisations to update straight away, or take the site offline until they could.</p>
+          <p>You do not patch PHP yourself. Your web designer or hosting company does. The fixed versions are 8.5.12, 8.4.27, 8.3.36 and 8.2.35.</p>
+          <p>Ask three things. Has the update been applied? Which PHP version is the site running now? Are automatic updates switched on?</p>
+          <p>If nobody can answer, that is your answer.</p>
+        </div>
+        <a class="source-link" href="https://www.bleepingcomputer.com/news/security/php-ships-emergency-patches-for-critical-php2shell-flaws/" target="_blank" rel="noopener">Read the original: BleepingComputer, PHP ships emergency patches for critical PHP2Shell flaws &rarr;</a>
+      </section>
+
+      <section class="section">
+        <p class="section-label">Looking Sideways</p>
+        <h2 class="section-headline">Banks are <em>pushing</em> back on AI agents that log in as you</h2>
+        <dl class="brief">
+          <div class="brief-row what"><dt>What it is</dt><dd>Big US banks are finding customers' own AI agents inside their accounts, logging in with the customer's username and password.</dd></div>
+          <div class="brief-row why"><dt>Why it matters</dt><dd>Handing an AI your password breaks most banks' rules, and some agents did things their owner never asked for, like ringing the bank with a complaint.</dd></div>
+          <div class="brief-row do"><dt>What to do</dt><dd>List every account you have connected to an AI tool, and give each one permission to look before you let it act.</dd></div>
+        </dl>
+        <figure class="source-figure">
+          <img class="source-img" src="https://webes77.github.io/magnum-newsletter/assets/2026-10-25/looking-sideways-2026-10-25.jpg" alt="A person checking a banking app on their phone" loading="lazy" />
+          <figcaption class="source-credit">Image: CBS News / Getty Images</figcaption>
+        </figure>
+        <div class="body-text">
+          <p>Mostly these are not hackers. They are people handing an AI assistant their own login so it can do the banking for them.</p>
+          <p>JPMorgan's chief executive said the bank will not let just any outside agent in, because it is too risky. Charles Schwab says it has been blocking agents it has not approved.</p>
+          <p>The fix being talked about is read-only access. An agent can look at your spending, but it cannot move money or act for you.</p>
+          <p>That is the right first step with any AI tool you let into your inbox, your accounting software or your bank. Let it read first, then draft, and only last let it send or pay.</p>
+          <p>And never give an AI tool your actual password. Use the official connection the software offers, or do not connect it.</p>
+        </div>
+        <a class="source-link" href="https://www.cbsnews.com/news/ai-agents-customer-bank-accounts-security/" target="_blank" rel="noopener">Read the original: CBS News, AI agents are roaming around consumers' bank accounts, and banks aren't happy about it &rarr;</a>
+      </section>
+
+      <section class="section">
+        <p class="section-label">The Win</p>
+        <h2 class="section-headline">Two <em>restaurant</em> owners handed their paperwork to AI, and an HR firm kept every word</h2>
+        <dl class="brief">
+          <div class="brief-row what"><dt>What it is</dt><dd>Ted and Tami Taylor run three quick-service restaurants in New Mexico and use ChatGPT for the paperwork that piles up behind the counter.</dd></div>
+          <div class="brief-row why"><dt>Why it matters</dt><dd>It is the work every owner puts off: health rules, staff policies, complaint replies, pricing. Their first drafts now take seconds instead of a night.</dd></div>
+          <div class="brief-row do"><dt>What to do</dt><dd>Pick one policy or procedure you have been putting off, ask your AI for a first draft, then have the expert you already pay check it.</dd></div>
+        </dl>
+        <figure class="source-figure">
+          <img class="source-img" src="https://webes77.github.io/magnum-newsletter/assets/2026-10-25/the-win-2026-10-25.jpg" alt="Ted and Tami Taylor smiling in a selfie outdoors" loading="lazy" />
+          <figcaption class="source-credit">Image: OpenAI Academy</figcaption>
+        </figure>
+        <div class="body-text">
+          <p>Ted and Tami bought three quick-service restaurants in Albuquerque, Rio Rancho and Santa Fe, as the business to carry them into retirement.</p>
+          <p>With the kitchens came the paperwork. Health rules, staff policies, customer complaints, menu prices. The work nobody sees behind the counter, done after close. Tami now answers complaint emails with ChatGPT's help.</p>
+          <p>When New Mexico required every restaurant to have a written procedure for handling bodily-fluid incidents, Ted asked ChatGPT for a draft. He had one in about 30 seconds.</p>
+          <p>Then he noticed staff could post from the kitchen to Instagram or TikTok, and the handbook said nothing about it. He had ChatGPT write a social media policy that protected both the staff and the business.</p>
+          <p>Here is the part worth copying. A professional HR firm later reviewed the whole handbook and did not change a word of that section.</p>
+          <p>Pricing was the bigger win. Before their August price rise, Ted had ChatGPT compare each menu category with local competitors, allow for delivery app markups, and weigh value by sandwich size and drink size. It stopped them putting up prices that would have made some items uncompetitive. Done by hand, the comparison would have taken too long and been skipped.</p>
+          <p>The point: AI writes the first draft, and the person you already pay checks it. You save the evening, not the expertise.</p>
+          <p>This is OpenAI's own account of one of its customers, so read it as that. Any of the main AI assistants can do these jobs.</p>
+        </div>
+        <a class="source-link" href="https://academy.openai.com/public/blogs/ted-tami-taylor-chatgpt-new-mexico-restaurants" target="_blank" rel="noopener">Read the original: OpenAI Academy, How ChatGPT helps Ted and Tami Taylor run three New Mexico restaurants &rarr;</a>
+      </section>
+
+      <section class="section">
+        <p class="section-label">Tool of the Week</p>
+        <h2 class="section-headline"><em>Canva</em> Craft</h2>
+        <dl class="brief">
+          <div class="brief-row what"><dt>What it is</dt><dd>Craft is a new image maker inside Canva that plans the layout first, so the words on your poster come out spelled right.</dd></div>
+          <div class="brief-row why"><dt>Why it matters</dt><dd>Most AI pictures still mangle text. Craft learned from real Canva templates, posters, menus and flyers, which is what a small business actually makes.</dd></div>
+          <div class="brief-row do"><dt>What to do</dt><dd>Open Canva, go to Dream Lab and describe a poster for your next special, with the exact words. Proof every word before it goes up.</dd></div>
+        </dl>
+        <figure class="source-figure">
+          <img class="source-img" src="https://webes77.github.io/magnum-newsletter/assets/2026-10-25/tool-of-the-week-2026-10-25.jpg" alt="A collage of images made with Canva Craft" loading="lazy" />
+          <figcaption class="source-credit">Image: Canva</figcaption>
+        </figure>
+        <div class="body-text">
+          <p>Canva, the Australian design company, launched Craft on 22 October. It is the first image model Canva has built itself.</p>
+          <p>It works in two steps. First it plans where everything goes: the headline, the picture, the price, how big each one is. Then it draws.</p>
+          <p>It is open to every Canva user, free accounts included, through Dream Lab. A free account gets a limited number of AI uses a month and Canva Pro gets more.</p>
+          <p>You can split what it makes into layers and edit them like any other Canva design, so a word that comes out wrong is a quick fix.</p>
+          <p>Try it on one thing you would normally pay a designer for: a specials board, a sale flyer, a sign for the counter.</p>
+        </div>
+        <a class="tool-link" href="https://www.canva.com/">Canva: https://www.canva.com/</a>
+      </section>
+
+      <section class="section">
+        <p class="section-label">Prompt of the Week</p>
+        <h2 class="section-headline">Find out <em>whether</em> your website has been patched, and who to ask</h2>
+        <dl class="brief">
+          <div class="brief-row what"><dt>What it is</dt><dd>A prompt that writes the email to whoever looks after your website.</dd></div>
+          <div class="brief-row why"><dt>Why it matters</dt><dd>You do not need to understand PHP. You need to ask three plain questions and get an answer in writing.</dd></div>
+          <div class="brief-row do"><dt>What to do</dt><dd>Fill in the four brackets, paste it into any AI, read what it writes and send it.</dd></div>
+        </dl>
+        <div class="body-text">
+          <p>This prompt writes the email, tells you what you can check yourself, and tells you what to do if nobody replies.</p>
+        </div>
+        <p class="prompt-label">Prompt</p>
+        <div class="prompt-box"><pre>You are a calm, plain-speaking IT adviser who helps small business owners with no technical background. You never use jargon without explaining it in the same sentence.
+
+Here is my situation. I run [your business]. My website is [how your website is built, for example WordPress, Wix, Squarespace, or "I don't know"]. It is looked after by [who looks after it, for example a web designer, my hosting company, or me]. Customers use it to [what your website does for customers, for example book appointments or request quotes].
+
+A serious security flaw in PHP, the software that runs most websites, was patched on 21 October 2026. I want to know whether my website is covered.
+
+Rules:
+- Work only from what I have told you. Do not guess whether my site is affected, and do not claim it is safe or unsafe.
+- If something depends on facts I have not given you, say so and tell me which question would settle it.
+- Do not ask me to log in to anything or paste in any passwords.
+
+Tone: friendly and direct, like a sensible friend who knows computers.
+
+Give me three things, under these headings:
+1. A short email I can send to the person who looks after my website. It should ask whether the PHP update has been applied, which PHP version the site runs now, whether automatic updates are switched on, and when they can confirm back to me. Keep it under 120 words.
+2. Three things I can check myself in ten minutes, with no technical skill needed.
+3. What to do if I get no reply within two days, in order, with the first step first.
+
+Finish with one sentence telling me the single most useful thing to do first.</pre></div>
+        <div class="body-text">
+          <p class="prompt-use"><strong>Use it for</strong><br />Fill in the four square brackets with your own details.<br />Paste it into whichever AI you use.<br />Read the email it writes, then send it to your web person or hosting company.<br />Do not paste any passwords into the chat.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="section-label">The Magnum</p>
+        <h2 class="section-headline">The ghost behind the <em>counter</em></h2>
+        <dl class="brief">
+          <div class="brief-row what"><dt>What it is</dt><dd>A Halloween photo that looks like it came out of a shoebox, made from one prompt, then brought to life with a second.</dd></div>
+          <div class="brief-row why"><dt>Why it matters</dt><dd>The fake found photo, harsh flash and a bedsheet ghost, is all over social media for Halloween, and it is an easy, fun post for any shop.</dd></div>
+          <div class="brief-row do"><dt>What to do</dt><dd>Copy the image prompt, swap in your own shop and your own team, and run it in Gemini or ChatGPT before Friday.</dd></div>
+        </dl>
+        <div class="body-text">
+          <p>The picture comes from the first prompt. The second prompt hands that picture to a video model and tells it what should move.</p>
+          <p>Swap the café for your own place. A pumpkin-headed tradie leaning on the ute works. So does a bedsheet ghost arranging flowers at a florist's bench.</p>
+        </div>
+        <p class="prompt-label">The image prompt</p>
+        <div class="prompt-box"><pre>A candid photo from a cheap 2003 point-and-shoot camera with a harsh on-camera flash, taken inside a small Australian corner café just after closing on Halloween night. Someone in a plain white bedsheet ghost costume with two cut-out eye holes stands behind the counter, holding a takeaway coffee cup in each hand as if serving the photographer. A carved pumpkin sits beside the espresso machine, chairs are stacked upside down on the tables, and the dark front window shows blurred streetlights. Flash glare bounces off the stainless steel, deep shadows fall behind, film grain, faded colours, slightly crooked framing, a touch of motion blur. It should feel like a real photo found in a shoebox: funny, not scary. No text, no logos, no gore.</pre></div>
+        <p class="prompt-label">The video prompt</p>
+        <div class="prompt-box"><pre>Keep the scene exactly as it is. The bedsheet ghost slowly lifts both takeaway cups towards the camera in a cheers, then tilts its head to one side as if waiting for a tip. The sheet sways a little. The carved pumpkin's candle flickers. The old camera flash fires once more halfway through, briefly washing the room bright. Handheld, a slight wobble, no cuts. Funny, not scary.</pre></div>
+        <video class="magnum-video" controls preload="metadata" playsinline poster="https://webes77.github.io/magnum-newsletter/assets/2026-10-25/the-magnum-2026-10-25-poster.jpg" aria-label="A short clip of a person in a bedsheet ghost costume behind a café counter at night, raising two takeaway coffees to the camera"><source src="https://webes77.github.io/magnum-newsletter/assets/2026-10-25/the-magnum-2026-10-25.mp4" type="video/mp4" /></video>
+        <p class="magnum-take">Take from it:<br />The prompt names the camera, the flash, the year and the mood, not just the scene. That is what makes it look like a real photo. The video prompt starts with keep the scene exactly as it is, so the model only adds the movement.</p>
+      </section>
+    </div>
+    <div class="signoff">
+      <p class="signoff-body">Send the email about your website first. It takes five minutes.</p>
+      <p class="signoff-body">Then make one Halloween picture for your shop and post it before Friday.</p>
+      <p class="signoff-body">Have a good week.</p>
+      <p class="signoff-details">Magnum AI | <a href="https://magnumai.com.au">magnumai.com.au</a></p>
+    </div>
+    <footer class="footer"><p>You're getting this because you're a Magnum AI client.</p></footer>
+  </main>
+</body>
+</html>
