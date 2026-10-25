@@ -73,7 +73,7 @@ CSS = """    :root { --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#
     .masthead-title { margin-top:14px; color:var(--on-navy); font-family:var(--display); font-size:44px; font-weight:700; line-height:.95; text-transform:uppercase; }
     .hero-img,.magnum-img,.magnum-video { display:block; width:100%; height:auto; }
     .content { padding:36px 28px 0; }
-    .date-line { margin-bottom:24px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .date-line { margin-bottom:24px; color:var(--coral-text); font-family:var(--display); font-size:17px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
     .opener-block { margin-bottom:44px; padding:22px 26px; background:var(--paper-2); border:2px solid var(--ink); }
     .opener-text { margin-bottom:16px; color:var(--char); font-size:17px; font-style:italic; line-height:1.7; }
     .opener-text:last-of-type { margin-bottom:24px; }
@@ -83,7 +83,7 @@ CSS = """    :root { --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#
     .index-list li { position:relative; padding-left:18px; color:var(--char); font-size:15.5px; line-height:1.6; margin-bottom:8px; }
     .index-list li::before { content:'\\00B7'; position:absolute; left:2px; color:var(--rust); font-weight:700; }
     .section { padding:0 0 48px; }
-    .section-label { display:flex; align-items:center; gap:12px; margin-bottom:14px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .section-label { display:flex; align-items:center; gap:12px; margin-bottom:14px; color:var(--coral-text); font-family:var(--display); font-size:19px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
     .section-label::after { content:""; flex:1; height:1px; background:var(--ink); }
     .section-headline { margin-bottom:20px; color:var(--ink); font-family:var(--display); font-size:34px; font-weight:600; line-height:1.05; text-transform:uppercase; }
     .section-headline em { font-style:normal; color:var(--rust); }
@@ -94,7 +94,7 @@ CSS = """    :root { --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#
     .brief p.take strong { display:block; margin-bottom:4px; color:var(--ink); font-family:var(--display); font-size:15px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; }
     .edition-head { padding:26px 28px 6px; }
     .edition-box { margin-top:14px; padding:18px 20px; border:2px solid var(--ink); background:#FFFFFF; }
-    .edition-kicker { color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.18em; text-transform:uppercase; }
+    .edition-kicker { color:var(--coral-text); font-family:var(--display); font-size:19px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
     .edition-title { margin-top:8px; color:var(--ink); font-size:20px; font-weight:700; line-height:1.35; }
     .edition-dek { margin-top:6px; color:var(--char); font-size:16.5px; line-height:1.55; }
     .opener-plain { margin:0 0 36px; padding-bottom:26px; border-bottom:2px solid var(--ink); }
@@ -119,11 +119,11 @@ CSS = """    :root { --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#
     .source-credit { margin-top:8px; color:var(--mute); font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; }
     .source-link { display:inline-block; min-height:44px; margin-top:20px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.18em; line-height:1.6; padding:12px 0; text-transform:uppercase; text-decoration:none; overflow-wrap:anywhere; }
     .source-link:hover { color:var(--ink); text-decoration:underline; text-underline-offset:4px; }
-    .prompt-label { margin:24px 0 10px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .prompt-label { margin:24px 0 10px; color:var(--coral-text); font-family:var(--display); font-size:17px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
     .prompt-box { margin:0 0 20px; padding:18px 20px; overflow-wrap:anywhere; background:var(--paper-2); border:2px solid var(--ink); }
     .prompt-box pre { margin:0; color:var(--char); font-family:var(--mono); font-size:13px; line-height:1.75; white-space:pre-wrap; word-break:break-word; }
     .prompt-use,.magnum-take { color:var(--char); font-size:15.5px; line-height:1.7; }
-    .prompt-use strong,.magnum-take strong { color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .prompt-use strong,.magnum-take strong { color:var(--coral-text); font-family:var(--display); font-size:17px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
     .magnum-img,.magnum-video { margin:0 0 18px; border:2px solid var(--ink); background:var(--paper-2); }
     .magnum-take { padding-top:14px; border-top:1px solid var(--hair); }
     .magnum-steps { margin:0 0 24px; padding-left:22px; color:var(--body); font-size:17px; line-height:1.7; }
