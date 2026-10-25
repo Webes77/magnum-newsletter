@@ -28,11 +28,18 @@ dropped from the page and the index when absent.
 Every section has `label`, `headline` and `paragraphs` (a list of strings,
 one sentence or two per paragraph, the way the reference edition reads).
 
+Since 25 October 2026 every section also opens with a `brief`, three plain
+lines rendered in a box under the headline: `{"what": "what it is", "why":
+"why it matters", "do": "what to do"}`, each one sentence under 30 words.
+Required on The Newsline, Looking Sideways, The Win and Tool of the Week, and
+written on the other two as well. The paragraphs add detail and never repeat
+it. The opener tells the reader once that every story opens this way.
+
 | Label | Extra keys | What it is |
 |---|---|---|
 | `The Newsline` | `source` (required) | The one story that changes what a small business owner does. Rendered as the page's h1. |
 | `Looking Sideways` | `source` (required) | Something from outside the AI news that shows where the tools are going. |
-| `The Win` | none | A real result from a Magnum AI client, anonymised. Only written from material James supplied. Never invented. |
+| `The Win` | `source` (required since 25 October 2026) | A real, named business using AI on a real job, found by research and linked to where it is reported. Problem, what they did, what changed, the point. Never a composite, never "we"; a vendor's own customer story says so in the copy. |
 | `Tool of the Week` | `link: {url, text}` | One tool, what problem it solves, the price as quoted. `text` is `Name: url`. |
 | `Prompt of the Week` | `prompt` (string, line breaks kept), `use` (list of strings, one instruction each) | A prompt any small business owner can paste, whatever their trade. Generic, never written for one named or example business; the reader's own details go in short [square bracket] fill-ins, three or four at most. |
 | `The Magnum` | `prompt` (string), `image_alt` (string), `take` (string), optional `video_prompt` (string) | The image prompt that made the Magnum image, and one or two lines on what to take from it. When the Magnum is a video made in two steps (a still, then a video model animating it), `video_prompt` carries the motion prompt verbatim; the page then labels the two boxes "The image prompt" and "The video prompt". When the Magnum is a video, the builder takes a frame from it as the still shown before it plays (`video_poster`, set automatically; it needs ffmpeg, so `pip install imageio-ffmpeg` first). `--magnum-poster` overrides the frame with a chosen still. The check fails if the video has no poster. A how-to Magnum (first used 11 October 2026, a walkthrough of a tool with James's own video) leaves out `prompt` and `take` and carries `steps` (a list, rendered as a numbered How to use it list) and optionally `after` (paragraphs shown after the steps and before the video). |
@@ -61,9 +68,10 @@ hidden, so a broken third-party link never shows a broken picture.
 | `image` | Optional. The article's own main image, hotlinked, `https://`. Leave it out rather than guess. |
 | `image_alt` | Required when `image` is given. Describes the picture. |
 
-The Newsline and Looking Sideways must carry a source (Looking Sideways only
-when it is present). Tool of the Week keeps its existing `link` and carries
-no `source`. The Win, Prompt of the Week and The Magnum carry none.
+The Newsline, Looking Sideways and, since 25 October 2026, The Win must carry
+a source (Looking Sideways only when it is present). Tool of the Week keeps
+its existing `link` and carries no `source`. Prompt of the Week and The
+Magnum carry none.
 
 ## Copy rules the checker enforces
 
@@ -77,6 +85,8 @@ any of these.
 - Never the word "solid".
 - Sections in the fixed order, the four required ones present.
 - The Newsline carries a `source`, and so does Looking Sideways when present.
+- From 25 October 2026: every story carries a `brief` and a picture, and The
+  Win carries a `source`. Older editions keep the rules they were built under.
   Every `source` has an `https://` url and non-empty text; an `image` needs
   `image_alt`. The Win, Prompt of the Week and The Magnum carry none.
 
@@ -93,9 +103,9 @@ product screenshot, when the page has no usable `og:image`. Then set
 `illustration_credit` to name where it came from, for example
 "Image: DigUp on GitHub". Without it the credit reads "Illustration: Magnum
 AI". Aim for a mix, as James asked on 17 October 2026: real pictures from the
-articles wherever they exist, a cartoon only where there is none, and no
-picture at all on a section that does not need one. Not every section
-needs a picture.
+articles wherever they exist, a cartoon only where there is none. Since
+25 October 2026 The Newsline, Looking Sideways, The Win and Tool of the Week
+each need a picture, and the check fails without one.
 
 ## Rules the checker cannot enforce
 

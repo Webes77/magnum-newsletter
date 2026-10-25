@@ -5,13 +5,14 @@ and one ten-minute job for James. Manus is no longer in the chain.
 
 | Routine | Fires (Gold Coast) | Cron (UTC) | Does |
 |---|---|---|---|
-| This Week in AI, draft | Saturday 6am | `0 20 * * 5` | Reads the week's newsletters, writes `edition.json`, checks it builds, puts the draft and the three Magnum prompts in Drive, emails James from Outlook. |
+| This Week in AI, draft | Saturday 6am | `0 20 * * 5` | Reads the week's newsletters, researches a real Win and the week's picture trend, makes the Magnum and the section pictures in Higgsfield, writes `edition.json`, checks it builds, puts the draft and `pictures.json` in Drive, emails James from Outlook. |
 | This Week in AI, publish | Sunday 4pm | `0 6 * * 0` | Stops quietly if the edition is already live, which it normally is because James publishes from a chat. Otherwise publishes from a Magnum left in Drive (a quiet fallback), or sends one reminder to publish from a chat. There is no Monday retry. |
 
-James's job, between the two, since 11 October 2026: make the Magnum from
-one of the three picture ideas in Saturday's email, then open a Claude Code
-session on this repository, drop the picture or video into the chat and
-paste the line the email gives him. The session publishes the edition there
+James's job, between the two, since 25 October 2026: read Saturday's email,
+then open a Claude Code session on this repository and paste the line the
+email gives him. The Magnum and every section picture are already made; he
+only supplies a Magnum of his own if he wants to. (From 11 to 18 October he
+made the Magnum himself from one of three picture ideas.) The session publishes the edition there
 and then by following **Publish from a chat** below. He never saves anything
 to Drive, never writes a `notes.txt` and never replies to the email; his
 words on 11 October were that he kept getting asked to approve through
@@ -41,29 +42,57 @@ either. Change them here first, then push the change to the routine with
 `update_trigger` and read it back. Trigger ids are recorded at the end of this file once
 created.
 
+## Since 25 October 2026: what every edition carries
+
+James set these on 25 October 2026 after reading that day's draft.
+
+- **Three lines on every story.** Each section opens with a `brief`: what
+  it is, why it matters, what to do. Attention spans are short, so a reader
+  gets the whole edition from those lines. The paragraphs underneath add
+  detail and never repeat them. The builder renders the block and `--check`
+  fails a story without one.
+- **The Win is real.** A named business using AI on a real job, found by
+  research, linked to where it is reported, written as problem, what they
+  did, what changed, the point. Never a composite, never "we". A vendor's
+  own customer story is labelled as such. The café and salon composites of
+  18 and 25 October are the reason.
+- **Pictures on every story,** a mix of the story's own picture and house
+  cartoons, never all cartoons. `--check` fails a story without one.
+- **The Magnum is made for him.** The draft run researches what is hot in AI
+  pictures and video, makes it in Higgsfield (a still, and a video when it
+  earns it), and records it in `pictures.json`. It needs the Higgsfield
+  connector on the draft routine, which James adds in Scheduled; without it
+  the chat makes the Magnum at publish time.
+- **Tool of the Week:** not Wispr Flow until James says otherwise.
+
 ## Publish from a chat
 
 This is the normal route since 11 October 2026. James opens a session on
-this repository, attaches the Magnum (a still or a video) and pastes a line
-like: Publish This Week in AI for 18 October 2026 with this Magnum. I used
-picture idea 2. He may add the video prompt, or a copy change. Do this:
+this repository and pastes a line like: Publish This Week in AI for 1 November
+2026. Since 25 October the Magnum and the pictures come from the draft run's
+`pictures.json`; he may still attach a Magnum of his own, or ask for a copy
+change. Do this:
 
 1. Work out `YYYY-MM-DD` from the date he gives. If `issues.json` already
    holds it, tell him it is live, give him the dated link, and stop.
 2. With the Google Drive connector, open the folder `YYYY-MM-DD` inside
    This Week in AI (id `1SMk0PwWdx_HYyQDgKXwXvOY_kp4lJBaL`) and download
-   `edition.json` and `image-prompts.md` into `build/YYYY-MM-DD/`. Check the
+   `edition.json` and `pictures.json` (`image-prompts.md` on editions
+   before 25 October) into `build/YYYY-MM-DD/`. Check the
    download's byte size against the Drive file. Never change or delete
    anything in Drive. If the session has no Drive connector, say so plainly
    in one line; do not tell him to fetch files himself.
-3. Copy his attachment into `build/YYYY-MM-DD/`. A still is png, jpg or
+3. If he attached a Magnum, it wins: copy it into `build/YYYY-MM-DD/`.
+   Otherwise download the Magnum still, and the video if there is one, from
+   `pictures.json`; if neither exists, make it as Prompt 1's Magnum rule
+   describes and use the still as the video's poster. A still is png, jpg or
    webp. A video must be H.264 to play in a browser: check for `avc1` in
    the file, and if it is HEVC (`hvc1` or `hev1`) say so and ask him to
    export it again as H.264. A chat preview failing to load is not evidence
    the file is broken.
-4. If he used picture idea 2 or 3, replace The Magnum's `prompt` with that
-   idea's text from `image-prompts.md`, verbatim, and rewrite the headline,
-   the setup paragraph, `image_alt` and `take` to match it. If the Magnum is
+4. If he attached his own Magnum, put his prompt in The Magnum's `prompt`
+   verbatim and rewrite the headline, the setup paragraph, `image_alt` and
+   `take` to match it. If the Magnum is
    a video and he gave the motion prompt, put it in `video_prompt` verbatim
    and make the setup tell the two-step story (a still, then a video model
    animating it). If he gave no motion prompt, ask for it once; if he says
@@ -71,7 +100,12 @@ picture idea 2. He may add the video prompt, or a copy change. Do this:
 5. Apply any copy change he asked for, faithfully and minimally, keeping
    every rule in `tools/EDITION-SCHEMA.md`.
    Then give every section a picture, which James asked for on 17 October
-   2026 ("like normal newsletters"). Where a section's source page has its
+   2026 ("like normal newsletters"). Since 25 October `pictures.json`
+   already holds them: download each and pass it with `--illustration`,
+   setting `illustration_alt` and `illustration_credit` from the entry,
+   and make only what is missing, as below. Check every section opens with
+   its three lines and The Win is a real, linked story; the build fails
+   otherwise. Where a section's source page has its
    own main picture (its `og:image`) that shows the story, use it as
    `source.image`. Fetch the page from the Higgsfield sandbox
    (`mcp__Higgsfield__sandbox_exec`) when this sandbox is refused. A logo,
@@ -146,46 +180,46 @@ The newsletter lives in the magnum-newsletter repository at https://github.com/W
 
 The raw material is the week's AI newsletters in the magnumai.newsletters@gmail.com inbox. The covered week is the Saturday through Friday that ended at midnight before this run. Search with the Gmail connector using to:magnumai.newsletters@gmail.com after:YYYY/MM/DD before:YYYY/MM/DD (before is exclusive, so use the Saturday of the run). Open every thread with get_thread and read the full body. Skip promos, receipts and non-AI mail, and skip the sales-training senders hey@eliotprince.com and dm@danmartell.com; they are not newsletter material. If a newsletter is cut off, fetch its web version with WebFetch. Do not reply, forward, label, archive or trash anything; a different routine tidies this inbox.
 
-The Drive folder This Week in AI (id 1SMk0PwWdx_HYyQDgKXwXvOY_kp4lJBaL) holds a file wins.md where James notes real client results. Read it. If it holds a result that no published edition in issues/ has used, write The Win from it, anonymised: no client name, no business name, the trade or sector only. If it holds nothing new, write The Win as a composite: the shape of a result James sees repeatedly, told openly as a pattern ("here's the shape of it, and it's a pattern I see constantly"), never as a specific named or identifiable client, with no invented figures that read as one client's numbers, in an industry not used in the last four editions. Write COMPOSITE against it in assumptions.md so James knows. Never edit wins.md.
+The Win is a real story found by research, every week (James, 25 Oct 2026: the made-up composites had no depth and no point, and the goal is that clients read it and want to do the same). Start with the week's newsletters, then search the web. It is a named, real business using AI on a real everyday job, reported publicly in roughly the last eight weeks, and the section links to that report. Pick it with one test: would a busy small business owner read it and think "I could do that this week"? Owner-run businesses before big companies, and Australian or New Zealand ones where a good one exists. A big-company rollout fails the test however big it is. Prefer independent reporting. A vendor's own customer story can run, but the copy says plainly that it is the company's own account, and any figure it quotes comes from the page you read, never from a summary of it. Read the source page itself before writing a word of it; if you cannot open it, pick another story. Write it in four beats: the problem, specific, with what it was costing them; what they did, the tool and the steps, concrete enough to copy; what changed, with numbers only where the source gives them; and the point, one line on what the reader takes from it. Never invent a detail, never a composite, never "we", and nothing that puts James in the story. If nothing new passes the test, use the best real story from the last few months that no edition in issues/ has run. The file wins.md in the Drive folder This Week in AI (id 1SMk0PwWdx_HYyQDgKXwXvOY_kp4lJBaL) is not used for The Win unless James says so in a chat. Never edit it.
 
 The edition date is the coming Sunday, the day after this run, as YYYY-MM-DD, and its display form is D Month YYYY.
 
 CONSTRAINTS
 Pick for the reader, not for the news. The Newsline is the one story that changes what a small business owner does or decides, explained so they can act on it. Model releases, benchmarks and funding rounds are not stories unless they change a recommendation a reader would act on. If several newsletters cover the same thing, it is one story.
 Looking Sideways is optional: a case or an example from outside the AI industry that shows where the tools are going. Include it only when there is a good one.
-Tool of the Week is one tool that solves one problem a business owner recognises, with the price exactly as the source quoted it and the currency stated. Never a tool featured in the last eight editions. If James has a client build that uses it, do not say so; client work stays out.
+Tool of the Week is one tool that solves one problem a business owner recognises, with the price exactly as the source quoted it and the currency stated. Never a tool featured in the last eight editions. If James has a client build that uses it, do not say so; client work stays out. Wispr Flow is off the list until James says otherwise; it has run too often.
 Vendor spread: no single AI company (OpenAI, Anthropic, Google, xAI, Meta, Microsoft) is the subject of more than two of the six sections. The Newsline leads on the biggest story whatever the vendor; then spread the Tool, the Prompt and Looking Sideways across other ecosystems on purpose. The Prompt is vendor-neutral unless a capability exists in one product only. The close names an action, not a brand.
 Repeat guard: read the last four editions in issues/ before choosing, and do not repeat the Win's industry, the Prompt's use case or the Looking Sideways angle within four editions.
 Anchoring: before writing the Newsline, run a web search on the lead story for hard detail (when, where, how much, what exactly it does, who gets it and when). Verify every price, plan, date and availability claim in the edition with a search before it goes in, because the newsletters are days behind and often wrong on price. If the lead cannot be anchored, pick another lead; if nothing can be, write "headline only" in assumptions.md.
 Every section ends with something the reader can do today, stated plainly with its time cost where it helps. Banned words: exciting, game-changer, unlock, supercharge, "the future is here". If a line needs a hype word, the idea is too weak; find a sharper number.
 Prompt of the Week is a prompt any small business owner can paste and get value from without James in the room, whatever their trade. Write it generically, never for one named or example business (James asked for this on 3 Oct 2026: prompts written for one type of business only suit that business). Wherever the reader's own details matter, use a short fill-in in square brackets, like [your business], [your service], [your customer] or [paste your notes here], and keep it to three or four fill-ins at most so it stays quick. Order: Role, Context, Constraints, Tone, Format, Output where the prompt calls for them. Review it against notes/prompt-review-standards.md before it goes in.
-The Magnum is a striking image built from a single written prompt, with the prompt in full. Write three image prompts yourself, each in the three-part order subject and action, camera, mood, ready for ChatGPT, Gemini or Midjourney. James picks one, so all three must be prompts you would want him to run, on genuinely different subjects and looks rather than three wordings of one idea. Put your strongest in The Magnum section of edition.json as prompt 1; the other two go in the handover only. The hero illustration at the top and the link preview are standing images that never change; you do not write a hero prompt.
+The Magnum shows off what is hot in AI pictures and video, made for real, with the prompts in full, so readers learn to prompt and have some fun (James, 25 Oct 2026). Research it every week: from the newsletters and a web search, find the picture or video trend, style or new model people are making and sharing in the last two or three weeks. Skip anything that copies a real person, a brand character or a copyrighted style. Pick one a small business could copy for its own shop, and write the prompt for a generic Australian small business subject, no real people, no logos, in the order subject and action, camera, mood. Then make it in Higgsfield. The still: generate_image with nano_banana_2_1 or gpt_image_2_5 at 16:9, wait with jobs_wait, download it and look at it; make it again if it is not good. If the trend is a video, or the still would be more fun moving, animate it with generate_video, model seedance_2_5, mode omni_reference, the still's job id as start_image, 5 seconds, 720p, generate_audio false, with a motion prompt that opens "Keep the scene exactly as it is." Download the video, check it is H.264 (avc1 in the file) and look at frames from it. A still costs about 2 credits and a video more; never more than one video a week. The prompt goes in The Magnum's prompt and the motion prompt in video_prompt, both verbatim. The hero illustration at the top and the link preview are standing images that never change; you do not write a hero prompt. If Higgsfield is not connected to this run, write the prompts anyway, and the first line of the email says the chat will make the Magnum when he publishes.
 Figures, prices, names and dates exactly as the source gave them. If you are not confident a claim is true, or only one source you do not trust carried it, leave it out. Never invent.
 No em dashes anywhere. Never the word "solid". No exclamation marks. No hype and no newsletter cliches. Australian English. Short paragraphs, one or two sentences each, the way the reference edition reads. Plain words a tradesperson would use.
 No relative time in body copy: not "this week", "last week", "yesterday", "earlier today", "previous issue" or "prior edition". Say the date, or say "this edition". The checker fails the build on these.
 Nothing that needs an earlier edition to make sense. No client names anywhere. Source names appear only in each section's source line, never in body copy.
-Sources (James asked for this on 4 Oct 2026, because every newsletter he reads links to the original): The Newsline and Looking Sideways each carry a source object as tools/EDITION-SCHEMA.md describes: url, text and, where you can get it, image with image_alt. The url is the primary source wherever one exists (the company's own announcement, help page, research page or the official video), and only otherwise a reputable news report. Never link another newsletter. Open every url before it goes in and confirm it works and says what the section says. The text reads "Read the original: <publisher>, <page title>". For the image, use the page's own main picture (its og:image): fetch the page with curl and a browser user agent and read the og:image meta tag; confirm the image url returns an image. If the site blocks the fetch or has no picture, leave the image out; the link alone is fine. Never use stock photos or an image from a different site. The build's --check fails if The Newsline, or Looking Sideways when included, has no source.
+Sources (James asked for this on 4 Oct 2026, because every newsletter he reads links to the original): The Newsline and Looking Sideways each carry a source object as tools/EDITION-SCHEMA.md describes: url, text and, where you can get it, image with image_alt. The url is the primary source wherever one exists (the company's own announcement, help page, research page or the official video), and only otherwise a reputable news report. Never link another newsletter. Open every url before it goes in and confirm it works and says what the section says. The text reads "Read the original: <publisher>, <page title>". Pictures (James, 17 and 25 Oct 2026, "like normal newsletters"): The Newsline, Looking Sideways, The Win and Tool of the Week each carry a picture, and the build's --check fails without one. Use the story's own picture where it shows the story: fetch the page with curl and a browser user agent and read its og:image, or a product screenshot from the tool's own launch page. A logo, a plain title card or a stock-looking banner does not count. Otherwise make a cartoon in Higgsfield to the recipe in /home/user/magnum-guides/notes/image-style.md: one scene line, then the style block word for word, nano_banana_2_1, 16:9. Aim for a mix of real pictures and cartoons, never all cartoons. Download every picture to build/YYYY-MM-DD/ and look at each one. Record each in build/YYYY-MM-DD/pictures.json as {"section label": {"url": the image or Higgsfield result url, "file": the local file name, "alt": what it shows, "credit": "Image: <publisher>" or "Illustration: Magnum AI"}}, plus a "The Magnum" entry with "still" and, if made, "video" urls. The build's --check fails if The Newsline, or Looking Sideways when included, has no source.
 
 TONE
 James: direct, dry, warm, plain. A sharp peer telling you what matters and what to ignore, in the fewest words that carry it. Confident without selling. The reference edition is the standard; match its rhythm.
 
 FORMAT
-Produce edition.json exactly in the shape tools/EDITION-SCHEMA.md describes, with the sections in the fixed order. Every list item in index matches a section present. The dek is one sentence under 30 words. The title is under ten words and works as a headline on its own. Also write whatsapp: the message James pastes into the WhatsApp broadcast above the link, under 60 words, in his voice, plain text, no link in it (the publish run adds the link), naming the one thing in the edition a reader would open it for, ending with the line "Four minutes."
+Produce edition.json exactly in the shape tools/EDITION-SCHEMA.md describes, with the sections in the fixed order. Every section opens with a brief of three plain lines, what (what it is), why (why it matters to a small business owner) and do (what to do about it), each one sentence under 30 words (James, 25 Oct 2026: attention spans are short, so a reader should get the whole edition from those three lines). The paragraphs underneath add detail and never repeat the brief. The opener says once, in one plain sentence, that every story opens with what it is, why it matters and what to do. Every list item in index matches a section present. The dek is one sentence under 30 words. The title is under ten words and works as a headline on its own. Also write whatsapp: the message James pastes into the WhatsApp broadcast above the link, under 60 words, in his voice, plain text, no link in it (the publish run adds the link), naming the one thing in the edition a reader would open it for, ending with the line "Four minutes."
 
 OUTPUT
 Work through these steps in order.
 
-Step 1, read. Compute the window and the edition date. Read every newsletter in the window in full. Clone or pull the repository. Read the schema, the example edition, the two latest issues, the review standards and wins.md.
+Step 1, read. Compute the window and the edition date. Read every newsletter in the window in full. Clone or pull the repository. Read the schema, the example edition, the two latest issues, the review standards and notes/image-style.md in magnum-guides.
 
-Step 2, write. Write edition.json to /home/user/magnum-newsletter/build/YYYY-MM-DD/edition.json.
+Step 2, research and write. Find The Win and the Magnum trend as the rules above describe, make the Magnum and the section pictures in Higgsfield, then write edition.json to /home/user/magnum-newsletter/build/YYYY-MM-DD/edition.json.
 
-Step 3, check. Install Pillow if missing (pip install --quiet pillow). Run the builder with the previous edition's Magnum image as a stand-in, purely so the page can be checked: python3 tools/build_edition.py --edition build/YYYY-MM-DD/edition.json --magnum <latest assets/*/the-magnum-*> --repo /home/user/magnum-newsletter --out build/YYYY-MM-DD/draft.html --check. If it fails, fix the copy and run it again until it prints CHECK PASSED. Then remove the stand-in copies the builder made under assets/YYYY-MM-DD so nothing is left in the repository for the publish run to mistake for real images. Commit nothing and push nothing; this routine never writes to the repository.
+Step 3, check. Install Pillow if missing (pip install --quiet pillow). Run the builder with this week's pictures, so the page is checked as it will publish: python3 tools/build_edition.py --edition build/YYYY-MM-DD/edition.json --magnum build/YYYY-MM-DD/<the Magnum still> (or --magnum-video build/YYYY-MM-DD/<the video> --magnum-poster build/YYYY-MM-DD/<the still>) --illustration "<section label>=build/YYYY-MM-DD/<file>" for each section picture, with that section's illustration_alt and illustration_credit set in edition.json, --repo /home/user/magnum-newsletter --out build/YYYY-MM-DD/draft.html --check. If the Magnum could not be made, use the previous edition's Magnum image as a stand-in for the check only. If it fails, fix the copy and run it again until it prints CHECK PASSED. Then remove everything the builder put under assets/YYYY-MM-DD; the chat session rebuilds it from pictures.json when James publishes. Commit nothing and push nothing; this routine never writes to the repository.
 
-Step 4, image prompts. Write build/YYYY-MM-DD/image-prompts.md holding the three Magnum prompts, numbered 1, 2 and 3. Number 1 is the exact prompt text from The Magnum section of edition.json, copied verbatim. Above them put one line: make the Magnum from whichever prompt you like, as a still or a video, then publish it from a chat as the email explains.
+Step 4, pictures. Write build/YYYY-MM-DD/pictures.json as the Pictures rule describes, with every url checked to open.
 
-Step 5, hand over. Using the Google Drive connector, create a folder named YYYY-MM-DD inside folder id 1SMk0PwWdx_HYyQDgKXwXvOY_kp4lJBaL (create_file with contentMimeType application/vnd.google-apps.folder and that parentId). If a folder with that name already exists there, use it. Upload edition.json (contentMimeType application/json), draft.html (text/html) and image-prompts.md (text/markdown) into it with create_file, disableConversionToGoogleType true.
+Step 5, hand over. Using the Google Drive connector, create a folder named YYYY-MM-DD inside folder id 1SMk0PwWdx_HYyQDgKXwXvOY_kp4lJBaL (create_file with contentMimeType application/vnd.google-apps.folder and that parentId). If a folder with that name already exists there, use it. Upload edition.json (contentMimeType application/json), draft.html (text/html) and pictures.json (application/json) into it with create_file, disableConversionToGoogleType true.
 
-Step 6, email. Using the Microsoft 365 connector's outlook_send_mail (load with ToolSearch "select:mcp__Microsoft_365__outlook_send_mail"), send a plain text email (bodyType 'text') from James's Outlook to james@magnumai.com.au and nobody else. Never send it from the Gmail account. Subject: This Week in AI draft, D Month YYYY: one Magnum needed. This is a standing scheduled send with pre-approval for this recipient only. Body, plain text, no markdown symbols, written under the rules headed WRITING TO JAMES below.
+Step 6, email. Using the Microsoft 365 connector's outlook_send_mail (load with ToolSearch "select:mcp__Microsoft_365__outlook_send_mail"), send a plain text email (bodyType 'text') from James's Outlook to james@magnumai.com.au and nobody else. Never send it from the Gmail account. Subject: This Week in AI draft, D Month YYYY: ready to publish. This is a standing scheduled send with pre-approval for this recipient only. Body, plain text, no markdown symbols, written under the rules headed WRITING TO JAMES below.
 
 WRITING TO JAMES
 
@@ -238,17 +272,17 @@ No em dashes anywhere. Never the word "solid". Australian English.
 The body is four blocks, in this order, and nothing else. The headings are exactly as written here, each followed by its one line before any content.
 
 WHAT I NEED YOU TO DO
-Under it: "Ten minutes. One picture, then one line in a chat."
-Then three numbered lines. 1. Pick one of the three picture ideas below and make it, as a still or a video, in ChatGPT, Gemini, Midjourney, Kling or wherever you like. 2. Open Claude Code at claude.ai/code and start a new session on the magnum-newsletter repository. 3. Drop the picture or video into the chat and paste this line, with the number of the idea you used: Publish This Week in AI for D Month YYYY with this Magnum. I used picture idea [1, 2 or 3]. Follow Publish from a chat in ROUTINE.md. Then one more line under the three: "Want a change to the copy? Say it in the same chat before you publish." The hand-over happens in a chat and nowhere else: James decided this on 11 Oct 2026, so never tell him to save anything to Drive, write a notes.txt, rename a file or reply to this email.
+Under it: "Five minutes. Read it, then one line in a chat."
+Then three numbered lines. 1. Read the newsletter and look at the pictures below. 2. Open Claude Code at claude.ai/code and start a new session on the magnum-newsletter repository. 3. Paste this line: Publish This Week in AI for D Month YYYY. Follow Publish from a chat in ROUTINE.md. Then one more line under the three: "Want a change, or your own Magnum instead? Say it in the same chat before you publish." The hand-over happens in a chat and nowhere else: James decided this on 11 Oct 2026, so never tell him to save anything to Drive, write a notes.txt, rename a file or reply to this email.
 READ THE NEWSLETTER
 Under it: "This is what goes out once you publish it. If anything is wrong, say so in the same chat."
-Then the whole edition as it reads, section by section, plain text. This is content he reads to judge the edition, so none of it is cut.
+Then the whole edition as it reads, section by section, plain text, each section's three lines first. This is content he reads to judge the edition, so none of it is cut.
+LOOK AT THIS WEEK'S PICTURES
+Under it: "Tap each one. If one should change, say so in the chat."
+Then one line per picture: the section name and its link, with the Magnum's still and video links last.
 SEND THIS TO YOUR CLIENTS ONCE IT IS LIVE
 Under it: "You do not need this today. The chat gives it back to you with the live link when you publish."
 Then the WhatsApp message in full.
-PICK ONE OF THESE THREE PICTURE IDEAS
-Under it: "Whichever you like. Make it, then follow the steps above."
-Then all three in full, numbered 1, 2 and 3, with one line under each saying what it makes.
 
 Then one closing line saying the run's working notes are kept in Drive for the record and he never needs to open them. Every choice you made because nobody could be asked goes in a file assumptions.md in that folder, not in the email, unless it is something he must decide, in which case it goes under a heading MAKE A DECISION ON EACH ITEM BELOW, directly under WHAT I NEED YOU TO DO. Stories you chose not to run go in that file too, never in the email.
 If the send fails twice, upload the email text to the same Drive folder as email.txt and carry on.
@@ -282,7 +316,7 @@ Step 1, check the date. Compute YYYY-MM-DD. Clone or pull the repository. If iss
 
 Step 2, find the folder. With the Google Drive connector, search parentId = '1SMk0PwWdx_HYyQDgKXwXvOY_kp4lJBaL' and title = 'YYYY-MM-DD'. If there is no such folder, email James (Step 6 shape) saying no draft exists for that date, and stop.
 
-Step 3, gate. List the folder's files and read notes.txt if it is there. If more than one file is named notes.txt, read them all and treat their lines together. If notes.txt holds only the word HOLD, email James that the edition is held and stop. The Magnum arrives in one of two forms and you need exactly one of them: an image file whose name starts with magnum (png, jpg, jpeg or webp), or a line in notes.txt reading "Magnum video:" followed by a URL. A video file sitting loose in the folder is not one of them, because you cannot move a file that size out of Drive; if you see one and there is no URL line, treat the Magnum as missing. If neither form is there, email James with the subject This Week in AI not published, D Month YYYY, and a body of this one block and nothing else: the heading PUBLISH THIS WEEK'S NEWSLETTER FROM A CHAT, the line "Ten minutes. Nothing goes out until you do this.", then three numbered steps. 1. Make one of the three picture ideas from Saturday's email, as a still or a video. 2. Open Claude Code at claude.ai/code and start a new session on the magnum-newsletter repository. 3. Drop the picture or video into the chat and paste this line, with the number of the idea you used: Publish This Week in AI for D Month YYYY with this Magnum. I used picture idea [1, 2 or 3]. Follow Publish from a chat in ROUTINE.md. Never mention Drive, notes.txt, a file name or replying to the email. Then stop; there is no automatic retry. Otherwise download edition.json, the magnum image if there is one, and any hero image to /home/user/magnum-newsletter/build/YYYY-MM-DD/, keeping the extensions.
+Step 3, gate. List the folder's files and read notes.txt if it is there. If more than one file is named notes.txt, read them all and treat their lines together. If notes.txt holds only the word HOLD, email James that the edition is held and stop. The Magnum arrives in one of two forms and you need exactly one of them: an image file whose name starts with magnum (png, jpg, jpeg or webp), or a line in notes.txt reading "Magnum video:" followed by a URL. A video file sitting loose in the folder is not one of them, because you cannot move a file that size out of Drive; if you see one and there is no URL line, treat the Magnum as missing. If neither form is there, email James with the subject This Week in AI not published, D Month YYYY, and a body of this one block and nothing else: the heading PUBLISH THIS WEEK'S NEWSLETTER FROM A CHAT, the line "Ten minutes. Nothing goes out until you do this.", then three numbered steps. 1. Read Saturday's email; the pictures and the Magnum are already made. 2. Open Claude Code at claude.ai/code and start a new session on the magnum-newsletter repository. 3. Paste this line: Publish This Week in AI for D Month YYYY. Follow Publish from a chat in ROUTINE.md. Never mention Drive, notes.txt, a file name or replying to the email. Then stop; there is no automatic retry. Otherwise download edition.json, the magnum image if there is one, and any hero image to /home/user/magnum-newsletter/build/YYYY-MM-DD/, keeping the extensions.
 
 Step 4, notes. If notes.txt exists and is not HOLD, apply what it says to edition.json, faithfully and minimally. If it holds a line starting "Magnum prompt:", James made the Magnum image from his own prompt: replace The Magnum's prompt with his text verbatim, rewrite the section's setup paragraph, image_alt and take to match what the prompt describes, and keep the headline unless the note gives one. If it holds a line starting "Magnum video:", the Magnum is a video rather than a still. Try to fetch that URL to build/YYYY-MM-DD/the-magnum.mp4 with curl. If the fetch works you will self-host it at Step 5. If the network refuses the host, set the Magnum section's video_url in edition.json to that URL instead, and put under MAKE A DECISION ON EACH ITEM BELOW that the video is hotlinked to a host James does not control. Either way rewrite the section's image_alt so it describes a moving image, and leave the headline, setup, prompt and take alone unless a note changes them. A change you applied because a note plainly told you to needs no mention. A change where you had to use your own judgement goes under MAKE A DECISION ON EACH ITEM BELOW. If a note asks for something the schema cannot express or that breaks a copy rule, do the nearest thing the rules allow and say so.
 

@@ -44,7 +44,14 @@ EM_DASH = "—"
 
 REQUIRED_TOP = ("date", "display_date", "title", "dek", "hero_alt", "opener", "index", "sections", "signoff")
 SOURCE_REQUIRED = ("The Newsline", "Looking Sideways")  # must carry a source when present
-SOURCE_NONE = ("The Win", "Prompt of the Week", "The Magnum")  # never carry one
+SOURCE_NONE = ("Prompt of the Week", "The Magnum")  # never carry one
+# Since 25 October 2026 (James): every story opens with three plain lines, and every
+# story carries a picture. Older editions keep the rules they were built under.
+RULES_FROM = "2026-10-25"
+BRIEF_REQUIRED = ("The Newsline", "Looking Sideways", "The Win", "Tool of the Week")
+BRIEF_KEYS = (("what", "What it is"), ("why", "Why it matters"), ("do", "What to do"))
+BRIEF_MAX_WORDS = 30
+PICTURE_REQUIRED = ("The Newsline", "Looking Sideways", "The Win", "Tool of the Week")
 SECTION_ORDER = ("The Newsline", "Looking Sideways", "The Win", "Tool of the Week", "Prompt of the Week", "The Magnum")
 
 CSS = """    :root { --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#1E1B17; --body:#2B2823; --char:#3A3630; --mute:#63615C; --rust:#EF4029; --coral-text:#C63A2A; --coral-bright:#FF6F5E; --tint:#FBE1D8; --on-navy:#F4F1EA; --on-navy-mute:#C8CDD3; --hair:#DADAD5; --display:'Oswald','Arial Narrow','Liberation Sans Narrow',sans-serif; --sans:'IBM Plex Sans',Arial,system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,'Courier New',monospace; color-scheme:light; }
@@ -73,6 +80,12 @@ CSS = """    :root { --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#
     .section-label::after { content:""; flex:1; height:1px; background:var(--ink); }
     .section-headline { margin-bottom:20px; color:var(--ink); font-family:var(--display); font-size:34px; font-weight:600; line-height:1.05; text-transform:uppercase; }
     .section-headline em { font-style:normal; color:var(--rust); }
+    .brief { margin:0 0 22px; padding:4px 20px; background:var(--paper-2); border:2px solid var(--ink); }
+    .brief-row { display:grid; grid-template-columns:132px 1fr; gap:14px; padding:12px 0; border-top:1px solid var(--hair); }
+    .brief-row:first-child { border-top:0; }
+    .brief-row dt { padding-top:3px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.14em; line-height:1.5; text-transform:uppercase; }
+    .brief-row dd { color:var(--ink); font-size:17px; font-weight:500; line-height:1.55; }
+    .brief-row.do dd { color:var(--ink); font-weight:600; }
     .body-text p { margin-bottom:16px; color:var(--body); font-size:17px; line-height:1.7; }
     .body-text p:last-child { margin-bottom:0; }
     .tool-link { display:inline-block; min-height:44px; margin-top:20px; color:var(--coral-text); font-size:15.5px; font-weight:600; line-height:44px; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px; overflow-wrap:anywhere; }
@@ -108,6 +121,8 @@ CSS = """    :root { --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#
       .opener-block { padding:18px 18px; }
       .section { padding-bottom:40px; }
       .section-headline { font-size:28px; }
+      .brief { padding:2px 16px; }
+      .brief-row { grid-template-columns:1fr; gap:4px; }
       .prompt-box { padding:14px 14px; }
       .prompt-box pre { font-size:12px; line-height:1.7; }
       .signoff { margin:0 20px; padding:32px 0 36px; }
@@ -205,6 +220,11 @@ def render_section(s: dict, magnum_url: str) -> str:
         f'        <p class="section-label">{esc(label)}</p>',
         f'        <{tag} class="section-headline">{accent_heading(s["headline"], s.get("accent"))}</{tag}>',
     ]
+    if s.get("brief"):
+        out.append('        <dl class="brief">')
+        for key, name in BRIEF_KEYS:
+            out.append(f'          <div class="brief-row {key}"><dt>{name}</dt><dd>{esc(s["brief"][key])}</dd></div>')
+        out.append("        </dl>")
     if src.get("image"):
         out += render_source_image(src)
     elif s.get("illustration"):
@@ -422,11 +442,36 @@ def check_sources(data: dict) -> list[str]:
                 errors.append(f"{label}: source.image must start with https://")
             if not str(src.get("image_alt", "")).strip():
                 errors.append(f"{label}: source.image needs image_alt")
+    if data["date"] >= RULES_FROM:
+        errors += check_briefs_and_pictures(data)
     for s in data["sections"]:
         if s.get("illustration") and not str(s.get("illustration_alt", "")).strip():
             errors.append(f"{s['label']}: an illustration needs illustration_alt")
         if s.get("illustration") and (s.get("source") or {}).get("image"):
             errors.append(f"{s['label']}: carries both a source image and an illustration; keep one")
+    return errors
+
+
+def check_briefs_and_pictures(data: dict) -> list[str]:
+    """The 25 October 2026 rules: three plain lines on every story, a picture on every story."""
+    errors: list[str] = []
+    for s in data["sections"]:
+        label = s["label"]
+        b = s.get("brief")
+        if b is None:
+            if label in BRIEF_REQUIRED:
+                errors.append(f"{label} must open with a brief {{what, why, do}}")
+        else:
+            for key, name in BRIEF_KEYS:
+                line = str(b.get(key, "")).strip()
+                if not line:
+                    errors.append(f"{label}: brief.{key} ({name}) is empty")
+                elif len(line.split()) > BRIEF_MAX_WORDS:
+                    errors.append(f"{label}: brief.{key} ({name}) is over {BRIEF_MAX_WORDS} words")
+        if label == "The Win" and not (s.get("source") or {}).get("url"):
+            errors.append("The Win must link to where the story is reported: a real business, never invented")
+        if label in PICTURE_REQUIRED and not ((s.get("source") or {}).get("image") or s.get("illustration")):
+            errors.append(f"{label} needs a picture: the article's own image or an illustration")
     return errors
 
 
