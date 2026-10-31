@@ -38,6 +38,11 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 BASE_URL = "https://webes77.github.io/magnum-newsletter"
+# Since 1 November 2026 (James: "every newsletter has at least some picture" at the top),
+# the page opens on a standing banner, the same every edition, cut from the share card's cartoon.
+BANNER_FROM = "2026-11-01"
+BANNER_URL = f"{BASE_URL}/assets/standing/banner.jpg"
+BANNER_ALT = "A seagull eyes a croissant on a beachside cafe table beside a Magnum AI coffee cup"
 PLACEHOLDER_RE = re.compile(r"\{\{[A-Z0-9_]+\}\}")
 STALE_RE = re.compile(r"\b(last week|this week|yesterday|earlier today|prior edition|previous issue)\b", re.I)
 EM_DASH = "—"
@@ -93,6 +98,7 @@ CSS = """    :root { --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#
     .brief p.take { margin-top:16px; padding:14px 16px; background:var(--tint); border-left:4px solid var(--rust); font-size:17px; }
     .brief p.take strong { display:block; margin-bottom:4px; color:var(--ink); font-family:var(--display); font-size:15px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; }
     .edition-head { padding:26px 28px 6px; }
+    .banner-img { display:block; width:100%; height:auto; margin:0 0 18px; border:2px solid var(--ink); background:var(--paper-2); }
     .edition-box { margin-top:14px; padding:18px 20px; border:2px solid var(--ink); background:#FFFFFF; }
     .edition-kicker { color:var(--coral-text); font-family:var(--display); font-size:19px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
     .edition-greeting { color:var(--ink); font-size:20px; font-weight:700; line-height:1.4; }
@@ -383,8 +389,10 @@ def render(data: dict, hero_url: str, magnum_url: str) -> str:
             f'          <li><a href="#s{n:02d}"><span>{n:02d}</span> {esc(sec["headline"])}</a></li>'
             for n, sec in enumerate(data["sections"], 1)
         )
+        banner = (f'      <img class="banner-img" src="{BANNER_URL}" alt="{attr(BANNER_ALT)}" />\n'
+                  if d >= BANNER_FROM else "")
         top = f"""    <div class="edition-head">
-      <p class="date-line">{esc(data['display_date'])}</p>
+{banner}      <p class="date-line">{esc(data['display_date'])}</p>
       <div class="edition-box">
         <p class="edition-greeting">{esc(data.get('greeting', 'Happy Sunday.'))}</p>
 {paragraphs(data['opener']).replace('          <p', '        <p class="edition-hook"')}

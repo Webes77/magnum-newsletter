@@ -101,6 +101,12 @@ any of these.
   Every `source` has an `https://` url and non-empty text; an `image` needs
   `image_alt`. The Win, Prompt of the Week and The Magnum carry none.
 
+Since 1 November 2026 the page opens on a standing banner above the date,
+`assets/standing/banner.jpg`, the same every edition: the seagull cartoon from
+the share card, cut wide. James asked for it because every newsletter has a
+picture at the top. The builder adds it; nothing in `edition.json` sets it.
+To change it, replace the file.
+
 Any section except The Magnum may instead carry an illustration made for it
 (first used 11 October 2026, on The Win): set `illustration_alt` in
 `edition.json` and pass `--illustration "The Win=path/to/image.png"` to the
