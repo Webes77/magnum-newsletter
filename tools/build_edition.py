@@ -587,8 +587,10 @@ def check_briefs_and_pictures(data: dict) -> list[str]:
         limit = DETAIL_MAX_WORDS.get(label)
         if limit and sum(words(p) for p in s.get("paragraphs", [])) > limit:
             errors.append(f"{label}: the detail under the brief is over {limit} words")
-        if label == "The Win" and not (s.get("source") or {}).get("url"):
-            errors.append("The Win must link to where the story is reported: a real business, never invented")
+        if label == "The Win" and not s.get("client") and not (s.get("source") or {}).get("url"):
+            errors.append("The Win must link to where the story is reported, or be one of James's client wins marked \"client\": true; never invented")
+        if label == "The Win" and s.get("client") and (s.get("source") or {}).get("url"):
+            errors.append("The Win: a client win carries no source link")
         if label in PICTURE_REQUIRED and not ((s.get("source") or {}).get("image") or s.get("illustration")):
             errors.append(f"{label} needs a picture: the article's own image or an illustration")
     return errors

@@ -49,7 +49,7 @@ heads-up, so the action costs two minutes.
 |---|---|---|
 | `The Newsline` | `source` (required) | The one story that changes what a small business owner does. Rendered as the page's h1. |
 | `Looking Sideways` | `source` (required) | Something from outside the AI news that shows where the tools are going. |
-| `The Win` | `source` (required since 25 October 2026) | A real, named business using AI on a real job, found by research and linked to where it is reported. Problem, what they did, what changed, the point. Never a composite, never "we"; a vendor's own customer story says so in the copy. |
+| `The Win` | `client: true` (since 1 November 2026), or `source` | Since 1 November 2026 a win from James's own client work, anonymised: no client, business, staff or town name, the trade or sector only, told in his voice ("one of my clients"), marked `"client": true` and carrying no source link. A researched story with a `source` still builds. Problem, what they did, what changed, the point. Never a composite, never "we". |
 | `Tool of the Week` | `link: {url, text}` | One tool, what problem it solves, the price as quoted. `text` is `Name: url`. |
 | `Prompt of the Week` | `prompt` (string, line breaks kept), `use` (list of strings, one instruction each) | A prompt any small business owner can paste, whatever their trade. Generic, never written for one named or example business; the reader's own details go in short [square bracket] fill-ins, three or four at most. |
 | `The Odd One` | `source` (required) | Optional, before The Magnum. The strangest true AI story of the week in two or three short lines, ending on what to take from it. No brief, no picture needed. |
@@ -97,7 +97,7 @@ any of these.
 - Sections in the fixed order, the four required ones present.
 - The Newsline carries a `source`, and so does Looking Sideways when present.
 - From 25 October 2026: every story carries a `brief` and a picture, and The
-  Win carries a `source`. Older editions keep the rules they were built under.
+  Win carries a `source`, or since 1 November 2026 is a client win marked `"client": true` with no source. Older editions keep the rules they were built under.
   Every `source` has an `https://` url and non-empty text; an `image` needs
   `image_alt`. The Win, Prompt of the Week and The Magnum carry none.
 
@@ -113,8 +113,10 @@ flag also self-hosts a real picture from the story's own page, such as a
 product screenshot, when the page has no usable `og:image`. Then set
 `illustration_credit` to name where it came from, for example
 "Image: DigUp on GitHub". Without it the credit reads "Illustration: Magnum
-AI". Aim for a mix, as James asked on 17 October 2026: real pictures from the
-articles wherever they exist, a cartoon only where there is none. Since
+AI". Real pictures first, as James asked on 17 October and again on 1 November
+2026: the article's own picture wherever it shows the story, self-hosted with
+`--illustration` and credited "Image: <publisher>", and a cartoon only for
+The Win and where the article has none. Since
 25 October 2026 The Newsline, Looking Sideways, The Win and Tool of the Week
 each need a picture, and the check fails without one.
 
