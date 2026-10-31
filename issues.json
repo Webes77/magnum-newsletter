@@ -1,6 +1,21 @@
 {
   "issues": [
     {
+      "date": "2026-11-01",
+      "displayDate": "1 November 2026",
+      "title": "ChatGPT can now read your iCloud email and diary",
+      "dek": "ChatGPT can now read an iCloud inbox and diary, so here is how to try it safely, plus why AI-made ads sell worse and Apple's AI helper for Pages.",
+      "file": "issues/2026-11-01.html",
+      "contents": [
+        "The Newsline, chatgpt can read your icloud email and diary, and how to try it safely",
+        "Looking Sideways, why ai-made ads sold worse in a us test, even when nobody could tell",
+        "Tool of the Week, apple's ai helper inside pages, numbers and keynote",
+        "Prompt of the Week, sort your inbox into reply today, reply soon and ignore",
+        "The Odd One, the pixel pet that writes a diary about your day",
+        "The Magnum, a plumber in a toy pack, with the exact prompt"
+      ]
+    },
+    {
       "date": "2026-10-25",
       "displayDate": "25 October 2026",
       "title": "Your website needs one email. Canva can finally spell.",
