@@ -149,7 +149,10 @@ change. Do this:
    client calls in Fireflies (never The Intro, Broadbent Risk or Rebuild
    Relief, which are not Magnum clients), pick a result with a number a
    small business owner would want to copy, and write it anonymised to
-   the Win rule in Prompt 1 with `"client": true`. Show him the text and
+   the Win rule in Prompt 1 with `"client": true`. Never quote a
+   client's own figures: put them in plain sizes ("thousands of
+   products", "hundreds of problems"), because clients can be private
+   (James, 1 November 2026). Never make a figure up. Show him the text and
    the numbers and publish only after he says yes, because it is about a
    client. Make its picture as a cartoon.
    Then give every section a picture, which James asked for on 17 October
