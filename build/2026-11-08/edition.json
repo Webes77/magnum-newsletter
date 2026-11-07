@@ -85,16 +85,15 @@
       "client": true,
       "headline": "A three-hour order job, done in 20 minutes",
       "brief": {
-        "why": "If your orders already sit in an online store, the sorting and labelling is a job AI can take off you.",
-        "do": "Connect your AI to the system holding your orders, give it one boring job, and check the first batch by hand.",
+        "do": "Pick the job you dread, connect your AI to wherever that data lives, and check the first batch by hand.",
         "take": "The mistake was the useful bit. AI does exactly what you said, fast, and misses what you never thought to say. Check the first run."
       },
       "paragraphs": [
-        "One of my clients runs a meal delivery business. Pulling the orders, splitting them into delivery zones and doing the labels was a three-hour job.",
-        "She connected Claude to her online store and told it to pull every unfulfilled order between two dates, put them in a spreadsheet, divide them by zone and do the labels.",
-        "It took two or three goes. Then she checked some and they were spot on. Three hours became 20 minutes. Her review: \"I was like, whoa.\"",
-        "It wasn't perfect. A customer had ordered six of one thing and six of another, and Claude didn't put the order together. She hadn't known to check.",
-        "The point: give AI the job you dread, tell it the rules you carry in your head, and check the first batch yourself."
+        "One of my clients runs a meal delivery business. Sorting the orders was a three-hour job: pull them out of the online store, split them into delivery zones, do the labels.",
+        "So she connected Claude to the store and told it what she wanted: every unfulfilled order between two dates, in a spreadsheet, divided up by zone, labels done.",
+        "It took two or three goes. Then she checked some and they were spot on.",
+        "Three hours became 20 minutes. Her words: \"I was like, whoa.\"",
+        "There was one catch. A customer had ordered six of one thing and six of another, and Claude didn't put the order together. A few little mistakes got through, because she hadn't known there could be any."
       ],
       "illustration_alt": "A meal delivery business owner frowning at a sheet of labels beside a wall of stacked delivery boxes",
       "illustration_credit": "Illustration: Magnum AI"

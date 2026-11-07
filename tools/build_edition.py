@@ -295,7 +295,9 @@ def render_section(s: dict, magnum_url: str, new: bool = False, num: int = 0) ->
             f'          <figcaption class="source-credit">{esc(s.get("illustration_credit") or "Illustration: Magnum AI")}</figcaption>',
             "        </figure>",
         ]
-    if new and label != "The Magnum":
+    # The Win is a story, so it tells the story first and the lesson after (James, 7 Nov 2026).
+    story_first = label == "The Win" and bool(s.get("client"))
+    if new and label != "The Magnum" and not story_first:
         out += brief
     media = []
     if label == "The Magnum":
@@ -318,6 +320,8 @@ def render_section(s: dict, magnum_url: str, new: bool = False, num: int = 0) ->
         paragraphs(s.get("paragraphs", [])),
         "        </div>",
     ]
+    if new and story_first:
+        out += brief
     if s.get("paste"):
         out += prompt_block(s.get("paste_label") or "Paste this into any AI", s["paste"], new)
     if label == "Tool of the Week":
@@ -586,6 +590,8 @@ def check_briefs_and_pictures(data: dict) -> list[str]:
             if b.get("what"):
                 errors.append(f"{label}: no 'what' line; the headline says what it is, so the story is said once")
             for key in BRIEF_NEEDS:
+                if label == "The Win" and s.get("client") and key == "why":
+                    continue  # the story shows why it matters
                 line = str(b.get(key, "")).strip()
                 name = dict(BRIEF_KEYS)[key]
                 if not line:
