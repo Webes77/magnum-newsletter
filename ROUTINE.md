@@ -113,6 +113,29 @@ this repository and pastes a line like: Publish This Week in AI for 1 November
 `pictures.json`; he may still attach a Magnum of his own, or ask for a copy
 change. Do this:
 
+**Fill every gap first (added 7 November 2026, James's word).** The Saturday
+draft often cannot make pictures or find a Win, because a scheduled task
+cannot get Higgsfield or Fireflies. This chat can. Before step 1's build,
+read the draft email's NOT DONE YET block if he pasted it, otherwise check
+`edition.json` and `pictures.json` yourself, and do all of this without
+asking him:
+
+- The Magnum: if there is no still, make it in Higgsfield from the prompt in
+  `edition.json` (nano_banana_2_1 or gpt_image_2_5, 16:9), look at it, and make
+  the motion version from `video_prompt` when one is written. Never more than
+  one video a week.
+- Any section with no real picture: look for a product screenshot or the
+  article's own picture, otherwise make a cartoon to `notes/image-style.md`
+  in magnum-guides. At most two cartoons.
+- The Win: if the edition has none, search Fireflies for a real client result
+  from the last 60 days and write it under the Win rules in Prompt 1. Never
+  invent a detail, never a composite. If Fireflies has nothing, say so in one
+  line and carry on without it.
+- Looking Sideways: if the edition has none, spend one search looking for a
+  real one with a primary source. Leave it out if none.
+
+Then continue with step 1.
+
 1. Work out `YYYY-MM-DD` from the date he gives. If `issues.json` already
    holds it, tell him it is live, give him the dated link, and stop.
 2. With the Google Drive connector, open the folder `YYYY-MM-DD` inside
