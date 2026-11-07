@@ -1,0 +1,154 @@
+{
+ "date": "2026-11-08",
+ "display_date": "8 November 2026",
+ "title": "Claude can read your bank. Not here, yet.",
+ "dek": "Claude can now read your bank accounts in the US, how to get the same answers here, plus Starbucks, free voice typing and a cardboard shop.",
+ "hero_alt": "James Wheable at his desk with his bulldog and the Magnum badge on the wall",
+ "greeting": "Happy Sunday.",
+ "opener": [
+  "Claude can now read your bank accounts, but only in the US.",
+  "The same trick works in Australia with one downloaded file, and I show you how.",
+  "Also in this edition: Starbucks wants its drive-thru to know your usual order, and a free tool that types what you say."
+ ],
+ "index": [
+  {
+   "label": "The Newsline",
+   "line": "claude can read your bank, and how to get the same answers here"
+  },
+  {
+   "label": "Looking Sideways",
+   "line": "starbucks wants the drive-thru to know your usual order"
+  },
+  {
+   "label": "Tool of the Week",
+   "line": "granola's free voice typing, which writes what you say in any app"
+  },
+  {
+   "label": "Prompt of the Week",
+   "line": "stop your ai building the wrong thing by making it sketch first"
+  },
+  {
+   "label": "The Odd One",
+   "line": "glasses that type what you mouth, with no sound at all"
+  },
+  {
+   "label": "The Magnum",
+   "line": "your shopfront as a tiny cardboard model, with the exact prompts"
+  }
+ ],
+ "sections": [
+  {
+   "label": "The Newsline",
+   "headline": "Claude can read your bank accounts, but not yet in Australia",
+   "brief": {
+    "why": "Your bank statements hold answers about wasted spend. This shows where AI is heading, and a downloaded file gets you part of the way here today.",
+    "do": "Download three months of statements, black out the account numbers, and ask: what am I paying for that I have not used in 60 days?",
+    "take": "Handing a chatbot your bank login is a big ask. A downloaded statement gets you most of the value, and you stay in charge of what it sees."
+   },
+   "paragraphs": [
+    "Anthropic has added Personal Finance to Claude. You link bank and card accounts, then ask plain questions about your money.",
+    "It spots duplicate charges, unexpected fees and bills that crept up. It can read your accounts but cannot move money. Bank sign-in goes through a service called Plaid, so Claude never sees your password.",
+    "It is in beta for US Pro, Max and Ultra plans, and only US banks can be linked. Nothing says it is coming to Australia, so for now your bank statements stay where they are, unjudged."
+   ],
+   "illustration_alt": "A shop owner reading a thick stack of bank statements with one raised eyebrow while a seagull eyes her pie",
+   "source": {
+    "url": "https://claude.com/resources/articles/introducing-personal-finance-in-claude",
+    "text": "Read the original: Anthropic, Introducing Personal Finance in Claude"
+   }
+  },
+  {
+   "label": "Looking Sideways",
+   "headline": "Starbucks wants to know your coffee order before you open your mouth",
+   "brief": {
+    "why": "Regulars want to be remembered. A big chain is trying to do by machine what a good local does from memory.",
+    "do": "Write down your ten best regulars and their usual order or job, then use it next time they ring or walk in.",
+    "take": "The camera is not the lesson. Remembering the usual is. Your corner cafe has done this for years, for free, with no camera."
+   },
+   "paragraphs": [
+    "Starbucks may order your coffee from your face. Or your number plate. It will not say which.",
+    "On 29 October, boss Brian Niccol told investors the chain is exploring drive-thrus that recognise participating customers and show them a menu built around what they usually buy. There is no launch date.",
+    "About half of its US customers use a drive-thru. Nothing has been said about Australia, but the idea suits any shop with regulars."
+   ],
+   "illustration_alt": "A Starbucks drive-thru sign with a car queuing behind it",
+   "illustration_credit": "Image: iTech Post, Getty Images",
+   "source": {
+    "url": "https://www.itechpost.com/articles/237710/20261103/starbucks-bringing-customer-recognition-ai-drive-thrus-smarter-digital-menus.htm",
+    "text": "Read the original: iTech Post, Starbucks Is Bringing Customer Recognition AI to Drive-Thrus"
+   }
+  },
+  {
+   "label": "Tool of the Week",
+   "headline": "Granola's free voice typing writes what you say, in any app",
+   "brief": {
+    "why": "Most of us talk faster than we type, and the reply you keep putting off is only a few sentences.",
+    "do": "Turn it on in Granola's settings, hold fn, and dictate your next email reply instead of typing it.",
+    "take": "Free and unlimited makes this an easy yes. Try it on a message you dread typing and see if you ever go back to the keyboard."
+   },
+   "paragraphs": [
+    "Granola, the meeting-notes app, now has a Mac-only trick. Hold the fn key, talk, let go, and clean text lands wherever your cursor is.",
+    "It tidies the ums and false starts. It never answers back or acts on what you say.",
+    "It is free on every Granola plan with no word cap. It runs on Mac now, and Windows, iPhone and Android are listed as coming soon. Granola still calls it a beta."
+   ],
+   "illustration_alt": "A tradie in a ute talking to a laptop propped on the steering wheel while his kelpie tilts its head",
+   "link": {
+    "url": "https://www.granola.ai/voice-typing",
+    "text": "Granola: https://www.granola.ai/voice-typing"
+   }
+  },
+  {
+   "label": "Prompt of the Week",
+   "headline": "Stop your AI building the wrong thing",
+   "brief": {
+    "why": "Telling an AI to build the whole thing means fixing the whole thing. Changing a sketch costs seconds.",
+    "do": "Paste the prompt, fill in the two square brackets, answer the questions, then read the sketch before saying go.",
+    "take": "It is the same as asking a builder for a rough drawing before he orders the timber. Cheap to change on paper, expensive to change in the frame."
+   },
+   "paragraphs": [
+    "Most people ask for the finished job and then spend ages fixing it. This prompt flips that.",
+    "It asks its questions first, shows a rough sketch, and only builds once you say go. Use it for a quote, a web page, a price list or a roster."
+   ],
+   "prompt": "You are a patient project partner. I need help with [the job I need done], and the result is for [who it is for].\n\nDo not build anything yet.\n\nFirst, ask me questions one at a time and wait for my answer each time. Give me two to four choices for every question, plus an option to say something else. Stop after six questions at most.\n\nThen show me a rough sketch of the finished result in plain words, no longer than one short paragraph. Say what you would leave out to keep it simple.\n\nAsk me whether to go ahead or change the sketch. Build the full version only after I say go.\n\nIf anything I tell you is unclear, ask me rather than guess.",
+   "use": [
+    "Paste it into your AI and replace the two square brackets with your own details.",
+    "Answer each question by picking a choice, then read the sketch.",
+    "Change the sketch if it is wrong. Fixing a sketch is quick. Fixing a finished job is not.",
+    "Say go when the sketch looks right."
+   ]
+  },
+  {
+   "label": "The Odd One",
+   "headline": "Glasses that type what you mouth, with no sound at all",
+   "paragraphs": [
+    "Subvocal, a Y Combinator start-up, is taking pre-orders for glasses that turn silently mouthed words into text, using radio waves.",
+    "Pre-orders start at USD $499, shipping early 2027. The founders claim 200 words a minute. Accuracy is unknown.",
+    "Take from it: soon you may dictate an email in a meeting without a sound. Useful, and a little rude."
+   ],
+   "source": {
+    "url": "https://www.theregister.com/a/5307070",
+    "text": "Read the original: The Register, smart glasses that let you talk to your computer without a sound"
+   }
+  },
+  {
+   "label": "The Magnum",
+   "headline": "Your shopfront, rebuilt as a tiny cardboard model",
+   "brief": {
+    "why": "A model of your own shop stops the scroll better than another photo of it, and it costs a few cents to make.",
+    "do": "Copy the image prompt, swap in your awning, your signage colour and your vehicle, then ask for the video prompt version.",
+    "take": "The still is the hook and the five-second video is the post. Do both and you have a week of content from one idea."
+   },
+   "paragraphs": [
+    "A miniature corner shop made with OpenAI's newest image model, Images 2.6. Use the still as your Google Business Profile cover or Facebook header.",
+    "A one-line request gets you most of the still. The extra value is the video step: Seedance 2.5 animates it from a start image and a short motion prompt."
+   ],
+   "prompt": "Tilt-shift macro photograph of a handmade miniature diorama of a small Australian corner shop on a wooden workbench, built from cardboard, felt, balsa wood and tiny warm LED lights glowing in the windows. A striped felt awning, a corrugated tin verandah roof, a chalkboard-style sign with no readable text, tiny potted plants made from moss, a miniature ute parked out the front with the steering wheel on the right, a tiny dog asleep on the footpath. Late afternoon golden light slanting across the bench, a craft knife and a tube of glue blurred in the foreground, very shallow depth of field, rich warm colour, sharp textures of cut card and stitched felt. No logos, no readable words, no people's faces.",
+   "video_prompt": "Keep the scene exactly as it is. The camera pushes in very slowly toward the shop window. The warm LED lights in the windows flicker gently, the felt awning sways a fraction in a breeze, the tiny dog on the footpath breathes and lifts one ear, and dust motes drift through the golden light. Nothing else changes.",
+   "image_alt": "A handmade cardboard and felt miniature of a small Australian corner shop with glowing windows, a tiny ute and a sleeping dog on a workbench",
+   "take": "Change only the first sentence to describe your own shop. Keep the light and camera lines as they are."
+  }
+ ],
+ "signoff": [
+  "Download three months of bank statements and ask your AI what is quietly costing you money.",
+  "Have a good week."
+ ],
+ "whatsapp": "Claude can now read your bank accounts, but only in the US. This edition shows how to get the same answers here from one downloaded file, plus a free tool that types what you say. Four minutes."
+}
