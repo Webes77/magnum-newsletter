@@ -8,7 +8,7 @@
   "opener": [
     "Claude can now read your bank accounts, but only in the US.",
     "The same trick works in Australia with one downloaded file, and I show you how.",
-    "Also in this edition: Starbucks wants its drive-thru to know your usual order, and a free tool that types what you say."
+    "Also in this edition: a three-hour job done in 20 minutes, and Starbucks wants its drive-thru to know your usual order."
   ],
   "index": [
     {
@@ -18,6 +18,10 @@
     {
       "label": "Looking Sideways",
       "line": "starbucks wants the drive-thru to know your usual order"
+    },
+    {
+      "label": "The Win",
+      "line": "the three-hour order job one meal delivery owner got down to 20 minutes"
     },
     {
       "label": "Tool of the Week",
@@ -75,6 +79,25 @@
         "url": "https://www.itechpost.com/articles/237710/20261103/starbucks-bringing-customer-recognition-ai-drive-thrus-smarter-digital-menus.htm",
         "text": "Read the original: iTech Post, Starbucks Is Bringing Customer Recognition AI to Drive-Thrus"
       }
+    },
+    {
+      "label": "The Win",
+      "client": true,
+      "headline": "A three-hour order job, done in 20 minutes",
+      "brief": {
+        "why": "If your orders already sit in an online store, the sorting and labelling is a job AI can take off you.",
+        "do": "Connect your AI to the system holding your orders, give it one boring job, and check the first batch by hand.",
+        "take": "The mistake was the useful bit. AI does exactly what you said, fast, and misses what you never thought to say. Check the first run."
+      },
+      "paragraphs": [
+        "One of my clients runs a meal delivery business. Pulling the orders, splitting them into delivery zones and doing the labels was a three-hour job.",
+        "She connected Claude to her online store and told it to pull every unfulfilled order between two dates, put them in a spreadsheet, divide them by zone and do the labels.",
+        "It took two or three goes. Then she checked some and they were spot on. Three hours became 20 minutes. Her review: \"I was like, whoa.\"",
+        "It wasn't perfect. A customer had ordered six of one thing and six of another, and Claude didn't put the order together. She hadn't known to check.",
+        "The point: give AI the job you dread, tell it the rules you carry in your head, and check the first batch yourself."
+      ],
+      "illustration_alt": "A meal delivery business owner frowning at a sheet of labels beside a wall of stacked delivery boxes",
+      "illustration_credit": "Illustration: Magnum AI"
     },
     {
       "label": "Tool of the Week",
