@@ -35,7 +35,7 @@ verdict"}`, each under 30 words. The headline is the "what it is", so there
 is no `what` line and the check fails one. Required on The Newsline, Looking
 Sideways, The Win and Tool of the Week, and written on Prompt of the Week and
 The Magnum too. `take` is James's opinion in his voice, never an event. The
-paragraphs add detail and never repeat the brief, capped at 90 words (The
+paragraphs add detail and never repeat the brief, capped at 130 words (The
 Newsline, Looking Sideways, Tool of the Week), 280 (The Win) or 60 (Prompt of
 the Week, The Odd One, The Magnum). Headlines are 12 words at most. The
 opener is under 80 words and the sign-off two lines at most. The index is
