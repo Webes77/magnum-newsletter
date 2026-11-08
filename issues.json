@@ -1,6 +1,22 @@
 {
   "issues": [
     {
+      "date": "2026-11-08",
+      "displayDate": "8 November 2026",
+      "title": "He reckons AI will halve his paperwork",
+      "dek": "An adviser who reckons AI halves his paperwork, Claude's bank trick working in Australia today, Starbucks remembering your usual, and free voice typing.",
+      "file": "issues/2026-11-08.html",
+      "contents": [
+        "The Newsline, what your bank statement can tell your AI, and how to ask it here",
+        "Looking Sideways, starbucks wants the drive-thru to know your usual order",
+        "The Win, an insurance adviser who reckons AI will halve his paperwork",
+        "Tool of the Week, granola's free voice typing, so you can talk your emails out",
+        "Prompt of the Week, make your AI sketch first so it doesn't build the wrong thing",
+        "The Odd One, glasses that type what you mouth, with no sound at all",
+        "The Magnum, your shopfront as a shoebox-sized model, with the exact prompts"
+      ]
+    },
+    {
       "date": "2026-11-01",
       "displayDate": "1 November 2026",
       "title": "ChatGPT can now read your iCloud email and diary",
