@@ -14,7 +14,7 @@ turns it into the dated page. `tools/example-edition.json` is the 23 August
 | `dek` | string | One sentence for the archive card and the link preview. Under 30 words. |
 | `hero_alt` | string | Alt text for the hero image. |
 | `greeting` | string, optional | Bold first line of the opening card. Default `Happy Sunday.` From 25 Oct 2026. |
-| `opener` | list of strings | From 25 Oct 2026: two or three sentences, under 70 words, in the opening card, telling the lead story and naming two others. The card then lists every headline as numbered contents. |
+| `opener` | list of strings | From 25 Oct 2026: two or three sentences, under 80 words, in the opening card, opening on the story that pulls hardest and naming two others. The card then lists every headline as numbered contents. |
 | `index` | list of `{label, line}` | One entry per section present, in section order. `line` is under 16 words, lower-case start. |
 | `sections` | list of section objects | In the fixed order below. |
 | `signoff` | list of strings | Two to four short paragraphs. The last one is a plain farewell. |
@@ -36,9 +36,9 @@ is no `what` line and the check fails one. Required on The Newsline, Looking
 Sideways, The Win and Tool of the Week, and written on Prompt of the Week and
 The Magnum too. `take` is James's opinion in his voice, never an event. The
 paragraphs add detail and never repeat the brief, capped at 90 words (The
-Newsline, Looking Sideways, Tool of the Week), 170 (The Win) or 60 (Prompt of
+Newsline, Looking Sideways, Tool of the Week), 280 (The Win) or 60 (Prompt of
 the Week, The Odd One, The Magnum). Headlines are 12 words at most. The
-opener is under 70 words and the sign-off two lines at most. The index is
+opener is under 80 words and the sign-off two lines at most. The index is
 still written for the archive and no longer shows on the page.
 
 Any story may carry `paste` (and optionally `paste_label`): a short line the

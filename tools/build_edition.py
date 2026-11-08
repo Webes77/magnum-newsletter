@@ -60,8 +60,8 @@ BRIEF_KEYS = (("what", "What it is"), ("why", "Why it matters"), ("do", "What to
 BRIEF_NEEDS = ("why", "do", "take")
 BRIEF_MAX_WORDS = 30
 HEADLINE_MAX_WORDS = 12
-OPENER_MAX_WORDS = 70
-DETAIL_MAX_WORDS = {"The Newsline": 90, "Looking Sideways": 90, "Tool of the Week": 90, "The Win": 170,
+OPENER_MAX_WORDS = 80
+DETAIL_MAX_WORDS = {"The Newsline": 130, "Looking Sideways": 130, "Tool of the Week": 130, "The Win": 280,
                     "The Odd One": 60, "Prompt of the Week": 60, "The Magnum": 60}
 PICTURE_REQUIRED = ("The Newsline", "Looking Sideways", "The Win", "Tool of the Week")
 SECTION_ORDER = ("The Newsline", "Looking Sideways", "The Win", "Tool of the Week", "Prompt of the Week", "The Odd One", "The Magnum")
