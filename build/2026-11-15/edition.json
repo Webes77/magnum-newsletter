@@ -1,0 +1,180 @@
+{
+  "date": "2026-11-15",
+  "display_date": "15 November 2026",
+  "title": "A customer asked. Five minutes later she had a flyer.",
+  "dek": "A one-page flyer made in five minutes for one customer, how to check what ChatGPT says about your business, and the airline whose old emails sold for US$10 million.",
+  "hero_alt": "Cartoon of James Wheable at his desk with his bulldog",
+  "greeting": "Happy Sunday.",
+  "opener": [
+    "A customer asked one of my clients about her lamps. Instead of typing a long email, my client gave her AI one paragraph and a couple of photos. Five minutes later she had a tidy one-page flyer to send back.",
+    "Her story is below, with the prompt to make your own. Also: customers now ask ChatGPT who to hire, so see what it says about you, and why Google wants a dead airline's inbox."
+  ],
+  "index": [
+    {
+      "label": "The Newsline",
+      "line": "customers ask ChatGPT who to hire, so check what it says about your business"
+    },
+    {
+      "label": "Looking Sideways",
+      "line": "why Google paid US$10 million for a dead airline's inbox"
+    },
+    {
+      "label": "The Win",
+      "line": "a customer asked a question and got a one-page flyer five minutes later"
+    },
+    {
+      "label": "Tool of the Week",
+      "line": "Claude Sheets, the spreadsheet you describe instead of build"
+    },
+    {
+      "label": "Prompt of the Week",
+      "line": "turn a customer's question into a one-page flyer you can attach"
+    },
+    {
+      "label": "The Odd One",
+      "line": "the robot that got heatstroke on a mountain and left on a stretcher"
+    },
+    {
+      "label": "The Magnum",
+      "line": "a country town at dusk in oil paint, and the paint moves"
+    }
+  ],
+  "sections": [
+    {
+      "label": "The Newsline",
+      "headline": "Customers ask ChatGPT who to hire. Check what it says about you.",
+      "brief": {
+        "why": "Roy Morgan counts 10.5 million Australians using ChatGPT. When one asks for a plumber or a bookkeeper nearby, it answers from whatever it can find about you.",
+        "do": "Open ChatGPT and ask about your own business by name and suburb. Wrong hours or an old phone number? Fix your website and Google listing, because that's where it looked.",
+        "take": "It's the Yellow Pages again, except nobody posts you a form. You find out what your listing says when a customer reads it back to you."
+      },
+      "paragraphs": [
+        "On 10 November OpenAI launched Business Hub, a page inside ChatGPT where an owner can claim their business and correct the details.",
+        "Most Australian businesses can't use it yet. Online shops with a website may be able to. A shop, café or restaurant with a street address can't, and OpenAI hasn't said where tradies fit.",
+        "You're not missing much. OpenAI says claiming doesn't move you up the list. What ChatGPT reads is your website and your public listings, so the job is making your name, phone number, hours and services say the same thing everywhere. That helps you on Google too."
+      ],
+      "illustration_alt": "Cartoon of a plumber at the back of his ute squinting at his phone while a magpie on the roof rack reads over his shoulder",
+      "source": {
+        "url": "https://openai.com/index/introducing-businesses-chatgpt/",
+        "text": "Read the original: OpenAI, Introducing Businesses in ChatGPT"
+      }
+    },
+    {
+      "label": "Looking Sideways",
+      "headline": "Google paid US$10 million for a dead airline's inbox",
+      "brief": {
+        "why": "One of the last things of value a broke airline had left was its old emails. Your inbox is the same kind of asset, and you already own it.",
+        "do": "Paste five of your best past replies into your AI and tell it to write the next one the same way.",
+        "take": "A new hire learns the job by reading the old files. So does your AI. Most people hand it nothing, then wonder why it sounds like a brochure."
+      },
+      "paragraphs": [
+        "Spirit Airlines, an American budget carrier, went broke and stopped flying. When its leftovers went to auction, the winning bid for its internal records came from Google: US$10 million for about 1.9 billion emails and years of staff chat messages.",
+        "Google wants it to train AI on how a real company runs day to day. Every complaint, every roster swap, every \"as per my last email\".",
+        "The flight attendants' union fought the sale and won: personal staff records get scrubbed out first. A US court hearing on 17 November decides whether it goes ahead.",
+        "It's an American case, but the lesson travels. Examples of real work are what make AI useful, and yours cost you nothing."
+      ],
+      "illustration_alt": "A yellow Spirit Airlines jet coming in to land",
+      "illustration_credit": "Image: Skift / Wikimedia Commons, Tomás Del Coro",
+      "source": {
+        "url": "https://skift.com/2026/11/10/spirits-10-million-dollar-data-sale-clears-hurdle-as-unions-win-privacy-protections/",
+        "text": "Read the original: Skift, Spirit's $10 Million Data Sale to Google Clears Hurdle as Unions Win Privacy Protections"
+      }
+    },
+    {
+      "label": "The Win",
+      "client": true,
+      "headline": "A customer asked a question. Five minutes later she had a flyer.",
+      "brief": {
+        "do": "Next time a customer asks what you offer, give your AI one paragraph and two photos, and ask for a one-page flyer to attach to your reply.",
+        "take": "A flyer used to be a project. Now it's a reply. The customer who gets one tidy page instead of a rambling email remembers who sent it."
+      },
+      "paragraphs": [
+        "One of my clients runs a small business selling lamps and lamp bases through lighting shops.",
+        "A customer got in touch asking about table lamps and floor lamps. You know the reply that usually follows. Dig out the photos, look up the prices, type it all into a long email, and hope she reads to the bottom.",
+        "My client didn't do that. She took a screenshot of a lamp from her own website, gave Claude, an AI assistant like ChatGPT, a brief that was \"just one paragraph with a couple of links, a couple of photos\", and asked for a single page she could attach to her reply.",
+        "It took five minutes. She showed me the same morning.",
+        "There's nothing fancy on it, and that was the point. The bases she supplies and the prices, so the customer can write back and say, \"actually, I don't want the matte black\". As she put it: \"Not overwhelming with information. It's just basics.\"",
+        "Her verdict on the page: \"It's all accurate. It's good. I love it.\"",
+        "She'd already done a bigger job the same way. Her price list runs to four pages, and a price rise was due. She had Claude apply it across the whole list. \"It was fantastic.\"",
+        "It isn't perfect. She has to upload her logo and her style guidelines again every time, \"because I know that I've just not got it set up properly\". That's a set-up job, not an AI problem.",
+        "I didn't do any of this for her. She did it herself, between our sessions."
+      ],
+      "illustration_alt": "Cartoon of three table lamps on a showroom bench beside a freshly printed page, with a moth circling the lamp that is switched on"
+    },
+    {
+      "label": "Tool of the Week",
+      "headline": "Describe a spreadsheet and Claude builds it, formulas and all",
+      "brief": {
+        "why": "Half the trackers in small business are a whiteboard, a notebook and somebody's memory, because building the spreadsheet properly was a job in itself.",
+        "do": "If you pay for Claude, open Sheets and describe one tracker you wish you had. Then click a total and check the formula.",
+        "take": "It's the first spreadsheet tool I'd give someone who hates spreadsheets. Check its sums the way you'd check a new bookkeeper's: once, properly, early."
+      },
+      "paragraphs": [
+        "Claude Sheets came out on 10 November. You describe what you want to track, say jobs, who's on them, due dates and what's been invoiced, and it builds a working spreadsheet with real formulas in the cells and extra tabs if you need them.",
+        "Your team can edit it together, and you can export a copy to Excel.",
+        "It's on Claude's paid plans only, which start at US$20 a month, and it's still marked beta. Claude's paid plans are sold in Australia.",
+        "One warning. A spreadsheet can show a wrong total without showing an error. Test it with a job where you already know the answer."
+      ],
+      "illustration_alt": "Cartoon of a corkboard shedding sticky notes above a laptop showing a tidy grid, watched by a gecko on the wall",
+      "link": {
+        "url": "https://claude.com/resources/articles/more-ways-to-work-with-claude-sheets-whiteboards-and-interactive-connectors",
+        "text": "Claude Sheets: https://claude.com/resources/articles/more-ways-to-work-with-claude-sheets-whiteboards-and-interactive-connectors"
+      }
+    },
+    {
+      "label": "Prompt of the Week",
+      "headline": "Turn a customer's question into a one-page flyer",
+      "brief": {
+        "why": "A long email answering \"what do you offer?\" gets skimmed. One clean page with the options and prices gets an answer back.",
+        "do": "Paste the prompt, fill in the one bracket, answer its three questions and attach your photos. Check every price before you send it.",
+        "take": "This is the Win above with the thinking done for you. The line that matters is the last one: a wrong price on a flyer is a promise."
+      },
+      "paragraphs": [
+        "It asks what the customer wanted, what to show and what each thing costs, then makes one page you can attach. It works for a service as well as a product: three packages, three prices, how to book.",
+        "If your AI can't make a PDF, ask for the page as text and paste it into a document."
+      ],
+      "prompt": "You are a designer who makes plain, tidy one-page flyers for small businesses.\n\nA customer has asked me about [what they asked about]. I want a single page I can attach to my reply, so they can see their options at a glance and tell me which one they want.\n\nBefore you make anything, ask me these three things one at a time and wait for each answer:\n1. What the customer asked, in their own words if I have them.\n2. Which products or services to show, with the price of each.\n3. My business name and how the customer should contact me.\nI will attach photos or links if I have them.\n\nThen make the flyer as a one-page PDF. Put my business name at the top, then each option with its photo if I gave one, a one-line description and its price, then how to order or book. Keep it to the basics, so a customer can take it in within a minute. Use only the details and prices I gave you. If a price or a detail is missing, leave a clear gap marked [CHECK] instead of guessing, because a wrong price on a flyer is a promise.\n\nShow it to me and ask what to change before I send it.",
+      "use": [
+        "Paste it into your AI and replace the first square bracket with what the customer asked about.",
+        "Answer its three questions and attach a photo or two.",
+        "Check every price against your own list.",
+        "Attach the page to a two-line reply and send it."
+      ]
+    },
+    {
+      "label": "The Odd One",
+      "headline": "A robot got heatstroke climbing a mountain and left on a stretcher",
+      "paragraphs": [
+        "On 2 November, in a robot race up Mount Taishan in China, a walking humanoid robot overheated partway up. It was carried back down on a stretcher.",
+        "Its maker says it may not have been set up for the climb.",
+        "Take from it: the demo video is never the whole story. Ask what happens on the hill."
+      ],
+      "source": {
+        "url": "https://interestingengineering.com/ai-robotics/unitree-humanoid-overheats-during-mountain-race",
+        "text": "Read the original: Interesting Engineering, Unitree humanoid robot suffers 'heatstroke' in mountain race"
+      }
+    },
+    {
+      "label": "The Magnum",
+      "headline": "A country town at dusk, in oil paint, and the paint moves",
+      "brief": {
+        "why": "A still picture gets scrolled past. A painting where the sky turns and a dog trots through gets watched to the end.",
+        "do": "Copy the image prompt, describe your own street or shopfront in place of the town, then run the video prompt. Post the result on your business page.",
+        "take": "The painting is the easy half. Any AI will do you a street in the style of The Starry Night. Making the paint move is the new part."
+      },
+      "paragraphs": [
+        "Press play. An Australian main street under the jacarandas, painted like The Starry Night, and the paint moves.",
+        "Two steps. One prompt made the painting, in Google's image maker. A second handed it to Kling 4.0, a video maker that opened to everyone in October. I ran both in Higgsfield, a paid site that works in Australia."
+      ],
+      "prompt": "A thick impasto oil painting, in a swirling post-impressionist style, of the main street of a small Australian country town at dusk in November. A two-storey corner pub with an iron-lace verandah, corrugated-iron awnings over the shopfronts, a row of jacaranda trees in full purple bloom dropping petals on the bitumen, a dusty white ute parked nose-in at the kerb, and a red kelpie trotting across the empty road. The sky is deep ultramarine, filled with huge spiralling brushstroke swirls around a glowing crescent moon and fat yellow stars. Warm orange light spills from the pub windows onto the footpath. Every surface is built from visible, heavy, directional brushstrokes and palette-knife ridges of paint, in rich ultramarine, violet, ochre and burnt orange. No text, no words on any sign, no logos, no people.",
+      "video_prompt": "Keep the scene exactly as it is. The painted sky comes alive: the thick brushstroke swirls turn slowly around the moon and the stars, which pulse gently. Purple jacaranda petals drift down across the street. The kelpie trots across the road from right to left and out of frame. The orange light in the pub windows flickers softly. Everything stays thick oil paint, with the brushstrokes sliding and reforming as they move. Very slow push in. No new objects, no people, no text.",
+      "image_alt": "An oil painting of an Australian country town main street at dusk, with a corner pub, jacaranda trees in purple bloom, a white ute, a red kelpie and a swirling starry sky",
+      "take": "One paragraph made the painting. One more made it move. Both are below, word for word."
+    }
+  ],
+  "signoff": [
+    "Next time a customer asks what you offer, send one page instead of a long email.",
+    "Have a good week."
+  ],
+  "whatsapp": "Hi everyone, hope you've had a good weekend. Here's this week's This Week in AI.\n\nA customer asked one of my clients about her lamps. Five minutes later she'd sent back a tidy one-page flyer instead of a long email. Her story's inside, with the prompt to make your own, plus how to check what ChatGPT tells customers about your business.\n\nFour minutes to read."
+}

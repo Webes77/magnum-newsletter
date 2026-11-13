@@ -1,0 +1,34 @@
+{
+  "The Newsline": {
+    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3Cf3pN3Od0BMoYtBE8Pnj11axEC/hf_20261113_202131_7bb6caf8-81d6-42f6-b796-a65ce8cb1421.png",
+    "file": "newsline.png",
+    "alt": "Cartoon of a plumber at the back of his ute squinting at his phone while a magpie on the roof rack reads over his shoulder",
+    "credit": "Illustration: Magnum AI"
+  },
+  "Looking Sideways": {
+    "url": "https://skift.com/wp-content/uploads/2026/04/N903NK_Spirit_Airlines_2016_Airbus_A320-271N_-_cn_7011_33627127776-e1776365032578.jpg?resize=1024,554",
+    "file": "looking-sideways.jpg",
+    "alt": "A yellow Spirit Airlines jet coming in to land",
+    "credit": "Image: Skift / Wikimedia Commons, Tomás Del Coro"
+  },
+  "The Win": {
+    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3Cf3pN3Od0BMoYtBE8Pnj11axEC/hf_20261113_203100_685f1ef9-69e7-4cf2-9655-558878e461af.png",
+    "file": "the-win.png",
+    "alt": "Cartoon of three table lamps on a showroom bench beside a freshly printed page, with a moth circling the lamp that is switched on",
+    "credit": "Illustration: Magnum AI"
+  },
+  "Tool of the Week": {
+    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3Cf3pN3Od0BMoYtBE8Pnj11axEC/hf_20261113_202432_25ffce45-a05d-40ed-8ac0-2282913cd09b.png",
+    "file": "tool-of-the-week.png",
+    "alt": "Cartoon of a corkboard shedding sticky notes above a laptop showing a tidy grid, watched by a gecko on the wall",
+    "credit": "Illustration: Magnum AI"
+  },
+  "The Magnum": {
+    "still": "https://d8j0ntlcm91z4.cloudfront.net/user_3Cf3pN3Od0BMoYtBE8Pnj11axEC/hf_20261113_202129_ceb92b68-b5e0-4c08-985a-1e4d25e634b6.png",
+    "video": "https://d8j0ntlcm91z4.cloudfront.net/user_3Cf3pN3Od0BMoYtBE8Pnj11axEC/hf_20261113_202336_8516f128-da85-41bc-904e-40978b9a93b3.mp4",
+    "still_file": "the-magnum-still.jpg",
+    "video_file": "the-magnum.mp4",
+    "alt": "An oil painting of an Australian country town main street at dusk, with a corner pub, jacaranda trees in purple bloom, a white ute, a red kelpie and a swirling starry sky",
+    "build": "--magnum-video the-magnum.mp4 --magnum-poster the-magnum-still.jpg"
+  }
+}
