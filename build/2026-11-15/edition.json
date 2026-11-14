@@ -1,0 +1,167 @@
+{
+  "date": "2026-11-15",
+  "display_date": "15 November 2026",
+  "title": "The Brisbane AI Summit edition",
+  "dek": "What I learned at the Brisbane AI Summit, why ChatGPT listing businesses is your cue to get ready, a spreadsheet you describe, and a painting that moves.",
+  "hero_alt": "Cartoon of James Wheable at his desk with his bulldog",
+  "greeting": "Happy Sunday.",
+  "opener": [
+    "I went to the Brisbane AI Summit, so this is the summit edition. The first story is the short version of what I learned, with a link to the whole piece if you want it.",
+    "One of the summit's warnings turned into real news the same week, and that's the second story. Then a tool, a prompt, a robot on a stretcher and a painting that moves."
+  ],
+  "index": [
+    {
+      "label": "The Newsline",
+      "line": "what I learned at the Brisbane AI Summit, and where to start"
+    },
+    {
+      "label": "Looking Sideways",
+      "line": "ChatGPT now lists businesses, so get yours ready before it reaches Australia"
+    },
+    {
+      "label": "Tool of the Week",
+      "line": "Claude Sheets, the spreadsheet you describe instead of build"
+    },
+    {
+      "label": "Prompt of the Week",
+      "line": "write the page AI will read about your business"
+    },
+    {
+      "label": "The Odd One",
+      "line": "the robot that got heatstroke on a mountain and left on a stretcher"
+    },
+    {
+      "label": "The Magnum",
+      "line": "a country town at dusk in oil paint, and the paint moves"
+    }
+  ],
+  "sections": [
+    {
+      "label": "The Newsline",
+      "headline": "Brisbane AI Summit: the businesses using AI properly are pulling ahead",
+      "lead": [
+        "I went to the Brisbane AI Summit. I'll be honest, I walked into City Hall with 1,300 other people expecting an afternoon of science I'd struggle to follow, nodding along while I quietly checked my emails.",
+        "It wasn't that. A mining CEO, a lending founder, a search specialist and one of Australia's best-known AI professors all landed in the same place. Most businesses still aren't using AI properly, and the ones that are, are pulling ahead."
+      ],
+      "brief": {
+        "why": "Someone in your industry is learning this right now, and their lead grows every month you wait.",
+        "do": "List every process in your business. Mark each one green if it runs fine, amber if it can wait, and red if it's a bottleneck. Start with the reds.",
+        "take": "Waiting is a decision, and right now small businesses can move faster than big ones."
+      },
+      "paragraphs": [
+        "Four things stuck with me.",
+        "Your experience is worth more than the tool. Clayton Cross runs a mining exploration company, and he was the first to admit he's not an AI expert. A stranger in the street showed him a rock. He took a photo and asked AI what it was. It came back with about a 60% chance it was a meteorite. It's now being confirmed as one, worth somewhere around $40,000 to $50,000. He knows nothing about meteorites. He knew enough to ask the question.",
+        "Waiting is a decision too. Julian Fayad runs LoanOptions.ai. His team tested an AI assistant that texted loan customers who hadn't sent their documents, told them up front it was an AI, then called to walk them through it. Customers were twice as likely to send them, and he kept his brokers. One nurse started a loan application on her lunch break, and by the time her break was over the money was in her account. Thirty-six minutes.",
+        "Organised information is the head start. One business owner asked an AI to go through two staff members' emails and work out how much leave they'd actually taken. It found 40 days nobody had recorded. The answer was already sitting in the emails. Someone just had to point AI at it.",
+        "AI is about to do your customers' shopping. Jack Baer helps businesses get found in AI search. He searched for a phone plan on Google and got Telstra, Optus and Vodafone at the top. He asked AI the same question and not one of them made the list. That one gets its own story next.",
+        "This is the short version. The whole piece has the rest."
+      ],
+      "illustration_alt": "Cartoon of a packed domed hall at the Brisbane AI Summit, with one man in coral taking notes",
+      "source": {
+        "url": "https://webes77.github.io/magnum-guides/news/brisbane-ai-summit-2026/",
+        "text": "Read the whole piece here: what I learned at the Brisbane AI Summit"
+      }
+    },
+    {
+      "label": "Looking Sideways",
+      "headline": "ChatGPT now lists businesses. Get yours ready before it reaches Australia.",
+      "lead": [
+        "At the summit, the warning was that people now hand the whole search to AI. Give me three mechanics for my car and my budget. It reads the pages, compares them and comes back with its pick.",
+        "The same week, OpenAI made it official. On 10 November it opened Business Hub, a page inside ChatGPT where an owner claims their business and corrects the details."
+      ],
+      "brief": {
+        "why": "Roy Morgan counts 10.5 million Australians using ChatGPT. When one asks it for a plumber or a bookkeeper, it recommends whoever it can read about properly.",
+        "do": "Ask ChatGPT about your own business by name and suburb. Then fix what's wrong or missing on your website and Google listing, because that's what it reads.",
+        "take": "Australian shops can't claim a listing yet. Treat that as a head start, not a reason to wait. Get your details straight now and you're ready the day it opens."
+      },
+      "paragraphs": [
+        "For now, online shops with a website may be able to claim. A shop, café or restaurant with a street address can't yet. OpenAI says more markets are coming.",
+        "Claiming isn't what gets you recommended anyway. What ChatGPT reads is your website and your public listings. So put your prices, services, hours and the questions customers always ask on the page in plain words.",
+        "The Prompt of the Week below writes that page with you."
+      ],
+      "illustration_alt": "Cartoon of a plumber at the back of his ute squinting at his phone while a magpie on the roof rack reads over his shoulder",
+      "source": {
+        "url": "https://openai.com/index/introducing-businesses-chatgpt/",
+        "text": "Read the original: OpenAI, Introducing Businesses in ChatGPT"
+      }
+    },
+    {
+      "label": "Tool of the Week",
+      "headline": "Describe a spreadsheet and Claude builds it, formulas and all",
+      "brief": {
+        "why": "Half the trackers in small business are a whiteboard, a notebook and somebody's memory, because building the spreadsheet properly was a job in itself.",
+        "do": "If you pay for Claude, open Sheets and describe one tracker you wish you had. Then click a total and check the formula.",
+        "take": "It's the first spreadsheet tool I'd give someone who hates spreadsheets. Check its sums the way you'd check a new bookkeeper's: once, properly, early."
+      },
+      "paragraphs": [
+        "Your team can edit it together, and you can export a copy to Excel.",
+        "It's on Claude's paid plans only, which start at US$20 a month, and it's still marked beta. Claude's paid plans are sold in Australia.",
+        "One warning. A spreadsheet can show a wrong total without showing an error. Test it with a job where you already know the answer."
+      ],
+      "illustration_alt": "Cartoon of a corkboard shedding sticky notes above a laptop showing a tidy grid, watched by a gecko on the wall",
+      "link": {
+        "url": "https://claude.com/resources/articles/more-ways-to-work-with-claude-sheets-whiteboards-and-interactive-connectors",
+        "text": "Claude Sheets: https://claude.com/resources/articles/more-ways-to-work-with-claude-sheets-whiteboards-and-interactive-connectors"
+      },
+      "lead": [
+        "Claude is an AI assistant like ChatGPT, and on 10 November it gained Sheets. You describe what you want to track, say jobs, who's on them, due dates and what's been invoiced, and it builds a working spreadsheet with real formulas in the cells."
+      ]
+    },
+    {
+      "label": "Prompt of the Week",
+      "headline": "Write the page AI will read about your business",
+      "brief": {
+        "why": "A page that says \"quality service, call for a quote\" gives AI nothing to recommend. A page of plain facts does.",
+        "do": "Paste the prompt, name one service, answer its questions, then put the page on your website. About fifteen minutes.",
+        "take": "Your website used to be a brochure for people. It's now a briefing for the AI that's shopping on their behalf."
+      },
+      "paragraphs": [
+        "The point made at the summit was that AI reads roughly one page from each business it's weighing up, and quotes the one full of facts.",
+        "This prompt interviews you about one service, then writes that page. It works in any AI."
+      ],
+      "prompt": "You are a plain-English web writer for small businesses.\n\nI want one page for my website about [one product or service], written so that a customer, or an AI assistant searching on a customer's behalf, can find every fact they need on that one page.\n\nInterview me first. Ask one question at a time and wait for my answer. Cover: my business name and the areas I serve; exactly what this product or service includes and what it doesn't; the price, or the price range and what moves it; how long it takes; who it suits and who it doesn't; how to book or buy; and the five questions customers ask most, with my answers. Stop after ten questions at most.\n\nThen write the page. Start with a two-sentence summary. Follow it with short sections under plain headings, and finish with a questions-and-answers list. State facts and figures plainly, with no sales language, because a page of clear facts is what gets quoted. Use only what I told you. Where a fact is missing, write [CHECK] instead of guessing, because a wrong price or promise on my website is one I have to honour.\n\nFinish by asking me what to change.",
+      "use": [
+        "Paste it into your AI and replace the square bracket with one product or service.",
+        "Answer each question the way you'd answer a customer on the phone.",
+        "Check every price and fill any gap marked CHECK.",
+        "Put the page on your website, then do the next service."
+      ]
+    },
+    {
+      "label": "The Odd One",
+      "headline": "A robot got heatstroke climbing a mountain and left on a stretcher",
+      "paragraphs": [
+        "On 2 November, in a robot race up Mount Taishan in China, a walking humanoid robot overheated partway up. It was carried back down on a stretcher.",
+        "Its maker says it may not have been set up for the climb.",
+        "Take from it: the demo video is never the whole story. Ask what happens on the hill."
+      ],
+      "source": {
+        "url": "https://interestingengineering.com/ai-robotics/unitree-humanoid-overheats-during-mountain-race",
+        "text": "Read the original: Interesting Engineering, Unitree humanoid robot suffers 'heatstroke' in mountain race"
+      }
+    },
+    {
+      "label": "The Magnum",
+      "headline": "A country town at dusk, in oil paint, and the paint moves",
+      "brief": {
+        "why": "A still picture gets scrolled past. A painting where the sky turns and a dog trots through gets watched to the end.",
+        "do": "Copy the image prompt, describe your own street or shopfront in place of the town, then run the video prompt. Post the result on your business page.",
+        "take": "The painting is the easy half. Any AI will do you a street in the style of The Starry Night. Making the paint move is the new part."
+      },
+      "paragraphs": [
+        "Press play. An Australian main street under the jacarandas, painted like The Starry Night, and the paint moves.",
+        "Two steps. One prompt made the painting, in Google's image maker. A second handed it to Kling 4.0, a video maker that opened to everyone in October. I ran both in Higgsfield, a paid site that works in Australia."
+      ],
+      "prompt": "A thick impasto oil painting, in a swirling post-impressionist style, of the main street of a small Australian country town at dusk in November. A two-storey corner pub with an iron-lace verandah, corrugated-iron awnings over the shopfronts, a row of jacaranda trees in full purple bloom dropping petals on the bitumen, a dusty white ute parked nose-in at the kerb, and a red kelpie trotting across the empty road. The sky is deep ultramarine, filled with huge spiralling brushstroke swirls around a glowing crescent moon and fat yellow stars. Warm orange light spills from the pub windows onto the footpath. Every surface is built from visible, heavy, directional brushstrokes and palette-knife ridges of paint, in rich ultramarine, violet, ochre and burnt orange. No text, no words on any sign, no logos, no people.",
+      "video_prompt": "Keep the scene exactly as it is. The painted sky comes alive: the thick brushstroke swirls turn slowly around the moon and the stars, which pulse gently. Purple jacaranda petals drift down across the street. The kelpie trots across the road from right to left and out of frame. The orange light in the pub windows flickers softly. Everything stays thick oil paint, with the brushstrokes sliding and reforming as they move. Very slow push in. No new objects, no people, no text.",
+      "image_alt": "An oil painting of an Australian country town main street at dusk, with a corner pub, jacaranda trees in purple bloom, a white ute, a red kelpie and a swirling starry sky",
+      "take": "One paragraph made the painting. One more made it move."
+    }
+  ],
+  "signoff": [
+    "Ask ChatGPT about your own business today, then write one page of plain facts for it to find.",
+    "Have a good week."
+  ],
+  "whatsapp": "Hi everyone, hope you've had a good weekend. Here's this week's This Week in AI.\n\nI went to the Brisbane AI Summit expecting to be lost. Instead a mining boss, a lender and a search specialist all said the same thing: the businesses using AI properly are pulling ahead. What I learned is inside, plus what to do now that ChatGPT has started listing businesses.",
+  "special": true
+}
