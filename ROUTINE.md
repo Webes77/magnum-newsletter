@@ -31,6 +31,8 @@ picture of himself on every share was indulgent. Editions up to 11 October keep
 Google Drive is not used any more (James, 15 November 2026: "we don't need the Drive anymore"). Everything for an edition lives on its draft branch, in `build/YYYY-MM-DD/`. No run reads from Drive, uploads to it or mentions it to James.
 
 
+From 15 November 2026 the banner at the top of every edition (`assets/standing/banner.jpg`) and the WhatsApp preview (`assets/standing/preview.jpg`) share one new scene, because James asked what a seagull and a croissant had to do with an AI newsletter. It is the same beach café table and the same seagull going for the croissant, but now a laptop on the table is working through a spreadsheet beside a navy coffee cup carrying the real Magnum mark (laid on from `magnum-mark.svg`, never drawn by the model). The picture must always show AI doing the paperwork; the seagull stays as the running joke. Both are standing images: no run redraws them. The full-size source is Higgsfield job `ecad8599-c9bc-4318-a754-46f5a212e150`.
+
 ## Since 25 October 2026: what every edition carries
 
 James set these on 25 October 2026 after reading that day's draft.

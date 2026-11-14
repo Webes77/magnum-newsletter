@@ -104,8 +104,10 @@ any of these.
   `image_alt`. The Win, Prompt of the Week and The Magnum carry none.
 
 Since 1 November 2026 the page opens on a standing banner above the date,
-`assets/standing/banner.jpg`, the same every edition: the seagull cartoon from
-the share card, cut wide. James asked for it because every newsletter has a
+`assets/standing/banner.jpg`, the same every edition. Since 15 November 2026 it
+is a beach café table where a laptop works through a spreadsheet beside a
+Magnum AI coffee cup while a seagull goes for the croissant, and the share
+card uses the same scene. James asked for it because every newsletter has a
 picture at the top. The builder adds it; nothing in `edition.json` sets it.
 To change it, replace the file.
 
