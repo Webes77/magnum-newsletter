@@ -61,8 +61,9 @@ BRIEF_NEEDS = ("why", "do", "take")
 BRIEF_MAX_WORDS = 30
 HEADLINE_MAX_WORDS = 12
 OPENER_MAX_WORDS = 80
-DETAIL_MAX_WORDS = {"The Newsline": 130, "Looking Sideways": 130, "Tool of the Week": 130, "The Win": 280,
+DETAIL_MAX_WORDS = {"The Newsline": 170, "Looking Sideways": 170, "Tool of the Week": 170, "The Win": 280,
                     "The Odd One": 60, "Prompt of the Week": 60, "The Magnum": 60}
+SPECIAL_NEWSLINE_MAX_WORDS = 450
 PICTURE_REQUIRED = ("The Newsline", "Looking Sideways", "The Win", "Tool of the Week")
 SECTION_ORDER = ("The Newsline", "Looking Sideways", "The Win", "Tool of the Week", "Prompt of the Week", "The Odd One", "The Magnum")
 
@@ -125,6 +126,7 @@ CSS = """    :root { --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#
     .quiet .source-link { font-family:var(--sans); font-size:15px; font-weight:600; letter-spacing:0; text-transform:none; text-decoration:underline; text-underline-offset:4px; }
     .body-text p { margin-bottom:16px; color:var(--body); font-size:17px; line-height:1.7; }
     .body-text p:last-child { margin-bottom:0; }
+    .body-text.lead { margin-bottom:20px; }
     .tool-link { display:inline-block; min-height:44px; margin-top:20px; color:var(--coral-text); font-size:15.5px; font-weight:600; line-height:44px; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px; overflow-wrap:anywhere; }
     .tool-link:hover { color:var(--ink); }
     .source-figure { margin:0 0 22px; }
@@ -297,6 +299,10 @@ def render_section(s: dict, magnum_url: str, new: bool = False, num: int = 0) ->
         ]
     # The Win is a story, so it tells the story first and the lesson after (James, 7 Nov 2026).
     story_first = label == "The Win" and bool(s.get("client"))
+    # Since 15 November 2026 (James): a story says what happened before it says why it
+    # matters. "lead" is one to three plain paragraphs shown above the brief.
+    if new and s.get("lead") and label != "The Magnum" and not story_first:
+        out += ['        <div class="body-text lead">', paragraphs(s["lead"]), "        </div>"]
     if new and label != "The Magnum" and not story_first:
         out += brief
     media = []
@@ -599,7 +605,9 @@ def check_briefs_and_pictures(data: dict) -> list[str]:
                 elif words(line) > BRIEF_MAX_WORDS:
                     errors.append(f"{label}: brief.{key} ({name}) is over {BRIEF_MAX_WORDS} words")
         limit = DETAIL_MAX_WORDS.get(label)
-        if limit and sum(words(p) for p in s.get("paragraphs", [])) > limit:
+        if limit and label == "The Newsline" and data.get("special"):
+            limit = SPECIAL_NEWSLINE_MAX_WORDS  # a special edition James shaped by hand
+        if limit and sum(words(p) for p in s.get("lead", []) + s.get("paragraphs", [])) > limit:
             errors.append(f"{label}: the detail under the brief is over {limit} words")
         if label == "The Win" and not s.get("client") and not (s.get("source") or {}).get("url"):
             errors.append("The Win must link to where the story is reported, or be one of James's client wins marked \"client\": true; never invented")

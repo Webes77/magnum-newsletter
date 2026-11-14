@@ -41,6 +41,8 @@ the Week, The Odd One, The Magnum). Headlines are 12 words at most. The
 opener is under 80 words and the sign-off two lines at most. The index is
 still written for the archive and no longer shows on the page.
 
+Since 15 November 2026 a story also carries `lead`: a list of one to three short paragraphs that say what happened, shown above the brief, so the reader knows the story before the lesson. The lead counts toward the detail cap, which is 170 words for The Newsline, Looking Sideways and Tool of the Week. A top-level `"special": true` marks an edition James shaped by hand: The Newsline may run to 450 words and the Sunday run publishes it unchanged.
+
 Any story may carry `paste` (and optionally `paste_label`): a short line the
 reader copies, rendered as a prompt box with a Copy button. Use it for a
 heads-up, so the action costs two minutes.
