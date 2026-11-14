@@ -42,7 +42,7 @@ BASE_URL = "https://webes77.github.io/magnum-newsletter"
 # the page opens on a standing banner, the same every edition, cut from the share card's cartoon.
 BANNER_FROM = "2026-11-01"
 BANNER_URL = f"{BASE_URL}/assets/standing/banner.jpg"
-BANNER_ALT = "A seagull eyes a croissant on a beachside cafe table beside a Magnum AI coffee cup"
+BANNER_ALT = "Cartoon of a beach cafe table where a laptop works through a spreadsheet beside a Magnum AI coffee cup while a seagull eyes a croissant"
 PLACEHOLDER_RE = re.compile(r"\{\{[A-Z0-9_]+\}\}")
 STALE_RE = re.compile(r"\b(last week|this week|yesterday|earlier today|prior edition|previous issue)\b", re.I)
 EM_DASH = "—"
