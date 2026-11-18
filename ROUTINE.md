@@ -9,7 +9,7 @@ finished WhatsApp message on Sunday. Remy is retired.
 | This Week in AI · Sunday publish | Sunday 4pm | `trig_01QT4LvUrH2ZyNEKGRShmRLd` | Follows **Prompt 2** below. Applies any reply from James, fills any gap, publishes, and emails him the WhatsApp message. |
 
 Both routines hold only a short pointer to this file, so a change here takes effect on the next
-run with no routine update. Both have Gmail, Drive, Microsoft 365, Fireflies and Higgsfield attached.
+run with no routine update. Both have Gmail, Drive, Microsoft 365, Fireflies and Higgsfield attached, and since 19 November 2026 the Sunday publish also has MailerLite, for the subscriber email draft (Step 5B).
 Connectors are attached with RemoteTrigger update (`mcp_connections`). A session that says only
 James can attach them is wrong.
 
@@ -417,10 +417,15 @@ Step 4B, the hard edit. If you added or changed anything in Step 3 or Step 4, ru
 
 Step 5, build and publish. Install the helpers with a virtual environment if the system Pillow is broken (python3 -m venv, then pip install pillow imageio-ffmpeg). Run tools/build_edition.py with --edition, --magnum (or --magnum-video and --magnum-poster), one --illustration "<label>=<file>" per section picture, --repo /home/user/magnum-newsletter and --check. Fix only what a failure names and run it again until it prints CHECK PASSED. Look at the finished page's pictures. Then run tools/publish_weekly_issue.py --html build/YYYY-MM-DD/finished.html --preview build/YYYY-MM-DD/preview.jpg --date YYYY-MM-DD --display-date "D Month YYYY" --title "<title>" --dek "<dek>" --content "<label>, <line>" for every index entry, --repo /home/user/magnum-newsletter --asset-dir assets/YYYY-MM-DD --push. Set git user.name to "Magnum AI routine" and user.email to james@magnumai.com.au if git asks. Then delete the branch claude/draft-YYYY-MM-DD from origin.
 
-Step 6, email. With the Microsoft 365 connector's outlook_send_mail (load with ToolSearch "select:mcp__Microsoft_365__outlook_send_mail"), send a plain text email from James's Outlook to james@magnumai.com.au and nobody else. This is a standing scheduled send with pre-approval for this recipient only. Subject: This Week in AI is live, D Month YYYY. Two blocks only.
+Step 5B, the email draft. Only when Step 5 published the edition. Since 19 November 2026 This Week in AI also goes to email subscribers through MailerLite, and James presses send himself. You create the draft. You never send it and never schedule it. Run python3 tools/build_email.py --edition build/YYYY-MM-DD/edition.json --out build/YYYY-MM-DD/email.html and read the file it writes. Load the MailerLite connector's create_campaign with ToolSearch (search "mailerlite create_campaign"). If the connector is not attached, skip this step and say so in one line at the top of the email. Call create_campaign once with: name "This Week in AI · D Month YYYY", type "regular", subject "This Week in AI: <title>", from_name "James Wheable, Magnum AI", from "news@magnumai.com.au", reply_to "james@magnumai.com.au", groups ["204370022473139596"], and content the whole of email.html exactly as written. Do not call schedule_campaign or any tool that sends. If create_campaign fails twice, say so in one line at the top of the email and carry on.
+
+Step 6, email. With the Microsoft 365 connector's outlook_send_mail (load with ToolSearch "select:mcp__Microsoft_365__outlook_send_mail"), send a plain text email from James's Outlook to james@magnumai.com.au and nobody else. This is a standing scheduled send with pre-approval for this recipient only. Subject: This Week in AI is live, D Month YYYY. Three blocks only, the first only when Step 5B made a draft.
+
+PRESS SEND ON THIS WEEK'S EMAIL
+Under it, "The email to your subscribers is ready and waiting. Open it, read it, press send.", then https://dashboard.mailerlite.com/campaigns/status/draft on its own line, then "Open the draft called This Week in AI, check it, then press Send. It goes to everyone on your newsletter list. Nothing has been sent."
 
 PASTE THIS INTO YOUR WHATSAPP BROADCAST
-Under it, the whatsapp text from edition.json, then the dated issue link on its own line, then the preview image link with the words "picture to attach".
+Under it, the whatsapp text from edition.json, then the dated issue link on its own line, then a blank line and "Get it by email instead: https://members.magnumai.com.au/subscribe", then the preview image link with the words "picture to attach". The sign-up line stays until James says WhatsApp has stopped.
 
 IT'S LIVE
 Under it, the dated link and one line saying the checks passed.

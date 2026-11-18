@@ -475,9 +475,11 @@ def render(data: dict, hero_url: str, magnum_url: str) -> str:
 {who}
       <p class="signoff-details">Magnum AI | <a href="https://magnumai.com.au">magnumai.com.au</a></p>
     </div>
+    <div class="subscribe-slot" style="padding:0 16px 28px;"><div data-subscribe></div></div>
     <footer class="footer"><p>You're getting this because you're a Magnum AI client.</p></footer>
   </main>
 {script}
+  <script src="https://members.magnumai.com.au/assets/subscribe.js"></script>
 </body>
 </html>
 """
