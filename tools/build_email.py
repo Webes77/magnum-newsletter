@@ -30,7 +30,7 @@ SANS = "'IBM Plex Sans',Arial,Helvetica,sans-serif"
 DISPLAY = "'Oswald','Arial Narrow',Arial,sans-serif"
 LABEL = (f"margin:0 0 8px;font-family:{SANS};font-size:13px;font-weight:600;"
          "letter-spacing:1px;text-transform:uppercase;color:#C63A2A;")
-BODY = f"margin:0 0 16px;font-family:{SANS};font-size:17px;line-height:1.55;color:#2B2823;"
+BODY = f"margin:0 0 16px;font-family:{SANS};font-size:17px;line-height:1.55;font-weight:500;color:#1E1B17;"
 
 
 def e(text: str) -> str:
@@ -45,9 +45,9 @@ def build(data: dict) -> str:
     for n, s in enumerate(data["sections"], 1):
         rows.append(f"""        <tr>
           <td width="44" valign="top" style="width:44px;padding:0 0 12px;font-family:{DISPLAY};font-size:22px;line-height:1.2;font-weight:700;color:#C63A2A;">{n:02d}</td>
-          <td valign="top" style="padding:2px 0 12px;font-family:{SANS};font-size:17px;line-height:1.45;">
+          <td valign="top" style="padding:2px 0 12px;font-family:{SANS};font-size:17px;line-height:1.45;font-weight:500;">
             <a href="{url}#s{n:02d}" style="color:#1E1B17;text-decoration:none;font-weight:600;">{e(s["headline"])}</a>
-            <div style="font-family:{SANS};font-size:13px;line-height:1.4;color:#63615C;padding-top:2px;">{e(s["label"])}</div>
+            <div style="font-family:{SANS};font-size:13px;line-height:1.4;color:#45433E;padding-top:2px;">{e(s["label"])}</div>
           </td>
         </tr>""")
     contents = "\n".join(rows)
@@ -61,7 +61,7 @@ def build(data: dict) -> str:
 <meta name="color-scheme" content="light">
 <meta name="supported-color-schemes" content="light">
 <title>This Week in AI: {e(data["title"])}</title>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body style="margin:0;padding:0;background:#FBFBF9;">
 <div style="display:none;max-height:0;overflow:hidden;opacity:0;">{e(data["dek"])}</div>
@@ -103,22 +103,22 @@ def build(data: dict) -> str:
           <a href="{url}" style="display:inline-block;padding:15px 26px;font-family:{SANS};font-size:16px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:#FFFFFF;text-decoration:none;">Read this week's edition</a>
         </td>
       </tr></table>
-      <p style="margin:12px 0 0;font-family:{SANS};font-size:14px;line-height:1.5;color:#63615C;">About four minutes to read. Every headline above opens its story.</p>
+      <p style="margin:12px 0 0;font-family:{SANS};font-size:14px;line-height:1.5;color:#45433E;">About four minutes to read. Every headline above opens its story.</p>
     </td></tr>
 
     <tr><td style="padding:22px 28px 24px;border-top:2px solid #1E1B17;background:#FBFBF9;">
 {signoff}
-      <p style="margin:0;font-family:{SANS};font-size:17px;line-height:1.5;color:#2B2823;">Any questions, just reply to this email. It comes straight to me.</p>
+      <p style="margin:0;font-family:{SANS};font-size:17px;line-height:1.5;font-weight:500;color:#1E1B17;">Any questions, just reply to this email. It comes straight to me.</p>
       <p style="margin:10px 0 0;font-family:{SANS};font-size:17px;line-height:1.5;font-weight:600;color:#1E1B17;">James</p>
     </td></tr>
 
   </table>
 
   <table role="presentation" width="{WIDTH}" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:{WIDTH}px;">
-    <tr><td style="padding:18px 6px 0;font-family:{SANS};font-size:13px;line-height:1.6;color:#63615C;">
+    <tr><td style="padding:18px 6px 0;font-family:{SANS};font-size:13px;line-height:1.6;color:#45433E;">
       You are getting this because you subscribed to the Magnum AI newsletter.<br>
       Magnum AI, Suite 4, 35 Cedric Street, Stirling WA 6021, Australia<br>
-      <a href="{{$unsubscribe}}" style="color:#63615C;text-decoration:underline;">Unsubscribe</a>
+      <a href="{{$unsubscribe}}" style="color:#45433E;text-decoration:underline;">Unsubscribe</a>
     </td></tr>
   </table>
 </td></tr>
