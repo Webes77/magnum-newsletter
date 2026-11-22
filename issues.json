@@ -1,6 +1,22 @@
 {
   "issues": [
     {
+      "date": "2026-11-22",
+      "displayDate": "22 November 2026",
+      "title": "Google's do-it-for-you AI is now free in Australia",
+      "dek": "Google's do-it-for-you AI goes free in Australia, a spreadsheet that checks my subscriptions every week, and robotaxis banned from the freeway.",
+      "file": "issues/2026-11-22.html",
+      "contents": [
+        "The Newsline, the AI from Google that takes jobs off your hands, now free in Australia",
+        "Looking Sideways, three robotaxis drove into roadworks, and what that says about your AI",
+        "The Win, my own spreadsheet that warns me before every subscription renews",
+        "Tool of the Week, a free add-on for Claude that drafts your overdue invoice reminders",
+        "Prompt of the Week, build your own subscription checker, one question at a time",
+        "The Odd One, an AI LeBron promoted a betting app, and the real one sued",
+        "The Magnum, a photo of a shopfront turned into a looping GIF that opens for business"
+      ]
+    },
+    {
       "date": "2026-11-15",
       "displayDate": "15 November 2026",
       "title": "The Brisbane AI Summit edition",
