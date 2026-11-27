@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" style="background:#FBFBF9;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>This Week in AI, 29 November 2026 | Weeks putting off one document. Done in one evening. | Magnum AI</title>
+  <meta name="description" content="A client who talked a stuck document out of her head in one evening, Claude turning your ideas into desktop apps, and a till that spots your mistakes." />
+  <link rel="canonical" href="https://webes77.github.io/magnum-newsletter/issues/2026-11-29.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://webes77.github.io/magnum-newsletter/issues/2026-11-29.html" />
+  <meta property="og:title" content="This Week in AI, 29 November 2026 | Weeks putting off one document. Done in one evening. | Magnum AI" />
+  <meta property="og:description" content="A client who talked a stuck document out of her head in one evening, Claude turning your ideas into desktop apps, and a till that spots your mistakes." />
+  <meta property="og:image" content="https://webes77.github.io/magnum-newsletter/assets/previews/2026-11-29.jpg" />
+  <meta property="og:image:secure_url" content="https://webes77.github.io/magnum-newsletter/assets/previews/2026-11-29.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Cartoon of James Wheable at his desk with his bulldog" />
+  <meta property="og:site_name" content="Magnum AI" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="This Week in AI, 29 November 2026 | Weeks putting off one document. Done in one evening. | Magnum AI" />
+  <meta name="twitter:description" content="A client who talked a stuck document out of her head in one evening, Claude turning your ideas into desktop apps, and a till that spots your mistakes." />
+  <meta name="twitter:image" content="https://webes77.github.io/magnum-newsletter/assets/previews/2026-11-29.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta name="color-scheme" content="light" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+  <style>
+    :root { --paper:#FBFBF9; --paper-2:#FFFFFF; --navy:#1F2A37; --ink:#1E1B17; --body:#1E1B17; --char:#1E1B17; --mute:#45433E; --rust:#EF4029; --coral-text:#C63A2A; --coral-bright:#FF6F5E; --tint:#FBE1D8; --on-navy:#F4F1EA; --on-navy-mute:#C8CDD3; --hair:#DADAD5; --display:'Oswald','Arial Narrow','Liberation Sans Narrow',sans-serif; --sans:'IBM Plex Sans',Arial,system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,'Courier New',monospace; color-scheme:light; }
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    html,body { background:#FBFBF9; color-scheme:light; }
+    body { color:var(--body); font-family:var(--sans); font-size:17px; font-weight:500; line-height:1.65; -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:100%; overflow-wrap:break-word;font-weight:500}
+    .page { max-width:720px; margin:0 auto; background:#FBFBF9; }
+    .masthead { background:var(--navy); color:var(--on-navy); border-bottom:4px solid var(--coral-bright); padding:26px 28px 28px; }
+    .masthead-meta { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    .masthead-meta span { color:var(--coral-bright); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; }
+    .masthead-meta span + span { color:var(--on-navy-mute); }
+    .masthead-title { margin-top:14px; color:var(--on-navy); font-family:var(--display); font-size:44px; font-weight:700; line-height:.95; text-transform:uppercase; }
+    .hero-img,.magnum-img,.magnum-video { display:block; width:100%; height:auto; }
+    .content { padding:36px 28px 0; }
+    .date-line { margin-bottom:24px; color:var(--coral-text); font-family:var(--display); font-size:17px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
+    .opener-block { margin-bottom:44px; padding:22px 26px; background:var(--paper-2); border:2px solid var(--ink); }
+    .opener-text { margin-bottom:16px; color:var(--char); font-size:17px; font-style:italic; line-height:1.7; }
+    .opener-text:last-of-type { margin-bottom:24px; }
+    .index-label { display:flex; align-items:center; gap:12px; margin-bottom:12px; color:var(--coral-text); font-family:var(--mono); font-size:12px; letter-spacing:.22em; text-transform:uppercase; }
+    .index-label::after { content:""; flex:1; height:1px; background:var(--ink); }
+    .index-list { list-style:none; }
+    .index-list li { position:relative; padding-left:18px; color:var(--char); font-size:15.5px; line-height:1.6; margin-bottom:8px; }
+    .index-list li::before { content:'\00B7'; position:absolute; left:2px; color:var(--rust); font-weight:700; }
+    .section { padding:0 0 48px; }
+    .section-label { display:flex; align-items:center; gap:12px; margin-bottom:14px; color:var(--coral-text); font-family:var(--display); font-size:19px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
+    .section-label::after { content:""; flex:1; height:1px; background:var(--ink); }
+    .section-headline { margin-bottom:20px; color:var(--ink); font-family:var(--display); font-size:34px; font-weight:600; line-height:1.05; text-transform:uppercase; }
+    .section-headline em { font-style:normal; color:var(--rust); }
+    .brief { margin:0 0 20px; }
+    .brief p { margin:0 0 12px; color:var(--ink); font-size:17.5px; line-height:1.6; }
+    .brief p strong { font-weight:700; }
+    .brief p.take { margin-top:16px; padding:14px 16px; background:var(--tint); border-left:4px solid var(--rust); font-size:17px; }
+    .brief p.take strong { display:block; margin-bottom:4px; color:var(--ink); font-family:var(--display); font-size:15px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; }
+    .edition-head { padding:26px 28px 6px; }
+    .banner-img { display:block; width:100%; height:auto; margin:0 0 18px; border:2px solid var(--ink); background:var(--paper-2); }
+    .edition-box { margin-top:14px; padding:18px 20px; border:2px solid var(--ink); background:#FFFFFF; }
+    .edition-kicker { color:var(--coral-text); font-family:var(--display); font-size:19px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
+    .edition-greeting { color:var(--ink); font-size:20px; font-weight:700; line-height:1.4; }
+    .edition-hook { margin-top:10px; color:var(--body); font-size:17px; line-height:1.65; }
+    .edition-box .edition-kicker { margin-top:22px; padding-top:18px; border-top:1px solid var(--hair); }
+    .edition-list { margin:12px 0 0; padding:0; list-style:none; }
+    .edition-list li { margin:0 0 12px; }
+    .edition-list a { display:block; color:var(--ink); font-size:17px; font-weight:600; line-height:1.45; text-decoration:none; }
+    .edition-list a span { margin-right:6px; color:var(--coral-text); font-family:var(--display); font-weight:700; }
+    .quiet .section-headline { font-family:var(--sans); font-size:28px; font-weight:700; line-height:1.22; text-transform:none; letter-spacing:-.005em; }
+    .sec-num { margin-right:4px; }
+    .opener-plain { margin:0 0 36px; padding-bottom:26px; border-bottom:2px solid var(--ink); }
+    .opener-plain p { margin-bottom:12px; color:var(--body); font-size:17px; line-height:1.7; }
+    .opener-plain p:last-child { margin-bottom:0; }
+    .copy-btn { margin-left:12px; padding:6px 12px; border:2px solid var(--ink); background:var(--coral-bright); color:var(--ink); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.12em; text-transform:uppercase; cursor:pointer; }
+    .copy-btn:active { background:var(--paper-2); }
+    .prompt-row { display:flex; align-items:center; justify-content:space-between; margin:24px 0 10px; }
+    .prompt-row .prompt-label { margin:0; }
+    .signoff-who { display:flex; align-items:center; gap:16px; margin-top:20px; }
+    .signoff-who img { width:76px; height:76px; object-fit:cover; object-position:30% 30%; border:2px solid var(--ink); border-radius:50%; }
+    .signoff-who p { color:var(--ink); font-family:var(--display); font-size:20px; font-weight:600; line-height:1.2; }
+    .signoff-who p span { display:block; color:var(--mute); font-family:var(--sans); font-size:14px; font-weight:400; }
+    .quiet .source-credit { font-family:var(--sans); font-size:12.5px; letter-spacing:0; text-transform:none; }
+    .quiet .source-link { font-family:var(--sans); font-size:15px; font-weight:600; letter-spacing:0; text-transform:none; text-decoration:underline; text-underline-offset:4px; }
+    .body-text p { margin-bottom:16px; color:var(--body); font-size:17px; line-height:1.7; }
+    .body-text p:last-child { margin-bottom:0; }
+    .body-text.lead { margin-bottom:20px; }
+    .tool-link { display:inline-block; min-height:44px; margin-top:20px; color:var(--coral-text); font-size:15.5px; font-weight:600; line-height:44px; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px; overflow-wrap:anywhere; }
+    .tool-link:hover { color:var(--ink); }
+    .source-figure { margin:0 0 22px; }
+    .source-img { display:block; width:100%; height:auto; border:2px solid var(--ink); background:var(--paper-2); }
+    .source-credit { margin-top:8px; color:var(--mute); font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; }
+    .source-link { display:inline-block; min-height:44px; margin-top:20px; color:var(--coral-text); font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.18em; line-height:1.6; padding:12px 0; text-transform:uppercase; text-decoration:none; overflow-wrap:anywhere; }
+    .source-link:hover { color:var(--ink); text-decoration:underline; text-underline-offset:4px; }
+    .prompt-label { margin:24px 0 10px; color:var(--coral-text); font-family:var(--display); font-size:17px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
+    .prompt-box { margin:0 0 20px; padding:18px 20px; overflow-wrap:anywhere; background:var(--paper-2); border:2px solid var(--ink); }
+    .prompt-box pre { margin:0; color:var(--char); font-family:var(--mono); font-size:13px; line-height:1.75; white-space:pre-wrap; word-break:break-word; }
+    .prompt-use,.magnum-take { color:var(--char); font-size:15.5px; line-height:1.7; }
+    .prompt-use strong,.magnum-take strong { color:var(--coral-text); font-family:var(--display); font-size:17px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
+    .magnum-img,.magnum-video { margin:0 0 18px; border:2px solid var(--ink); background:var(--paper-2); }
+    .magnum-take { padding-top:14px; border-top:1px solid var(--hair); }
+    .magnum-steps { margin:0 0 24px; padding-left:22px; color:var(--body); font-size:17px; line-height:1.7; }
+    .magnum-steps li { margin-bottom:8px; padding-left:4px; }
+    .magnum-after { margin-bottom:22px; }
+    .signoff { margin:0 28px; padding:36px 0 44px; border-top:2px solid var(--ink); }
+    .signoff-body { margin-bottom:16px; color:var(--body); font-size:17px; line-height:1.7; }
+    .signoff-details { margin-top:22px; color:var(--mute); font-family:var(--mono); font-size:12px; letter-spacing:.18em; line-height:2; text-transform:uppercase; }
+    .signoff-details a { color:var(--coral-text); text-decoration:none; }
+    .signoff-details a:hover { text-decoration:underline; }
+    .footer { padding:22px 28px; background:var(--navy); text-align:center; }
+    .footer p { color:var(--on-navy-mute); font-family:var(--mono); font-size:11px; letter-spacing:.18em; line-height:1.7; text-transform:uppercase; }
+    .footer a { color:var(--on-navy); }
+    @media (max-width:600px) {
+      .masthead { padding:20px 20px 22px; }
+      .masthead-meta { flex-direction:column; gap:4px; }
+      .masthead-title { font-size:36px; }
+      .content { padding:30px 20px 0; }
+      .opener-block { padding:18px 18px; }
+      .section { padding-bottom:40px; }
+      .section-headline { font-size:28px; }
+      .edition-head { padding:22px 20px 4px; }
+      .quiet .section-headline { font-size:25px; }
+      .prompt-box { padding:14px 14px; }
+      .prompt-box pre { font-size:12px; line-height:1.7; }
+      .signoff { margin:0 20px; padding:32px 0 36px; }
+    }
+    @media print {
+      html,body { background:#fff; }
+      .masthead,.footer { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+      .prompt-box { break-inside:avoid; }
+    }
+  </style>
+</head>
+<body style="background:#FBFBF9;">
+  <main class="page">
+    <header class="masthead">
+      <div class="masthead-meta"><span>Magnum AI &middot; Client Edition</span><span>magnumai.com.au</span></div>
+      <p class="masthead-title">This Week in AI</p>
+    </header>
+    <div class="edition-head">
+      <img class="banner-img" src="https://webes77.github.io/magnum-newsletter/assets/standing/banner.jpg" alt="Cartoon of a beach cafe table where a laptop works through a spreadsheet beside a Magnum AI coffee cup while a seagull eyes a croissant" />
+      <p class="date-line">29 November 2026</p>
+      <div class="edition-box">
+        <p class="edition-greeting">Happy Sunday.</p>
+        <p class="edition-hook">One of my clients had a guide for her customers sitting on her list for weeks. Everything it needed was in her head, and that was the whole problem.</p>
+        <p class="edition-hook">What finally got it done wasn't writing. It was talking.</p>
+        <p class="edition-kicker">In this edition</p>
+        <ol class="edition-list">
+          <li><a href="#s01"><span>01</span> Claude now turns a tool you describe into a desktop app</a></li>
+          <li><a href="#s02"><span>02</span> The self-checkout spots your missed scan. Shoppers fix it themselves.</a></li>
+          <li><a href="#s03"><span>03</span> Weeks putting off one document. Done in one evening.</a></li>
+          <li><a href="#s04"><span>04</span> Drop your notes into Gemini Notebook. Get a website back.</a></li>
+          <li><a href="#s05"><span>05</span> Get the document out of your head, one question at a time</a></li>
+          <li><a href="#s06"><span>06</span> Tidal is deleting 29 million AI songs almost nobody played</a></li>
+          <li><a href="#s07"><span>07</span> An Aussie Christmas in a snow globe, with sand for snow</a></li>
+        </ol>
+      </div>
+    </div>
+    <div class="content quiet">
+
+      <section class="section" id="s01">
+        <p class="section-label"><span class="sec-num">01</span> The Newsline</p>
+        <h1 class="section-headline">Claude now turns a tool you <em>describe</em> into a desktop app</h1>
+        <figure class="source-figure">
+          <img class="source-img" src="https://webes77.github.io/magnum-newsletter/assets/2026-11-29/the-newsline-2026-11-29.jpg" alt="Anthropic&#x27;s example desktop with pixel-art app icons down the left and open windows for a body atlas, an image editor and a terminal, all built with Claude" loading="lazy" />
+          <figcaption class="source-credit">Image: Anthropic</figcaption>
+        </figure>
+        <div class="body-text lead">
+          <p>On 24 November Anthropic added Install as app to Claude. You describe a small tool in a chat, Claude builds it, and one click puts it on your Mac or Windows computer with its own icon and its own window.</p>
+          <p>It's in beta on every plan, the free one included. Anthropic lists no country limits.</p>
+        </div>
+        <div class="brief">
+          <p><strong>Why it matters.</strong> The little jobs you do by hand every week, a price calculator, a job checklist, a quote tidy-up, can now be your own app.</p>
+          <p><strong>What to do.</strong> Update the Claude desktop app, ask it to build one small tool you'd use daily, then choose Install as app from the Share menu.</p>
+          <p class="take"><strong>My take</strong> For years small business software meant paying for ninety features to use three. Now you describe the three and stop there.</p>
+        </div>
+        <div class="body-text">
+          <p>Before, those tools lived inside old chats, and finding one meant scrolling back through a fortnight of conversations. Now it opens like any other program.</p>
+          <p>It asks before it does more than a web page could, and full access to your files is only for apps you built yourself. You need to be online and signed in, and every use counts toward your plan's limits.</p>
+          <p>Anthropic doesn't check apps before you install them, so only install ones you made or someone you trust made.</p>
+        </div>
+        <a class="source-link" href="https://claude.com/resources/articles/install-as-app" target="_blank" rel="noopener">Read the original: Anthropic, Turn artifacts into Mac and Windows apps &rarr;</a>
+      </section>
+
+      <section class="section" id="s02">
+        <p class="section-label"><span class="sec-num">02</span> Looking Sideways</p>
+        <h2 class="section-headline">The <em>self-checkout</em> spots your missed scan. Shoppers fix it themselves.</h2>
+        <figure class="source-figure">
+          <img class="source-img" src="https://webes77.github.io/magnum-newsletter/assets/2026-11-29/looking-sideways-2026-11-29.jpg" alt="A smiling Sainsbury&#x27;s staff member with a headset standing beside a row of self-checkouts" loading="lazy" />
+          <figcaption class="source-credit">Image: Retail Technology Innovation Hub</figcaption>
+        </figure>
+        <div class="body-text lead">
+          <p>When the till points at an item you missed, 97% of shoppers fix it themselves. Nobody has to come over.</p>
+          <p>That's at Sainsbury's in Britain, where cameras watch the self-checkouts for items that may not have been scanned properly. A message pops up on the screen and the shopper sorts it out. On 26 November the chain said it's bringing the system into its convenience stores.</p>
+        </div>
+        <div class="brief">
+          <p><strong>Why it matters.</strong> It's the model for AI in a small business: the machine spots the slip and points at it, and a person fixes it.</p>
+          <p><strong>What to do.</strong> Pick one check you do by hand, like a quote total or a missing booking detail, and ask AI to flag problems, not fix them.</p>
+          <p class="take"><strong>My take</strong> Nobody likes being caught. Everybody likes being saved from a mistake. Same camera, better manners.</p>
+        </div>
+        <div class="body-text">
+          <p>More than two million transactions a day already go through it. The trick is the tone: no alarm, no security guard, just a quiet note on the screen you can sort out yourself.</p>
+          <p>Shoppers here have met cameras at the self-checkout too, so none of this is foreign. And it works in a business of two. An AI that says "check this line" gets listened to. One that quietly changes the line doesn't.</p>
+        </div>
+        <a class="source-link" href="https://retailtechinnovationhub.com/home/2026/11/26/sainsburys-and-sai-to-roll-out-ai-self-checkout-technology-across-convenience-store-estate" target="_blank" rel="noopener">Read the original: Retail Technology Innovation Hub, Sainsbury's and SAI to roll out AI self-checkout technology across convenience store estate &rarr;</a>
+      </section>
+
+      <section class="section" id="s03">
+        <p class="section-label"><span class="sec-num">03</span> The Win</p>
+        <h2 class="section-headline">Weeks putting off one <em>document</em>. Done in one evening.</h2>
+        <figure class="source-figure">
+          <img class="source-img" src="https://webes77.github.io/magnum-newsletter/assets/2026-11-29/the-win-2026-11-29.jpg" alt="Cartoon of a woman at her kitchen table at night talking with her hands to a laptop, a cat asleep on a tall stack of notes, and the finished document coming out of the printer behind her" loading="lazy" />
+          <figcaption class="source-credit">Illustration: Magnum AI</figcaption>
+        </figure>
+        <div class="body-text">
+          <p>One of my clients runs client services for a coaching and seminar business. The documents, the follow-ups, the how-tos the clients get: all of it lives in her head.</p>
+          <p>That was the problem. She told me she couldn't take on more clients, because every new one meant more of her own hours doing the work.</p>
+          <p>One client document had been on her list for weeks. She kept starting it and stopping.</p>
+          <p>So one evening she tried something different. She didn't ask AI to write it. She talked it through out loud, and the AI turned what she said into the document. In her words: "Can I get this out of my head? This is how I want to create it."</p>
+          <p>A few hours later it was finished, and it went out to all her clients.</p>
+          <p>Her verdict: with AI doing the building, she reckons she could take on a lot more clients and give every one of them a better service.</p>
+          <p>She still checks everything before it goes. As she put it, the humans should still be the final sign-off. The AI does the hours. She gives the tick.</p>
+        </div>
+        <div class="brief">
+          <p><strong>What to do.</strong> Pick the one document you keep putting off, open any AI, and talk it through out loud. The prompt below runs the interview.</p>
+          <p class="take"><strong>My take</strong> Your head is a filing cabinet with no drawers. Talking empties it in order. Staring at a blank page never does.</p>
+        </div>
+      </section>
+
+      <section class="section" id="s04">
+        <p class="section-label"><span class="sec-num">04</span> Tool of the Week</p>
+        <h2 class="section-headline">Drop your notes into Gemini <em>Notebook</em>. Get a website back.</h2>
+        <figure class="source-figure">
+          <img class="source-img" src="https://webes77.github.io/magnum-newsletter/assets/2026-11-29/tool-of-the-week-2026-11-29.jpg" alt="Google&#x27;s example of Gemini Notebook generating an interactive periodic table site from the request Make me a site to help me understand the periodic table" loading="lazy" />
+          <figcaption class="source-credit">Image: Google</figcaption>
+        </figure>
+        <div class="body-text lead">
+          <p>Gemini Notebook is Google's research notebook. You load it with your own documents, notes and links, and it answers from those rather than the whole internet.</p>
+          <p>On 16 November Google added a new trick. Type "make me a site", say what you want, and it builds an interactive page from your sources that you can open and share.</p>
+        </div>
+        <div class="brief">
+          <p><strong>Why it matters.</strong> Your price list, FAQs and how-we-work notes are probably in five places. This turns them into one page a customer can click through.</p>
+          <p><strong>What to do.</strong> Load your price list, FAQs and how-to notes into a new notebook, then type: make me a site for new customers.</p>
+          <p class="take"><strong>My take</strong> It's not a replacement for your website. It's the welcome pack you never got round to making.</p>
+        </div>
+        <div class="body-text">
+          <p>It's free with a personal Google account, and free accounts can load up to 50 sources per notebook. The site feature is rolling out worldwide, Australia included, to people 18 and over, Workspace accounts too.</p>
+          <p>It's on the web first. Google says the phone app comes next.</p>
+          <p>Read the page before you share it. It builds from what you gave it, so an old price list makes an old price page.</p>
+        </div>
+        <a class="tool-link" href="https://notebook.google">Gemini Notebook: https://notebook.google</a>
+      </section>
+
+      <section class="section" id="s05">
+        <p class="section-label"><span class="sec-num">05</span> Prompt of the Week</p>
+        <h2 class="section-headline">Get the <em>document</em> out of your head, one question at a time</h2>
+        <div class="brief">
+          <p><strong>Why it matters.</strong> The document you keep putting off isn't hard to write. It's hard to start, because it's all in your head.</p>
+          <p><strong>What to do.</strong> Paste it into Claude, ChatGPT or Gemini, fill in the two blanks, and answer out loud with voice typing on.</p>
+          <p class="take"><strong>My take</strong> Talking is how you'd explain it to a new starter anyway. This just writes it down while you do.</p>
+        </div>
+        <div class="body-text">
+          <p>This is how The Win was done, written so any AI can run it. It asks one question at a time, plays back what it heard, waits for your OK, then writes. Gaps come back marked [CHECK] instead of made up.</p>
+        </div>
+        <div class="prompt-row"><p class="prompt-label">Prompt</p><button class="copy-btn" type="button" data-copy>Copy</button></div>
+        <div class="prompt-box"><pre>You are an experienced business writer who helps owners get what is in their head onto the page. I need to write [the document, for example a client welcome guide, a how-we-do-it sheet or a policy]. It is for [who will read it]. I keep putting it off because it all lives in my head, so I want you to interview it out of me.
+
+Ask me one question at a time and wait for my answer before the next one. I will often answer by talking, so my answers may be long and messy; pull out what matters. Cover who reads it and what they need to do after reading it, the steps in order, the questions people always ask me, the mistakes people make, and anything that must never happen. If an answer is vague, ask a follow-up. Stop at about twelve questions, or sooner if you have enough.
+
+Before you write anything, play back in five short lines what you think the document needs to say, and wait for my OK.
+
+Then write it in plain words for the reader, not for me: short sections with headings, steps numbered. Only use what I told you, because a made-up detail in a document like this sends a client the wrong way. Where something is missing, write [CHECK: what you need] instead of filling the gap.
+
+Finish with the list of [CHECK] items, and the three questions a reader is most likely to still have.</pre></div>
+        <div class="body-text">
+          <p class="prompt-use"><strong>Use it for</strong><br />Fill in the two blanks: what the document is, and who will read it.<br />Answer each question out loud with voice typing on. Messy is fine.<br />Read its five-line playback. Fix anything wrong before you say OK.<br />Sort every [CHECK] item, then read the whole thing once before it goes out.</p>
+        </div>
+      </section>
+
+      <section class="section" id="s06">
+        <p class="section-label"><span class="sec-num">06</span> The Odd One</p>
+        <h2 class="section-headline">Tidal is <em>deleting</em> 29 million AI songs almost nobody played</h2>
+        <div class="body-text">
+          <p>From 9 December, music streaming service Tidal, which runs in Australia, starts removing fully AI-made songs: about 29 million of them.</p>
+          <p>43% of recent uploads were AI-made. 96% of AI-made songs on it got zero plays.</p>
+          <p>Making things with AI is easy. Making something people want is still the hard bit.</p>
+        </div>
+        <a class="source-link" href="https://www.engadget.com/2326812/tidal-is-banning-ai-generated-music-entirely/" target="_blank" rel="noopener">Read the original: Engadget, Tidal is banning AI-generated music entirely &rarr;</a>
+      </section>
+
+      <section class="section" id="s07">
+        <p class="section-label"><span class="sec-num">07</span> The Magnum</p>
+        <h2 class="section-headline">An Aussie <em>Christmas</em> in a snow globe, with sand for snow</h2>
+        <video class="magnum-video" controls preload="metadata" playsinline poster="https://webes77.github.io/magnum-newsletter/assets/2026-11-29/the-magnum-2026-11-29-poster.jpg" aria-label="A glass snow globe on a beach café table holding a tiny Australian summer Christmas: a lifesaver tower, a ute with a surfboard, a Christmas tree made of surfboards and a backyard cricket game, with golden sand swirling instead of snow"><source src="https://webes77.github.io/magnum-newsletter/assets/2026-11-29/the-magnum-2026-11-29.mp4" type="video/mp4" /></video>
+        <div class="brief">
+          <p><strong>Why it matters.</strong> Every December the Christmas posts look the same. A summer snow globe of your own patch stops the thumb and says Australia in one look.</p>
+          <p><strong>What to do.</strong> Copy the image prompt, swap the beach scene for your shop, your van or your town, then animate it with the video prompt.</p>
+          <p class="take"><strong>My take</strong> A snow globe is a tiny world with a shake button. Put your business inside it and you've got a Christmas card nobody else has.</p>
+        </div>
+        <div class="body-text">
+          <p>Two steps. OpenAI's GPT Image 2.6 made the still from the first prompt, then Kling 4.0 animated it from the second. Any good image app can make the still; the video needs one that animates a photo.</p>
+        </div>
+        <div class="prompt-row"><p class="prompt-label">The image prompt</p><button class="copy-btn" type="button" data-copy>Copy</button></div>
+        <div class="prompt-box"><pre>A glass snow globe sitting on a sunny outdoor café table by the beach, photographed like a real product shot. Inside the globe is a whole tiny Australian summer Christmas: a crescent of golden beach, a red and yellow lifesaver flag, a little surf lifesaving tower, a ute with the steering wheel on the right and a surfboard on the roof, a Christmas tree strung with fairy lights made from a stack of tiny surfboards, and a backyard cricket game frozen mid-hit. Instead of snow, fine golden sand and tiny white shells drift through the water inside the globe. Hand-carved wooden base. Real glass reflections and refraction, the bright summer sky reflected on the curve of the glass, condensation beading on the outside from the heat. Shallow depth of field, the real ocean soft and blurred behind it. Warm afternoon light. Photorealistic, highly detailed miniature craftsmanship. No text, no logos, no people's faces visible.</pre></div>
+        <div class="prompt-row"><p class="prompt-label">The video prompt</p><button class="copy-btn" type="button" data-copy>Copy</button></div>
+        <div class="prompt-box"><pre>Keep the scene exactly as it is. The snow globe gives a gentle rock on its wooden base as if someone just set it down, and the fine golden sand and tiny white shells inside swirl up through the water and drift slowly down like snow. Inside the globe the little cricketer swings and the ball pops into the air, the red and yellow flag flutters, and the fairy lights on the surfboard Christmas tree twinkle. Outside the glass, soft waves roll in on the blurred real beach and a drop of condensation runs down the curve of the glass. The camera holds still with a slow, slight push in. Warm afternoon light, photorealistic.</pre></div>
+        <p class="magnum-take">Take from it:<br />Describe the tiny world first, then say what falls instead of snow. That swap is the whole idea.</p>
+      </section>
+    </div>
+    <div class="signoff">
+      <p class="signoff-body">Pick the document you keep putting off and talk it out.</p>
+      <p class="signoff-body">See you next Sunday.</p>
+      <div class="signoff-who"><img src="https://webes77.github.io/magnum-newsletter/assets/standing/hero-cartoon.jpg" alt="Cartoon of James Wheable at his desk with his bulldog" /><p>James Wheable<span>Magnum AI, Gold Coast</span></p></div>
+      <p class="signoff-details">Magnum AI | <a href="https://magnumai.com.au">magnumai.com.au</a></p>
+    </div>
+    <div class="subscribe-slot" style="padding:0 16px 28px;"><div data-subscribe></div></div>
+    <footer class="footer"><p>You're getting this because you're a Magnum AI client.</p></footer>
+  </main>
+  <script>
+  document.querySelectorAll('[data-copy]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var pre = b.parentNode.nextElementSibling.querySelector('pre');
+      var text = pre.textContent;
+      var done = function () { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy'; }, 1800); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () { fallback(); });
+      } else { fallback(); }
+      function fallback() {
+        var r = document.createRange(); r.selectNodeContents(pre);
+        var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+        try { document.execCommand('copy'); done(); } catch (e) {}
+      }
+    });
+  });
+  </script>
+  <script src="https://members.magnumai.com.au/assets/subscribe.js"></script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+{
+ "date": "2026-11-29",
+ "display_date": "29 November 2026",
+ "title": "Weeks putting off one document. Done in one evening.",
+ "dek": "A client who talked a stuck document out of her head in one evening, Claude turning your ideas into desktop apps, and a till that spots your mistakes.",
+ "hero_alt": "Cartoon of James Wheable at his desk with his bulldog",
+ "greeting": "Happy Sunday.",
+ "opener": [
+  "One of my clients had a guide for her customers sitting on her list for weeks. Everything it needed was in her head, and that was the whole problem.",
+  "What finally got it done wasn't writing. It was talking."
+ ],
+ "index": [
+  {
+   "label": "The Newsline",
+   "line": "Claude now turns a tool you describe into an app on your desktop"
+  },
+  {
+   "label": "Looking Sideways",
+   "line": "the self-checkout that spots a missed scan, and lets the shopper fix it"
+  },
+  {
+   "label": "The Win",
+   "line": "a client who talked a stuck document out of her head in one evening"
+  },
+  {
+   "label": "Tool of the Week",
+   "line": "Gemini Notebook, which turns your own notes into a page customers can click through"
+  },
+  {
+   "label": "Prompt of the Week",
+   "line": "get the document out of your head, one question at a time"
+  },
+  {
+   "label": "The Odd One",
+   "line": "Tidal is deleting 29 million AI songs almost nobody played"
+  },
+  {
+   "label": "The Magnum",
+   "line": "an Aussie Christmas in a snow globe, with sand for snow"
+  }
+ ],
+ "sections": [
+  {
+   "label": "The Newsline",
+   "headline": "Claude now turns a tool you describe into a desktop app",
+   "lead": [
+    "On 24 November Anthropic added Install as app to Claude. You describe a small tool in a chat, Claude builds it, and one click puts it on your Mac or Windows computer with its own icon and its own window.",
+    "It's in beta on every plan, the free one included. Anthropic lists no country limits."
+   ],
+   "brief": {
+    "why": "The little jobs you do by hand every week, a price calculator, a job checklist, a quote tidy-up, can now be your own app.",
+    "do": "Update the Claude desktop app, ask it to build one small tool you'd use daily, then choose Install as app from the Share menu.",
+    "take": "For years small business software meant paying for ninety features to use three. Now you describe the three and stop there."
+   },
+   "paragraphs": [
+    "Before, those tools lived inside old chats, and finding one meant scrolling back through a fortnight of conversations. Now it opens like any other program.",
+    "It asks before it does more than a web page could, and full access to your files is only for apps you built yourself. You need to be online and signed in, and every use counts toward your plan's limits.",
+    "Anthropic doesn't check apps before you install them, so only install ones you made or someone you trust made."
+   ],
+   "illustration_alt": "Anthropic's example desktop with pixel-art app icons down the left and open windows for a body atlas, an image editor and a terminal, all built with Claude",
+   "illustration_credit": "Image: Anthropic",
+   "source": {
+    "url": "https://claude.com/resources/articles/install-as-app",
+    "text": "Read the original: Anthropic, Turn artifacts into Mac and Windows apps"
+   }
+  },
+  {
+   "label": "Looking Sideways",
+   "headline": "The self-checkout spots your missed scan. Shoppers fix it themselves.",
+   "lead": [
+    "When the till points at an item you missed, 97% of shoppers fix it themselves. Nobody has to come over.",
+    "That's at Sainsbury's in Britain, where cameras watch the self-checkouts for items that may not have been scanned properly. A message pops up on the screen and the shopper sorts it out. On 26 November the chain said it's bringing the system into its convenience stores."
+   ],
+   "brief": {
+    "why": "It's the model for AI in a small business: the machine spots the slip and points at it, and a person fixes it.",
+    "do": "Pick one check you do by hand, like a quote total or a missing booking detail, and ask AI to flag problems, not fix them.",
+    "take": "Nobody likes being caught. Everybody likes being saved from a mistake. Same camera, better manners."
+   },
+   "paragraphs": [
+    "More than two million transactions a day already go through it. The trick is the tone: no alarm, no security guard, just a quiet note on the screen you can sort out yourself.",
+    "Shoppers here have met cameras at the self-checkout too, so none of this is foreign. And it works in a business of two. An AI that says \"check this line\" gets listened to. One that quietly changes the line doesn't."
+   ],
+   "illustration_alt": "A smiling Sainsbury's staff member with a headset standing beside a row of self-checkouts",
+   "illustration_credit": "Image: Retail Technology Innovation Hub",
+   "source": {
+    "url": "https://retailtechinnovationhub.com/home/2026/11/26/sainsburys-and-sai-to-roll-out-ai-self-checkout-technology-across-convenience-store-estate",
+    "text": "Read the original: Retail Technology Innovation Hub, Sainsbury's and SAI to roll out AI self-checkout technology across convenience store estate"
+   }
+  },
+  {
+   "label": "The Win",
+   "client": true,
+   "headline": "Weeks putting off one document. Done in one evening.",
+   "brief": {
+    "do": "Pick the one document you keep putting off, open any AI, and talk it through out loud. The prompt below runs the interview.",
+    "take": "Your head is a filing cabinet with no drawers. Talking empties it in order. Staring at a blank page never does."
+   },
+   "paragraphs": [
+    "One of my clients runs client services for a coaching and seminar business. The documents, the follow-ups, the how-tos the clients get: all of it lives in her head.",
+    "That was the problem. She told me she couldn't take on more clients, because every new one meant more of her own hours doing the work.",
+    "One client document had been on her list for weeks. She kept starting it and stopping.",
+    "So one evening she tried something different. She didn't ask AI to write it. She talked it through out loud, and the AI turned what she said into the document. In her words: \"Can I get this out of my head? This is how I want to create it.\"",
+    "A few hours later it was finished, and it went out to all her clients.",
+    "Her verdict: with AI doing the building, she reckons she could take on a lot more clients and give every one of them a better service.",
+    "She still checks everything before it goes. As she put it, the humans should still be the final sign-off. The AI does the hours. She gives the tick."
+   ],
+   "illustration_alt": "Cartoon of a woman at her kitchen table at night talking with her hands to a laptop, a cat asleep on a tall stack of notes, and the finished document coming out of the printer behind her"
+  },
+  {
+   "label": "Tool of the Week",
+   "headline": "Drop your notes into Gemini Notebook. Get a website back.",
+   "lead": [
+    "Gemini Notebook is Google's research notebook. You load it with your own documents, notes and links, and it answers from those rather than the whole internet.",
+    "On 16 November Google added a new trick. Type \"make me a site\", say what you want, and it builds an interactive page from your sources that you can open and share."
+   ],
+   "brief": {
+    "why": "Your price list, FAQs and how-we-work notes are probably in five places. This turns them into one page a customer can click through.",
+    "do": "Load your price list, FAQs and how-to notes into a new notebook, then type: make me a site for new customers.",
+    "take": "It's not a replacement for your website. It's the welcome pack you never got round to making."
+   },
+   "paragraphs": [
+    "It's free with a personal Google account, and free accounts can load up to 50 sources per notebook. The site feature is rolling out worldwide, Australia included, to people 18 and over, Workspace accounts too.",
+    "It's on the web first. Google says the phone app comes next.",
+    "Read the page before you share it. It builds from what you gave it, so an old price list makes an old price page."
+   ],
+   "illustration_alt": "Google's example of Gemini Notebook generating an interactive periodic table site from the request Make me a site to help me understand the periodic table",
+   "illustration_credit": "Image: Google",
+   "link": {
+    "url": "https://notebook.google",
+    "text": "Gemini Notebook: https://notebook.google"
+   }
+  },
+  {
+   "label": "Prompt of the Week",
+   "headline": "Get the document out of your head, one question at a time",
+   "brief": {
+    "why": "The document you keep putting off isn't hard to write. It's hard to start, because it's all in your head.",
+    "do": "Paste it into Claude, ChatGPT or Gemini, fill in the two blanks, and answer out loud with voice typing on.",
+    "take": "Talking is how you'd explain it to a new starter anyway. This just writes it down while you do."
+   },
+   "paragraphs": [
+    "This is how The Win was done, written so any AI can run it. It asks one question at a time, plays back what it heard, waits for your OK, then writes. Gaps come back marked [CHECK] instead of made up."
+   ],
+   "prompt": "You are an experienced business writer who helps owners get what is in their head onto the page. I need to write [the document, for example a client welcome guide, a how-we-do-it sheet or a policy]. It is for [who will read it]. I keep putting it off because it all lives in my head, so I want you to interview it out of me.\n\nAsk me one question at a time and wait for my answer before the next one. I will often answer by talking, so my answers may be long and messy; pull out what matters. Cover who reads it and what they need to do after reading it, the steps in order, the questions people always ask me, the mistakes people make, and anything that must never happen. If an answer is vague, ask a follow-up. Stop at about twelve questions, or sooner if you have enough.\n\nBefore you write anything, play back in five short lines what you think the document needs to say, and wait for my OK.\n\nThen write it in plain words for the reader, not for me: short sections with headings, steps numbered. Only use what I told you, because a made-up detail in a document like this sends a client the wrong way. Where something is missing, write [CHECK: what you need] instead of filling the gap.\n\nFinish with the list of [CHECK] items, and the three questions a reader is most likely to still have.",
+   "use": [
+    "Fill in the two blanks: what the document is, and who will read it.",
+    "Answer each question out loud with voice typing on. Messy is fine.",
+    "Read its five-line playback. Fix anything wrong before you say OK.",
+    "Sort every [CHECK] item, then read the whole thing once before it goes out."
+   ]
+  },
+  {
+   "label": "The Odd One",
+   "headline": "Tidal is deleting 29 million AI songs almost nobody played",
+   "paragraphs": [
+    "From 9 December, music streaming service Tidal, which runs in Australia, starts removing fully AI-made songs: about 29 million of them.",
+    "43% of recent uploads were AI-made. 96% of AI-made songs on it got zero plays.",
+    "Making things with AI is easy. Making something people want is still the hard bit."
+   ],
+   "source": {
+    "url": "https://www.engadget.com/2326812/tidal-is-banning-ai-generated-music-entirely/",
+    "text": "Read the original: Engadget, Tidal is banning AI-generated music entirely"
+   }
+  },
+  {
+   "label": "The Magnum",
+   "headline": "An Aussie Christmas in a snow globe, with sand for snow",
+   "brief": {
+    "why": "Every December the Christmas posts look the same. A summer snow globe of your own patch stops the thumb and says Australia in one look.",
+    "do": "Copy the image prompt, swap the beach scene for your shop, your van or your town, then animate it with the video prompt.",
+    "take": "A snow globe is a tiny world with a shake button. Put your business inside it and you've got a Christmas card nobody else has."
+   },
+   "paragraphs": [
+    "Two steps. OpenAI's GPT Image 2.6 made the still from the first prompt, then Kling 4.0 animated it from the second. Any good image app can make the still; the video needs one that animates a photo."
+   ],
+   "prompt": "A glass snow globe sitting on a sunny outdoor café table by the beach, photographed like a real product shot. Inside the globe is a whole tiny Australian summer Christmas: a crescent of golden beach, a red and yellow lifesaver flag, a little surf lifesaving tower, a ute with the steering wheel on the right and a surfboard on the roof, a Christmas tree strung with fairy lights made from a stack of tiny surfboards, and a backyard cricket game frozen mid-hit. Instead of snow, fine golden sand and tiny white shells drift through the water inside the globe. Hand-carved wooden base. Real glass reflections and refraction, the bright summer sky reflected on the curve of the glass, condensation beading on the outside from the heat. Shallow depth of field, the real ocean soft and blurred behind it. Warm afternoon light. Photorealistic, highly detailed miniature craftsmanship. No text, no logos, no people's faces visible.",
+   "video_prompt": "Keep the scene exactly as it is. The snow globe gives a gentle rock on its wooden base as if someone just set it down, and the fine golden sand and tiny white shells inside swirl up through the water and drift slowly down like snow. Inside the globe the little cricketer swings and the ball pops into the air, the red and yellow flag flutters, and the fairy lights on the surfboard Christmas tree twinkle. Outside the glass, soft waves roll in on the blurred real beach and a drop of condensation runs down the curve of the glass. The camera holds still with a slow, slight push in. Warm afternoon light, photorealistic.",
+   "image_alt": "A glass snow globe on a beach café table holding a tiny Australian summer Christmas: a lifesaver tower, a ute with a surfboard, a Christmas tree made of surfboards and a backyard cricket game, with golden sand swirling instead of snow",
+   "take": "Describe the tiny world first, then say what falls instead of snow. That swap is the whole idea."
+  }
+ ],
+ "signoff": [
+  "Pick the document you keep putting off and talk it out.",
+  "See you next Sunday."
+ ],
+ "whatsapp": "Hi everyone, hope you've had a good weekend. Here's this week's This Week in AI.\nOne of my clients had a document stuck in her head for weeks. She talked it out to AI one evening and it was finished that night. Plus Claude can now put a tool you describe straight onto your desktop.\nAnd a snow globe Christmas card for your business.\nFour minutes to read."
+}
